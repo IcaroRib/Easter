@@ -1,4 +1,4 @@
-package Domain;
+package bsi.pp_2016_1.easter.Domain;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -17,24 +17,28 @@ public class Comentary {
     public void setId(int id) {
         this.id = id;
     }
+
     public String getText() {
         return text;
     }
     public void setText(String text) {
         this.text = text;
     }
+
     public Date getDate() {
         return date;
     }
     public void setDate(Date date) {
         this.date = date;
     }
+
     public int getQtdLikes() {
         return qtdLikes;
     }
     public void setQtdLikes(int qtdLikes) {
         this.qtdLikes = qtdLikes;
     }
+
     public int getQtdDislikes() {
         return qtdDislikes;
     }

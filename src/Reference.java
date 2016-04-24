@@ -1,4 +1,4 @@
-package Domain;
+package bsi.pp_2016_1.easter.Domain;
 public class Reference {
 
     private int referenceId;
@@ -11,12 +11,14 @@ public class Reference {
     public void setReferenceId(int referenceId) {
         this.referenceId = referenceId;
     }
+
     public String getReferenceTitle() {
         return referenceTitle;
     }
     public void setReferenceTitle(String referenceTitle) {
         this.referenceTitle = referenceTitle;
     }
+
     public String getReferenceType() {
         return referenceType;
     }

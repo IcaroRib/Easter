@@ -1,4 +1,4 @@
-package Domain;
+package bsi.pp_2016_1.easter.Domain;
 import java.util.ArrayList;
 
 public class Midia {
@@ -15,24 +15,28 @@ public class Midia {
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getTitle() {
 		return title;
 	}
 	public void setTitle(String title) {
 		this.title = title;
 	}
+
 	public String getMidiaCategory() {
 		return midiaCategory;
 	}
 	public void setMidiaCategory(String midiaCategory) {
 		this.midiaCategory = midiaCategory;
 	}
+
 	public String getImageUrl() {
 		return imageUrl;
 	}
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
 	}
+
 	public ArrayList<EasterEgg> getEasterEggs() {
 		return easterEggs;
 	}

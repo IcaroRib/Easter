@@ -1,4 +1,4 @@
-package Domain;
+package bsi.pp_2016_1.easter.Domain;
 
 
 public class ComentaryAvaliation {
@@ -12,6 +12,7 @@ public class ComentaryAvaliation {
     public void setIdUser(int idUser) {
         this.idUser = idUser;
     }
+
     public boolean getAvaliation() {
         return avaliation;
     }

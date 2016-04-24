@@ -1,4 +1,4 @@
-package Domain;
+package bsi.pp_2016_1.easter.Domain;
 import java.util.ArrayList;
 
 public class User {
@@ -15,24 +15,28 @@ public class User {
 	public void setProfileName(String profileName) {
 		this.profileName = profileName;
 	}
+
 	public String getUserName() {
 		return userName;
 	}
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
+
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public ArrayList<EasterEgg> getPublishedEasterEggs() {
 		return publishedEasterEggs;
 	}
 	public void setPublishedEasterEggs(ArrayList<EasterEgg> publishedEasterEggs) {
 		this.publishedEasterEggs = publishedEasterEggs;
 	}
+
 	public ArrayList<Midia> getFavoritedMidias() {
 		return favoritedMidias;
 	}
