@@ -11,7 +11,7 @@
         	$this->connection = new mysqli('localhost','root','JME.megasin-02','easter');
     	}
 
-    	function desconect(){
+    	function desconnect(){
     		$this->connection->close();
 
     	}

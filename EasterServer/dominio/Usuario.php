@@ -13,9 +13,9 @@ class Usuario{
 		function Usuario($nomeUsuario,$nomePerfil,$idade,$genero,$imagemUrl,$email,$senha){
 
 			$this->nomeUsuario = $nomeUsuario;
-			$this->$nomePerfil = $nomePerfil;
-			$this->$genero = $genero;
-			$this->$imagemUrl = $imagemUrl;
+			$this->nomePerfil = $nomePerfil;
+			$this->genero = $genero;
+			$this->imagemUrl = $imagemUrl;
 			$this->idade = $idade;
 			$this->email = $email;
 			$this->senha = $senha;

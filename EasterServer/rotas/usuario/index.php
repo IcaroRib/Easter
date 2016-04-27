@@ -10,7 +10,7 @@
 		$userDB = new UsuarioDAO();
 		$tipoPerfil = $_POST["tipoPerfil"];		
 		$jsonRetorno = $userDB->insert($user,$tipoPerfil);
-		$userDB->connetion->desconnect();
+		$userDB->desconnect();
 		echo json_encode($jsonRetorno);
 		
 	}
@@ -21,7 +21,7 @@
 							$_POST["idade"],$_POST["genero"],$_POST["imagemUrl"],$_POST["senha"]);
 		$userDB = new UsuarioDAO();
 		$jsonRetorno = $userDB->update($user);
-		$userDB->connetion->desconnect();
+		$userDB->desconnect();
 		echo json_encode($jsonRetorno);
 
 	}
@@ -33,7 +33,7 @@
 		$userDB = new UsuarioDAO();
 		$tipoPerfil = $_POST["tipoPerfil"];		
 		$jsonRetorno = $userDB->login($user,$tipoPerfil);
-		//$userDB->connetion->desconnect();
+		$userDB->desconnect();
 		echo json_encode($jsonRetorno);
 
 	}
