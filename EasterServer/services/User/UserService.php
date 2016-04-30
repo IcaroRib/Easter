@@ -19,7 +19,13 @@ class UserService{
     function login($user,$profileType) {
 
         if($profileType == "native"){
-            $user = $this->verifyNativeProfile($user->getEmail(),$user->getPassword());	    	
+            if($user->getEmail() != ""){
+                $user = $this->verifyNativeProfile($user->getEmail(),$user->getPassword());
+            }
+            else{
+                $user = $this->verifyUserNameProfile($user->getUserName(),$user->getPassword());
+            }
+
         }
 
         return $user;
@@ -64,6 +70,24 @@ class UserService{
     }
 
     /**
+     * @param string $userName
+     * @param string $password
+     * @return string|User
+     */
+    private function verifyUserNameProfile($userName,$password){
+        /** @var User $newUser */
+        $newUser = $this->getUserDB()->selectUserNativeByUsernamePassword($userName,$password);
+        if($newUser->getId() == 0){
+            //Caso ele entre aqui significa que temos de verificar se ele não tem ou email cadastrado ou a senha está incorret
+            return $this->verifyUsername($userName);
+        }
+        else{
+            return $newUser;
+        }
+
+    }
+
+    /**
      * @param string $email
      * @return string
      */
@@ -73,6 +97,19 @@ class UserService{
         $selectedUser = $this->getUserDB()->selectUserNativeByEmail($email);
         if($selectedUser->getId() == 0){
             return "Email Não localizado";
+        }
+        else{
+            return "Senha Incorreta. Tente novamente";
+        }
+
+    }
+
+    private function verifyUserName($userName){
+
+        /** @var User $selectedUser */
+        $selectedUser = $this->getUserDB()->selectUserNativeByUsername($userName);
+        if($selectedUser->getId() == 0){
+            return "Usuário Não localizado";
         }
         else{
             return "Senha Incorreta. Tente novamente";

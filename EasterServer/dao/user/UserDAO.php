@@ -96,6 +96,42 @@
 		}
 
 		/**
+		 * @param $userName
+		 * @return User
+		 */
+		function selectUserNativeByUsername($userName) {
+
+			$user = new User();
+			$stringSQL = "SELECT * FROM user WHERE userName = '". $userName . "'";
+			$result_query = $this->connection->query($stringSQL);
+			while($result = $result_query->fetch_assoc()){
+				$user = $this->createUser($result);
+				break;
+			}
+
+			return $user;
+		}
+
+		/**
+		 * @param string $userName
+		 * @param string $senha
+		 * @return User
+		 */
+
+		function selectUserNativeByUsernamePassword($userName,$senha) {
+
+			$user = new User();
+			$stringSQL = "SELECT * FROM user WHERE userName = '" . $userName . "' and password = '" . $senha . "'";
+			$result_query = $this->connection->query($stringSQL);
+			while($result = $result_query->fetch_assoc()){
+				$user = $this->createUser($result);
+				break;
+			}
+
+			return $user;
+		}
+
+		/**
 		 * @return mysqli
 		 */
 		public function getConnection()

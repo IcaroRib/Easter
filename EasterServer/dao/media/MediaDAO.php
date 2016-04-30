@@ -4,7 +4,7 @@
 
 	class MediaDAO{
 
-		public $connection;
+		private $connection;
 
 		function MediaDAO() {
         	//$this->connection = new Connection();
@@ -18,8 +18,8 @@
 
     	function find($tipoPesquisa,$obra){
 
-    		if($tipoPesquisa == "titulo"){
-    			return $this->procurarObrasPorNome($obra);
+    		if($tipoPesquisa == "title"){
+    			return $this->findMediaByName($obra);
     		}
 
     		else if($tipoPesquisa == "id"){
@@ -28,7 +28,7 @@
 
     	}
 
-    	function procurarObrasPorNome($obra){
+    	function findMediaByName($obra){
 			$listaObras = array();
 	 		$stringSQL = "SELECT * FROM obra WHERE titulo like '%$obra->titulo%'";
 	 		$result_query = $this->connection->query($stringSQL);
@@ -44,23 +44,23 @@
 
 		function procurarPorId($obraRequest){
 
-			$novaObra = $this->procurarObraPorId($obraRequest->id);
+			$novaObra = $this->findMediaById($obraRequest->id);
 			$novaObra->easterEggs = $this->procurarEggsPorId($novaObra->id);
 
 			foreach ($novaObra->easterEggs as $easteregg) {
 				if($novaObra->midia == "jogo"){				
-					$easteregg->tasks = $this->procurarTaskPorId($easteregg->id);
+					$easteregg->tasks = $this->findTasksById($easteregg->id);
 				}
-				$easteregg->referencias = $this->procurarRefefenciaPorId($easteregg->id);
+				$easteregg->referencias = $this->findReferencesById($easteregg->id);
 			}
 
 			return $novaObra;
 
 		}
 
-		function procurarObraPorId($id){
+		function findMediaById($id){
 			$novaObra = new Obra();
-			$stringSQL = "SELECT * FROM obra WHERE idObra = $id";
+			$stringSQL = "SELECT * FROM obra WHERE idObra = ". $id;
 	 		$result_query = $this->connection->query($stringSQL);
 	 	    while($result = $result_query->fetch_assoc()){
 				$novaObra->id = $result['idObra'];
@@ -73,9 +73,9 @@
 
 		}
 
-		function procurarTaskPorId($id){
+		function findTasksById($id){
 			$listaTasks = array();
-	 		$stringSQL = "SELECT * FROM task WHERE EasterEgg_idEasterEgg = $id";
+	 		$stringSQL = "SELECT * FROM task WHERE EasterEgg_idEasterEgg = ". $id;
 	 		$result_query = $this->connection->query($stringSQL);
 	 		$cont = 0;
 	 	    while($result = $result_query->fetch_assoc()){			
@@ -86,10 +86,10 @@
 			return $listaTasks;				
 		}
 
-		function procurarRefefenciaPorId($id){
+		function findReferencesById($id){
 			$listaReferencias = array();
 	 		$stringSQL = "SELECT * FROM referencia INNER JOIN obra ON Obra_idObra = idObra
-	 					  WHERE EasterEgg_idEasterEgg = $id";
+	 					  WHERE EasterEgg_idEasterEgg  = " . $id;
 	 		$result_query = $this->connection->query($stringSQL);
 	 		$cont = 0;
 	 	    while($result = $result_query->fetch_assoc()){			
