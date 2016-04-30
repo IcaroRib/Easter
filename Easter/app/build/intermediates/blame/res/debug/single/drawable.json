@@ -24,12 +24,12 @@
         "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\drawable\\abc_text_cursor_material.xml"
     },
     {
-        "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_search_material.xml",
-        "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\drawable\\abc_textfield_search_material.xml"
-    },
-    {
         "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_switch_thumb_material.xml",
         "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\drawable\\abc_switch_thumb_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_search_material.xml",
+        "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\drawable\\abc_textfield_search_material.xml"
     },
     {
         "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_default_mtrl_shape.xml",
@@ -102,6 +102,10 @@
     {
         "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_light.xml",
         "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\drawable\\abc_item_background_holo_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\apagar.xml",
+        "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\src\\main\\res\\drawable\\apagar.xml"
     },
     {
         "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_tab_indicator_material.xml",

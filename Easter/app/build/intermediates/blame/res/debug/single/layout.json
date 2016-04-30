@@ -68,12 +68,12 @@
         "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.2.1\\res\\layout\\design_navigation_menu.xml"
     },
     {
-        "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
-        "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_action_menu_item_layout.xml"
-    },
-    {
         "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
         "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_action_mode_bar.xml"
+    },
+    {
+        "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
+        "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_action_menu_item_layout.xml"
     },
     {
         "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple.xml",
@@ -202,5 +202,9 @@
     {
         "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_dialog_title_material.xml",
         "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_dialog_title_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_initial.xml",
+        "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\src\\main\\res\\layout\\activity_initial.xml"
     }
 ]
