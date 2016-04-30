@@ -6,7 +6,10 @@
 
 	if(isset($_POST["find"])){
 
-		$obra = new Obra($_POST["id"],$_POST["titulo"]);
+		$obra = new Obra();
+		$obra->setId($_POST["id"]);
+		$obra->setTitle($_POST["titulo"]);
+        
 		$obraDB = new obraDAO();
 		$tipoPesquisa = $_POST["find"];
 		$jsonRetorno = $obraDB->find($tipoPesquisa,$obra);

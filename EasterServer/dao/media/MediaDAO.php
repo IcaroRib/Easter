@@ -2,11 +2,11 @@
 
 	include_once("../../dao/Connection.php");
 
-	class ObraDAO{
+	class MediaDAO{
 
 		public $connection;
 
-		function ObraDAO() {
+		function MediaDAO() {
         	//$this->connection = new Connection();
         	$this->connection = new mysqli('localhost','root','JME.megasin-02','easter');
     	}
@@ -71,20 +71,6 @@
  			}	
 			return $novaObra;		
 
-		}
-
-		function procurarEggsPorId($id){
-			$listaEasterEggs = array();
-	 		$stringSQL = "SELECT * FROM easteregg INNER JOIN usuario ON idUsuario = idAutor
-	 					  WHERE idObra = $id";
-	 		$result_query = $this->connection->query($stringSQL);
-	 		$cont = 0;
-	 	    while($result = $result_query->fetch_assoc()){			
-				$easteregg = new EasterEgg($result['idEasterEgg'],$result['descricao'],$result['idAutor'],$result['nomeperfil']);
-				$listaEasterEggs[$cont] = $easteregg;
-				$cont +=1;
- 			}	
-			return $listaEasterEggs;				
 		}
 
 		function procurarTaskPorId($id){

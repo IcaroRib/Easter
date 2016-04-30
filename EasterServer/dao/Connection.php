@@ -3,11 +3,11 @@
 
 	class Connection{
 
-		public $servername = 'localhost';
-		public $username = 'root';
-		public $password = 'JME.megasin-02';
-		public $dbname = 'easter';
-		public $connector = null;
+		private $servername = 'localhost';
+		private $username = 'root';
+		private $password = 'JME.megasin-02';
+		private $dbname = 'easter';
+		private $connector = null;
 
 		function Connection(){
 
