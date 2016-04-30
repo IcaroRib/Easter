@@ -14,9 +14,6 @@ class User{
 
 	}
 
-	/**
-	 * @return mixed
-	 */
 	public function getUserName()
 	{
 		return $this->userName;

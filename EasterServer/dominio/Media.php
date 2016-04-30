@@ -1,79 +1,59 @@
 <?php
 
-class Work{
+class Media{
 
 	private $id;
 	private $title;
-	private $midia;
-	private $imagem;
+	private $category;
+	private $image;
 	private $isFavorite;
 	private $easterEggs;
 
-	function Obra(){
+	function Media(){
 	}
 
-	/**
-	 * @return mixed
-	 */
 	public function getId()
 	{
 		return $this->id;
 	}
 
-	/**
-	 * @param mixed $id
-	 */
+
 	public function setId($id)
 	{
 		$this->id = $id;
 	}
 
-	/**
-	 * @return mixed
-	 */
 	public function getTitle()
 	{
 		return $this->title;
 	}
 
-	/**
-	 * @param mixed $title
-	 */
 	public function setTitle($title)
 	{
 		$this->title = $title;
 	}
 
-	/**
-	 * @return mixed
-	 */
-	public function getMidia()
+	public function getCategory()
 	{
-		return $this->midia;
+		return $this->category;
 	}
 
-	/**
-	 * @param mixed $midia
-	 */
-	public function setMidia($midia)
+
+	public function setCategory($category)
 	{
-		$this->midia = $midia;
+		$this->category = $category;
 	}
 
-	/**
-	 * @return mixed
-	 */
-	public function getImagem()
+
+	public function getImage()
 	{
-		return $this->imagem;
+		return $this->image;
 	}
 
-	/**
-	 * @param mixed $imagem
-	 */
-	public function setImagem($imagem)
+
+	public function setImage($image)
 	{
-		$this->imagem = $imagem;
+		$this->image = $image;
 	}
 
 	/**
@@ -84,33 +64,20 @@ class Work{
 		return $this->isFavorite;
 	}
 
-	/**
-	 * @param mixed $isFavorite
-	 */
 	public function setIsFavorite($isFavorite)
 	{
 		$this->isFavorite = $isFavorite;
 	}
 
-	/**
-	 * @return mixed
-	 */
 	public function getEasterEggs()
 	{
 		return $this->easterEggs;
 	}
 
-	/**
-	 * @param mixed $easterEggs
-	 */
 	public function setEasterEggs($easterEggs)
 	{
 		$this->easterEggs = $easterEggs;
 	}
-
-
-
-
 }
 
 ?>

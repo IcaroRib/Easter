@@ -1,6 +1,6 @@
 <?php
 	
-	include_once("../../dominio/Obra.php");
+	include_once("../../dominio/Media.php");
 	include_once("../../dominio/EasterEgg.php");
 	include_once("../../dao/obra/obraDAO.php");
 

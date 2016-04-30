@@ -38,5 +38,14 @@
 
 	}
 
+	function createUser($jsonUser){
+		
+		$user = new User();
+		isset($jsonUser["userName"]){$user.setUserName($jsonUser['userName'])}
+		isset($jsonUser["userProfile"]){$user.setUserName($jsonUser['userProfile'])}
+		$user.setProfileName();
+		
+	}
+
 
 ?>
