@@ -1,7 +1,7 @@
 <?php
 	
-	include_once("../../dominio/Media.php");
-	include_once("../../dominio/EasterEgg.php");
+	include_once("../../domain/Media.php");
+	include_once("../../domain/EasterEgg.php");
 	include_once("../../dao/obra/obraDAO.php");
 
 	if(isset($_POST["find"])){

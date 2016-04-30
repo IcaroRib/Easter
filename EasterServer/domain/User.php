@@ -12,6 +12,7 @@ class User{
 	public $password;
 
 	function User(){
+		$this->id = 0;
 
 	}
 

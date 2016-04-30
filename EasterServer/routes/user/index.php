@@ -1,40 +1,44 @@
 <?php
 
-	include_once("../../dominio/User.php");
-	include_once("../../dao/usuario/UserDAO.php");
+	include_once("../../domain/User.php");
+	include_once("../../dao/user/UserDAO.php");
+    include_once("../../services/user/UserService.php");
 
-	if(isset($_POST["insert"])){
-
-    }
-
-    elseif(isset($_POST["update"])){
-
-
-    }
-
-    elseif(isset($_POST["login"])){
-
+	if($_POST["operation"] == "login"){
         $user = createUser($_POST['user']);
         $profileType = $_POST['profileType'];
         $userService = new UserService();
-        echo "aqui";
-        //return $userService->login($user,$profileType);
+        echo json_encode($userService->login($user,$profileType));
+
+    }
+
+    elseif($_POST["operation"] == "update"){
+
+
+    }
+
+    elseif($_POST["operation"] == "create"){
+        $user = createUser($_POST['user']);
+        $profileType = $_POST['profileType'];
+        $userService = new UserService();
+        echo json_encode($userService->insertUser($user,$profileType));
+
 
     }
 
     function createUser($jsonUser){
 
         $user = new User();
-        if(isset($jsonUser["profileName"])){
-            $user->setProfileName("a");            
+        if(!empty($jsonUser["profileName"])){
+            $user->setProfileName($jsonUser["profileName"]);
         }
 
-        if(isset($jsonUser["userName"])){
+        if(!empty($jsonUser["userName"])){
             $user->setUserName($jsonUser["userName"]);
         }
 
         if(isset($jsonUser["age"])){
-            $user->setAge($jsonUser["age"]);
+            $user->setAge((int)$jsonUser["age"]);
         }
 
         if(isset($jsonUser["gender"])){
