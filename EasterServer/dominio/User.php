@@ -2,6 +2,7 @@
 
 class User{
 
+	public $id;
 	public $userName;
 	public $profileName;
 	public $age;
@@ -14,13 +15,32 @@ class User{
 
 	}
 
+	/**
+	 * @return int
+	 */
+	public function getId()
+	{
+		return $this->id;
+	}
+
+	/**
+	 * @param int $id
+	 */
+	public function setId($id)
+	{
+		$this->id = $id;
+	}
+
+	/**
+	 * @return string
+	 */
 	public function getUserName()
 	{
 		return $this->userName;
 	}
 
 	/**
-	 * @param mixed $userName
+	 * @param string $userName
 	 */
 	public function setUserName($userName)
 	{
@@ -36,7 +56,7 @@ class User{
 	}
 
 	/**
-	 * @param mixed $profileName
+	 * @param string $profileName
 	 */
 	public function setProfileName($profileName)
 	{
@@ -44,7 +64,7 @@ class User{
 	}
 
 	/**
-	 * @return mixed
+	 * @return int
 	 */
 	public function getAge()
 	{
@@ -52,7 +72,7 @@ class User{
 	}
 
 	/**
-	 * @param mixed $age
+	 * @param int $age
 	 */
 	public function setAge($age)
 	{
@@ -60,7 +80,7 @@ class User{
 	}
 
 	/**
-	 * @return mixed
+	 * @return string
 	 */
 	public function getGender()
 	{
@@ -68,7 +88,7 @@ class User{
 	}
 
 	/**
-	 * @param mixed $gender
+	 * @param string $gender
 	 */
 	public function setGender($gender)
 	{
@@ -76,7 +96,7 @@ class User{
 	}
 
 	/**
-	 * @return mixed
+	 * @return string
 	 */
 	public function getImageUrl()
 	{
@@ -84,7 +104,7 @@ class User{
 	}
 
 	/**
-	 * @param mixed $imageUrl
+	 * @param string $imageUrl
 	 */
 	public function setImageUrl($imageUrl)
 	{
@@ -92,7 +112,7 @@ class User{
 	}
 
 	/**
-	 * @return mixed
+	 * @return string
 	 */
 	public function getEmail()
 	{
@@ -100,7 +120,7 @@ class User{
 	}
 
 	/**
-	 * @param mixed $email
+	 * @param string $email
 	 */
 	public function setEmail($email)
 	{
@@ -108,7 +128,7 @@ class User{
 	}
 
 	/**
-	 * @return mixed
+	 * @return string
 	 */
 	public function getPassword()
 	{
@@ -116,7 +136,7 @@ class User{
 	}
 
 	/**
-	 * @param mixed $password
+	 * @param string $password
 	 */
 	public function setPassword($password)
 	{
