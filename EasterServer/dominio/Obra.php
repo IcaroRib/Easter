@@ -1,24 +1,116 @@
 <?php
 
-class Obra{
+class Work{
 
-		public $id;
-		public $titulo;
-		public $midia;
-		public $imagem;
-		public $favorito;
-		public $easterEggs;
+	private $id;
+	private $title;
+	private $midia;
+	private $imagem;
+	private $isFavorite;
+	private $easterEggs;
 
-		function Obra($id=0,$titulo="",$midia = "",$imagem = "",$favorito=false,$easterEggs = array()){
-
-			$this->titulo = $titulo;
-			$this->midia = $midia;
-			$this->imagem = $imagem;
-			$this->easterEggs = $easterEggs;
-			$this->id = $id;
-			$this->favorito = $favorito;
-		}
-
+	function Obra(){
 	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getId()
+	{
+		return $this->id;
+	}
+
+	/**
+	 * @param mixed $id
+	 */
+	public function setId($id)
+	{
+		$this->id = $id;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getTitle()
+	{
+		return $this->title;
+	}
+
+	/**
+	 * @param mixed $title
+	 */
+	public function setTitle($title)
+	{
+		$this->title = $title;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getMidia()
+	{
+		return $this->midia;
+	}
+
+	/**
+	 * @param mixed $midia
+	 */
+	public function setMidia($midia)
+	{
+		$this->midia = $midia;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getImagem()
+	{
+		return $this->imagem;
+	}
+
+	/**
+	 * @param mixed $imagem
+	 */
+	public function setImagem($imagem)
+	{
+		$this->imagem = $imagem;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getIsFavorite()
+	{
+		return $this->isFavorite;
+	}
+
+	/**
+	 * @param mixed $isFavorite
+	 */
+	public function setIsFavorite($isFavorite)
+	{
+		$this->isFavorite = $isFavorite;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getEasterEggs()
+	{
+		return $this->easterEggs;
+	}
+
+	/**
+	 * @param mixed $easterEggs
+	 */
+	public function setEasterEggs($easterEggs)
+	{
+		$this->easterEggs = $easterEggs;
+	}
+
+
+
+
+}
 
 ?>

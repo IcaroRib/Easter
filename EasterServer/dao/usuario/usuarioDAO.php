@@ -16,7 +16,7 @@
 
     	}
 
-    	function verificarPerfilNativo($email,$senha){
+    	function verifyNativeProfile($email,$senha){
 			$user = array();
 			$user = $this->selectUserNativeEmail_Senha($email,$senha);
 			if($user['idUsuario'] == 0){ 
@@ -29,7 +29,7 @@
 
 		}
 
-		function verificarEmail($email){
+		function verifyEmail($email){
 
 			$user = array();
 			$user = $this->selectUserNativeEmail($email);
@@ -52,7 +52,7 @@
 
 		}
 
-		function insert($user,$tipoPerfil){
+		function insertUser($user,$tipoPerfil){
 			if($tipoPerfil == "nativo"){
 				$retorno = $this->selectUserNativeEmail($user->email);	
 				echo $user->nomeUsuario;
@@ -96,7 +96,7 @@
 			return $user;			
 		}
 
-		function selectUserNativeEmail($email) {
+		function selectUserNativeByEmail($email) {
 		    
 			$user = array();
 			$user['idUsuario'] = 0;
@@ -110,7 +110,7 @@
 			return $user;			
 		}
 
-		function selectUserNativeEmail_Senha($email,$senha) {
+		function selectUserNativeByEmailPassword($email,$senha) {
 		    
 			$user = array();
 			$user['idUsuario'] = 0;
