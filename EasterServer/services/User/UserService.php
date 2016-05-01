@@ -28,6 +28,7 @@ class UserService{
 
         }
 
+        $this->getUserDB()->desconnect();
         return $user;
 
     }
@@ -48,6 +49,8 @@ class UserService{
                 return "Email já cadastrado";
             }
         }
+
+        $this->getUserDB()->desconnect();
 
     }
 

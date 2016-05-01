@@ -1,17 +1,17 @@
 <?php
 
-class User{
+class User implements JsonSerializable{
 
-	public $id;
-	public $userName;
-	public $profileName;
-	public $age;
-	public $gender;
-	public $imageUrl;
-	public $email;
-	public $password;
+	private $id;
+	private $userName;
+	private $profileName;
+	private $age;
+	private $gender;
+	private $imageUrl;
+	private $email;
+	private $password;
 
-	function User(){
+	function User() {
 		$this->id = 0;
 
 	}
@@ -144,9 +144,26 @@ class User{
 		$this->password = $password;
 	}
 
-	
 
-
+	/**
+	 * Specify data which should be serialized to JSON
+	 * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
+	 * @return mixed data which can be serialized by <b>json_encode</b>,
+	 * which is a value of any type other than a resource.
+	 * @since 5.4.0
+	 */
+	function jsonSerialize()
+	{
+		return [
+			'id' => $this->id,
+			'userName' => $this->userName,
+			'profileName' => $this->profileName,
+			'imageUrl' => $this->imageUrl,
+			'age' => $this->age,
+            'gender' => $this->gender,
+            'email' => $this->email
+        ];
+	}
 }
 
 ?>

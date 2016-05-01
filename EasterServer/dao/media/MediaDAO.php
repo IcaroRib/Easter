@@ -16,50 +16,27 @@
 
     	}
 
-    	function find($tipoPesquisa,$obra){
-
-    		if($tipoPesquisa == "title"){
-    			return $this->findMediaByName($obra);
-    		}
-
-    		else if($tipoPesquisa == "id"){
-    			return $this->procurarPorId($obra);
-    		}
-
-    	}
-
-    	function findMediaByName($obra){
+		/**
+		 * @param string $title
+		 * @return array
+		 */
+    	function findMediaByName($title){
 			$listaObras = array();
-	 		$stringSQL = "SELECT * FROM obra WHERE titulo like '%$obra->titulo%'";
+	 		$stringSQL = "SELECT * FROM media WHERE title like '%$title%'";
 	 		$result_query = $this->connection->query($stringSQL);
 	 		$cont = 0;
-	 	    while($result = $result_query->fetch_assoc()){			
-				$obra = new Obra($result['titulo'],$result['midia'],$result['midia'],$result['imagem']);
-				$listaObras[$cont] = $obra;
+	 	    while($result = $result_query->fetch_assoc()){
+				/** @var Media $media */
+				$media = ClassCreator::createMediaFromArrayQuerry($result);
+				$listaObras[$cont] = $media;
 				$cont +=1;
  			}	
 			return $listaObras;		
 
 		}
 
-		function procurarPorId($obraRequest){
-
-			$novaObra = $this->findMediaById($obraRequest->id);
-			$novaObra->easterEggs = $this->procurarEggsPorId($novaObra->id);
-
-			foreach ($novaObra->easterEggs as $easteregg) {
-				if($novaObra->midia == "jogo"){				
-					$easteregg->tasks = $this->findTasksById($easteregg->id);
-				}
-				$easteregg->referencias = $this->findReferencesById($easteregg->id);
-			}
-
-			return $novaObra;
-
-		}
-
 		function findMediaById($id){
-			$novaObra = new Obra();
+			$novaObra = new Media();
 			$stringSQL = "SELECT * FROM obra WHERE idObra = ". $id;
 	 		$result_query = $this->connection->query($stringSQL);
 	 	    while($result = $result_query->fetch_assoc()){
