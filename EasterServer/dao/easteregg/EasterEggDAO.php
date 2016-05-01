@@ -61,10 +61,25 @@ class EasterEggDAO{
 
     }
 
-    function findById($id){
+    function findCompleteById($id){
         $EElist =  array();
-        $stringSQL = "SELECT * FROM easteregg INNER JOIN user ON idUser = idWritter
-	 				  WHERE idMedia =" . $id;
+        $stringSQL = "SELECT idEasterEgg, description, easteregg.imageUrl, idWritter, AVG(score) as mediumScore 
+                      FROM easteregg INNER JOIN user ON idUser = idWritter
+                      INNER JOIN evaluatedeasteregg ON idEasterEgg = EasterEgg_idEasterEgg
+	 				  WHERE idMedia =" . $id . " GROUP BY idEasterEgg";
+        $result_query = $this->connection->query($stringSQL);
+        $cont = 0;
+        while($result = $result_query->fetch_assoc()){
+            $easteregg = ClassCreator::createEasterEggFromArrayQuerry($result);
+            $EElist[$cont] = $easteregg;
+            $cont +=1;
+        }
+        return $EElist;
+    }
+
+    function findByIdMedia($id){
+        $EElist =  array();
+        $stringSQL = "SELECT idEasterEgg FROM easteregg WHERE idMedia =" . $id . " GROUP BY idEasterEgg";
         $result_query = $this->connection->query($stringSQL);
         $cont = 0;
         while($result = $result_query->fetch_assoc()){
@@ -100,6 +115,70 @@ class EasterEggDAO{
             $cont +=1;
         }
         return $listaReferencias;
+    }
+
+    /**
+     * @param int $idEasterEgg
+     * @param int $idUser
+     * @param int $score
+     * @return string
+     */
+
+    function evaluateEasterEgg($idEasterEgg,$idUser,$score)
+    {
+        $time = new DateTime();
+        $stringSQL = "INSERT INTO evaluatedeasteregg (EasterEgg_idEasterEgg,User_idUser,score,createdAt) VALUES (
+                       $idEasterEgg, $idUser, $score " . ",'" . $time->format('Y-m-d H:i:s') . "')" ;
+        $this->connection->query($stringSQL);
+        return "Easter Egg avaliado com sucesso";
+
+    }
+
+    function updateEasterEggEvaluation($idEasterEgg,$idUser,$score)
+    {
+        $stringSQL = "UPDATE evaluatedesteregg SET score = " . $score .
+                    " WHERE EasterEgg_idEasterEgg = " . $idEasterEgg . " and User_idUser = " . $idUser;
+        $this->connection->query($stringSQL);
+        return "Easter Egg avaliado com sucesso";
+
+    }
+
+    /**
+     * @param int $idEasterEgg
+     * @param int $idUser
+     * @return bool
+     */
+    function selectEvaluation($idEasterEgg,$idUser)
+    {
+        $stringSQL = "SELECT * FROM evaluatedesteregg WHERE EasterEgg_idEasterEgg = " . $idEasterEgg . " and User_idUser = " . $idUser;
+        $result_query = $this->connection->query($stringSQL);
+        while($result = $result_query->fetch_assoc()){
+            return true;
+        }
+        return false;
+
+    }
+
+    function fallowEasterEgg($idEasterEgg, $idUser)
+    {
+        $time = new DateTime();
+        $stringSQL = "INSERT INTO fallowedeasteregg (User_idUser, EasterEgg_idEasterEgg, createdAt) 
+                          VALUES ($idUser,$idEasterEgg,'" . $time->format('Y-m-d H:i:s') . "')";
+        $this->connection->query($stringSQL);
+        echo $stringSQL;
+        return "Obra seguida com sucesso";
+
+    }
+
+    function fallowTask($IdTask, $idUser)
+    {
+        $time = new DateTime();
+        $stringSQL = "INSERT INTO fallowedTask (idUser, idTask, createdAt) 
+                          VALUES ($idUser,$IdTask,'" . $time->format('Y-m-d H:i:s') . "')";
+        echo $stringSQL;
+        $this->connection->query($stringSQL);
+        return "Obra seguida com sucesso";
+
     }
 }
 ?>

@@ -29,7 +29,7 @@ class EasterEggService{
     }
             
      function findById($id){
-         $this->easterEggDB->findById($id);
+         $this->easterEggDB->findCompleteById($id);
      }
     
 }

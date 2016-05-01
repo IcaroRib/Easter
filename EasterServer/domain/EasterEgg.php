@@ -9,6 +9,7 @@ class EasterEgg implements JsonSerializable{
 	private $imageUrl;
 	private $tasks;
 	private $references;
+	private $score;
 
 	function EasterEgg(){
 	}
@@ -98,26 +99,43 @@ class EasterEgg implements JsonSerializable{
         $this->imageUrl = $imageUrl;
     }
 
-	/**
-	 * Specify data which should be serialized to JSON
-	 * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
-	 * @return mixed data which can be serialized by <b>json_encode</b>,
-	 * which is a value of any type other than a resource.
-	 * @since 5.4.0
-	 */
-	function jsonSerialize()
-	{
-		return [
+    /**
+     * @return mixed
+     */
+    public function getScore()
+    {
+        return $this->score;
+    }
+
+    /**
+     * @param mixed $score
+     */
+    public function setScore($score)
+    {
+        $this->score = $score;
+    }
+
+    /**
+     * Specify data which should be serialized to JSON
+     * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
+     * @return mixed data which can be serialized by <b>json_encode</b>,
+     * which is a value of any type other than a resource.
+     * @since 5.4.0
+     */
+    function jsonSerialize()
+    {
+        return [
             'id' => $this->id,
             'description' => $this->description,
             'imageUrl' => $this->imageUrl,
             'idAuthor' => $this->idAuthor,
             'authorName' => $this->authorName,
+            'mediumScore' => $this->score,
             'tasks' => $this->tasks,
             'reference' => $this->references
 
         ];
-	}
+    }
 }
 
 ?>

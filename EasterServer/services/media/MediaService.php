@@ -83,7 +83,7 @@ class MediaService
         /** @var Media $newMedia */
         /** @var array $listEasterEggs */
         $newMedia = $this->getMediaDB()->findMediaById($mediaRequest->getId());
-        $listEasterEggs = $this->getEasterEggsDB()->findById($newMedia->getId());
+        $listEasterEggs = $this->getEasterEggsDB()->findCompleteById($newMedia->getId());
         $newMedia->setEasterEggs($listEasterEggs);
         
         /** @var EasterEgg $easteregg */
@@ -97,6 +97,50 @@ class MediaService
         }
 
         return $newMedia;
+
+    }
+
+    /**
+     * @param User $user
+     * @param EasterEgg $easteregg
+     * @return string
+     */
+    public function evalueteEasterEgg($user,$easteregg){
+
+        $evaluation = $this->getEasterEggsDB()->selectEvaluation($easteregg->getId(), $user->getId());
+        if($evaluation == true){
+            return $this->getEasterEggsDB()->updateEasterEggEvaluation($easteregg->getId(), $user->getId(), $easteregg->getScore());
+        }  
+        else{
+            return $this->getEasterEggsDB()->evaluateEasterEgg($easteregg->getId(), $user->getId(), $easteregg->getScore());   
+        }
+
+    }
+
+    /**
+     * @param User $user
+     * @param Media $media
+     */
+    public function fallowMedia($user,$media){
+
+        $this->getMediaDB()->fallowMedia($media->getId(), $user->getId());
+        $media = $this->getMediaDB()->findMediaById($media->getId());
+        $listEasterEggs = $this->getEasterEggsDB()->findByIdMedia($media->getId());
+        $media->setEasterEggs($listEasterEggs);
+
+        /** @var EasterEgg $easteregg */
+        foreach ($media->getEasterEggs() as $easteregg) {
+            $this->getEasterEggsDB()->fallowEasterEgg($easteregg->getId(),$user->getId());
+            if($media->getCategory() == "jogo"){
+                $taskList = $this->getEasterEggsDB()->findTasksById($easteregg->getId());
+                $easteregg->setTasks($taskList);
+                /** @var Task $task */
+                foreach ($easteregg->getTasks() as $task) {
+                    $this->getEasterEggsDB()->fallowTask($task->getId(),$user->getId());
+                }
+            }
+            
+        }
 
     }
 

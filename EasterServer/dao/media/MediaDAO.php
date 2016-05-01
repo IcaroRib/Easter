@@ -38,7 +38,7 @@
 		function findMediaById($id)
 		{
 			$newMedia = new Media();
-			$stringSQL = "SELECT * FROM media WHERE idMedia = " . $id;
+			$stringSQL = "SELECT * FROM media left outer join fallowedmedia on idMedia = Media_idMedia WHERE idMedia = " . $id;
 			$result_query = $this->connection->query($stringSQL);
 			while ($result = $result_query->fetch_assoc()) {
 				$newMedia = ClassCreator::createMediaFromArrayQuerry($result);
@@ -66,6 +66,21 @@
 
 		}
 
+        /**
+         * @param int $idMedia
+         * @param int $idAuthor
+         * @return string
+         */
+        function fallowMedia($idMedia, $idAuthor)
+        {   
+            $time = new DateTime();
+            $stringSQL = "INSERT INTO fallowedmedia (User_idUser, Media_idMedia, createdAt) 
+                          VALUES ($idAuthor,$idMedia,'" . $time->format('Y-m-d H:i:s') . "')";
+            $this->connection->query($stringSQL);
+            echo $stringSQL;
+            return "Obra seguida com sucesso";
+
+        }
 		
 	}
 ?>
