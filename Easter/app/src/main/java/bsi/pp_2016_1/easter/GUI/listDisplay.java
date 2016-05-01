@@ -2,11 +2,8 @@ package bsi.pp_2016_1.easter.GUI;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
-import java.util.List;
 
 import bsi.pp_2016_1.easter.R;
 
@@ -24,8 +21,8 @@ public class listDisplay extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_not_logged);
-        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.activity_listview, mobileArray);
+        setContentView(R.layout.activity_media_list);
+        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.testelayout, mobileArray);
 
         ListView listView = (ListView) findViewById(R.id.newsList);
         listView.setAdapter(adapter);

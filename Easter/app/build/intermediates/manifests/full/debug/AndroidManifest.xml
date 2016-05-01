@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="bsi.pp_2016_1.easter.GUI.MainActivity"
+            android:name="bsi.pp_2016_1.easter.GUI.TesteMain"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
@@ -24,8 +24,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="bsi.pp_2016_1.easter.GUI.ClassTeste" />
-        <activity android:name="bsi.pp_2016_1.easter.GUI.listDisplay" />
+        <activity android:name="bsi.pp_2016_1.easter.GUI.MediaListActivity" />
+        <activity android:name="bsi.pp_2016_1.easter.GUI.SignInActivity" />
+        <activity android:name="bsi.pp_2016_1.easter.GUI.SignUpActivity" />
     </application>
 
 </manifest>

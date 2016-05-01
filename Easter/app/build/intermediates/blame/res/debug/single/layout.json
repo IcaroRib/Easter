@@ -40,8 +40,20 @@
         "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_expanded_menu_layout.xml"
     },
     {
+        "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_sign_in.xml",
+        "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\src\\main\\res\\layout\\activity_sign_in.xml"
+    },
+    {
+        "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\layout\\testelayout.xml",
+        "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\src\\main\\res\\layout\\testelayout.xml"
+    },
+    {
         "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_subheader.xml",
         "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.2.1\\res\\layout\\design_navigation_item_subheader.xml"
+    },
+    {
+        "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_start_screen.xml",
+        "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\src\\main\\res\\layout\\activity_start_screen.xml"
     },
     {
         "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
@@ -68,12 +80,16 @@
         "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.2.1\\res\\layout\\design_navigation_menu.xml"
     },
     {
+        "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
+        "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_action_menu_item_layout.xml"
+    },
+    {
         "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
         "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_action_mode_bar.xml"
     },
     {
-        "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
-        "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_action_menu_item_layout.xml"
+        "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\layout\\testemain.xml",
+        "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\src\\main\\res\\layout\\testemain.xml"
     },
     {
         "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple.xml",
@@ -132,6 +148,10 @@
         "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_select_dialog_material.xml"
     },
     {
+        "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_sign_up.xml",
+        "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\src\\main\\res\\layout\\activity_sign_up.xml"
+    },
+    {
         "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_material.xml",
         "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_alert_dialog_material.xml"
     },
@@ -176,12 +196,12 @@
         "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.2.1\\res\\layout\\design_menu_item_action_area.xml"
     },
     {
-        "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_bottom_sheet_dialog.xml",
-        "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.2.1\\res\\layout\\design_bottom_sheet_dialog.xml"
+        "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_media_list.xml",
+        "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\src\\main\\res\\layout\\activity_media_list.xml"
     },
     {
-        "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_not_logged.xml",
-        "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\src\\main\\res\\layout\\activity_not_logged.xml"
+        "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_bottom_sheet_dialog.xml",
+        "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.2.1\\res\\layout\\design_bottom_sheet_dialog.xml"
     },
     {
         "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_lines.xml",

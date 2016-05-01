@@ -16,6 +16,10 @@
         "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
     },
     {
+        "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\volgarini.jpg",
+        "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\src\\main\\res\\drawable\\volgarini.jpg"
+    },
+    {
         "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_full_material.xml",
         "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\drawable\\abc_ratingbar_full_material.xml"
     },
@@ -24,12 +28,12 @@
         "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\drawable\\abc_text_cursor_material.xml"
     },
     {
-        "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_search_material.xml",
-        "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\drawable\\abc_textfield_search_material.xml"
-    },
-    {
         "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_switch_thumb_material.xml",
         "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\drawable\\abc_switch_thumb_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_search_material.xml",
+        "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\drawable\\abc_textfield_search_material.xml"
     },
     {
         "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_default_mtrl_shape.xml",
@@ -56,6 +60,10 @@
         "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\drawable\\abc_btn_borderless_material.xml"
     },
     {
+        "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ricoldi.jpg",
+        "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\src\\main\\res\\drawable\\ricoldi.jpg"
+    },
+    {
         "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_snackbar_background.xml",
         "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.2.1\\res\\drawable\\design_snackbar_background.xml"
     },
@@ -66,6 +74,10 @@
     {
         "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_light.xml",
         "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\drawable\\abc_list_selector_holo_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\iconic.png",
+        "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\src\\main\\res\\drawable\\iconic.png"
     },
     {
         "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_track_material.xml",
@@ -82,6 +94,10 @@
     {
         "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_fab_background.xml",
         "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.2.1\\res\\drawable\\design_fab_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\biff.jpg",
+        "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\src\\main\\res\\drawable\\biff.jpg"
     },
     {
         "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_internal_bg.xml",
@@ -110,6 +126,10 @@
     {
         "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_tab_indicator_material.xml",
         "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\drawable\\abc_tab_indicator_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\panngo.jpg",
+        "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\src\\main\\res\\drawable\\panngo.jpg"
     },
     {
         "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_check_material.xml",

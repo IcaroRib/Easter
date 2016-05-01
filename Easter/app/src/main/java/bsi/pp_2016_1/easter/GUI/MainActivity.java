@@ -2,14 +2,8 @@ package bsi.pp_2016_1.easter.GUI;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.MenuInflater;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -37,7 +31,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Toast.makeText(getApplicationContext(), "Button games", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(MainActivity.this, listDisplay.class);
+                Intent intent = new Intent(MainActivity.this, MediaListActivity.class);
+                intent.putExtra("category","GAMES");
                 startActivity(intent);
             }
         });
@@ -45,21 +40,30 @@ public class MainActivity extends AppCompatActivity {
         btMovies.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Button movies", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "Button movies", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, MediaListActivity.class);
+                intent.putExtra("category","Movies");
+                startActivity(intent);
             }
         });
 
         btSeries.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Button series", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "Button series", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, MediaListActivity.class);
+                intent.putExtra("category","Series");
+                startActivity(intent);
             }
         });
 
         btBooks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Button books", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "Button books", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, MediaListActivity.class);
+                intent.putExtra("category","Books");
+                startActivity(intent);
             }
         });
 
