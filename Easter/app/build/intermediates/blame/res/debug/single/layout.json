@@ -16,12 +16,12 @@
         "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_list_menu_item_radio.xml"
     },
     {
-        "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
-        "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
-    },
-    {
         "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_tab_icon.xml",
         "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.2.1\\res\\layout\\design_layout_tab_icon.xml"
+    },
+    {
+        "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
+        "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
     },
     {
         "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_time.xml",
@@ -202,6 +202,10 @@
     {
         "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_bottom_sheet_dialog.xml",
         "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.2.1\\res\\layout\\design_bottom_sheet_dialog.xml"
+    },
+    {
+        "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_not_logged.xml",
+        "source": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\src\\main\\res\\layout\\activity_not_logged.xml"
     },
     {
         "merged": "C:\\Users\\franc\\Desktop\\Easter.git\\trunk\\Easter\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_lines.xml",

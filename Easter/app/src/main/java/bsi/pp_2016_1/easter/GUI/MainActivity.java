@@ -1,4 +1,4 @@
-package bsi.pp_2016_1.easter.GUI;
+package bsi.pp_2016_1.easter.gui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import bsi.pp_2016_1.easter.R;
-import bsi.pp_2016_1.easter.Services.LoginServices;
+import bsi.pp_2016_1.easter.services.LoginServices;
 
 public class MainActivity extends AppCompatActivity {
 

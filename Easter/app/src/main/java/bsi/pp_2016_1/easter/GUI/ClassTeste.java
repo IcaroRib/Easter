@@ -1,4 +1,4 @@
-package bsi.pp_2016_1.easter.GUI;
+package bsi.pp_2016_1.easter.gui;
 
 import android.app.Activity;
 import android.os.Bundle;
