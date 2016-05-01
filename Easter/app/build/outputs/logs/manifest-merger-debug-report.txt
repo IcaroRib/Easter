@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml:2:1-23:12
+ADDED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml:2:1-27:12
 	package
 		ADDED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml:3:5-35
 		INJECTED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml
@@ -14,7 +14,7 @@ ADDED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidMa
 		INJECTED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml
 application
-ADDED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml:5:5-21:19
+ADDED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml:5:5-25:19
 MERGED from [com.android.support:appcompat-v7:23.2.1] C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.2.1\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-v4:23.2.1] C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:animated-vector-drawable:23.2.1] C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.2.1\AndroidManifest.xml:7:5-20
@@ -43,7 +43,7 @@ MERGED from [com.android.support:support-v4:23.2.1] C:\Users\franc\Desktop\Easte
 	android:theme
 		ADDED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml:10:9-40
 activity#bsi.pp_2016_1.easter.GUI.MainActivity
-ADDED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml:11:9-20:20
+ADDED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml:11:9-21:20
 	android:label
 		ADDED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml:13:13-45
 	android:theme
@@ -60,6 +60,14 @@ category#android.intent.category.LAUNCHER
 ADDED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml:18:17-77
 	android:name
 		ADDED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml:18:27-74
+activity#bsi.pp_2016_1.easter.GUI.ClassTeste
+ADDED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml:22:9-52
+	android:name
+		ADDED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml:22:19-49
+activity#bsi.pp_2016_1.easter.GUI.listDisplay
+ADDED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml:23:9-52
+	android:name
+		ADDED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml:23:19-50
 uses-sdk
 INJECTED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:appcompat-v7:23.2.1] C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.2.1\AndroidManifest.xml:21:5-23:78

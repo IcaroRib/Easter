@@ -9,57 +9,58 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="75dp"
-        android:text="Acesse as Categorias"
-        android:id="@+id/btCategorias" />
+        android:text="Categories"
+        android:id="@+id/bt_Categories" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="270dp"
         android:layout_height="63dp"
-        android:text="Jogos"
-        android:id="@+id/btJogos"
+        android:text="Games"
+        android:id="@+id/bt_Games"
         android:layout_gravity="center_horizontal" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="270dp"
         android:layout_height="63dp"
-        android:text="Filmes"
-        android:id="@+id/btFilmes"
+        android:text="Movies"
+        android:id="@+id/bt_Movies"
         android:layout_gravity="center_horizontal" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="270dp"
         android:layout_height="63dp"
-        android:text="Séries"
-        android:id="@+id/bt_series"
+        android:text="Series"
+        android:id="@+id/bt_Series"
         android:layout_gravity="center_horizontal" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="270dp"
         android:layout_height="63dp"
-        android:text="Livros"
-        android:id="@+id/btLivros"
+        android:text="Books"
+        android:id="@+id/bt_Books"
         android:layout_gravity="center_horizontal" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText"
+        android:id="@+id/et_Username"
+        android:singleLine="true"
         android:layout_gravity="center_horizontal"
         android:autoText="false"
-        android:hint="Nome do usuário" />
+        android:hint="Username" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
-        android:id="@+id/editText2"
+        android:id="@+id/et_Password"
         android:layout_gravity="center_horizontal"
-        android:hint="Senha" />
+        android:hint="Password" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -71,24 +72,36 @@
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:text="Login"
-            android:id="@+id/btLogin"
-            android:layout_centerVertical="true"
-            android:layout_toLeftOf="@+id/btLoginGoogle"
-            android:layout_toStartOf="@+id/btLoginGoogle"
-            android:layout_marginRight="25dp"
-            android:layout_marginEnd="25dp" />
+            android:id="@+id/bt_Login"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="33dp"
+            android:layout_marginStart="33dp" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Login com Google+"
-            android:id="@+id/btLoginGoogle"
-            android:layout_marginRight="36dp"
-            android:layout_marginEnd="36dp"
-            android:layout_alignTop="@+id/btLogin"
+            android:text="Login with Google+"
+            android:id="@+id/bt_LoginGoogle"
+            android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="26dp"
+            android:layout_marginEnd="26dp" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create new account"
+            android:id="@+id/bt_new_acc"
+            android:layout_centerVertical="true"
+            android:layout_alignLeft="@+id/bt_Login"
+            android:layout_alignStart="@+id/bt_Login"
+            android:layout_alignRight="@+id/bt_LoginGoogle"
+            android:layout_alignEnd="@+id/bt_LoginGoogle" />
     </RelativeLayout>
 
 </LinearLayout>

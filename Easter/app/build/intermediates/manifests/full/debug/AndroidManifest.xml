@@ -24,6 +24,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="bsi.pp_2016_1.easter.GUI.ClassTeste" />
+        <activity android:name="bsi.pp_2016_1.easter.GUI.listDisplay" />
     </application>
 
 </manifest>

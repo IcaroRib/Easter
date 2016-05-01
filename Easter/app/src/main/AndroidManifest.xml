@@ -17,7 +17,11 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+        <activity android:name=".GUI.ClassTeste" />
+        <activity android:name=".GUI.listDisplay"/>
+
     </application>
 
 </manifest>

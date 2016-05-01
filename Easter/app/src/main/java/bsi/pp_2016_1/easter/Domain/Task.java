@@ -1,6 +1,7 @@
 package bsi.pp_2016_1.easter.Domain;
 public class Task {
 
+    private int id;
     private String description;
     private double status;
 
