@@ -18,22 +18,24 @@ class EasterEggDAO{
      */
     function insertNew($EasterEgg){
 
+        $time = new DateTime();
         $values = array(
             $EasterEgg->getDescription(),
             $EasterEgg->getImageUrl(),
             0,
             $EasterEgg->getIdAuthor(),
-            $EasterEgg->getAuthorName()
+            $EasterEgg->getAuthorName(),
+            $time->format('Y-m-d H:i:s')
         );
 
         if (!empty($EasterEgg->tasklist)){
 
             array_push($values,$EasterEgg->tasklist);
-            $stringSQL = "INSERT INTO EasterEgg (description,image, status,creatorid,creatorName, tasklist) VALUES". implode("','", $values);
+            $stringSQL = "INSERT INTO EasterEgg (description,image, status,creatorid,creatorName, tasklist, createdAt) VALUES". implode("','", $values);
 
         } else {
 
-            $stringSQL = "INSERT INTO EasterEgg (description,image, status,creatorid,creatorName) VALUES". implode("','", $values);
+            $stringSQL = "INSERT INTO EasterEgg (description,image, status,creatorid,creatorName, createdAt) VALUES". implode("','", $values);
         }
 
         $result_query = $this->connection->query($stringSQL);

@@ -11,12 +11,28 @@ class UserService{
     }
 
     /**
+     * @param $user
+     * @param $profileType
+     * @return string
+     */
+    public function update($user,$profileType) {
+
+        if($profileType == "native"){
+            $mensagem = $this->getUserDB()->updateUserProfile($user);
+        }
+
+        $this->getUserDB()->desconnect();
+        return $mensagem;
+
+    }
+
+    /**
      * @param User $user
      * @param string $profileType
      * @return string|User
      */
 
-    function login($user,$profileType) {
+    public function login($user,$profileType) {
 
         if($profileType == "native"){
             if($user->getEmail() != ""){
@@ -38,7 +54,7 @@ class UserService{
      * @param string $profileType
      * @return string|User
      */
-    function insertUser($user,$profileType){
+    public function insertUser($user,$profileType){
         if($profileType == "native"){
             /** @var User $selectedUser */
             $selectedUser= $this->getUserDB()->selectUserNativeByEmail($user->getEmail());
@@ -116,6 +132,29 @@ class UserService{
         }
         else{
             return "Senha Incorreta. Tente novamente";
+        }
+
+    }
+
+    /**
+     * @param User $user
+     */
+    private function updateNativeProfile($user){
+        /** @var User $selectedUser */
+        $selectedUser = $this->getUserDB()->selectUserNativeByEmail($user->getProfileName());
+        if ($selectedUser->getId() == 0){
+
+            $selectedUser = $this->getUserDB()->selectUserNativeByUsername($user->getUserName());
+            if($selectedUser->getId() == 0){
+                return $this->getUserDB()->updateUserProfile($user);
+            }
+
+            else{
+                return "Nome de usuário já cadastrado";
+            }
+        }
+        else{
+            return "Email já casdastro";
         }
 
     }

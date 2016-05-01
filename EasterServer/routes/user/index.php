@@ -14,8 +14,10 @@
     }
 
     elseif($_POST["operation"] == "update"){
-
-
+        $user = ClassCreator::createUserFromJson($_POST['user']);
+        $profileType = $_POST['profileType'];
+        $userService = new UserService();
+        echo json_encode($userService->update($user,$profileType));
     }
 
     elseif($_POST["operation"] == "create"){

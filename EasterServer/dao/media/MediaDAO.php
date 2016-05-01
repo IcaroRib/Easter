@@ -48,6 +48,24 @@
 
 		}
 
+		/**
+		 * @return array
+		 */
+		function findRecents()
+		{
+			$listMedia = array();
+			$stringSQL = "SELECT idMedia, category, image, title FROM media ORDER BY createdAt DESC LIMIT 20";
+			$result_query = $this->connection->query($stringSQL);
+			$cont = 0;
+			while ($result = $result_query->fetch_assoc()) {
+				$newMedia = ClassCreator::createMediaFromArrayQuerry($result);
+				$listMedia[$cont] = $newMedia;
+				$cont +=1;
+			}
+			return $listMedia;
+
+		}
+
 		
 	}
 ?>

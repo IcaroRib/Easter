@@ -15,6 +15,10 @@ class ClassCreator
     public static function createUserFromJson($jsonUser){
 
         $user = new User();
+
+        if(!empty($jsonUser["id"])){
+            $user->setId($jsonUser["id"]);
+        }
         if(!empty($jsonUser["profileName"])){
             $user->setProfileName($jsonUser["profileName"]);
         }

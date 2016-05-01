@@ -22,24 +22,40 @@
          */
 		function insertNativeProfile($user) {
 
-			$stringSQL = "INSERT INTO user (userName,profileName,age,gender,imageUrl,email,password) VALUES('"
+			$time = new DateTime();
+			$stringSQL = "INSERT INTO user (userName,profileName,age,gender,imageUrl,email,password,createdAt) VALUES('"
 							. $user->getUserName() . "',  '"
 							. $user->getProfileName() . "' , '"
 							. $user->getAge() . "',	'"
 							. $user->getGender() . "', '"
 							. $user->getImageUrl() . "', '"
 							. $user->getEmail() . "', '"
-							. $user->getPassword() . "' )";
+							. $user->getPassword() . "', '"
+							. $time->format('Y-m-d H:i:s') . "' )";
 
-			echo $stringSQL;
 			$this->connection->query($stringSQL);
 			$user->setId($this->getConnection()->insert_id);
 			return $user;
 
 		}
 
-		function updateUserProfile() {
-		    
+        /**
+         * @param $user
+         * @return string
+         */
+		public function updateUserProfile($user){
+
+            $stringSQL = "UPDATE user set 
+                            userName = '". $user->getUserName()
+                            ."', profileName = '". $user->getProfileName()
+                            ."', imageUrl = '". $user->getImageUrl()
+                            ."', email = '". $user->getEmail()
+                            ."', gender = '". $user->getGender()
+                            ."' WHERE idUser = " . $user->getId();
+
+            echo $stringSQL;
+            $this->connection->query($stringSQL);
+            return "Dados atualizados com sucesso";
 		}
 
 		/**

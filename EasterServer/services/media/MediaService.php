@@ -65,6 +65,11 @@ class MediaService
             return $this->findById($media);
         }
 
+        else if($searchType == "recents"){
+            return $this->getMediaDB()->findRecents();
+        }
+
+
         $this->getMediaDB()->desconnect();
 
     }
