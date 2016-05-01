@@ -137,4 +137,62 @@ class ClassCreator
         return $media;
     }
 
+    /**
+     * @param array $taskArrayQuery
+     * @return Task
+     */
+
+    public static function createTaskFromArrayQuerry($taskArrayQuery){
+
+        $task = new Task();
+        if(isset($taskArrayQuery["idTask"])){
+            $task->setId($taskArrayQuery["idTask"]);
+        }
+
+        if(isset($taskArrayQuery["description"])){
+            $task->setDescription($taskArrayQuery["description"]);
+        }
+        return $task;
+    }
+
+    /**
+     * @param array $taskArrayQuery
+     * @return Reference
+     */
+    public static function createRefenceFromArrayQuerry($taskArrayQuery){
+
+        $reference = new Reference();
+        if(isset($taskArrayQuery["idMedia"])){
+            $reference->setIdMedia($taskArrayQuery["idMedia"]);
+        }
+
+        if(isset($taskArrayQuery["title"])){
+            $reference->setReferenceTitle($taskArrayQuery["title"]);
+        }
+
+        return $reference;
+    }
+
+    public static function createEasterEggFromArrayQuerry($eeArrayQuery){
+
+        $easterEgg = new EasterEgg();
+        if(isset($eeArrayQuery["idEasterEgg"])){
+            $easterEgg->setId($eeArrayQuery["idEasterEgg"]);
+        }
+
+        if(isset($eeArrayQuery["description"])){
+            $easterEgg->setDescription($eeArrayQuery["description"]);
+        }
+
+        if(isset($eeArrayQuery["idWritter"])){
+            $easterEgg->setIdAuthor($eeArrayQuery["idWritter"]);
+        }
+
+        if(isset($eeArrayQuery["profileName"])){
+            $easterEgg->setAuthorName($eeArrayQuery["profileName"]);
+        }
+
+        return $easterEgg;
+    }
+
 }

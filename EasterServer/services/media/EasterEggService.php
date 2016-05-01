@@ -1,29 +1,35 @@
 <?php
 	
-class EasterEggService.php{
-    private $eeBD = new EasterEggDAO();
+class EasterEggService{
+    private $easterEggDB;
+
+    public function EasterEggService(){
+
+        $this->easterEggDB = new EasterEggDAO();
+
+    }
     
     function insertNew($ee){
-        if (empty($ee->description) || empty($ee->creatorId) || empty($ee->creatorName) return false; 
-        $eeBD->insertNew($ee);
+        if (empty($ee->description) || empty($ee->creatorId) || empty($ee->creatorName)) return false;
+        $this->easterEggDB->insertNew($ee);
     }
     
     function markTaskAsComplete ($ee,$task){
         
-        if (empty($EasterEgg->tasks)) return false;
-        if (!in_array($task, $EasterEgg->tasks)) return false;
-        
-        $eeBD->maskTaskAsComplete($ee,$task);
+        if (empty($ee->tasks)) return false;
+        if (!in_array($task, $ee->tasks)) return false;
+
+        $this->markTaskAsComplete($ee,$task);
     }
     
     function onChange($ee){
         if (empty($ee->id)) return false;
-        
-        $eeBD->onChange($ee);
+
+        $this->easterEggDB->onChange($ee);
     }
             
      function findById($id){
-         $eeBD->findById($id);			
+         $this->easterEggDB->findById($id);
      }
     
 }

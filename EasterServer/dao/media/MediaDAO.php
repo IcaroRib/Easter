@@ -35,49 +35,19 @@
 
 		}
 
-		function findMediaById($id){
-			$novaObra = new Media();
-			$stringSQL = "SELECT * FROM obra WHERE idObra = ". $id;
-	 		$result_query = $this->connection->query($stringSQL);
-	 	    while($result = $result_query->fetch_assoc()){
-				$novaObra->id = $result['idObra'];
-				$novaObra->titulo = $result['titulo'];
-				$novaObra->midia = $result['midia'];
-				$novaObra->imagem = $result['imagem'];
+		function findMediaById($id)
+		{
+			$newMedia = new Media();
+			$stringSQL = "SELECT * FROM media WHERE idMedia = " . $id;
+			$result_query = $this->connection->query($stringSQL);
+			while ($result = $result_query->fetch_assoc()) {
+				$newMedia = ClassCreator::createMediaFromArrayQuerry($result);
 				break;
- 			}	
-			return $novaObra;		
+			}
+			return $newMedia;
 
 		}
 
-		function findTasksById($id){
-			$listaTasks = array();
-	 		$stringSQL = "SELECT * FROM task WHERE EasterEgg_idEasterEgg = ". $id;
-	 		$result_query = $this->connection->query($stringSQL);
-	 		$cont = 0;
-	 	    while($result = $result_query->fetch_assoc()){			
-				$task = array("id"=>$result['idTask'],"descricao"=>$result['descricao']);
-				$listaTasks[$cont] = $task;
-				$cont +=1;
- 			}	
-			return $listaTasks;				
-		}
-
-		function findReferencesById($id){
-			$listaReferencias = array();
-	 		$stringSQL = "SELECT * FROM referencia INNER JOIN obra ON Obra_idObra = idObra
-	 					  WHERE EasterEgg_idEasterEgg  = " . $id;
-	 		$result_query = $this->connection->query($stringSQL);
-	 		$cont = 0;
-	 	    while($result = $result_query->fetch_assoc()){			
-				$referencia = array("id"=>$result['idObra'],"titulo"=>$result['titulo']);
-				$listaReferencias[$cont] = $referencia;
-				$cont +=1;
- 			}	
-			return $listaReferencias;				
-		}
-
-
-
+		
 	}
 ?>

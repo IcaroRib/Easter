@@ -6,6 +6,7 @@ class EasterEgg implements JsonSerializable{
 	private $description;
 	private $idAuthor;
 	private $authorName;
+	private $imageUrl;
 	private $tasks;
 	private $references;
 
@@ -81,6 +82,22 @@ class EasterEgg implements JsonSerializable{
 		$this->references = $references;
 	}
 
+    /**
+     * @return string
+     */
+    public function getImageUrl()
+    {
+        return $this->imageUrl;
+    }
+
+    /**
+     * @param string $imageUrl
+     */
+    public function setImageUrl($imageUrl)
+    {
+        $this->imageUrl = $imageUrl;
+    }
+
 	/**
 	 * Specify data which should be serialized to JSON
 	 * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
@@ -90,7 +107,16 @@ class EasterEgg implements JsonSerializable{
 	 */
 	function jsonSerialize()
 	{
-		// TODO: Implement jsonSerialize() method.
+		return [
+            'id' => $this->id,
+            'description' => $this->description,
+            'imageUrl' => $this->imageUrl,
+            'idAuthor' => $this->idAuthor,
+            'authorName' => $this->authorName,
+            'tasks' => $this->tasks,
+            'reference' => $this->references
+
+        ];
 	}
 }
 

@@ -85,10 +85,10 @@ class MediaService
         foreach ($newMedia->getEasterEggs() as $easteregg) {
             if($newMedia->getCategory() == "jogo"){
                 /** @var array $taskList */
-                $taskList = $this->getMediaDB()->findTasksById($easteregg->getId());
+                $taskList = $this->getEasterEggsDB()->findTasksById($easteregg->getId());
                 $easteregg->setTasks($taskList);
             }
-            $easteregg->setReferences($this->getMediaDB()->findReferencesById($easteregg->getId()));
+            $easteregg->setReferences($this->getEasterEggsDB()->findReferencesById($easteregg->getId()));
         }
 
         return $newMedia;
