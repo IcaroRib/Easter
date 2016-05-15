@@ -1,12 +1,13 @@
 <?php
-include_once("../../dao/Connection.php");
 
+include_once("dao/Connection.php");
 class EasterEggDAO{
 
     public $connection;
 
     function EasterEggDAO(){
-        $this->connection = new mysqli('localhost','root','JME.megasin-02','easter');
+        $this->connection = new Connection();
+        $this->connection->connect();
     }
 
     function desconnect(){
@@ -17,28 +18,16 @@ class EasterEggDAO{
      * @param EasterEgg $EasterEgg
      */
     function insertNew($EasterEgg){
-
         $time = new DateTime();
         $values = array(
-            $EasterEgg->getDescription(),
-            $EasterEgg->getImageUrl(),
-            0,
-            $EasterEgg->getIdAuthor(),
-            $EasterEgg->getAuthorName(),
-            $time->format('Y-m-d H:i:s')
+            "'".$EasterEgg->getDescription()."'",
+            "'".$EasterEgg->getImageUrl()."'",
+            intval($EasterEgg->getIdMedia()),
+            intval($EasterEgg->getidAuthor())
         );
-
-        if (!empty($EasterEgg->tasklist)){
-
-            array_push($values,$EasterEgg->tasklist);
-            $stringSQL = "INSERT INTO EasterEgg (description,image, status,creatorid,creatorName, tasklist, createdAt) VALUES". implode("','", $values);
-
-        } else {
-
-            $stringSQL = "INSERT INTO EasterEgg (description,image, status,creatorid,creatorName, createdAt) VALUES". implode("','", $values);
-        }
-
-        $result_query = $this->connection->query($stringSQL);
+        $stringSQL = "INSERT INTO easteregg (description,imageUrl,idMedia,idWritter) VALUES (". implode(",", $values) .")";
+        $result_query = $this->connection->getConnector()->query($stringSQL);
+        var_dump($stringSQL);
     }
 
     function markTaskAsComplete($EasterEgg,$task){
@@ -50,7 +39,7 @@ class EasterEggDAO{
 
     function onChange($EasterEgg){
 
-        $stringSQL = "UPDATE EasterEgg set 
+        $stringSQL = "UPDATE easteregg set
             description = ". $EasterEgg->description
             .", image = ". $EasterEgg->image
             .", status = ". $EasterEgg->status
@@ -63,7 +52,7 @@ class EasterEggDAO{
 
     function findCompleteById($id){
         $EElist =  array();
-        $stringSQL = "SELECT idEasterEgg, description, easteregg.imageUrl, idWritter, AVG(score) as mediumScore 
+        $stringSQL = "SELECT idEasterEgg, description, easteregg.imageUrl, idWritter, AVG(score) as mediumScore
                       FROM easteregg INNER JOIN user ON idUser = idWritter
                       INNER JOIN evaluatedeasteregg ON idEasterEgg = EasterEgg_idEasterEgg
 	 				  WHERE idMedia =" . $id . " GROUP BY idEasterEgg";
@@ -162,7 +151,7 @@ class EasterEggDAO{
     function fallowEasterEgg($idEasterEgg, $idUser)
     {
         $time = new DateTime();
-        $stringSQL = "INSERT INTO fallowedeasteregg (User_idUser, EasterEgg_idEasterEgg, createdAt) 
+        $stringSQL = "INSERT INTO fallowedeasteregg (User_idUser, EasterEgg_idEasterEgg, createdAt)
                           VALUES ($idUser,$idEasterEgg,'" . $time->format('Y-m-d H:i:s') . "')";
         $this->connection->query($stringSQL);
         echo $stringSQL;
@@ -173,7 +162,7 @@ class EasterEggDAO{
     function fallowTask($IdTask, $idUser)
     {
         $time = new DateTime();
-        $stringSQL = "INSERT INTO fallowedTask (idUser, idTask, createdAt) 
+        $stringSQL = "INSERT INTO fallowedTask (idUser, idTask, createdAt)
                           VALUES ($idUser,$IdTask,'" . $time->format('Y-m-d H:i:s') . "')";
         echo $stringSQL;
         $this->connection->query($stringSQL);

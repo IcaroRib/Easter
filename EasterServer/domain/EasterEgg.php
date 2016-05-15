@@ -5,6 +5,7 @@ class EasterEgg implements JsonSerializable{
 	private $id;
 	private $description;
 	private $idAuthor;
+	private $idMedia;
 	private $authorName;
 	private $imageUrl;
 	private $tasks;
@@ -18,6 +19,18 @@ class EasterEgg implements JsonSerializable{
 	 * @return mixed
 	 */
 	public function getId()
+	{
+		return $this->id;
+	}
+
+	/**
+	 * @param mixed $id
+	 */
+	public function setIdMedia($id)
+	{
+		$this->id = $id;
+	}
+	public function getIdMedia()
 	{
 		return $this->id;
 	}
