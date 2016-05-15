@@ -44,6 +44,11 @@ class UserService{
 
         }
 
+        if($profileType == "facebook"){
+            $user = $this->verifyFacebookProfile($user->getFacebookAcessToken());
+
+        }
+
         $this->getUserDB()->desconnect();
         return $user;
 
@@ -66,9 +71,21 @@ class UserService{
             }
         }
 
+        if($profileType == "facebook"){
+            /** @var User $selectedUser */
+            $selectedUser= $this->getUserDB()->selectUserNativeByAcessToken($user->getFacebookAcessToken());
+            if($selectedUser->getId() == 0){
+                return $this->getUserDB()->insertFacebookProfile($user);
+            }
+            else{
+                return "Usuário já cadastrado";
+            }
+        }
+
         $this->getUserDB()->desconnect();
 
     }
+    
 
     /**
      * @param string $email
@@ -132,6 +149,20 @@ class UserService{
         }
         else{
             return "Senha Incorreta. Tente novamente";
+        }
+
+    }
+
+    private function verifyFacebookProfile($acessToken){
+
+        /** @var User $selectedUser */
+        $selectedUser = $this->getUserDB()->selectUserNativeByAcessToken($acessToken);
+        if($selectedUser->getId() == 0){
+            return "Usuário Não localizado";
+        }
+
+        else{
+            return $selectedUser;
         }
 
     }

@@ -19,6 +19,11 @@ class ClassCreator
         if(!empty($jsonUser["id"])){
             $user->setId($jsonUser["id"]);
         }
+
+        if(!empty($jsonUser["acessToken"])){
+            $user->setFacebookAcessToken($jsonUser["acessToken"]);
+        }
+
         if(!empty($jsonUser["profileName"])){
             $user->setProfileName($jsonUser["profileName"]);
         }
@@ -57,13 +62,16 @@ class ClassCreator
      * @param array $userArrayQuerry
      * @return User
      */
-    public static function createUserFromArrayQuerry($userArrayQuerry)
-    {
+    public static function createUserFromArrayQuerry($userArrayQuerry){
 
         $user = new User();
 
         if (!empty($userArrayQuerry["idUser"])) {
             $user->setId((int)$userArrayQuerry["idUser"]);
+        }
+
+        if (!empty($userArrayQuerry["acessTokenFacebook"])) {
+            $user->setFacebookAcessToken($userArrayQuerry["acessTokenFacebook"]);
         }
 
         if (!empty($userArrayQuerry["profileName"])) {

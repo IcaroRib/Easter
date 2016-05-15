@@ -3,6 +3,7 @@
 class User implements JsonSerializable{
 
 	private $id;
+	private $facebookAcessToken;
 	private $userName;
 	private $profileName;
 	private $age;
@@ -145,25 +146,41 @@ class User implements JsonSerializable{
 	}
 
 
-	/**
-	 * Specify data which should be serialized to JSON
-	 * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
-	 * @return mixed data which can be serialized by <b>json_encode</b>,
-	 * which is a value of any type other than a resource.
-	 * @since 5.4.0
-	 */
-	function jsonSerialize()
-	{
-		return [
-			'id' => $this->id,
-			'userName' => $this->userName,
-			'profileName' => $this->profileName,
-			'imageUrl' => $this->imageUrl,
-			'age' => $this->age,
+    /**
+     * @return mixed
+     */
+    public function getFacebookAcessToken()
+    {
+        return $this->facebookAcessToken;
+    }
+
+    /**
+     * @param mixed $facebookAcessToken
+     */
+    public function setFacebookAcessToken($facebookAcessToken)
+    {
+        $this->facebookAcessToken = $facebookAcessToken;
+    }
+
+    /**
+     * Specify data which should be serialized to JSON
+     * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
+     * @return mixed data which can be serialized by <b>json_encode</b>,
+     * which is a value of any type other than a resource.
+     * @since 5.4.0
+     */
+    function jsonSerialize()
+    {
+        return [
+            'id' => $this->id,
+            'userName' => $this->userName,
+            'profileName' => $this->profileName,
+            'imageUrl' => $this->imageUrl,
+            'age' => $this->age,
             'gender' => $this->gender,
             'email' => $this->email
         ];
-	}
+    }
 }
 
 ?>

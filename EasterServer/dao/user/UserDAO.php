@@ -40,6 +40,30 @@
 		}
 
         /**
+         * @param User $user
+         * @return User
+         */
+		function insertFacebookProfile($user) {
+
+			$time = new DateTime();
+			$stringSQL = "INSERT INTO user (acessTokenFacebook,userName,profileName,age,gender,imageUrl,email,createdAt) VALUES('"
+                . $user->getFacebookAcessToken() . "',  '"
+				. $user->getUserName() . "',  '"
+				. $user->getProfileName() . "' , '"
+				. $user->getAge() . "',	'"
+				. $user->getGender() . "', '"
+				. $user->getImageUrl() . "', '"
+				. $user->getEmail() . "', '"
+				. $time->format('Y-m-d H:i:s') . "' )";
+
+            //echo $stringSQL;
+			$this->connection->query($stringSQL);
+			$user->setId($this->getConnection()->insert_id);
+			return $user;
+
+		}
+
+        /**
          * @param $user
          * @return string
          */
@@ -147,6 +171,22 @@
 			return $user;
 		}
 
+        /**
+         * @param string $FacebookAcessToken
+         */
+        public function selectUserNativeByAcessToken($FacebookAcessToken){
+
+            $user = new User();
+            $stringSQL = "SELECT * FROM user WHERE acessTokenFacebook = '" . $FacebookAcessToken . "'";
+            $result_query = $this->connection->query($stringSQL);
+            while($result = $result_query->fetch_assoc()){
+                $user = ClassCreator::createUserFromArrayQuerry($result);
+                break;
+            }
+
+            return $user;            
+        }
+
 		/**
 		 * @return mysqli
 		 */
@@ -162,5 +202,6 @@
 		{
 			$this->connection = $connection;
 		}
-	}
+        
+    }
 ?>
