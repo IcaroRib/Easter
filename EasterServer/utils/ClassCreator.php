@@ -116,6 +116,40 @@ class ClassCreator
     }
 
     /**
+     * @param array $jsonMedia
+     * @return EasterEgg
+     */
+    public static function createEasterEggFromJson($jsonMedia){
+
+        $EasterEgg = new EasterEgg();
+        if(isset($jsonMedia["id"])){
+            $EasterEgg->setId($jsonMedia["id"]);
+        }
+
+        if(isset($jsonMedia["description"])){
+            $EasterEgg->setDescription($jsonMedia["description"]);
+        }
+
+        if(isset($jsonMedia["score"])){
+            $EasterEgg->setScore($jsonMedia["score"]);
+        }
+
+        if(isset($jsonMedia["imageUrl"])){
+            $EasterEgg->setImageUrl($jsonMedia["imageUrl"]);
+        }
+
+        if(isset($jsonMedia["setAuthorName"])){
+            $EasterEgg->setAuthorName($jsonMedia["setAuthorName"]);
+        }
+
+        if(isset($jsonMedia["idAuthor"])){
+            $EasterEgg->setIdAuthor($jsonMedia["idAuthor"]);
+        }
+
+        return $EasterEgg;
+    }
+
+    /**
      * @param array $mediaArrayQuery
      * @return Media
      */
@@ -136,6 +170,16 @@ class ClassCreator
 
         if(isset($mediaArrayQuery["image"])){
             $media->setImage($mediaArrayQuery["image"]);
+        }
+
+        if(isset($mediaArrayQuery["mediumScore"])){
+            $media->setScore($mediaArrayQuery["mediumScore"]);
+        }
+
+        if(isset($mediaArrayQuery["User_idUser"])){
+            if($mediaArrayQuery["User_idUser"] != null){
+                $media->setIsFavorite(true);
+            }
         }
 
         return $media;
@@ -194,6 +238,10 @@ class ClassCreator
 
         if(isset($eeArrayQuery["profileName"])){
             $easterEgg->setAuthorName($eeArrayQuery["profileName"]);
+        }
+
+        if(isset($eeArrayQuery["mediumScore"])){
+            $easterEgg->setScore($eeArrayQuery["mediumScore"]);
         }
 
         return $easterEgg;
