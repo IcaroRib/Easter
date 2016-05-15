@@ -146,12 +146,26 @@ class ClassCreator
             $EasterEgg->setImageUrl($jsonMedia["imageUrl"]);
         }
 
-        if(isset($jsonMedia["setAuthorName"])){
-            $EasterEgg->setAuthorName($jsonMedia["setAuthorName"]);
+        if(isset($jsonMedia["authorName"])){
+            $EasterEgg->setAuthorName($jsonMedia["authorName"]);
         }
 
         if(isset($jsonMedia["idAuthor"])){
             $EasterEgg->setIdAuthor($jsonMedia["idAuthor"]);
+        }
+
+        if(isset($jsonMedia["references"])){
+
+            $cont = 0;
+            $references = array();
+            foreach ($jsonMedia["references"] as $referenceJson){
+                $newReference = new Reference();
+                $newReference->setIdMedia($referenceJson["idMedia"]);
+                $newReference->setReferenceTitle($referenceJson["title"]);
+                $references[$cont] = $newReference;
+                $cont +=1;
+            }
+            $EasterEgg->setReferences($references);
         }
 
         return $EasterEgg;
@@ -253,6 +267,75 @@ class ClassCreator
         }
 
         return $easterEgg;
+    }
+
+    public static function createCommentFromArrayQuerry($commentArrayQuery){
+
+        $comment = new Commentary();
+        if(isset($commentArrayQuery["idComment"])){
+            $comment->setId($commentArrayQuery["idComment"]);
+        }
+
+        if(isset($commentArrayQuery["text"])){
+            $comment->setText($commentArrayQuery["text"]);
+        }
+
+        if(isset($commentArrayQuery["idUser"])){
+            $comment->setIdAuthor($commentArrayQuery["idUser"]);
+        }
+
+        if(isset($commentArrayQuery["profileName"])){
+            $comment->setAuthorName($commentArrayQuery["profileName"]);
+        }
+
+        if(isset($commentArrayQuery["qtyLikes"])){
+            $comment->setQtdLikes($commentArrayQuery["qtyLikes"]);
+        }
+
+        if(isset($commentArrayQuery["qtyDislikes"])){
+            $comment->setQtdDislikes($commentArrayQuery["qtyDislikes"]);
+        }
+
+        if(isset($commentArrayQuery["date"])){
+            $comment->getDate($commentArrayQuery["date"]);
+        }
+
+        return $comment;
+    }
+
+    public static function createCommentFromJson($commentJson){
+
+        $comment = new Commentary();
+
+        if(isset($commentJson["idComment"])){
+            $comment->setId($commentJson["idComment"]);
+        }
+
+        if(isset($commentJson["text"])){
+            $comment->setText($commentJson["text"]);
+        }
+
+        if(isset($commentJson["idUser"])){
+            $comment->setIdAuthor($commentJson["idUser"]);
+        }
+
+        if(isset($commentArrayQuery["profileName"])){
+            $comment->setAuthorName($commentArrayQuery["profileName"]);
+        }
+
+        if(isset($commentJson["qtyLikes"])){
+            $comment->setQtdLikes($commentJson["qtyLikes"]);
+        }
+
+        if(isset($commentJson["qtyDislikes"])){
+            $comment->setQtdDislikes($commentJson["qtyDislikes"]);
+        }
+
+        if(isset($commentJson["date"])){
+            $comment->setDate($commentJson["date"]);
+        }
+
+        return $comment;
     }
 
 }

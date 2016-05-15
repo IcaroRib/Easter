@@ -1,13 +1,11 @@
 <?php
 
-include_once("dao/Connection.php");
 class EasterEggDAO{
 
     public $connection;
 
     function EasterEggDAO(){
-        $this->connection = new Connection();
-        $this->connection->connect();
+        $this->connection = new mysqli('localhost','root','JME.megasin-02','easter');
     }
 
     function desconnect(){
@@ -66,7 +64,9 @@ class EasterEggDAO{
         return $EElist;
     }
 
+
     function findByIdMedia($id){
+
         $EElist =  array();
         $stringSQL = "SELECT idEasterEgg FROM easteregg WHERE idMedia =" . $id . " GROUP BY idEasterEgg";
         $result_query = $this->connection->query($stringSQL);
@@ -79,31 +79,57 @@ class EasterEggDAO{
         return $EElist;
     }
 
+    function findById($id){
+        $newEE = new EasterEgg();
+        $stringSQL = "SELECT * FROM easteregg WHERE idEasterEgg = " . $id;
+        $result_query = $this->connection->query($stringSQL);
+        while ($result = $result_query->fetch_assoc()) {
+            $newEE = ClassCreator::createMediaFromArrayQuerry($result);
+            break;
+        }
+        return $newEE;
+
+    }
+
     function findTasksById($id){
-        $listaTasks = array();
+        $taskList = array();
         $stringSQL = "SELECT * FROM task WHERE EasterEgg_idEasterEgg = ". $id;
         $result_query = $this->connection->query($stringSQL);
         $cont = 0;
         while($result = $result_query->fetch_assoc()){
             $task = ClassCreator::createTaskFromArrayQuerry($result);
-            $listaTasks[$cont] = $task;
+            $taskList[$cont] = $task;
             $cont +=1;
         }
-        return $listaTasks;
+        return $taskList;
     }
 
     function findReferencesById($id){
-        $listaReferencias = array();
+        $referencesList = array();
         $stringSQL = "SELECT * FROM reference INNER JOIN media ON Media_idMedia = idMedia
 	 					  WHERE EasterEgg_idEasterEgg  = " . $id;
         $result_query = $this->connection->query($stringSQL);
         $cont = 0;
         while($result = $result_query->fetch_assoc()){
-            $referencia = ClassCreator::createRefenceFromArrayQuerry($result);
-            $listaReferencias[$cont] = $referencia;
+            $reference = ClassCreator::createRefenceFromArrayQuerry($result);
+            $referencesList[$cont] = $reference;
             $cont +=1;
         }
-        return $listaReferencias;
+        return $referencesList;
+    }
+
+    function findCommentariesById($id){
+        $listComentarys = array();
+        $stringSQL = "SELECT * FROM comment INNER JOIN user ON idUser = idAuthor
+	 					  WHERE idEasterEgg  = " . $id;
+        $result_query = $this->connection->query($stringSQL);
+        $cont = 0;
+        while($result = $result_query->fetch_assoc()){
+            $comment = ClassCreator::createCommentFromArrayQuerry($result);
+            $listComentarys[$cont] = $comment;
+            $cont +=1;
+        }
+        return $listComentarys;
     }
 
     /**
@@ -169,5 +195,46 @@ class EasterEggDAO{
         return "Obra seguida com sucesso";
 
     }
+
+    /**
+     * @param int $idEE
+     * @param Reference $reference
+     * @return void
+     */
+    function createReference($idEE, $reference){
+
+        $time = new DateTime();
+        $idMedia = $reference->getIdMedia();
+        $stringSQL = "INSERT INTO reference (EasterEgg_idEasterEgg, Media_idMedia, title, createdAt)
+                      VALUES ($idEE,$idMedia,'" . $reference->getReferenceTitle() . "','" . $time->format('Y-m-d H:i:s') . "')";
+        echo $stringSQL;
+        $this->connection->query($stringSQL);
+
+    }
+
+    /**
+     * @param int $getId
+     * @param Commentary $comment
+     */
+    public function createComment($idAuthor, $idEasterEgg, $comment){
+        $time = new DateTime();
+        $stringSQL = "INSERT INTO comment (idAuthor, idEasterEgg,text, date, createdAt)
+                      VALUES ($idAuthor,$idEasterEgg,'"
+                    . $comment->getText() . "','"
+                    . $comment->getDate() . "','"
+                    . $time->format('Y-m-d H:i:s') . "')";
+
+        $this->connection->query($stringSQL);
+    }
+
+    /**
+     * @param Commentary $comment
+     */
+    public function editComment($comment){
+
+        $stringSQL = "UPDATE comment set text = '". $comment->getText() ."' WHERE idComment = ". $comment->getId();
+        $this->connection->query($stringSQL);
+    }       
+
 }
 ?>

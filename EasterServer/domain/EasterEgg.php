@@ -10,6 +10,7 @@ class EasterEgg implements JsonSerializable{
 	private $imageUrl;
 	private $tasks;
 	private $references;
+	private $commentaries;
 	private $score;
 
 	function EasterEgg(){
@@ -129,6 +130,22 @@ class EasterEgg implements JsonSerializable{
     }
 
     /**
+     * @return mixed
+     */
+    public function getCommentaries()
+    {
+        return $this->commentaries;
+    }
+
+    /**
+     * @param mixed $comentary
+     */
+    public function setCommentaries($commentaries)
+    {
+        $this->commentaries = $commentaries;
+    }
+
+    /**
      * Specify data which should be serialized to JSON
      * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
      * @return mixed data which can be serialized by <b>json_encode</b>,
@@ -145,10 +162,12 @@ class EasterEgg implements JsonSerializable{
             'authorName' => $this->authorName,
             'mediumScore' => $this->score,
             'tasks' => $this->tasks,
-            'reference' => $this->references
+            'reference' => $this->references,
+			'commentaries' => $this->commentaries
 
         ];
     }
+
 }
 
 ?>
