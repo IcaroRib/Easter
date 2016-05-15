@@ -1,4 +1,4 @@
-package bsi.pp_2016_1.easter.gui;
+package bsi.pp_2016_1.easter.GUI;
 
 import android.widget.RatingBar;
 

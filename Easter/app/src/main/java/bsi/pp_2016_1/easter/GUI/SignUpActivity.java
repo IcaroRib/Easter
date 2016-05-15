@@ -1,4 +1,4 @@
-package bsi.pp_2016_1.easter.gui;
+package bsi.pp_2016_1.easter.GUI;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import bsi.pp_2016_1.easter.R;
-import bsi.pp_2016_1.easter.services.Requisition;
+import bsi.pp_2016_1.easter.Services.Requisition;
 
 /**
  * Created by franc on 01/05/2016.
@@ -36,7 +36,7 @@ public class SignUpActivity extends Activity{
                 String username = etUsername.getEditableText().toString();
                 String password = etPassword.getEditableText().toString();
 
-                Intent intent = new Intent(SignUpActivity.this,ClassTeste.class);
+                Intent intent = new Intent(SignUpActivity.this,ApagarClassTeste.class);
                 if (name.equals("") || email.equals("") || username.equals("") || password.equals("") ){
                     Toast.makeText(getApplicationContext(), ("Please complete all fields"), Toast.LENGTH_SHORT).show();
                 }else {
@@ -45,7 +45,9 @@ public class SignUpActivity extends Activity{
                     intent.putExtra("username", username);
                     intent.putExtra("password", password);
                     Requisition.SignUpReq(name, email, username, password);
-                    startActivity(intent);
+                    //startActivity(intent);
+
+                    Toast.makeText(getApplicationContext(), ("Usuário criado"), Toast.LENGTH_SHORT).show();
                 }
             }
         });

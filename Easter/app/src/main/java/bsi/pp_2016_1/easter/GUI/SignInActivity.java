@@ -1,4 +1,4 @@
-package bsi.pp_2016_1.easter.gui;
+package bsi.pp_2016_1.easter.GUI;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,7 +9,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import bsi.pp_2016_1.easter.R;
-import bsi.pp_2016_1.easter.services.LoginServices;
 
 /**
  * Created by franc on 01/05/2016.
@@ -32,14 +31,15 @@ public class SignInActivity extends Activity{
                 String username = et_username.getEditableText().toString();
                 String password = et_password.getEditableText().toString();
 
-                Intent intent = new Intent(SignInActivity.this,feedScreenActivity.class);
+                Intent intent = new Intent(SignInActivity.this,MediaListScreenActivity.class);
                 if (username.equals("") || password.equals("")){
                     Toast.makeText(getApplicationContext(), ("Incorrect username or password"), Toast.LENGTH_SHORT).show();
                 }else {
                     intent.putExtra("username", username);
                     intent.putExtra("password", password);
-                    LoginServices.login(username, password);
+                    // LoginServices.login(username, password);
                     startActivity(intent);
+                    Toast.makeText(getApplicationContext(), ("Login feito"), Toast.LENGTH_SHORT).show();
                 }
             }
         });

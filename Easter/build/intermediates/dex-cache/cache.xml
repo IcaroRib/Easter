@@ -1,3 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        jar="C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="673d77a5bbddd766037f088e775df525c46407f0">
+        <dex dex="C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-23.2.1_67ae89723e046bb51630493c951bc7f37236f4c0\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="cb86970df0f0f25f766d320b279c7858c1ca0003">
+        <dex dex="C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-cardview-v7-23.2.1_69b9cfe51cf5276475148ca73362ff4aa6a32d99\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="304f8b341ef1c2fc5aaa93d5c35ee2bd3c20eb96">
+        <dex dex="C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_699ea1275c44f2cf56f6cc48f7c1a9f7c5deb882\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\customtabs\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="0e5a66a941515d873a34065fe44fbba6ef422a1b">
+        <dex dex="C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-customtabs-23.2.1_88ad04fae3c611bc99f18829ebca18a9cc117480\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="e4d0cbb0b999604b349062f0214a0a228a7fd151">
+        <dex dex="C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.2.1_a63696d0ea29ee56aa677389777609cee18f0a9b\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\franc\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.2.1\support-annotations-23.2.1.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="ccb693bc0774fcb637246f7360de25b4af7df318">
+        <dex dex="C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-23.2.1_1b7018da477c2ed4ffee5994e472a60e5004c78d\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="3be474b1b21b31cf2fa93fe6bd641ae108d96452">
+        <dex dex="C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-23.2.1_320cbcb3508228228dff24cb433215a3f6ce172d\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\jars\libs\internal_impl-23.2.1.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="607a3d0b8013b4ccbfeb0b7cb293351994e021fb">
+        <dex dex="C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.2.1_1277049c3f1d25f8d173594d6011d2c5ae02d793\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\franc\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-tasks\1.4.0\d85884acf6810a3bbbecb587f239005cbc846dc4\bolts-tasks-1.4.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\transforms\dex\debug\folders\1000\10\bolts-tasks-1.4.0_7844e3ba039fd9cf2fc6f78a7f1049151f2a935c\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="3469cb457f10f74c28cbc05f069b6c894f6cbdd0">
+        <dex dex="C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.2.1_1815c8c9da6c69d6e4900bbf62d53548c54e3244\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\franc\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-applinks\1.4.0\8ad21bf21784dacce5f2043afb97218cc377e835\bolts-applinks-1.4.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="8ad21bf21784dacce5f2043afb97218cc377e835">
+        <dex dex="C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\transforms\dex\debug\folders\1000\10\bolts-applinks-1.4.0_ae50186b56d970aac4c716398dd4d0b034536809\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="e3885783ff8926ed9e2fdcd16816c2e1e73e7aee">
+        <dex dex="C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-23.2.1_d032c3be00f5c0300c7ae315f65b84b87b58a840\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.facebook.android\facebook-android-sdk\4.11.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="86da97c30f50a67ddabe2cf7040713ad17153fce">
+        <dex dex="C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.facebook.android-facebook-android-sdk-4.11.0_c3e7d6746255e6ea2cdeea99e994a7615f861684\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\design\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="72961d8b453b46e277702f18de9d210bc019e36e">
+        <dex dex="C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-23.2.1_7aade984d2ac69ef52a66c97b2538b91ac4931c7\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="4a4a5b509970265ea43fe24decd3bcc87c430673">
+        <dex dex="C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_fbe2b6f014d2e6f3733498859201888738cfc4f8\classes.dex" />
+    </item>
+
+</items>

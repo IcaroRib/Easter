@@ -5,51 +5,45 @@
     android:layout_height="match_parent"
     android:backgroundTint="#ffffff">
 
-    <TextView
+    <LinearLayout
+        android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Easter"
-        android:textSize="90dp"
-        android:gravity="center"
-        android:id="@+id/tv_easter"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="150dp" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/access_not_logged"
-        android:id="@+id/bt_enter_not_logged"
-        android:layout_above="@+id/bt_sign_in"
-        android:layout_alignRight="@+id/bt_sign_in"
-        android:layout_alignEnd="@+id/bt_sign_in"
-        android:background="#4a67a6" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Easter"
+            android:textSize="90dp"
+            android:gravity="center"
+            android:id="@+id/tv_easter"/>
 
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/sign_in2"
-        android:id="@+id/bt_sign_in"
-        android:layout_above="@+id/bt_sign_up"
-        android:layout_alignLeft="@+id/bt_sign_up"
-        android:layout_alignStart="@+id/bt_sign_up"
-        android:capitalize="none"
-        android:background="#0c2459" />
 
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/sign_up"
-        android:id="@+id/bt_sign_up"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="80dp"
-        android:background="#56bc7f" />
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/sign_in2"
+            android:id="@+id/bt_sign_in"
+            android:layout_marginTop="80dp"
+            android:layout_marginBottom="10dp"
+            android:background="#0c2459" />
+
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="@string/sign_up"
+            android:id="@+id/bt_sign_up"
+            android:layout_marginBottom="10dp"
+            android:background="#56bc7f" />
+
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/login_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
 
 </RelativeLayout>

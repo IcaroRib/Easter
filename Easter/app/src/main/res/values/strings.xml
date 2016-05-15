@@ -12,5 +12,7 @@
     <string name="sign_in">GO!</string>
     <string name="access_not_logged">Access without login</string>
 
+    <string name="facebook_app_id">1734181510128618</string>
+    <string name="fb_login_protocol_scheme">fbAPP_ID</string>
 
 </resources>

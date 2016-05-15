@@ -22,7 +22,6 @@
         android:id="@+id/et_name_user"
         android:singleLine="true"
         android:layout_gravity="center_horizontal"
-        android:autoText="false"
         android:hint="@string/complete_name"
         android:layout_marginTop="75dp" />
 
@@ -41,7 +40,8 @@
         android:ems="10"
         android:id="@id/et_username"
         android:layout_gravity="center_horizontal"
-        android:hint="@string/username" />
+        android:hint="@string/username"
+        android:singleLine="true" />
 
     <EditText
         android:layout_width="300dp"

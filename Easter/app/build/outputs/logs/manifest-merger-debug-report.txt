@@ -1,102 +1,132 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml:2:1-30:12
+ADDED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml:2:1-39:12
 	package
-		ADDED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml:3:5-35
-		INJECTED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml:3:5-35
+		INJECTED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml:2:11-69
+		ADDED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml:2:11-69
 	android:versionCode
-		INJECTED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml
 application
-ADDED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml:5:5-28:19
-MERGED from [com.android.support:appcompat-v7:23.2.1] C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.2.1\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-v4:23.2.1] C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:animated-vector-drawable:23.2.1] C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.2.1\AndroidManifest.xml:7:5-20
-MERGED from [com.android.support:support-vector-drawable:23.2.1] C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.2.1\AndroidManifest.xml:7:5-20
-MERGED from [com.android.support:support-v4:23.2.1] C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:support-vector-drawable:23.2.1] C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.2.1\AndroidManifest.xml:7:5-20
-MERGED from [com.android.support:support-v4:23.2.1] C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:design:23.2.1] C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\design\23.2.1\AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:support-v4:23.2.1] C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:appcompat-v7:23.2.1] C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.2.1\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-v4:23.2.1] C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:animated-vector-drawable:23.2.1] C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.2.1\AndroidManifest.xml:7:5-20
-MERGED from [com.android.support:support-vector-drawable:23.2.1] C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.2.1\AndroidManifest.xml:7:5-20
-MERGED from [com.android.support:support-v4:23.2.1] C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:support-vector-drawable:23.2.1] C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.2.1\AndroidManifest.xml:7:5-20
-MERGED from [com.android.support:support-v4:23.2.1] C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:support-v4:23.2.1] C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:22:5-20
+ADDED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml:5:5-37:19
+MERGED from [com.android.support:appcompat-v7:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.2.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-v4:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:animated-vector-drawable:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.2.1\AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-vector-drawable:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.2.1\AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-v4:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-vector-drawable:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.2.1\AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-v4:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:design:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\design\23.2.1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:appcompat-v7:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.2.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-v4:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:animated-vector-drawable:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.2.1\AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-vector-drawable:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.2.1\AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-v4:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-vector-drawable:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.2.1\AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-v4:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:22:5-20
+MERGED from [com.facebook.android:facebook-android-sdk:4.11.0] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.facebook.android\facebook-android-sdk\4.11.0\AndroidManifest.xml:28:5-20
+MERGED from [com.android.support:support-v4:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:cardview-v7:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.2.1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:customtabs:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\customtabs\23.2.1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:22:5-20
 	android:label
-		ADDED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml:8:9-41
+		ADDED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml:8:9-41
 	android:supportsRtl
-		ADDED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml:9:9-35
+		ADDED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml:9:9-35
 	android:allowBackup
-		ADDED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml:6:9-35
+		ADDED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml:6:9-35
 	android:icon
-		ADDED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml:7:9-43
+		ADDED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml:7:9-43
 	android:theme
-		ADDED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml:10:9-40
-activity#bsi.pp_2016_1.easter.GUI.StartScreenActivity
-ADDED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml:11:9-21:20
+		ADDED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml:10:9-40
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml:12:9-70
+	android:name
+		ADDED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml:12:26-68
+activity#bsi.pp_2016_1.easter.gui.StartScreenActivity
+ADDED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml:13:9-24:20
 	android:label
-		ADDED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml:13:13-45
+		ADDED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml:15:13-45
 	android:theme
-		ADDED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml:14:13-56
+		ADDED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml:16:13-56
 	android:name
-		ADDED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml:12:13-52
+		ADDED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml:14:13-52
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml:15:13-19:29
+ADDED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml:18:13-22:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml:16:17-69
+ADDED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml:19:17-69
 	android:name
-		ADDED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml:16:25-66
+		ADDED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml:19:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml:18:17-77
+ADDED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml:21:17-77
 	android:name
-		ADDED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml:18:27-74
-activity#bsi.pp_2016_1.easter.GUI.MediaListActivity
-ADDED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml:22:9-59
+		ADDED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml:21:27-74
+activity#bsi.pp_2016_1.easter.gui.SignInActivity
+ADDED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml:26:9-55
 	android:name
-		ADDED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml:22:19-56
-activity#bsi.pp_2016_1.easter.GUI.SignInActivity
-ADDED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml:23:9-55
+		ADDED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml:26:19-53
+activity#bsi.pp_2016_1.easter.gui.SignUpActivity
+ADDED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml:27:9-55
 	android:name
-		ADDED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml:23:19-53
-activity#bsi.pp_2016_1.easter.GUI.SignUpActivity
-ADDED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml:25:9-55
+		ADDED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml:27:19-53
+activity#bsi.pp_2016_1.easter.gui.MediaListScreenActivity
+ADDED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml:28:9-64
 	android:name
-		ADDED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml:25:19-53
+		ADDED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml:28:19-62
+activity#com.facebook.FacebookActivity
+ADDED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml:30:9-34:48
+	android:label
+		ADDED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml:34:13-45
+	android:configChanges
+		ADDED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml:31:13-114
+	android:theme
+		ADDED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml:33:13-72
+	android:name
+		ADDED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml:30:19-63
+meta-data#com.facebook.sdk.ApplicationId
+ADDED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml:35:9-107
+	android:value
+		ADDED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml:35:66-105
+	android:name
+		ADDED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml:35:20-65
 uses-sdk
-INJECTED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-MERGED from [com.android.support:appcompat-v7:23.2.1] C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.2.1\AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:support-v4:23.2.1] C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:animated-vector-drawable:23.2.1] C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.2.1\AndroidManifest.xml:5:5-44
-MERGED from [com.android.support:support-vector-drawable:23.2.1] C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.2.1\AndroidManifest.xml:5:5-43
-MERGED from [com.android.support:support-v4:23.2.1] C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:support-vector-drawable:23.2.1] C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.2.1\AndroidManifest.xml:5:5-43
-MERGED from [com.android.support:support-v4:23.2.1] C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:design:23.2.1] C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\design\23.2.1\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:support-v4:23.2.1] C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:appcompat-v7:23.2.1] C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.2.1\AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:support-v4:23.2.1] C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:animated-vector-drawable:23.2.1] C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.2.1\AndroidManifest.xml:5:5-44
-MERGED from [com.android.support:support-vector-drawable:23.2.1] C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.2.1\AndroidManifest.xml:5:5-43
-MERGED from [com.android.support:support-v4:23.2.1] C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:support-vector-drawable:23.2.1] C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.2.1\AndroidManifest.xml:5:5-43
-MERGED from [com.android.support:support-v4:23.2.1] C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:recyclerview-v7:23.2.1] C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.2.1\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:support-v4:23.2.1] C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:20:5-43
+INJECTED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:appcompat-v7:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.2.1\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:support-v4:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:animated-vector-drawable:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.2.1\AndroidManifest.xml:5:5-44
+MERGED from [com.android.support:support-vector-drawable:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.2.1\AndroidManifest.xml:5:5-43
+MERGED from [com.android.support:support-v4:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-vector-drawable:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.2.1\AndroidManifest.xml:5:5-43
+MERGED from [com.android.support:support-v4:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:design:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\design\23.2.1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:appcompat-v7:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.2.1\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:support-v4:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:animated-vector-drawable:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.2.1\AndroidManifest.xml:5:5-44
+MERGED from [com.android.support:support-vector-drawable:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.2.1\AndroidManifest.xml:5:5-43
+MERGED from [com.android.support:support-v4:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-vector-drawable:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.2.1\AndroidManifest.xml:5:5-43
+MERGED from [com.android.support:support-v4:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:recyclerview-v7:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.2.1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:20:5-43
+MERGED from [com.facebook.android:facebook-android-sdk:4.11.0] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.facebook.android\facebook-android-sdk\4.11.0\AndroidManifest.xml:24:5-26:41
+MERGED from [com.android.support:support-v4:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:cardview-v7:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.2.1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:customtabs:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\customtabs\23.2.1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:20:5-43
 	tools:overrideLibrary
-		ADDED from [com.android.support:appcompat-v7:23.2.1] C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.2.1\AndroidManifest.xml:23:9-75
+		ADDED from [com.android.support:appcompat-v7:23.2.1] C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.2.1\AndroidManifest.xml:23:9-75
 	android:targetSdkVersion
-		INJECTED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\franc\Desktop\Easter.git\trunk\Easter\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\franc\Desktop\Nova pasta\trunk\Easter\app\src\main\AndroidManifest.xml

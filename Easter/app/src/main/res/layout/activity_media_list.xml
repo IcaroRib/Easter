@@ -1,59 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/search_button">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <SearchView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btSearch"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="40dp"
-        android:textAlignment="center"
-        android:id="@+id/tv_category"
-        android:layout_below="@+id/btSearch"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Newest"
-        android:textSize="35dp"
-        android:id="@+id/tv_newest"
-        android:layout_marginTop="40dp"
-        android:layout_below="@+id/tv_category"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="28dp"
-        android:layout_marginStart="28dp" />
-
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:orientation="vertical"
+    <ListView
+        android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/tv_newest"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        tools:context=".gui.listDisplay">
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true">
+    </ListView>
 
-
-        <ListView
-            android:id="@+id/newsList"
-            android:layout_width="419dp"
-            android:layout_height="match_parent"
-            android:divider="#FFECECEC"
-            android:dividerHeight="7sp">
-
-        </ListView>
-    </LinearLayout>
-</RelativeLayout>
+</LinearLayout>
