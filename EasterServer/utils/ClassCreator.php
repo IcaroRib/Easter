@@ -1,3 +1,4 @@
+
 <?php
 
 /**
@@ -337,5 +338,6 @@ class ClassCreator
 
         return $comment;
     }
+
 
 }

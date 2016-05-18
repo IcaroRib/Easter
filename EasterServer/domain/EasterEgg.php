@@ -1,3 +1,4 @@
+
 <?php
 
 class EasterEgg implements JsonSerializable{
@@ -171,3 +172,4 @@ class EasterEgg implements JsonSerializable{
 }
 
 ?>
+
