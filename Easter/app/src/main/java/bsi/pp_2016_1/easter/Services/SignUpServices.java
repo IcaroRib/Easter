@@ -1,6 +1,5 @@
 package bsi.pp_2016_1.easter.Services;
 
-
 import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
@@ -13,52 +12,42 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by franc on 30/04/2016.
+ * Created by Lucas on 13/05/2016.
  */
-public class LoginServices {
+public class SignUpServices {
 
-    private Context ct;
-    private RequestQueue rq;
 
-    public static boolean login(String username, String password, final Context ct){
-        StringBuilder pwd = new StringBuilder();
-        pwd.append(password);
-        pwd.append("StanLee");
+    public static boolean signup(Map<String, String> params,final Context ct){
 
-        Map<String, String> credentials = new HashMap<>();
+        params = formattedCredentials(params);
 
-        credentials.put("username", username);
-        credentials.put("password", pwd.toString());
-
-        //TODO: Implementar logica referente ao login do usuario
-        RestConnector.get(
-                "/user/login",
-                credentials,
+        //TODO: Implementar logica referente ao cadastro de usuario
+        RestConnector.post(
+                "/user/create",
+                params,
                 new Response.Listener<String>() {
 
                     @Override
                     public void onResponse(String response) {
-
                         try {
                             JSONObject responseObj = new JSONObject(response);
-                            Log.i("Response", response);
 
-                        } catch(JSONException e) {
-                            e.printStackTrace();
+
+                        } catch (JSONException e) {
                             Log.e("JSON Parse Error", response);
+                            e.printStackTrace();
                         }
-
                     }
-
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(ct, error.getMessage(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(ct, error.getMessage(), Toast.LENGTH_SHORT).show();
+                        Log.e("Connection Error", error.getMessage());
+                        error.printStackTrace();
                     }
                 },
                 ct
@@ -66,4 +55,17 @@ public class LoginServices {
 
         return true;
     }
+
+    private static Map<String, String> formattedCredentials(Map<String, String> params) {
+        StringBuilder pwd = new StringBuilder();
+        pwd.append(params.get("password"));
+        pwd.append("AlanMoore");
+
+        params.put("password", pwd.toString());
+
+        return (params);
+    }
 }
+
+
+
