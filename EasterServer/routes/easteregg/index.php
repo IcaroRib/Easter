@@ -1,18 +1,14 @@
 <?php
-    include_once("../../dominio/Media.php");
-	include_once("../../dominio/EasterEgg.php");
-	include_once("../../services/EasterEggService.php");
+    include_once("../../utils/ClassCreator.php");
+    include_once("../../domain/EasterEgg.php");
+    include_once("../../domain/Reference.php");
+    include_once("../../domain/Commentary.php");
+    include_once("../../services/media/EasterEggService.php");
+    include_once("../../dao/easteregg/EasterEggDAO.php");
 
     if(isset($_POST)){
         
-        $ee = new EasterEgg();
-        
-        if(isset($_POST['id'])) $ee->setId($_POST['id']);
-        if(isset($_POST['description'])) $ee->setDescription($_POST['description']);
-        if (isset($_POST['idAuthor'])) $ee->setIdAuthor($_POST['idAuthor']);
-        if (isset($_POST['authorName'])) $ee->setAuthorName($_POST['authorName']);
-        if (isset($_POST['tasks'])) $ee->setTasks($_POST['tasks']);
-        if (isset($_POST['references'])) $ee->setReferences($_POST['references']);
+        $ee = ClassCreator::createEasterEggFromJson($_POST["easteregg"]);
         
         if (empty($_POST['operation'])) return false;
         
@@ -29,6 +25,17 @@
                 break;
             case "findById":
                 $eeService->findById($ee->getId());
+                break;
+            case "createReferences":
+                $eeService->createReferences($ee);
+                break;
+            case "createComment":
+                $comment = ClassCreator::createCommentFromJson($_POST["comment"]);
+                $eeService->createComment($ee,$comment);
+                break;
+            case "editComment":
+                $comment = ClassCreator::createCommentFromJson($_POST["comment"]);
+                $eeService->editComment($comment);
                 break;
             case "completeTask":
                 if (empty($task)) break;

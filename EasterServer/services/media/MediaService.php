@@ -94,6 +94,7 @@ class MediaService
                 $easteregg->setTasks($taskList);
             }
             $easteregg->setReferences($this->getEasterEggsDB()->findReferencesById($easteregg->getId()));
+            $easteregg->setCommentaries($this->getEasterEggsDB()->findCommentariesById($easteregg->getId()));
         }
 
         return $newMedia;

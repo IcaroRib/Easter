@@ -37,6 +37,39 @@ class EasterEggService{
          $this->easterEggDB->findCompleteById($id);
      }
 
+    /**
+     * @param EasterEgg $easterEgg
+     */
+    public function createReferences($easterEgg){
+        
+        $cont = 0;
+        /** @var Reference $reference */
+        foreach ($easterEgg->getReferences() as $reference) {
+            $this->easterEggDB->createReference($easterEgg->getId(),$reference);
+        }        
+        return "ok";
+        
+    }
+
+    /**
+     * @param EasterEgg $easterEgg
+     * @param Commentary $comment
+     * @return string
+     */
+    public function createComment($easterEgg,$comment){
+
+        $this->easterEggDB->createComment($comment->getIdAuthor(),$easterEgg->getId(), $comment);
+        return "ok";
+
+    }
+
+    public function editComment($comment){
+
+        $this->easterEggDB->editComment($comment);
+        return "ok";
+
+    }
+
 }
 
 ?>
