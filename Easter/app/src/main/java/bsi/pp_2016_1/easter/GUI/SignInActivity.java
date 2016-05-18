@@ -8,7 +8,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import bsi.pp_2016_1.easter.R;
+import bsi.pp_2016_1.easter.Services.LoginServices;
 
 /**
  * Created by franc on 01/05/2016.
@@ -37,7 +41,9 @@ public class SignInActivity extends Activity{
                 }else {
                     intent.putExtra("username", username);
                     intent.putExtra("password", password);
-                    // LoginServices.login(username, password);
+
+                    LoginServices.login(username, password, SignInActivity.this);
+
                     startActivity(intent);
                     Toast.makeText(getApplicationContext(), ("Login feito"), Toast.LENGTH_SHORT).show();
                 }
