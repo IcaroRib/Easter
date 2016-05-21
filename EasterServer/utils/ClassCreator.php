@@ -195,8 +195,8 @@ class ClassCreator
             $media->setImage($mediaArrayQuery["image"]);
         }
 
-        if(isset($mediaArrayQuery["mediumScore"])){
-            $media->setScore($mediaArrayQuery["mediumScore"]);
+        if(isset($mediaArrayQuery["averageScore"])){
+            $media->setAverageScore($mediaArrayQuery["averageScore"]);
         }
 
         if(isset($mediaArrayQuery["User_idUser"])){
@@ -298,7 +298,7 @@ class ClassCreator
         }
 
         if(isset($commentArrayQuery["date"])){
-            $comment->getDate($commentArrayQuery["date"]);
+            $comment->setDate($commentArrayQuery["date"]);
         }
 
         return $comment;

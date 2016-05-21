@@ -8,6 +8,7 @@ class Media implements JsonSerializable{
 	private $image;
 	private $isFavorite;
 	private $easterEggs;
+    private $averageScore;
 
 	function Media(){
 		$this->id = 0;
@@ -111,6 +112,22 @@ class Media implements JsonSerializable{
         $this->easterEggs = $easterEggs;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getAverageScore()
+    {
+        return $this->averageScore;
+    }
+
+    /**
+     * @param mixed $averageScore
+     */
+    public function setAverageScore($averageScore)
+    {
+        $this->averageScore = $averageScore;
+    }
+
 
     /**
      * Specify data which should be serialized to JSON
@@ -126,6 +143,7 @@ class Media implements JsonSerializable{
             'title' => $this->title,
             'category' => $this->category,
             'image' => $this->image,
+            'averageScore' => $this->averageScore,
             'isFavorite' => $this->isFavorite,
             'easterEggs' => $this->easterEggs
         ];

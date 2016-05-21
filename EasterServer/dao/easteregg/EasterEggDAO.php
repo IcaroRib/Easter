@@ -5,7 +5,7 @@ class EasterEggDAO{
     public $connection;
 
     function EasterEggDAO(){
-        $this->connection = new mysqli('localhost','neto','123456','easter');
+        $this->connection = new mysqli('localhost','root','JME.megasin-02','easter');
     }
 
     function desconnect(){
