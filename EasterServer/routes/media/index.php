@@ -18,6 +18,18 @@
         echo json_encode($mediaService->find($searchType,$media));
 	}
 
+	if($_POST["operation"] == "findVarious"){
+	
+		$searchType = $_POST["type"];
+		$categories = array();
+		if(!empty($_POST["categories"])){
+			$categories = $_POST["categories"];
+		}
+		$start = $_POST["start"];
+		$mediaService = new MediaService();
+		echo json_encode($mediaService->findVarious($searchType,$start,$categories));
+	}
+
 	if($_POST["operation"] == "evaluate"){
 
 		$easteregg = ClassCreator::createEasterEggFromJson($_POST['easteregg']);

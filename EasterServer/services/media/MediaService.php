@@ -66,13 +66,25 @@ class MediaService
             return $this->findById($media);
         }
 
-        else if($searchType == "recents"){
-            return $this->getMediaDB()->findRecents();
-        }
-
-
         $this->getMediaDB()->desconnect();
 
+    }
+
+    public function findVarious($searchType, $start, $categories){
+
+        if($searchType == "recents"){
+            return $this->getMediaDB()->findRecents($categories,$start);
+        }
+
+        else if($searchType == "bests"){
+            return $this->getMediaDB()->findBestEvalueteds($categories,$start);
+        }
+
+        else if($searchType == "falloweds"){
+            return $this->getMediaDB()->findMostFallowed($categories,$start);
+        }
+
+        $this->getMediaDB()->desconnect();
     }
 
     /**
@@ -98,6 +110,7 @@ class MediaService
             $easteregg->setCommentaries($this->getEasterEggsDB()->findCommentariesById($easteregg->getId()));
         }
 
+        $this->getMediaDB()->desconnect();
         return $newMedia;
 
     }
@@ -111,6 +124,7 @@ class MediaService
 
         $evaluation = $this->getEasterEggsDB()->selectEvaluation($easteregg->getId(), $user->getId());
         if($evaluation == true){
+
             return $this->getEasterEggsDB()->updateEasterEggEvaluation($easteregg->getId(), $user->getId(), $easteregg->getScore());
         }  
         else{
@@ -143,6 +157,8 @@ class MediaService
             }
             
         }
+
+        $this->getMediaDB()->desconnect();
 
     }
 
