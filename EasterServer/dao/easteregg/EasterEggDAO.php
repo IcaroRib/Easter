@@ -143,7 +143,7 @@ class EasterEggDAO{
 
     function updateEasterEggEvaluation($idEasterEgg,$idUser,$score)
     {
-        $stringSQL = "UPDATE evaluatedesteregg SET score = " . $score .
+        $stringSQL = "UPDATE evaluatedeasteregg SET score = " . $score .
                     " WHERE EasterEgg_idEasterEgg = " . $idEasterEgg . " and User_idUser = " . $idUser;
         $this->connection->query($stringSQL);
         return "Easter Egg avaliado com sucesso";
@@ -157,7 +157,7 @@ class EasterEggDAO{
      */
     function selectEvaluation($idEasterEgg,$idUser)
     {
-        $stringSQL = "SELECT * FROM evaluatedesteregg WHERE EasterEgg_idEasterEgg = " . $idEasterEgg . " and User_idUser = " . $idUser;
+        $stringSQL = "SELECT * FROM evaluatedeasteregg WHERE EasterEgg_idEasterEgg = " . $idEasterEgg . " and User_idUser = " . $idUser;
         $result_query = $this->connection->query($stringSQL);
         while($result = $result_query->fetch_assoc()){
             return true;
@@ -227,6 +227,7 @@ class EasterEggDAO{
         $stringSQL = "UPDATE comment set text = '". $comment->getText() ."' WHERE idComment = ". $comment->getId();
         $this->connection->query($stringSQL);
     }
+
 
 }
 ?>

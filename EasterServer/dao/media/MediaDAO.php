@@ -48,13 +48,88 @@
 
 		}
 
-		/**
+		/** @param array $filters
 		 * @return array
 		 */
-		function findRecents()
-		{
+		function findRecents($categories,$start){
 			$listMedia = array();
-			$stringSQL = "SELECT idMedia, category, image, title FROM media ORDER BY createdAt DESC LIMIT 20";
+			$stringSQL = "SELECT idMedia, category, image, title FROM media";
+
+			$mark = 0;
+			foreach ($categories as $category){
+				if ($mark == 0){
+					$stringSQL = $stringSQL . " WHERE category = '$category'";
+					$mark +=1;
+				}
+				else{
+					$stringSQL = $stringSQL . " or category = '$category'";
+				}
+			}
+			$stringSQL = $stringSQL . " ORDER BY createdAt DESC LIMIT " . $start . ", 20";
+			$result_query = $this->connection->query($stringSQL);
+			$cont = 0;
+			while ($result = $result_query->fetch_assoc()) {
+				$newMedia = ClassCreator::createMediaFromArrayQuerry($result);
+				$listMedia[$cont] = $newMedia;
+				$cont +=1;
+			}
+			return $listMedia;
+
+		}
+
+		/** @param $filters
+		 * @return array
+		 */
+		function findMostFallowed($categories,$start){
+			$listMedia = array();
+			$stringSQL = "SELECT idMedia, category, image, title, count(User_idUser) as qtyFallowers
+ 							FROM media INNER JOIN fallowedmedia ON Media_idMedia = idMedia";
+			$mark = 0;
+			foreach ($categories as $category){
+				if ($mark == 0){
+					$stringSQL = $stringSQL . " WHERE category = '$category'";
+					$mark +=1;
+				}
+				else{
+					$stringSQL = $stringSQL . " or category = '$category'";
+				}
+			}
+
+			$stringSQL = $stringSQL. " GROUP BY idMedia";
+			$stringSQL = $stringSQL. " ORDER BY qtyFallowers DESC LIMIT " . $start . ", 20";
+			$result_query = $this->connection->query($stringSQL);
+			$cont = 0;
+			while ($result = $result_query->fetch_assoc()) {
+				$newMedia = ClassCreator::createMediaFromArrayQuerry($result);
+				$listMedia[$cont] = $newMedia;
+				$cont +=1;
+			}
+			return $listMedia;
+
+		}
+
+		/** @param $filters
+		 * @return array
+		 */
+		function findBestEvalueteds($categories,$start){
+			$listMedia = array();
+			$stringSQL = "SELECT media.idMedia, category, image, title, AVG(score) as averageScore
+ 							FROM media INNER JOIN easteregg ON media.idMedia = easteregg.idMedia
+ 							INNER JOIN evaluatedeasteregg ON idEasterEgg = EasterEgg_idEasterEgg";
+
+			$mark = 0;
+			foreach ($categories as $category){
+				if ($mark == 0){
+					$stringSQL = $stringSQL . " WHERE category = '$category'";
+					$mark +=1;
+				}
+				else{
+					$stringSQL = $stringSQL . " or category = '$category'";
+				}
+			}
+
+			$stringSQL = $stringSQL. " GROUP BY idMedia";
+			$stringSQL = $stringSQL. " ORDER BY averageScore DESC LIMIT " . $start . ", 20";
 			$result_query = $this->connection->query($stringSQL);
 			$cont = 0;
 			while ($result = $result_query->fetch_assoc()) {
@@ -77,7 +152,6 @@
             $stringSQL = "INSERT INTO fallowedmedia (User_idUser, Media_idMedia, createdAt) 
                           VALUES ($idAuthor,$idMedia,'" . $time->format('Y-m-d H:i:s') . "')";
             $this->connection->query($stringSQL);
-            echo $stringSQL;
             return "Obra seguida com sucesso";
 
         }
