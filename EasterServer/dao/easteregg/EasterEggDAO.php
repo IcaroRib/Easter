@@ -5,7 +5,7 @@ class EasterEggDAO{
     public $connection;
 
     function EasterEggDAO(){
-        $this->connection = new mysqli('localhost','root','JME.megasin-02','easter');
+        $this->connection = new mysqli('localhost','neto','123456','easter');
     }
 
     function desconnect(){
@@ -28,21 +28,13 @@ class EasterEggDAO{
         var_dump($stringSQL);
     }
 
-    function markTaskAsComplete($EasterEgg,$task){
-
-        $stringSQL("UPDATE task set status = 1 where id = ". $task->id); /*Status is double type (?) */
-
-        $result_query = $this->connection->query($stringSQL);
-    }
-
     function onChange($EasterEgg){
 
         $stringSQL = "UPDATE easteregg set
-            description = ". $EasterEgg->description
-            .", image = ". $EasterEgg->image
-            .", status = ". $EasterEgg->status
-            .", tasklist = ". $EasterEgg->tasklist
-            ." WHERE id = ". $EasterEgg->id;
+            description = '". $EasterEgg->getDescription()
+            ."', imageUrl = '". $EasterEgg->getImageUrl()
+            ."' WHERE idEasterEgg = ". $EasterEgg->getId();
+
 
         $result_query = $this->connection->query($stringSQL);
 
@@ -234,7 +226,7 @@ class EasterEggDAO{
 
         $stringSQL = "UPDATE comment set text = '". $comment->getText() ."' WHERE idComment = ". $comment->getId();
         $this->connection->query($stringSQL);
-    }       
+    }
 
 }
 ?>
