@@ -31,8 +31,8 @@ class EasterEggDAO{
     function onChange($EasterEgg){
 
         $stringSQL = "UPDATE easteregg set
-            description = '". $EasterEgg->getDescription()
-            ."', imageUrl = '". $EasterEgg->getImageUrl()
+            description = '". utf8_decode($EasterEgg->getDescription())
+            ."', imageUrl = '". utf8_decode($EasterEgg->getImageUrl())
             ."' WHERE idEasterEgg = ". $EasterEgg->getId();
 
 
