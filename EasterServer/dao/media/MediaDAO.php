@@ -38,7 +38,10 @@
 		function findMediaById($id)
 		{
 			$newMedia = new Media();
-			$stringSQL = "SELECT * FROM media left outer join fallowedmedia on idMedia = Media_idMedia WHERE idMedia = " . $id;
+			$stringSQL = "SELECT *, AVG(score) as averageScore FROM media left outer join fallowedmedia on media.idMedia = Media_idMedia
+ 							FROM media INNER JOIN easteregg ON media.idMedia = easteregg.idMedia
+ 							INNER JOIN evaluatedeasteregg ON idEasterEgg = EasterEgg_idEasterEgg
+ 							WHERE mdia.idMedia = " . $id . " GROUP BY media.idMedia";
 			$result_query = $this->connection->query($stringSQL);
 			while ($result = $result_query->fetch_assoc()) {
 				$newMedia = ClassCreator::createMediaFromArrayQuerry($result);
@@ -53,7 +56,9 @@
 		 */
 		function findRecents($categories,$start){
 			$listMedia = array();
-			$stringSQL = "SELECT idMedia, category, image, title FROM media";
+			$stringSQL = "SELECT *, AVG(score) as averageScore FROM media left outer join fallowedmedia on media.idMedia = Media_idMedia
+ 							INNER JOIN easteregg ON media.idMedia = easteregg.idMedia
+ 							INNER JOIN evaluatedeasteregg ON idEasterEgg = EasterEgg_idEasterEgg";
 
 			$mark = 0;
 			foreach ($categories as $category){
@@ -65,7 +70,8 @@
 					$stringSQL = $stringSQL . " or category = '$category'";
 				}
 			}
-			$stringSQL = $stringSQL . " ORDER BY createdAt DESC LIMIT " . $start . ", 20";
+			$stringSQL = $stringSQL . " GROUP BY media.idMedia";
+			$stringSQL = $stringSQL . " ORDER BY media.createdAt DESC LIMIT " . $start . ", 20";
 			$result_query = $this->connection->query($stringSQL);
 			$cont = 0;
 			while ($result = $result_query->fetch_assoc()) {
@@ -82,8 +88,10 @@
 		 */
 		function findMostFallowed($categories,$start){
 			$listMedia = array();
-			$stringSQL = "SELECT idMedia, category, image, title, count(User_idUser) as qtyFallowers
- 							FROM media INNER JOIN fallowedmedia ON Media_idMedia = idMedia";
+			$stringSQL = "SELECT media.idMedia, category, image, title, count(fallowedmedia.User_idUser) as qtyFallowers, AVG(score) as averageScore 
+							FROM media left outer join fallowedmedia on media.idMedia = Media_idMedia
+ 							INNER JOIN easteregg ON media.idMedia = easteregg.idMedia
+ 							INNER JOIN evaluatedeasteregg ON idEasterEgg = EasterEgg_idEasterEgg";
 			$mark = 0;
 			foreach ($categories as $category){
 				if ($mark == 0){
@@ -95,10 +103,11 @@
 				}
 			}
 
-			$stringSQL = $stringSQL. " GROUP BY idMedia";
+			$stringSQL = $stringSQL. " GROUP BY media.idMedia";
 			$stringSQL = $stringSQL. " ORDER BY qtyFallowers DESC LIMIT " . $start . ", 20";
 			$result_query = $this->connection->query($stringSQL);
 			$cont = 0;
+			echo $stringSQL;
 			while ($result = $result_query->fetch_assoc()) {
 				$newMedia = ClassCreator::createMediaFromArrayQuerry($result);
 				$listMedia[$cont] = $newMedia;
@@ -128,7 +137,7 @@
 				}
 			}
 
-			$stringSQL = $stringSQL. " GROUP BY idMedia";
+			$stringSQL = $stringSQL. " GROUP BY media.idMedia";
 			$stringSQL = $stringSQL. " ORDER BY averageScore DESC LIMIT " . $start . ", 20";
 			$result_query = $this->connection->query($stringSQL);
 			$cont = 0;
