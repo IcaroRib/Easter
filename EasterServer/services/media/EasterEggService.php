@@ -47,7 +47,7 @@ class EasterEggService{
         foreach ($easterEgg->getReferences() as $reference) {
             $this->easterEggDB->createReference($easterEgg->getId(),$reference);
         }        
-        return "ok";
+        return "Referencias criadas com sucesso";
         
     }
 
@@ -58,15 +58,13 @@ class EasterEggService{
      */
     public function createComment($easterEgg,$comment){
 
-        $this->easterEggDB->createComment($comment->getIdAuthor(),$easterEgg->getId(), $comment);
-        return "ok";
+        return $this->easterEggDB->createComment($comment->getIdAuthor(),$easterEgg->getId(), $comment);
 
     }
 
     public function editComment($comment){
 
-        $this->easterEggDB->editComment($comment);
-        return "ok";
+        return $this->easterEggDB->editComment($comment);
 
     }
 

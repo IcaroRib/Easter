@@ -207,6 +207,7 @@ class EasterEggDAO{
     /**
      * @param int $getId
      * @param Commentary $comment
+     * @return Commentary
      */
     public function createComment($idAuthor, $idEasterEgg, $comment){
         $time = new DateTime();
@@ -217,15 +218,20 @@ class EasterEggDAO{
                     . $time->format('Y-m-d H:i:s') . "')";
 
         $this->connection->query($stringSQL);
+        $comment->setId($this->connection->insert_id);
+        
+        return $comment;
     }
 
     /**
      * @param Commentary $comment
+     * @return string
      */
     public function editComment($comment){
 
         $stringSQL = "UPDATE comment set text = '". $comment->getText() ."' WHERE idComment = ". $comment->getId();
         $this->connection->query($stringSQL);
+        return "Comentário editado com sucesso";
     }
 
 
