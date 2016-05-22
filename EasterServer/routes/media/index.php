@@ -46,4 +46,13 @@
 		echo json_encode($mediaService->fallowMedia($user,$media));
 	}
 
+	if($_POST["operation"] == "unfallow"){
+	
+		$media = ClassCreator::createMediaFromJson($_POST['media']);
+		$user = ClassCreator::createUserFromJson($_POST['user']);
+		$mediaService = new MediaService();
+		echo json_encode($mediaService->unFallowMedia($user,$media));
+	}
+
+
 ?>

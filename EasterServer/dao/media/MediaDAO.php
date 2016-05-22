@@ -164,6 +164,11 @@
             return "Obra seguida com sucesso";
 
         }
+
+		function unFallowMedia($idMedia, $idAuthor){
+			$stringSQL = "DELETE FROM fallowedmedia WHERE Media_idMedia = $idMedia and User_idUser = $idAuthor; ";
+			$this->connection->query($stringSQL);
+		}
 		
 	}
 ?>

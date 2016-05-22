@@ -166,26 +166,30 @@ class EasterEggDAO{
 
     }
 
-    function fallowEasterEgg($idEasterEgg, $idUser)
-    {
+    public function fallowEasterEgg($idEasterEgg, $idUser){
         $time = new DateTime();
         $stringSQL = "INSERT INTO fallowedeasteregg (User_idUser, EasterEgg_idEasterEgg, createdAt)
                           VALUES ($idUser,$idEasterEgg,'" . $time->format('Y-m-d H:i:s') . "')";
         $this->connection->query($stringSQL);
-        echo $stringSQL;
-        return "Obra seguida com sucesso";
 
     }
 
-    function fallowTask($IdTask, $idUser)
-    {
+    public function unFallowEasterEgg($idEasterEgg, $idUser){
+        $stringSQL = "DELETE FROM fallowedeasteregg WHERE EasterEgg_idEasterEgg = $idEasterEgg and User_idUser = $idUser; ";
+        $this->connection->query($stringSQL);
+    }
+
+    public function fallowTask($IdTask, $idUser){
         $time = new DateTime();
         $stringSQL = "INSERT INTO fallowedTask (idUser, idTask, createdAt)
                           VALUES ($idUser,$IdTask,'" . $time->format('Y-m-d H:i:s') . "')";
-        echo $stringSQL;
         $this->connection->query($stringSQL);
-        return "Obra seguida com sucesso";
 
+    }
+
+    public function unFallowTask($IdTask, $idUser){
+        $stringSQL = "DELETE FROM fallowedTask WHERE idTask = $IdTask and idUser = $idUser; ";
+        $this->connection->query($stringSQL);
     }
 
     /**
@@ -233,7 +237,6 @@ class EasterEggDAO{
         $this->connection->query($stringSQL);
         return "Comentário editado com sucesso";
     }
-
 
 }
 ?>

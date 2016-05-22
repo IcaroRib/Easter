@@ -162,4 +162,28 @@ class MediaService
 
     }
 
+    public function unFallowMedia($user, $media)
+    {
+        $this->getMediaDB()->unFallowMedia($media->getId(), $user->getId());
+        $media = $this->getMediaDB()->findMediaById($media->getId());
+        $listEasterEggs = $this->getEasterEggsDB()->findByIdMedia($media->getId());
+        $media->setEasterEggs($listEasterEggs);
+
+        /** @var EasterEgg $easteregg */
+        foreach ($media->getEasterEggs() as $easteregg) {
+            $this->getEasterEggsDB()->unFallowEasterEgg($easteregg->getId(),$user->getId());
+            if($media->getCategory() == "jogo"){
+                $taskList = $this->getEasterEggsDB()->findTasksById($easteregg->getId());
+                $easteregg->setTasks($taskList);
+                /** @var Task $task */
+                foreach ($easteregg->getTasks() as $task) {
+                    $this->getEasterEggsDB()->unFallowTask($task->getId(),$user->getId());
+                }
+            }
+
+        }
+
+        $this->getMediaDB()->desconnect();
+    }
+
 }
