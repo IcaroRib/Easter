@@ -1,48 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="#ffffff">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:src="@drawable/happyalpacaslandscapeh" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/title" />
 
     <LinearLayout
-        android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:weightSum="1"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="false"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:baselineAligned="false"
+        android:id="@+id/linearLayout">
 
-        <TextView
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Easter"
-            android:textSize="90dp"
-            android:gravity="center"
-            android:id="@+id/tv_easter"/>
+            android:layout_height="match_parent"
+            android:layout_above="@+id/linearLayout"
+            android:layout_centerHorizontal="true">
 
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:text="@string/sign_up"
+                android:id="@+id/bt_sign_up"
+                android:background="#BCA734"
+                android:textColor="#fff" />
 
-        <Button
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/sign_in2"
-            android:id="@+id/bt_sign_in"
-            android:layout_marginTop="80dp"
-            android:layout_marginBottom="10dp"
-            android:background="#0c2459" />
-
-        <Button
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:text="@string/sign_up"
-            android:id="@+id/bt_sign_up"
-            android:layout_marginBottom="10dp"
-            android:background="#56bc7f" />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:gravity="center"
+                android:text="@string/sign_in2"
+                android:id="@+id/bt_sign_in"
+                android:background="#5E4825"
+                android:textColor="#fff" />
+        </LinearLayout>
 
         <com.facebook.login.widget.LoginButton
             android:id="@+id/login_button"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:clickable="true" />
+            android:elegantTextHeight="false"
+            android:paddingTop="21px"
+            android:paddingBottom="21px"
+            android:paddingLeft="200px"
+            android:paddingRight="120px" />
 
     </LinearLayout>
 
