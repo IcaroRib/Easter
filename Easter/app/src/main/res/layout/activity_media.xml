@@ -27,7 +27,9 @@
                 android:layout_height="250px"
                 android:id="@+id/imageView"
                 android:layout_gravity="center_horizontal"
-                android:src="@drawable/user_image" />
+                android:src="@drawable/user_image"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp" />
 
             <TextView
                 android:layout_width="wrap_content"

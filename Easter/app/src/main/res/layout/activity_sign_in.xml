@@ -4,13 +4,13 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="#ffffff">
+    android:background="@drawable/h1920">
 
-    <ImageView
+    <!-- <ImageView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:src="@drawable/happyalpacaslandscapeh"
-        android:id="@+id/imageView2" />
+        android:id="@+id/imageView2" /> -->
 
     <ImageView
         android:layout_width="match_parent"
@@ -35,7 +35,8 @@
             android:autoText="false"
             android:hint="@string/username"
             android:textColor="#fff"
-            android:focusable="false" />
+            android:focusable="true"
+            android:layout_marginBottom="5dp" />
 
         <EditText
             android:layout_width="300dp"
@@ -45,7 +46,8 @@
             android:id="@+id/et_password"
             android:layout_gravity="center_horizontal"
             android:hint="@string/password"
-            android:textColor="#fff"/>
+            android:textColor="#fff"
+            android:focusable="true" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
