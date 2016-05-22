@@ -8,12 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import bsi.pp_2016_1.easter.R;
 import bsi.pp_2016_1.easter.Services.Requisition;
-import bsi.pp_2016_1.easter.Services.SignUpServices;
 
 /**
  * Created by franc on 01/05/2016.
@@ -40,27 +36,17 @@ public class SignUpActivity extends Activity{
                 String username = etUsername.getEditableText().toString();
                 String password = etPassword.getEditableText().toString();
 
-                Intent intent = new Intent(SignUpActivity.this,ItemListView.class);
+                //Intent intent = new Intent(SignUpActivity.this,ApagarClassTeste.class);
                 if (name.equals("") || email.equals("") || username.equals("") || password.equals("") ){
                     Toast.makeText(getApplicationContext(), ("Please complete all fields"), Toast.LENGTH_SHORT).show();
                 }else {
-                    intent.putExtra("name", name);
+                  /*  intent.putExtra("name", name);
                     intent.putExtra("email", email);
                     intent.putExtra("username", username);
                     intent.putExtra("password", password);
-                    //Requisition.SignUpReq(name, email, username, password);
-
-                    Map<String, String> info = new HashMap<>();
-
-                    info.put("name", name);
-                    info.put("email", email);
-                    info.put("username", username);
-                    info.put("password", password);
-
-                    SignUpServices.signup(info, SignUpActivity.this);
-
+                    Requisition.SignUpReq(name, email, username, password);
                     //startActivity(intent);
-
+                    */
                     Toast.makeText(getApplicationContext(), ("Usuário criado"), Toast.LENGTH_SHORT).show();
                 }
             }
