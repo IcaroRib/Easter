@@ -131,31 +131,33 @@ class ClassCreator
     public static function createEasterEggFromJson($jsonMedia){
 
         $EasterEgg = new EasterEgg();
-        if(isset($jsonMedia["id"])){
-            $EasterEgg->setId($jsonMedia["id"]);
+        $jsonMedia = json_decode($jsonMedia);
+
+        if(isset($jsonMedia->id)){
+            $EasterEgg->setId($jsonMedia->id);
         }
 
-        if(isset($jsonMedia["description"])){
-            $EasterEgg->setDescription($jsonMedia["description"]);
+        if(isset($jsonMedia->description)){
+            $EasterEgg->setDescription($jsonMedia->description);
         }
 
-        if(isset($jsonMedia["score"])){
-            $EasterEgg->setScore($jsonMedia["score"]);
+        if(isset($jsonMedia->score)){
+            $EasterEgg->setScore($jsonMedia->score);
         }
 
-        if(isset($jsonMedia["imageUrl"])){
-            $EasterEgg->setImageUrl($jsonMedia["imageUrl"]);
+        if(isset($jsonMedia->imageUrl)){
+            $EasterEgg->setImageUrl($jsonMedia->imageUrl);
         }
 
-        if(isset($jsonMedia["authorName"])){
-            $EasterEgg->setAuthorName($jsonMedia["authorName"]);
+        if(isset($jsonMedia->authorName)){
+            $EasterEgg->setAuthorName($jsonMedia->authorName);
         }
 
-        if(isset($jsonMedia["idAuthor"])){
-            $EasterEgg->setIdAuthor($jsonMedia["idAuthor"]);
+        if(isset($jsonMedia->idAuthor)){
+            $EasterEgg->setIdAuthor($jsonMedia->idAuthor);
         }
 
-        if(isset($jsonMedia["references"])){
+        if(isset($jsonMedia->references)){
 
             $cont = 0;
             $references = array();
@@ -265,6 +267,9 @@ class ClassCreator
 
         if(isset($eeArrayQuery["mediumScore"])){
             $easterEgg->setScore($eeArrayQuery["mediumScore"]);
+        }
+        if(isset($eeArrayQuery["imageUrl"])){
+            $easterEgg->setImageUrl($eeArrayQuery["imageUrl"]);
         }
 
         return $easterEgg;

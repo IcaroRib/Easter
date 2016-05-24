@@ -5,7 +5,7 @@ class EasterEggDAO{
     public $connection;
 
     function EasterEggDAO(){
-        $this->connection = new mysqli('localhost','root','JME.megasin-02','easter');
+        $this->connection = new mysqli('localhost','neto','','easter');
     }
 
     function desconnect(){
@@ -34,7 +34,6 @@ class EasterEggDAO{
             description = '". utf8_decode($EasterEgg->getDescription())
             ."', imageUrl = '". utf8_decode($EasterEgg->getImageUrl())
             ."' WHERE idEasterEgg = ". $EasterEgg->getId();
-
 
         $result_query = $this->connection->query($stringSQL);
 
@@ -76,7 +75,7 @@ class EasterEggDAO{
         $stringSQL = "SELECT * FROM easteregg WHERE idEasterEgg = " . $id;
         $result_query = $this->connection->query($stringSQL);
         while ($result = $result_query->fetch_assoc()) {
-            $newEE = ClassCreator::createMediaFromArrayQuerry($result);
+            $newEE = ClassCreator::createEasterEggFromArrayQuerry($result);
             break;
         }
         return $newEE;
@@ -223,7 +222,7 @@ class EasterEggDAO{
 
         $this->connection->query($stringSQL);
         $comment->setId($this->connection->insert_id);
-        
+
         return $comment;
     }
 

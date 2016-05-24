@@ -7,15 +7,15 @@
     include_once("../../dao/easteregg/EasterEggDAO.php");
 
     if(isset($_POST)){
-        
+
         $ee = ClassCreator::createEasterEggFromJson($_POST["easteregg"]);
-        
+
         if (empty($_POST['operation'])) return false;
-        
+
         $operation = $_POST['operation'];
         if(!empty($_POST['completedTask'])) $task = $_POST['completedTask'];
         $eeService = new EasterEggService();
-        
+
         switch ($operation){
             case "new":
                 $eeService->insertNew($ee);
@@ -42,9 +42,9 @@
                 $eeService->maskTaskAsComplete($ee,$task);
                 break;
             default:
-                
+
         }
-        
-        
+
+
     }
 ?>
