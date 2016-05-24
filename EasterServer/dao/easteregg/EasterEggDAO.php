@@ -24,8 +24,7 @@ class EasterEggDAO{
             intval($EasterEgg->getidAuthor())
         );
         $stringSQL = "INSERT INTO easteregg (description,imageUrl,idMedia,idWritter) VALUES (". implode(",", $values) .")";
-        $result_query = $this->connection->getConnector()->query($stringSQL);
-        var_dump($stringSQL);
+        $result_query = $this->connection->query($stringSQL);
     }
 
     function onChange($EasterEgg){
@@ -43,7 +42,7 @@ class EasterEggDAO{
         $EElist =  array();
         $stringSQL = "SELECT idEasterEgg, description, easteregg.imageUrl, idWritter, AVG(score) as mediumScore
                       FROM easteregg INNER JOIN user ON idUser = idWritter
-                      INNER JOIN evaluatedeasteregg ON idEasterEgg = EasterEgg_idEasterEgg
+                      INNER JOIN evaluateeasteregg ON idEasterEgg = easteregg.idEasterEgg
 	 				  WHERE idMedia =" . $id . " GROUP BY idEasterEgg";
         $result_query = $this->connection->query($stringSQL);
         $cont = 0;

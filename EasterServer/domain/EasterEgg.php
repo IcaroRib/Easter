@@ -28,13 +28,13 @@ class EasterEgg implements JsonSerializable{
 	/**
 	 * @param mixed $id
 	 */
-	public function setIdMedia($id)
+	public function setIdMedia($idMedia)
 	{
-		$this->id = $id;
+		$this->idMedia = $idMedia;
 	}
 	public function getIdMedia()
 	{
-		return $this->id;
+		return $this->idMedia;
 	}
 
 	/**
@@ -172,4 +172,3 @@ class EasterEgg implements JsonSerializable{
 }
 
 ?>
-

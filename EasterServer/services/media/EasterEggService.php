@@ -10,8 +10,7 @@ class EasterEggService{
     }
 
     function insertNew($ee){
-				var_dump($ee->getDescription());
-				if (
+        if (
 					empty($ee->getDescription()) ||
 					empty($ee->getIdAuthor()) ||
 					empty($ee->getIdMedia())
@@ -24,10 +23,6 @@ class EasterEggService{
 
         $ee = $this->easterEggDB->findById($eeNew->getId());
 
-
-
-
-
         if (!empty($eeNew->getDescription())){
           $ee->setDescription($eeNew->getDescription());
         }
@@ -35,6 +30,7 @@ class EasterEggService{
         if (!empty($eeNew->getImageUrl())){
           $ee->setImageUrl($eeNew->getImageUrl());
         }
+
         $this->easterEggDB->onChange($ee);
     }
 

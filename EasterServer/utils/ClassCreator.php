@@ -137,6 +137,10 @@ class ClassCreator
             $EasterEgg->setId($jsonMedia->id);
         }
 
+        if(isset($jsonMedia->idMedia)){
+            $EasterEgg->setIdMedia($jsonMedia->idMedia);
+        }
+
         if(isset($jsonMedia->description)){
             $EasterEgg->setDescription($jsonMedia->description);
         }
