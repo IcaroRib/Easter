@@ -1,13 +1,16 @@
 package bsi.pp_2016_1.easter.Domain;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Midia {
+public class Media implements Serializable {
 	
 	private int id;
 	private String title;
 	private String midiaCategory;
 	private String imageUrl;
 	private ArrayList<EasterEgg> easterEggs;
+	private int rate;
 	
 	public int getId() {
 		return id;
@@ -50,6 +53,14 @@ public class Midia {
 	
 	public void removeEasterEgg(EasterEgg easterEgg){
 		this.easterEggs.remove(easterEgg);
+	}
+
+	public int getRate() {
+		return this.rate;
+	}
+
+	public void setRate(int rate) {
+		this.rate = rate;
 	}
 
 }

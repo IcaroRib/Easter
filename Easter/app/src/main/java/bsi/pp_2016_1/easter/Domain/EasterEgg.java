@@ -1,16 +1,19 @@
 package bsi.pp_2016_1.easter.Domain;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class EasterEgg {
-	
-	private int id;
-	private String description;
-	private String imageUrl;
-	private double progressStatus;
-	private int creatorId;
-	private String creatorName;
-	private ArrayList<Task> taskList;
-	private ArrayList<Reference> referenceList;
+public class EasterEgg implements Serializable {
+
+    private int id;
+    private String description;
+    private String title;
+    private double progressStatus;
+    private int creatorId;
+    private String creatorName;
+    private int rate;
+    private ArrayList<Task> taskList;
+    private ArrayList<Reference> referenceList;
 
 	public int getId() {
 		return id;
@@ -26,19 +29,20 @@ public class EasterEgg {
 		this.description = description;
 	}
 
-	public String getImageUrl() {
-		return imageUrl;
-	}
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
-	}
-
 	public double getProgressStatus() {
 		return progressStatus;
 	}
 	public void setProgressStatus(double progressStatus) {
 		this.progressStatus = progressStatus;
 	}
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
 	public int getCreatorId() {
 		return creatorId;
@@ -53,6 +57,14 @@ public class EasterEgg {
 	public void setCreatorName(String creatorName) {
 		this.creatorName = creatorName;
 	}
+
+    public int getRate() {
+        return this.rate;
+    }
+
+    public void setRate(int rate) {
+        this.rate = rate;
+    }
 
 	public ArrayList<Task> getTaskList() {
 		return taskList;

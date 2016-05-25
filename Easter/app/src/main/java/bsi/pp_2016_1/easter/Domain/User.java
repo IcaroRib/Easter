@@ -6,7 +6,7 @@ public class User {
 	private String profileName;
 	private String userName;
 	private int id;
-	private ArrayList<Midia> favoritedMidias;
+	private ArrayList<Media> favoritedMedias;
 	private ArrayList<EasterEgg> publishedEasterEggs;
 	
 	public String getProfileName() {
@@ -37,19 +37,20 @@ public class User {
 		this.publishedEasterEggs = publishedEasterEggs;
 	}
 
-	public ArrayList<Midia> getFavoritedMidias() {
-		return favoritedMidias;
+	public ArrayList<Media> getFavoritedMedias() {
+		return favoritedMedias;
 	}
-	public void setFavoritedMidias(ArrayList<Midia> favoritedMidias) {
-		this.favoritedMidias = favoritedMidias;
+
+	public void setFavoritedMedias(ArrayList<Media> favoritedMedias) {
+		this.favoritedMedias = favoritedMedias;
 	}
-	
-	public void addFavoritedMidia(Midia midia){
-		this.favoritedMidias.add(midia);
+
+	public void addFavoritedMidia(Media media) {
+		this.favoritedMedias.add(media);
 	}
-	
-	public void removeFavoritedMidia(Midia midia){
-		this.favoritedMidias.remove(midia);
+
+	public void removeFavoritedMidia(Media media) {
+		this.favoritedMedias.remove(media);
 	}
 	
 	public void addPublishedEasterEgg(EasterEgg easterEgg){

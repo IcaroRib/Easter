@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -23,7 +21,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Easter Egg short description"
-                android:id="@+id/textView"
+                android:id="@+id/egg_title"
                 android:textSize="60px"
                 android:textColor="#000"
                 android:typeface="sans"
@@ -35,7 +33,7 @@
                 style="?android:attr/ratingBarStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/ratingBar3"
+                android:id="@+id/egg_rating"
                 android:progressTint="#F0DC00"
                 android:rating="2"
                 android:layout_gravity="center_horizontal" />
@@ -50,9 +48,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                    android:id="@+id/textView2"
+                    android:id="@+id/egg_description"
                     android:textSize="40px"
-                    android:textColor="#a3a3a3"
+                    android:textColor="#000"
                     android:layout_gravity="center_horizontal" />
 
             </ScrollView>
@@ -60,9 +58,9 @@
         </LinearLayout>
 
         <TabHost
+            android:id="@+id/egg_tabs"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/tabHost2">
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -70,6 +68,7 @@
                 android:orientation="vertical">
 
                 <TabWidget
+                    android:id="@android:id/tabs"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"></TabWidget>
@@ -77,36 +76,37 @@
                 <FrameLayout
                     android:id="@android:id/tabcontent"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content">
 
                     <LinearLayout
-                        android:id="@+id/Rates_Comments"
+                        android:id="@+id/egg_Rates_Comments"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="vertical"></LinearLayout>
+                        android:orientation="vertical">
+
+                        <ListView
+                            android:id="@+id/egg_comments"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"></ListView>
+                    </LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/Medias"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="vertical" />
+                        android:orientation="vertical">
+
+                        <ListView
+                            android:id="@+id/referenced_medias"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"></ListView>
+                    </LinearLayout>
 
                 </FrameLayout>
             </LinearLayout>
         </TabHost>
 
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="260dp"
-            android:orientation="vertical">
 
-            <ListView
-                android:id="@+id/listView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true" />
-        </LinearLayout>
 
 
     </LinearLayout>

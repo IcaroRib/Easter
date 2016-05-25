@@ -22,9 +22,12 @@
 
         </activity>
 
+        <activity android:name=".GUI.MediaScreenActivity" />
+        <activity android:name=".GUI.EasterEggScreenActivity" />
         <activity android:name=".GUI.SignInActivity"/>
         <activity android:name=".GUI.SignUpActivity"/>
         <activity android:name=".GUI.MediaListScreenActivity"/>
+        <activity android:name=".GUI.ProfileActivity" />
 
         <activity android:name="com.facebook.FacebookActivity"
             android:configChanges=

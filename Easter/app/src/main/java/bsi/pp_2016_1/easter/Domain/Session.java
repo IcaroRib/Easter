@@ -7,7 +7,8 @@ public class Session {
     private User loggedUser;
     private static Session _instance;
 
-    private Session(){};
+    private Session() {
+    }
 
     public static Session getInstance() {
         if(_instance == null) {

@@ -6,13 +6,19 @@
     <string name="username">Username</string>
     <string name="password">Password</string>
 
+    <string name="drawer_open"> Open Navigation Drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
 
     <string name="sign_up">Sign up!</string>
     <string name="sign_in2">Sign in!</string>
     <string name="sign_in">GO!</string>
-    <string name="access_not_logged">Access without login</string>
 
     <string name="facebook_app_id">1734181510128618</string>
-    <string name="fb_login_protocol_scheme">fbAPP_ID</string>
+    <string name="go_media">Go Media</string>
 
+    <string-array name="filter_array">
+        <item>Most recents</item>
+        <item>Most Popular</item>
+        <item>Best Rating</item>
+    </string-array>
 </resources>
