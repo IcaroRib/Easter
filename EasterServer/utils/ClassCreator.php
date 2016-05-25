@@ -16,41 +16,42 @@ class ClassCreator
     public static function createUserFromJson($jsonUser){
 
         $user = new User();
+        $jsonMedia = json_decode($jsonMedia);
 
-        if(!empty($jsonUser["id"])){
-            $user->setId($jsonUser["id"]);
+        if(!empty($jsonUser->id)){
+            $user->setId($jsonUser->id);
         }
 
-        if(!empty($jsonUser["acessToken"])){
-            $user->setFacebookAcessToken($jsonUser["acessToken"]);
+        if(!empty($jsonUser->acessToken)){
+            $user->setFacebookAcessToken($jsonUser->acessToken);
         }
 
-        if(!empty($jsonUser["profileName"])){
-            $user->setProfileName($jsonUser["profileName"]);
+        if(!empty($jsonUser->profileName)){
+            $user->setProfileName($jsonUser->profileName);
         }
 
-        if(!empty($jsonUser["userName"])){
-            $user->setUserName($jsonUser["userName"]);
+        if(!empty($jsonUser->userName)){
+            $user->setUserName($jsonUser->userName);
         }
 
-        if(isset($jsonUser["age"])){
-            $user->setAge((int)$jsonUser["age"]);
+        if(isset($jsonUser->age)){
+            $user->setAge((int)$jsonUser->age);
         }
 
-        if(isset($jsonUser["gender"])){
-            $user->setGender($jsonUser["gender"]);
+        if(isset($jsonUser->gender)){
+            $user->setGender($jsonUser->gender);
         }
 
-        if(isset($jsonUser["imageUrl"])){
-            $user->setImageUrl($jsonUser["imageUrl"]);
+        if(isset($jsonUser->imageUrl)){
+            $user->setImageUrl($jsonUser->imageUrl);
         }
 
-        if(isset($jsonUser["email"])){
-            $user->setEmail($jsonUser["email"]);
+        if(isset($jsonUser->email)){
+            $user->setEmail($jsonUser->email);
         }
 
-        if(isset($jsonUser["password"])) {
-            $user->setPassword($jsonUser["password"]);
+        if(isset($jsonUser->password)) {
+            $user->setPassword($jsonUser->password);
         }
 
         return $user;
@@ -113,12 +114,14 @@ class ClassCreator
     public static function createMediaFromJson($jsonMedia){
 
         $media = new Media();
-        if(isset($jsonMedia["id"])){
-            $media->setId($jsonMedia["id"]);
+        $jsonMedia = json_decode($jsonMedia);
+
+        if(isset($jsonMedia->id)){
+            $media->setId($jsonMedia->id);
         }
 
-        if(isset($jsonMedia["title"])){
-            $media->setTitle($jsonMedia["title"]);
+        if(isset($jsonMedia->title)){
+            $media->setTitle($jsonMedia->title);
         }
 
         return $media;
@@ -316,33 +319,34 @@ class ClassCreator
     public static function createCommentFromJson($commentJson){
 
         $comment = new Commentary();
+        $jsonMedia = json_decode($jsonMedia);
 
-        if(isset($commentJson["idComment"])){
-            $comment->setId($commentJson["idComment"]);
+        if(isset($commentJson->idComment)){
+            $comment->setId($commentJson->idComment);
         }
 
-        if(isset($commentJson["text"])){
-            $comment->setText($commentJson["text"]);
+        if(isset($commentJson->text)){
+            $comment->setText($commentJson->text);
         }
 
-        if(isset($commentJson["idUser"])){
-            $comment->setIdAuthor($commentJson["idUser"]);
+        if(isset($commentJson->idUser)){
+            $comment->setIdAuthor($commentJson->idUser);
         }
 
-        if(isset($commentArrayQuery["profileName"])){
-            $comment->setAuthorName($commentArrayQuery["profileName"]);
+        if(isset($commentArrayQuery->profileName)){
+            $comment->setAuthorName($commentArrayQuery->profileName);
         }
 
-        if(isset($commentJson["qtyLikes"])){
-            $comment->setQtdLikes($commentJson["qtyLikes"]);
+        if(isset($commentJson->qtyLikes)){
+            $comment->setQtdLikes($commentJson->qtyLikes);
         }
 
-        if(isset($commentJson["qtyDislikes"])){
-            $comment->setQtdDislikes($commentJson["qtyDislikes"]);
+        if(isset($commentJson->qtyDislikes)){
+            $comment->setQtdDislikes($commentJson->qtyDislikes);
         }
 
-        if(isset($commentJson["date"])){
-            $comment->setDate($commentJson["date"]);
+        if(isset($commentJson->date)){
+            $comment->setDate($commentJson->date);
         }
 
         return $comment;
