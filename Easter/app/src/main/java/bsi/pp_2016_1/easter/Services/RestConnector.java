@@ -22,9 +22,9 @@ import java.util.Map;
  */
 abstract class RestConnector {
 
-    private static final String url = "http://localhost:8080"; //url do servidor
+    private static final String url = "http://easter.6te.net/EasterServer/routes"; //url do servidor
 
-    private static Map<Context, RequestQueue> queuePool = new HashMap<Context, RequestQueue>();
+    private static RequestQueue queue;
 
     public static void get(String route, final Map<String, String> params, Response.Listener<String> response, Context ct) throws RuntimeException{
 
@@ -44,7 +44,9 @@ abstract class RestConnector {
             };
 
             request.setTag("get");
-            getQueue(ct).add(request);
+            setContext(ct);
+            queue.add(request);
+
         } catch(RuntimeException e) {
             throw e;
         }
@@ -65,7 +67,9 @@ abstract class RestConnector {
             };
 
             request.setTag("get");
-            getQueue(ct).add(request);
+            setContext(ct);
+            queue.add(request);
+
         } catch(RuntimeException e) {
             throw e;
         }
@@ -76,7 +80,7 @@ abstract class RestConnector {
         try {
             Response.ErrorListener del = defaultErrorListener(ct);
 
-            StringRequest request = new StringRequest(
+            StringRequest request = new StringRequest(Request.Method.POST,
                     url + route,
                     response,
                     del
@@ -89,13 +93,16 @@ abstract class RestConnector {
             };
 
             request.setTag("post");
-            getQueue(ct).add(request);
+            setContext(ct);
+            queue.add(request);
+
         } catch(RuntimeException e) {
             throw e;
         }
     }
 
     public static void post(String route, final Map<String, String> params, Response.Listener<String> response, Response.ErrorListener errorListener, Context ct) throws RuntimeException{
+        System.out.println("POST");
         try {
             StringRequest request = new StringRequest(
                     url + route,
@@ -109,7 +116,9 @@ abstract class RestConnector {
             };
 
             request.setTag("post");
-            getQueue(ct).add(request);
+            setContext(ct);
+            queue.add(request);
+
         } catch(RuntimeException e) {
             throw e;
         }
@@ -128,11 +137,11 @@ abstract class RestConnector {
         };
     }
 
-    private static RequestQueue getQueue(Context ct) {
-        if(!queuePool.containsKey(ct)) {
-            queuePool.put(ct, Volley.newRequestQueue(ct));
-        }
-        return queuePool.get(ct);
+     private static void setContext(Context ct) {
+
+         if (queue == null){
+             queue = Volley.newRequestQueue(ct);
+         }
     }
 
     public String getUrl() {

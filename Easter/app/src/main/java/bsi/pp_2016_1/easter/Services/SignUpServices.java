@@ -8,11 +8,18 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.HashMap;
 import java.util.Map;
+
+import bsi.pp_2016_1.easter.Domain.User;
+import bsi.pp_2016_1.easter.Domain.UserRequisition;
+
+//compile 'com.squareup.retrofit:retrofit:1.9.0'
 
 /**
  * Created by Lucas on 13/05/2016.
@@ -20,37 +27,34 @@ import java.util.Map;
 public class SignUpServices {
 
 
-    public static boolean signup(Map<String, String> params,final Context ct){
+    public static boolean signup(UserRequisition userReq, UserCallback cb, Context ct){
 
-        params = formattedCredentials(params);
+        final Gson formater = new Gson();
+        String jsonUser = formater.toJson(userReq, UserRequisition.class);
+        HashMap<String, String> params = new HashMap<String,String>();
 
-        //TODO: Implementar logica referente ao cadastro de usuario
+        params.put("operation","create");
+        params.put("user",jsonUser);
+        params.put("profileType","native");
+
+        User loggedUser = null;
+
+        ResponseListener rl = new ResponseListener();
+        rl.setCallback(cb);
+
         RestConnector.post(
-                "/user/create",
-                params,
-                new Response.Listener<String>() {
+            "/user/index.php",
+            params,
+            rl,
+            new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
 
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject responseObj = new JSONObject(response);
-
-
-                        } catch (JSONException e) {
-                            Log.e("JSON Parse Error", response);
-                            e.printStackTrace();
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(ct, error.getMessage(), Toast.LENGTH_SHORT).show();
-                        Log.e("Connection Error", error.getMessage());
-                        error.printStackTrace();
-                    }
-                },
-                ct
+                    Log.e("Connection Error", error.getMessage());
+                    error.printStackTrace();
+                }
+            },
+            ct
         );
 
         return true;

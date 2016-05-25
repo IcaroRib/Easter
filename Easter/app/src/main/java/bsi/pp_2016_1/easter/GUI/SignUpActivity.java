@@ -1,6 +1,7 @@
 package bsi.pp_2016_1.easter.GUI;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -8,8 +9,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import bsi.pp_2016_1.easter.Domain.Session;
+import bsi.pp_2016_1.easter.Domain.User;
+import bsi.pp_2016_1.easter.Domain.UserRequisition;
 import bsi.pp_2016_1.easter.R;
-import bsi.pp_2016_1.easter.Services.Requisition;
+import bsi.pp_2016_1.easter.Services.SignUpServices;
+import bsi.pp_2016_1.easter.Services.UserCallback;
 
 /**
  * Created by franc on 01/05/2016.
@@ -25,6 +30,8 @@ public class SignUpActivity extends Activity{
         final EditText etEmail = (EditText) findViewById(R.id.et_email);
         final EditText etUsername = (EditText) findViewById(R.id.et_username);
         final EditText etPassword = (EditText) findViewById(R.id.et_password);
+
+
 
         Button btSignUp = (Button) findViewById(R.id.bt_sign_up);
 
@@ -45,10 +52,33 @@ public class SignUpActivity extends Activity{
                     intent.putExtra("username", username);
                     intent.putExtra("password", password);
                     Requisition.SignUpReq(name, email, username, password);
-                    //startActivity(intent);
+                        //startActivity(intent);
                     */
-                    Toast.makeText(getApplicationContext(), ("Usuário criado"), Toast.LENGTH_SHORT).show();
+                    UserRequisition userReq = new UserRequisition();
+
+                    userReq.setEmail(email);
+                    userReq.setPassword(password);
+                    userReq.setUsername(username);
+
+                    Context ct = getApplicationContext();
+
+                    UserCallback cb = new UserCallback(){
+                        @Override
+                        public Object onSuccess(String response) {
+                            System.out.println(response);
+                            User user = (User)super.onSuccess(response);
+                            Session session = Session.getInstance();
+                            session.login(user);
+                            Toast.makeText(getApplicationContext(), ("Usuário Cadastrado"), Toast.LENGTH_SHORT).show();
+                            Intent i = new Intent(SignUpActivity.this, MediaListScreenActivity.class);
+                            startActivity(i);
+                            return null;
+                        }
+                    };
+
+                    SignUpServices.signup(userReq, cb, ct);
                 }
+
             }
         });
     }

@@ -9,7 +9,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import bsi.pp_2016_1.easter.R;
-import bsi.pp_2016_1.easter.Services.Requisition;
 
 /**
  * Created by franc on 01/05/2016.
