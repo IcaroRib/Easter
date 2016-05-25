@@ -1,82 +1,130 @@
 package bsi.pp_2016_1.easter.GUI;
 
-import android.app.Activity;
+import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
+import bsi.pp_2016_1.easter.Domain.EasterEgg;
+import bsi.pp_2016_1.easter.Domain.Media;
 import bsi.pp_2016_1.easter.R;
 
-/**
- * Created by franc on 01/05/2016.
- */
-public class MediaListScreenActivity extends Activity{
+public class MediaListScreenActivity extends AppCompatActivity {
 
-    ListView list;
-    ArrayList<String> itName = new ArrayList<String>();
-    ArrayList<Integer> imgId = new ArrayList<Integer>();
-    String[] itemname ={
-            "Safari",
+    private ListView list;
 
-            "Global",
-            "FireFox",
-            "UC Browser",
-            "Android Folder",
-            "VLC Player",
-            "Cold War"
-    };
+    private ActionBarDrawerToggle mDrawerToggle;
+    private DrawerLayout mDrawerLayout;
 
+    private ArrayList<String> sideBarOptions = new ArrayList<>();
+    private ArrayList<Integer> sideBarImages = new ArrayList<>();
 
-    Integer[] mudar ={
-            R.drawable.ic_launcher,
-            R.drawable.ic_launcher,
-            R.drawable.ic_launcher,
-            R.drawable.ic_launcher,
-            R.drawable.ic_launcher,
-            R.drawable.ic_launcher,
-            R.drawable.ic_launcher,
+    String[] navArray = {"My profile", "Easter feed", "Followed media", "Rate the app", "Sign out"};
+    Integer[] imagId = {R.drawable.patient, R.drawable.rss_icon, R.drawable.heart_icon, R.drawable.half_star_icon, R.drawable.logout_icon};
 
-    };
-
-    private void addItens(){
-        for (int i = 0; i <= 10; i++){
-            itName.add(i,"Dilmãe");
-            imgId.add(i,R.drawable.ic_launcher);
-        }
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-/*
-        itName.add(0,"Safari");
-        itName.add(1,"Camera");
-        itName.add(2,"Global");
-        itName.add(3,"Fire");
-        itName.add(4,"UC Browser");
-        itName.add(5,"Android Folder");
-        itName.add(6,"VLC Player");
-        itName.add(7,"Cold War");
-
-        imgId.add(0,R.drawable.ic_launcher);
-        imgId.add(1,R.drawable.ic_launcher);
-        imgId.add(2,R.drawable.ic_launcher);
-        imgId.add(3,R.drawable.ic_launcher);
-        imgId.add(4,R.drawable.ic_launcher);
-        imgId.add(5,R.drawable.ic_launcher);
-        imgId.add(6,R.drawable.ic_launcher);
-        imgId.add(7,R.drawable.ic_launcher);
-*/
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_media_list);
 
-        addItens();
+// ------------------------------------------INICIO DE CODIGO DE TESTES----------------------------------------------------------------------
 
-        CustomListAdapter adapter=new CustomListAdapter(this, itName, imgId);
+        final ArrayList<EasterEgg> easterEggs = new ArrayList<>();
+
+        EasterEgg e0 = new EasterEgg();
+        easterEggs.add(e0);
+        EasterEgg e1 = new EasterEgg();
+        easterEggs.add(e1);
+        EasterEgg e2 = new EasterEgg();
+        easterEggs.add(e2);
+        EasterEgg e3 = new EasterEgg();
+        easterEggs.add(e3);
+        EasterEgg e4 = new EasterEgg();
+        easterEggs.add(e4);
+        EasterEgg e5 = new EasterEgg();
+        easterEggs.add(e5);
+        EasterEgg e6 = new EasterEgg();
+        easterEggs.add(e6);
+        EasterEgg e7 = new EasterEgg();
+        easterEggs.add(e7);
+        EasterEgg e8 = new EasterEgg();
+        easterEggs.add(e8);
+        EasterEgg e9 = new EasterEgg();
+        easterEggs.add(e9);
+
+        int cont = 0;
+        for (EasterEgg egg : easterEggs) {
+            egg.setTitle("Easter egg " + cont);
+            egg.setDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
+            egg.setId(cont);
+            if (cont > 5) {
+                egg.setRate(cont - 5);
+            } else {
+                egg.setRate(cont);
+            }
+            cont++;
+        }
+        final ArrayList<Media> listaMedias = new ArrayList<>();
+
+        Media m0 = new Media();
+        listaMedias.add(m0);
+        Media m1 = new Media();
+        listaMedias.add(m1);
+        Media m2 = new Media();
+        listaMedias.add(m2);
+        Media m3 = new Media();
+        listaMedias.add(m3);
+        Media m4 = new Media();
+        listaMedias.add(m4);
+        Media m5 = new Media();
+        listaMedias.add(m5);
+        Media m6 = new Media();
+        listaMedias.add(m6);
+        Media m7 = new Media();
+        listaMedias.add(m7);
+        Media m8 = new Media();
+        listaMedias.add(m8);
+        Media m9 = new Media();
+        listaMedias.add(m9);
+
+
+        int cont2 = 0;
+        for (Media media : listaMedias) {
+            media.setId(cont2);
+            media.setTitle("Media " + cont2);
+            media.setMidiaCategory("Movie");
+            media.setImageUrl(String.valueOf(R.drawable.globe));
+            media.setEasterEggs(easterEggs);
+            if (cont2 > 5) {
+                media.setRate(cont2 - 5);
+            } else {
+                media.setRate(cont2);
+            }
+            cont2++;
+        }
+
+
+// -------------------------------------------FIM DE CODIGO DE TESTES ------------------------------------------------------------------------
+
+        MediaListAdapter adapter = new MediaListAdapter(this, listaMedias);
         list=(ListView)findViewById(R.id.list);
+        assert list != null;
         list.setAdapter(adapter);
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -84,11 +132,140 @@ public class MediaListScreenActivity extends Activity{
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                // TODO Auto-generated method stub
-                String Slecteditem= itemname[+position];
-                Toast.makeText(getApplicationContext(), Slecteditem, Toast.LENGTH_SHORT).show();
 
+                Intent enterActivity = new Intent(MediaListScreenActivity.this, MediaScreenActivity.class);
+                enterActivity.putExtra("media", listaMedias.get(position));
+                startActivity(enterActivity);
             }
         });
+
+
+        //CÓDIGO REFERENTE AOS MENUS LATERAIS
+
+        //DIREITA
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+        List<String> categories = new ArrayList<>();
+        categories.add("Most recents");
+        categories.add("Most popular");
+        categories.add("Best rating");
+
+        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, categories);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        assert spinner != null;
+        spinner.setAdapter(adapter2);
+
+        setupDrawer();
+        SideBarListAdapter listAdapter = new SideBarListAdapter(this, sideBarOptions, sideBarImages);
+        ListView rightDrawer = (ListView) findViewById(R.id.navList);
+        rightDrawer.setAdapter(listAdapter);
+
+        assert rightDrawer != null;
+        rightDrawer.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(), Integer.toString(position), Toast.LENGTH_SHORT).show();
+                switch (position) {
+                    case 0:
+                        Intent intent = new Intent(MediaListScreenActivity.this, ProfileActivity.class);
+                        intent.putExtra("dados", easterEggs);
+                        startActivity(intent);
+                        overridePendingTransition(R.layout.push_right_in, R.layout.push_right_out);
+                        break;
+                    case 1:
+                        mDrawerLayout.closeDrawer(GravityCompat.START);
+                        break;
+                }
+            }
+        });
+
+        Collections.addAll(sideBarOptions, navArray);
+
+        Collections.addAll(sideBarImages, imagId);
+
+
     }
+
+    private void setupDrawer() {
+        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.drawer_open, R.string.drawer_close) {
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+                invalidateOptionsMenu();
+            }
+
+            public void onDrawerClosed(View view) {
+                super.onDrawerClosed(view);
+                invalidateOptionsMenu();
+            }
+        };
+
+        mDrawerToggle.setDrawerIndicatorEnabled(true);
+        mDrawerLayout.addDrawerListener(mDrawerToggle);
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+            mDrawerLayout.closeDrawer(GravityCompat.START);
+
+        } else if (mDrawerLayout.isDrawerOpen(GravityCompat.END)) {
+            mDrawerLayout.closeDrawer(GravityCompat.END);
+
+        } else {
+            super.onBackPressed();
+            System.exit(0);
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_openRight) {
+            mDrawerLayout.openDrawer(GravityCompat.END);
+            if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+                mDrawerLayout.closeDrawer(GravityCompat.START);
+            } else if (mDrawerLayout.isDrawerOpen(GravityCompat.END)) {
+                mDrawerLayout.closeDrawer(GravityCompat.END);
+            }
+            return true;
+        }
+
+        if (mDrawerToggle.onOptionsItemSelected(item)) {
+            if (mDrawerLayout.isDrawerOpen(GravityCompat.END)) {
+                mDrawerLayout.closeDrawer(GravityCompat.END);
+                return false;
+            } else {
+                return true;
+            }
+
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        mDrawerToggle.syncState();
+
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        mDrawerToggle.onConfigurationChanged(newConfig);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
 }

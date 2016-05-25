@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
@@ -22,18 +20,15 @@ import com.facebook.login.widget.LoginButton;
 
 import bsi.pp_2016_1.easter.R;
 
-/**
- * Created by franc on 01/05/2016.
- */
 public class StartScreenActivity extends Activity{
 
     private LoginButton loginButton;
     private CallbackManager callbackManager;
     private AccessTokenTracker accessTokenTracker;
     private ProfileTracker profileTracker;
-    public FacebookCallback<LoginResult> callback;
+    //public FacebookCallback<LoginResult> callback;
 
-/*
+
     public FacebookCallback<LoginResult> callback = new FacebookCallback<LoginResult>() {
         @Override
         public void onSuccess(LoginResult loginResult) {
@@ -49,15 +44,17 @@ public class StartScreenActivity extends Activity{
             System.out.println("aaa");
         }
     };
-*/
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         System.out.println("Dentro do oncreate");
         FacebookSdk.sdkInitialize(getApplicationContext());
         callbackManager = CallbackManager.Factory.create();
 
+        setContentView(R.layout.activity_start_screen);
 
         accessTokenTracker = new AccessTokenTracker() {
             @Override
@@ -75,15 +72,12 @@ public class StartScreenActivity extends Activity{
         accessTokenTracker.startTracking();
         profileTracker.startTracking();
 
-        setContentView(R.layout.activity_start_screen);
-
         Button bt_signIn = (Button) findViewById(R.id.bt_sign_in);
         Button bt_signUp = (Button) findViewById(R.id.bt_sign_up);
         loginButton = (LoginButton) findViewById(R.id.login_button);
 
         loginButton.setReadPermissions("user_friends");
         loginButton.setReadPermissions("public_profile");
-
 
         bt_signIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,10 +124,10 @@ public class StartScreenActivity extends Activity{
         };
 
 
-        loginButton.registerCallback(callbackManager, callback);
+        /*loginButton.registerCallback(callbackManager, callback);
 
 
-/*
+
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
@@ -152,8 +146,7 @@ public class StartScreenActivity extends Activity{
             public void onError(FacebookException error) {
                 Toast.makeText(getApplicationContext(), "Login error", Toast.LENGTH_SHORT).show();
             }
-        });
-        */
+        });*/
 
     }
 
