@@ -8,9 +8,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import bsi.pp_2016_1.easter.R;
 import bsi.pp_2016_1.easter.Services.LoginServices;
 
