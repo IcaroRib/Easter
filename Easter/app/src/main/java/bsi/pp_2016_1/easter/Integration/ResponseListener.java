@@ -22,11 +22,13 @@ public class ResponseListener implements Response.Listener<String> {
             }
         }
 
-        if(response.contains("Usu\\u00e1rio N\\u00e3o localizado")) {
+        if(!response.contains("id")) {
             callback.onFailure(response);
         }
 
-        callback.onSuccess(response);
+        else{
+            callback.onSuccess(response);
+        }
     }
 
     public void setCallback(CustomCallback callback){

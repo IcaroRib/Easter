@@ -19,7 +19,7 @@ import java.util.Map;
  */
 public abstract class RestConnector {
 
-    private static final String url = "http://easter.6te.net/EasterServer/routes"; //url do servidor
+    private static final String url = "https://easter-netorodrigues.c9users.io/EasterServer/routes"; //url do servidor
 
     private static RequestQueue queue;
 

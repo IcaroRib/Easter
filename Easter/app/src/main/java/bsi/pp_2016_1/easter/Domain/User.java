@@ -10,9 +10,10 @@ public class User {
 	private String email;
 	private int id;
 	private int userImage;
+	private String imageUrl;
 	private ArrayList<Media> favoritedMedias;
 	private ArrayList<EasterEgg> publishedEasterEggs;
-	
+
 	public String getProfileName() {
 		return profileName;
 	}
@@ -93,12 +94,11 @@ public class User {
 		this.email = email;
 	}
 
-	public String toJsonString() {
-		return "{\"acessToken\": \"" + acessToken +"\" ," +
-		"         \"userName\": \"" + userName +"\" ," +
-				" \"email\": " + email +"\" ," +
-				" \"password\": \"" + password +  "\" , "+
-				" \"age\": 0\n" +
-				"}";
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
 	}
 }

@@ -20,7 +20,7 @@ import bsi.pp_2016_1.easter.Integration.RestConnector;
  */
 public class MediaIntegration {
 
-    private final String route = "/media/";
+    private final String route = "/media/index.php";
 
     public void findById(Media media, MediaCallback callback, Context context){
 
@@ -84,7 +84,7 @@ public class MediaIntegration {
 
     private void createRequisition(HashMap<String, String> params, ResponseListener responseListener, ErrorListener errorListener, Context context) {
 
-       //RestConnector.post(params, responseListener, errorListener, context);
+       RestConnector.post(route, params, responseListener, errorListener, context);
 
     }
 
@@ -93,6 +93,7 @@ public class MediaIntegration {
         Gson formatter = new Gson();
         String jsonMedia = formatter.toJson(media, Media.class);
         HashMap<String, String> params = new HashMap<String,String>();
+        System.out.println(jsonMedia);
 
         params.put("operation",operation);
         params.put("media",jsonMedia);
@@ -107,6 +108,7 @@ public class MediaIntegration {
         Gson formatter = new Gson();
         String stringCategories = formatter.toJson(categories);
         HashMap<String, String> params = new HashMap<String,String>();
+        System.out.println(stringCategories);
 
         params.put("operation",operation);
         params.put("type", typeFind);
@@ -123,6 +125,8 @@ public class MediaIntegration {
         String stringUser = formatter.toJson(user);
         String stringEasterEgg = formatter.toJson(easteregg);
         HashMap<String, String> params = new HashMap<String,String>();
+        System.out.println(stringUser);
+        System.out.println(stringEasterEgg);
 
         params.put("operation",operation);
         params.put("easteregg",stringEasterEgg);

@@ -59,6 +59,7 @@ public class SignUpActivity extends Activity{
                     UserCallback callback = new UserCallback(){
                         @Override
                         public Object onSuccess(String response) {
+
                             User user = (User)super.onSuccess(response);
                             Session session = Session.getInstance();
                             session.login(user);
@@ -67,10 +68,18 @@ public class SignUpActivity extends Activity{
                             startActivity(i);
                             return null;
                         }
+
+                        @Override
+                        public void onFailure(String response) {
+
+                            super.onFailure(response);
+                            Toast.makeText(getApplicationContext(), (response), Toast.LENGTH_SHORT).show();
+                        }
+
                     };
 
                     UserIntegration integration = new UserIntegration();
-                    integration.login(userReq, callback, context);
+                    integration.signup(userReq, callback, context);
                 }
 
             }
