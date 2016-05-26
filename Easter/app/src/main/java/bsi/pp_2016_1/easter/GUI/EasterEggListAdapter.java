@@ -19,7 +19,7 @@ public class EasterEggListAdapter extends ArrayAdapter<EasterEgg> {
     private ArrayList<EasterEgg> easterEggsList;
 
     public EasterEggListAdapter(Activity context, ArrayList<EasterEgg> easterEggsList) {
-        super(context, R.layout.item_media, easterEggsList);
+        super(context, R.layout.item_easter, easterEggsList);
 
         this.context = context;
         this.easterEggsList = easterEggsList;

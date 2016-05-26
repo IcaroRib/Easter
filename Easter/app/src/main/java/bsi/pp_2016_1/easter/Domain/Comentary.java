@@ -1,8 +1,9 @@
 package bsi.pp_2016_1.easter.Domain;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Comentary {
+public class Comentary implements Serializable{
 
     private int id;
     private String text;

@@ -13,7 +13,7 @@ public class EasterEgg implements Serializable {
     private String creatorName;
     private int rate;
     private ArrayList<Task> taskList;
-    private ArrayList<Reference> referenceList;
+    private ArrayList<Media> referenceList;
 
 	public int getId() {
 		return id;
@@ -73,10 +73,10 @@ public class EasterEgg implements Serializable {
 		this.taskList = taskList;
 	}
 
-	public ArrayList<Reference> getReferenceList() {
+	public ArrayList<Media> getReferenceList() {
 		return referenceList;
 	}
-	public void setReferenceList(ArrayList<Reference> referenceList) {
+	public void setReferenceList(ArrayList<Media> referenceList) {
 		this.referenceList = referenceList;
 	}
 

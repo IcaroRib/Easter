@@ -13,6 +13,9 @@ import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
+import bsi.pp_2016_1.easter.Domain.Comentary;
 import bsi.pp_2016_1.easter.Domain.Media;
 import bsi.pp_2016_1.easter.R;
 
@@ -20,6 +23,7 @@ import bsi.pp_2016_1.easter.R;
 public class MediaScreenActivity extends AppCompatActivity {
 
     private Media media;
+    private ArrayList<Comentary> comentarios;
 
     private TextView mediaName;
     private TextView mediaCategory;
@@ -29,6 +33,7 @@ public class MediaScreenActivity extends AppCompatActivity {
     private ListView listOfEggs;
 
     private TabHost host;
+    private ListView listOfComments;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,12 +41,14 @@ public class MediaScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_media);
 
         media = (Media) getIntent().getSerializableExtra("media");
+        comentarios = (ArrayList<Comentary>) getIntent().getSerializableExtra("comentarios");
         mediaName = (TextView) findViewById(R.id.media_name);
         mediaCategory = (TextView) findViewById(R.id.media_category);
         isFollowing = (Switch) findViewById(R.id.is_following);
         ratingBar = (RatingBar) findViewById(R.id.ratingBar3);
 
         listOfEggs = (ListView) findViewById(R.id.list_easter_eggs);
+        listOfComments = (ListView)findViewById(R.id.list_comments);
 
         mediaName.setText(media.getTitle());
         mediaCategory.setText(media.getMidiaCategory());
@@ -63,6 +70,9 @@ public class MediaScreenActivity extends AppCompatActivity {
             }
         });
 
+        ComentaryListAdapter comentList = new ComentaryListAdapter(this, comentarios);
+        listOfComments.setAdapter(comentList);
+
         host = (TabHost) findViewById(R.id.tabHost_mediaScrenActivity);
         assert host != null;
         host.setup();
@@ -75,7 +85,7 @@ public class MediaScreenActivity extends AppCompatActivity {
 
         //Tab 2
         spec = host.newTabSpec("Tab Two");
-        spec.setContent(R.id.list_comments);
+        spec.setContent(R.id.tab_Comments);
         spec.setIndicator("Comments");
         host.addTab(spec);
 

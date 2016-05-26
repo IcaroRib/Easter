@@ -14,9 +14,6 @@ import bsi.pp_2016_1.easter.Domain.EasterEgg;
 import bsi.pp_2016_1.easter.Domain.Media;
 import bsi.pp_2016_1.easter.R;
 
-/**
- * Created by franc on 25/05/2016.
- */
 public class TesteEasterEggAdapter extends BaseAdapter {
 
     private final Activity context;
@@ -66,7 +63,7 @@ public class TesteEasterEggAdapter extends BaseAdapter {
         RatingBar rtBar = (RatingBar) rowView.findViewById(R.id.ratingBar);
 
         rtBar.setNumStars(5);
-        rtBar.setRating(2);
+
 
         if(position%10==0){
             aux = position/10;
@@ -74,8 +71,9 @@ public class TesteEasterEggAdapter extends BaseAdapter {
             aux2 = position%10;
         }
 
-        txtTitle.setText(mediaList.get(aux).getEasterEggs().get(aux2).getDescription());
+        txtTitle.setText(mediaList.get(aux).getEasterEggs().get(aux2).getTitle());
         extratxt.setText(mediaList.get(aux).getTitle());
+        rtBar.setRating(mediaList.get(aux).getEasterEggs().get(aux2).getRate());
         return rowView;
     }
 }

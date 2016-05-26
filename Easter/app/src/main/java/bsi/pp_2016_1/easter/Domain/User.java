@@ -6,6 +6,7 @@ public class User {
 	private String profileName;
 	private String userName;
 	private int id;
+	private int userImage;
 	private ArrayList<Media> favoritedMedias;
 	private ArrayList<EasterEgg> publishedEasterEggs;
 	
@@ -29,6 +30,10 @@ public class User {
 	public void setId(int id) {
 		this.id = id;
 	}
+
+	public int getUserImage() {	return userImage;}
+
+	public void setUserImage(int userImage) {this.userImage = userImage;}
 
 	public ArrayList<EasterEgg> getPublishedEasterEggs() {
 		return publishedEasterEggs;

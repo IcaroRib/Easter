@@ -39,13 +39,9 @@ public class ProfileActivity extends AppCompatActivity {
     String[] navArray = {"My profile", "Easter feed", "Followed media", "Rate the app", "Sign out"};
     Integer[] imagId = {R.drawable.patient, R.drawable.rss_icon, R.drawable.heart_icon, R.drawable.half_star_icon, R.drawable.logout_icon};
 
-
-
-
-    RelativeLayout buttonsLayout;
-    TesteEasterEggAdapter insideEggsAdapter;
-
     TesteEasterEggAdapter eggsAdapter;
+
+    ArrayList<Media> listaMedias;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -53,83 +49,7 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-// ------------------------------------------INICIO DE CODIGO DE TESTES----------------------------------------------------------------------
-
-        final ArrayList<EasterEgg> easterEggs = new ArrayList<>();
-
-        EasterEgg e0 = new EasterEgg();
-        easterEggs.add(e0);
-        EasterEgg e1 = new EasterEgg();
-        easterEggs.add(e1);
-        EasterEgg e2 = new EasterEgg();
-        easterEggs.add(e2);
-        EasterEgg e3 = new EasterEgg();
-        easterEggs.add(e3);
-        EasterEgg e4 = new EasterEgg();
-        easterEggs.add(e4);
-        EasterEgg e5 = new EasterEgg();
-        easterEggs.add(e5);
-        EasterEgg e6 = new EasterEgg();
-        easterEggs.add(e6);
-        EasterEgg e7 = new EasterEgg();
-        easterEggs.add(e7);
-        EasterEgg e8 = new EasterEgg();
-        easterEggs.add(e8);
-        EasterEgg e9 = new EasterEgg();
-        easterEggs.add(e9);
-
-        int cont = 0;
-        for (EasterEgg egg : easterEggs) {
-            egg.setDescription("Easter egg " + cont);
-            egg.setId(cont);
-            cont++;
-        }
-        final ArrayList<Media> listaMedias = new ArrayList<>();
-
-        Media m0 = new Media();
-        listaMedias.add(m0);
-        Media m1 = new Media();
-        listaMedias.add(m1);
-        Media m2 = new Media();
-        listaMedias.add(m2);
-        Media m3 = new Media();
-        listaMedias.add(m3);
-        Media m4 = new Media();
-        listaMedias.add(m4);
-        Media m5 = new Media();
-        listaMedias.add(m5);
-        Media m6 = new Media();
-        listaMedias.add(m6);
-        Media m7 = new Media();
-        listaMedias.add(m7);
-        Media m8 = new Media();
-        listaMedias.add(m8);
-        Media m9 = new Media();
-        listaMedias.add(m9);
-
-
-        int cont2 = 0;
-        for (Media media : listaMedias) {
-            media.setId(cont2);
-            media.setTitle("Media " + cont2);
-            media.setMidiaCategory("Movie");
-            media.setImageUrl(String.valueOf(R.drawable.globe));
-            media.setEasterEggs(easterEggs);
-            if (cont2 > 5) {
-                media.setRate(cont2 - 5);
-            } else {
-                media.setRate(cont2);
-            }
-            cont2++;
-        }
-
-        // final ArrayList<EasterEgg> easterEggs = (ArrayList<EasterEgg>)getIntent().getSerializableExtra("dados");
-
-// -------------------------------------------FIM DE CODIGO DE TESTES ------------------------------------------------------------------------
-
-        buttonsLayout = (RelativeLayout) findViewById(R.id.linearVanish);
-        assert buttonsLayout != null;
-        buttonsLayout.setVisibility(View.GONE);
+        listaMedias = (ArrayList<Media>) getIntent().getSerializableExtra("dados");
 
         MediaListAdapter followedAdapter = new MediaListAdapter(this, listaMedias);
         ListView followed_list = (ListView) findViewById(R.id.list_followed);
@@ -141,7 +61,10 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                Toast.makeText(getApplicationContext(), "mopa", Toast.LENGTH_SHORT).show();
+                Intent enterActivity = new Intent(ProfileActivity.this, MediaScreenActivity.class);
+                enterActivity.putExtra("media", listaMedias.get(position));
+                startActivity(enterActivity);
+
             }
         });
 
@@ -155,13 +78,11 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-
-
-                Toast.makeText(getApplicationContext(), "mopa", Toast.LENGTH_SHORT).show();
-
+                Intent enterEasterEgg = new Intent(ProfileActivity.this, EasterEggScreenActivity.class);
+                enterEasterEgg.putExtra("easterEgg", listaMedias.get(position).getEasterEggs().get(position));
+                startActivity(enterEasterEgg);
             }
         });
-
 
         TabHost host = (TabHost) findViewById(R.id.tabHost_profile);
         assert host != null;
@@ -177,12 +98,6 @@ public class ProfileActivity extends AppCompatActivity {
         spec = host.newTabSpec("Tab Two");
         spec.setContent(R.id.tab_eggs);
         spec.setIndicator("Your Eggs");
-        host.addTab(spec);
-
-        //Tab 3
-        spec = host.newTabSpec("Tab Three");
-        spec.setContent(R.id.tab_rating);
-        spec.setIndicator("Ratings");
         host.addTab(spec);
 
         //CÓDIGO REFERENTE AOS MENUS LATERAIS
@@ -305,9 +220,11 @@ public class ProfileActivity extends AppCompatActivity {
                 mDrawerLayout.closeDrawer(GravityCompat.END);
                 return false;
             } else {
-                return true;
+               return true;
             }
+
         }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -327,6 +244,7 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
+
         return super.onCreateOptionsMenu(menu);
     }
 }

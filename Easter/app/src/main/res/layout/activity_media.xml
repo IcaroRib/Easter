@@ -114,17 +114,27 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/tab_Comments"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
-
-                        <ListView
-                            android:id="@+id/list_comments"
+                        <RelativeLayout
+                            android:id="@+id/tab_Comments"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
-
-                        </ListView>
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Add a comment"
+                                android:id="@+id/bt_add_comment_media"
+                                android:textColor="#fff"
+                                android:background="#BCA734" />
+                            <ListView
+                                android:id="@+id/list_comments"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_below="@+id/bt_add_comment_media">
+                            </ListView>
+                        </RelativeLayout>
                     </LinearLayout>
 
                 </FrameLayout>

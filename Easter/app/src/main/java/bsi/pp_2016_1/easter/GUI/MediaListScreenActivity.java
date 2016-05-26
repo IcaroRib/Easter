@@ -20,8 +20,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import bsi.pp_2016_1.easter.Domain.Comentary;
 import bsi.pp_2016_1.easter.Domain.EasterEgg;
 import bsi.pp_2016_1.easter.Domain.Media;
+import bsi.pp_2016_1.easter.Domain.Reference;
+import bsi.pp_2016_1.easter.Domain.User;
 import bsi.pp_2016_1.easter.R;
 
 public class MediaListScreenActivity extends AppCompatActivity {
@@ -46,6 +49,7 @@ public class MediaListScreenActivity extends AppCompatActivity {
 // ------------------------------------------INICIO DE CODIGO DE TESTES----------------------------------------------------------------------
 
         final ArrayList<EasterEgg> easterEggs = new ArrayList<>();
+        final ArrayList<Media> referenceList = new ArrayList<>();
 
         EasterEgg e0 = new EasterEgg();
         easterEggs.add(e0);
@@ -68,18 +72,6 @@ public class MediaListScreenActivity extends AppCompatActivity {
         EasterEgg e9 = new EasterEgg();
         easterEggs.add(e9);
 
-        int cont = 0;
-        for (EasterEgg egg : easterEggs) {
-            egg.setTitle("Easter egg " + cont);
-            egg.setDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
-            egg.setId(cont);
-            if (cont > 5) {
-                egg.setRate(cont - 5);
-            } else {
-                egg.setRate(cont);
-            }
-            cont++;
-        }
         final ArrayList<Media> listaMedias = new ArrayList<>();
 
         Media m0 = new Media();
@@ -104,6 +96,26 @@ public class MediaListScreenActivity extends AppCompatActivity {
         listaMedias.add(m9);
 
 
+        referenceList.add(m0);
+        referenceList.add(m5);
+        referenceList.add(m3);
+        referenceList.add(m2);
+        referenceList.add(m7);
+
+        int cont = 0;
+        for (EasterEgg egg : easterEggs) {
+            egg.setTitle("Easter egg " + cont);
+            egg.setDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
+            egg.setId(cont);
+            egg.setReferenceList(referenceList);
+            if (cont > 5) {
+                egg.setRate(cont - 5);
+            } else {
+                egg.setRate(cont);
+            }
+            cont++;
+        }
+
         int cont2 = 0;
         for (Media media : listaMedias) {
             media.setId(cont2);
@@ -118,6 +130,44 @@ public class MediaListScreenActivity extends AppCompatActivity {
             }
             cont2++;
         }
+
+        User user = new User();
+        user.setUserImage(R.drawable.ic_launcher);
+        user.setUserName("Francois");
+        ArrayList<Media> favoritos = new ArrayList<>();
+        favoritos.add(m2);
+        favoritos.add(m5);
+        favoritos.add(m3);
+
+        User user2 = new User();
+        user.setUserImage(R.drawable.ic_launcher);
+        user.setUserName("Francois");
+
+        final ArrayList<Comentary> comentaries = new ArrayList<>();
+        Comentary c1 = new Comentary();
+        Comentary c2 = new Comentary();
+        Comentary c3 = new Comentary();
+        Comentary c4 = new Comentary();
+        Comentary c5 = new Comentary();
+
+        c1.setUserName(user.getUserName());
+        c1.setText("Comentário tal");
+        c1.setUserPic(user.getUserImage());
+
+        c2.setUserName(user.getUserName());
+        c2.setText("Comentário tal");
+        c2.setUserPic(user.getUserImage());
+        c3.setUserName(user.getUserName());
+        c3.setText("Comentário tal");
+        c3.setUserPic(user.getUserImage());
+        c4.setUserName(user.getUserName());
+        c4.setText("Comentário tal");
+        c4.setUserPic(user.getUserImage());
+        c5.setUserName(user.getUserName());
+        c5.setText("Comentário tal");
+        c5.setUserPic(user.getUserImage());
+
+        comentaries.add(c1); comentaries.add(c2); comentaries.add(c3); comentaries.add(c4); comentaries.add(c5);
 
 
 // -------------------------------------------FIM DE CODIGO DE TESTES ------------------------------------------------------------------------
@@ -135,6 +185,7 @@ public class MediaListScreenActivity extends AppCompatActivity {
 
                 Intent enterActivity = new Intent(MediaListScreenActivity.this, MediaScreenActivity.class);
                 enterActivity.putExtra("media", listaMedias.get(position));
+                enterActivity.putExtra("comentarios", comentaries);
                 startActivity(enterActivity);
             }
         });
@@ -173,7 +224,7 @@ public class MediaListScreenActivity extends AppCompatActivity {
                 switch (position) {
                     case 0:
                         Intent intent = new Intent(MediaListScreenActivity.this, ProfileActivity.class);
-                        intent.putExtra("dados", easterEggs);
+                        intent.putExtra("dados", listaMedias);
                         startActivity(intent);
                         overridePendingTransition(R.layout.push_right_in, R.layout.push_right_out);
                         break;

@@ -83,17 +83,25 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
-                        <Button
+                        <RelativeLayout
+                            android:id="@+id/comments"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Add a comment"
-                            android:id="@+id/button3"
-                            android:textColor="#fff"
-                            android:background="#BCA734" />
-                        <ListView
-                            android:id="@+id/egg_comments"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"></ListView>
+                            android:layout_height="match_parent">
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Add a comment"
+                                android:id="@+id/bt_add_comment_egg"
+                                android:textColor="#fff"
+                                android:background="#BCA734" />
+                            <ListView
+                                android:id="@+id/egg_comments"
+                                android:layout_below="@+id/bt_add_comment_egg"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:clickable="true"
+                                android:focusable="true" />
+                        </RelativeLayout>
                     </LinearLayout>
 
                     <LinearLayout
@@ -102,12 +110,12 @@
                         android:layout_height="match_parent"
                         android:orientation="vertical">
 
-                        <ListView
-                            android:id="@+id/referenced_medias"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"></ListView>
-                    </LinearLayout>
+                            <ListView
+                                android:id="@+id/referenced_medias"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"></ListView>
 
+                    </LinearLayout>
                 </FrameLayout>
             </LinearLayout>
         </TabHost>
