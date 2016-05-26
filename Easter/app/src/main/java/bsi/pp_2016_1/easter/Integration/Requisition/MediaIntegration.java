@@ -78,8 +78,18 @@ public class MediaIntegration {
         responseListener.setCallback(callback);
 
         ErrorListener errorListener = new ErrorListener();
-        this.createRequisition(params,responseListener,errorListener,context);
+        this.createRequisition(params, responseListener, errorListener, context);
 
+    }
+
+    public void unfallowMedia(Media media, User user, MediaCallback callback, Context context) {
+        HashMap<String,String> params = this.buildParams("unfallow",user,media);
+
+        ResponseListener responseListener = new ResponseListener();
+        responseListener.setCallback(callback);
+
+        ErrorListener errorListener = new ErrorListener();
+        this.createRequisition(params, responseListener, errorListener, context);
     }
 
     private void createRequisition(HashMap<String, String> params, ResponseListener responseListener, ErrorListener errorListener, Context context) {
@@ -110,7 +120,7 @@ public class MediaIntegration {
         HashMap<String, String> params = new HashMap<String,String>();
         System.out.println(stringCategories);
 
-        params.put("operation",operation);
+        params.put("operation", operation);
         params.put("type", typeFind);
         params.put("categories",stringCategories);
         params.put("start", Integer.toString(startAt));
