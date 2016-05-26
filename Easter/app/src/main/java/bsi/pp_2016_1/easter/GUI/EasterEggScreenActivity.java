@@ -6,8 +6,11 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RatingBar;
+import android.widget.Space;
 import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,6 +33,7 @@ public class EasterEggScreenActivity extends AppCompatActivity {
     private TabHost easterTabs;
     private ListView eggComments;
     private ListView eggReferences;
+    private FrameLayout tab;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -104,5 +108,8 @@ public class EasterEggScreenActivity extends AppCompatActivity {
         spec.setContent(R.id.referenced_medias);
         spec.setIndicator("References");
         easterTabs.addTab(spec);
+
+
+
     }
 }
