@@ -3,6 +3,43 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="false"
+        android:gravity="bottom"
+        android:weightSum="1" >
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="131dp"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:id="@+id/button4"
+            android:background="#BCA734"
+            android:textColor="#fff"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="bottom" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="286dp"
+            android:layout_height="wrap_content"
+            android:text="Send"
+            android:id="@+id/button7"
+            android:background="#5E4825"
+            android:textColor="#fff"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="bottom" />
+    </LinearLayout>
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="150dp"
@@ -21,7 +58,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/ratingBar4"
-        android:progressTint="@color/colorPrimary"
         android:rating="2"
         android:layout_below="@+id/textView6"
         android:layout_centerHorizontal="true"
@@ -41,16 +77,4 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp" />
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Send"
-        android:id="@+id/button4"
-        android:background="#5E4825"
-        android:textColor="#fff"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:layout_below="@+id/editText5"
-        android:layout_centerHorizontal="true" />
 </RelativeLayout>
