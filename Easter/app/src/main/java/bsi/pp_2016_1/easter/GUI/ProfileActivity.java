@@ -40,8 +40,7 @@ public class ProfileActivity extends AppCompatActivity {
     Integer[] imagId = {R.drawable.patient, R.drawable.rss_icon, R.drawable.heart_icon, R.drawable.half_star_icon, R.drawable.logout_icon};
 
 
-    MediaListAdapter ratingAdapter;
-    ListView rating_list;
+
 
     RelativeLayout buttonsLayout;
     TesteEasterEggAdapter insideEggsAdapter;
@@ -162,27 +161,7 @@ public class ProfileActivity extends AppCompatActivity {
 
             }
         });
-        rating_list = (ListView) findViewById(R.id.list_ratings);
-        ratingAdapter = new MediaListAdapter(this, listaMedias);
-        rating_list.setAdapter(ratingAdapter);
 
-        rating_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-
-                switch (position) {
-                    case 0:
-                        buttonsLayout.setVisibility(View.VISIBLE);
-                        insideEggsAdapter = new TesteEasterEggAdapter(ProfileActivity.this, listaMedias);
-                        rating_list.setAdapter(insideEggsAdapter);
-                        Toast.makeText(getApplicationContext(), eggsAdapter.toString(), Toast.LENGTH_SHORT).show();
-                        break;
-                }
-                Toast.makeText(getApplicationContext(), Integer.toString(position), Toast.LENGTH_SHORT).show();
-            }
-        });
 
         TabHost host = (TabHost) findViewById(R.id.tabHost_profile);
         assert host != null;
@@ -328,9 +307,7 @@ public class ProfileActivity extends AppCompatActivity {
             } else {
                 return true;
             }
-
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -351,16 +328,5 @@ public class ProfileActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return super.onCreateOptionsMenu(menu);
-    }
-
-    public void BackToMedia(View view) {
-        buttonsLayout.setVisibility(View.GONE);
-        rating_list.setAdapter(ratingAdapter);
-    }
-
-    public void GoMediaList(View view) {
-        Intent intent = new Intent(ProfileActivity.this, MediaListScreenActivity.class);
-        startActivity(intent);
-        finish();
     }
 }

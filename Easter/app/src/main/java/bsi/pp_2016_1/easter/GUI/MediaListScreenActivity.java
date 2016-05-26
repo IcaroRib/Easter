@@ -37,7 +37,7 @@ public class MediaListScreenActivity extends AppCompatActivity {
     String[] navArray = {"My profile", "Easter feed", "Followed media", "Rate the app", "Sign out"};
     Integer[] imagId = {R.drawable.patient, R.drawable.rss_icon, R.drawable.heart_icon, R.drawable.half_star_icon, R.drawable.logout_icon};
 
-
+    private MediaListAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -122,10 +122,10 @@ public class MediaListScreenActivity extends AppCompatActivity {
 
 // -------------------------------------------FIM DE CODIGO DE TESTES ------------------------------------------------------------------------
 
-        MediaListAdapter adapter = new MediaListAdapter(this, listaMedias);
+        adapter = new MediaListAdapter(this, listaMedias);
         list=(ListView)findViewById(R.id.list);
         assert list != null;
-        list.setAdapter(adapter);
+
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -189,6 +189,12 @@ public class MediaListScreenActivity extends AppCompatActivity {
         Collections.addAll(sideBarImages, imagId);
 
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        list.setAdapter(adapter);
     }
 
     private void setupDrawer() {
