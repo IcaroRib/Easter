@@ -3,133 +3,127 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ScrollView
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/scrollView4" >
+        android:layout_height="match_parent"
+        android:weightSum="2"
+        android:orientation="vertical" >
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:weightSum="2"
-            android:orientation="vertical" >
+        <LinearLayout android:layout_width="fill_parent"
+            android:background="#f5f5f5"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="1"
+            android:baselineAligned="false">
 
-            <LinearLayout android:layout_width="fill_parent"
-                android:background="#f5f5f5"
-                android:layout_height="235dp"
-                android:orientation="vertical"
-                android:weightSum="1"
-                android:baselineAligned="false"
-                android:id="@+id/egg_header">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Easter Egg short description"
+                android:id="@+id/egg_title"
+                android:textSize="60px"
+                android:textColor="#000"
+                android:typeface="sans"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:gravity="center" />
+
+            <RatingBar
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/egg_rating"
+                android:progressTint="#F0DC00"
+                android:rating="2"
+                android:layout_gravity="center_horizontal" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:id="@+id/scrollView"
+                android:layout_margin="10dp" >
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Easter Egg short description"
-                    android:id="@+id/egg_title"
-                    android:textSize="60px"
+                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                    android:id="@+id/egg_description"
+                    android:textSize="40px"
                     android:textColor="#000"
-                    android:typeface="sans"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_margin="10dp"
-                    android:gravity="center" />
-
-                <RatingBar
-                    style="?android:attr/ratingBarStyleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/egg_rating"
-                    android:progressTint="#F0DC00"
-                    android:rating="2"
                     android:layout_gravity="center_horizontal" />
 
-                <ScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:id="@+id/scrollView"
-                    android:layout_margin="10dp" >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                        android:id="@+id/egg_description"
-                        android:textSize="40px"
-                        android:textColor="#000"
-                        android:layout_gravity="center_horizontal" />
-
-                </ScrollView>
-
-            </LinearLayout>
-
-            <TabHost
-                android:id="@+id/egg_tabs"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <TabWidget
-                        android:id="@android:id/tabs"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"></TabWidget>
-
-                    <FrameLayout
-                        android:id="@android:id/tabcontent"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <LinearLayout
-                            android:id="@+id/Medias"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
-
-                                <ListView
-                                    android:id="@+id/referenced_medias"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"></ListView>
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/egg_Rates_Comments"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
-                            <RelativeLayout
-                                android:id="@+id/comments"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent">
-                                <Button
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="Add a comment"
-                                    android:id="@+id/bt_add_comment_egg"
-                                    android:textColor="#fff"
-                                    android:background="#BCA734" />
-                                <ListView
-                                    android:id="@+id/egg_comments"
-                                    android:layout_below="@+id/bt_add_comment_egg"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:clickable="true"
-                                    android:focusable="true" />
-                            </RelativeLayout>
-                        </LinearLayout>
-
-                    </FrameLayout>
-                </LinearLayout>
-            </TabHost>
-
+            </ScrollView>
 
         </LinearLayout>
-    </ScrollView>
+
+        <TabHost
+            android:id="@+id/egg_tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TabWidget
+                    android:id="@android:id/tabs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"></TabWidget>
+
+                <FrameLayout
+                    android:id="@android:id/tabcontent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:id="@+id/egg_Rates_Comments"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <RelativeLayout
+                            android:id="@+id/comments"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Add a comment"
+                                android:id="@+id/bt_add_comment_egg"
+                                android:textColor="#fff"
+                                android:background="#BCA734" />
+                            <ListView
+                                android:id="@+id/egg_comments"
+                                android:layout_below="@+id/bt_add_comment_egg"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:clickable="true"
+                                android:focusable="true" />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/Medias"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                            <ListView
+                                android:id="@+id/referenced_medias"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"></ListView>
+
+                    </LinearLayout>
+                </FrameLayout>
+            </LinearLayout>
+        </TabHost>
+
+
+
+
+    </LinearLayout>
 
 
 </RelativeLayout>

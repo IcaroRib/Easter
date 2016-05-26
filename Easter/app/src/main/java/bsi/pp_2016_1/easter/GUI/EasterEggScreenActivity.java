@@ -33,7 +33,6 @@ public class EasterEggScreenActivity extends AppCompatActivity {
     private TabHost easterTabs;
     private ListView eggComments;
     private ListView eggReferences;
-    private FrameLayout tab;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,11 +49,25 @@ public class EasterEggScreenActivity extends AppCompatActivity {
         Comentary c3 = new Comentary();
         Comentary c4 = new Comentary();
         Comentary c5 = new Comentary();
+        Comentary c6 = new Comentary();
+        Comentary c7 = new Comentary();
+        Comentary c8 = new Comentary();
+        Comentary c12 = new Comentary();
+        Comentary c9 = new Comentary();
+        Comentary c10 = new Comentary();
+        Comentary c11 = new Comentary();
+        Comentary c13 = new Comentary();
+        Comentary c14 = new Comentary();
+        Comentary c15 = new Comentary();
+        Comentary c16 = new Comentary();
+        Comentary c17 = new Comentary();
+        Comentary c18 = new Comentary();
+        Comentary c19 = new Comentary();
+        Comentary c20 = new Comentary();
 
         c1.setUserName(user.getUserName());
         c1.setText("Comentário tal");
         c1.setUserPic(user.getUserImage());
-
         c2.setUserName(user.getUserName());
         c2.setText("Comentário tal");
         c2.setUserPic(user.getUserImage());
@@ -67,8 +80,57 @@ public class EasterEggScreenActivity extends AppCompatActivity {
         c5.setUserName(user.getUserName());
         c5.setText("Comentário tal");
         c5.setUserPic(user.getUserImage());
+        c6.setUserName(user.getUserName());
+        c6.setText("Comentário tal");
+        c6.setUserPic(user.getUserImage());
+        c7.setUserName(user.getUserName());
+        c7.setText("Comentário tal");
+        c7.setUserPic(user.getUserImage());
+        c8.setUserName(user.getUserName());
+        c8.setText("Comentário tal");
+        c8.setUserPic(user.getUserImage());
+        c9.setUserName(user.getUserName());
+        c9.setText("Comentário tal");
+        c9.setUserPic(user.getUserImage());
+        c10.setUserName(user.getUserName());
+        c10.setText("Comentário tal");
+        c10.setUserPic(user.getUserImage());
+        c11.setUserName(user.getUserName());
+        c11.setText("Comentário tal");
+        c11.setUserPic(user.getUserImage());
+        c12.setUserName(user.getUserName());
+        c12.setText("Comentário tal");
+        c12.setUserPic(user.getUserImage());
+        c13.setUserName(user.getUserName());
+        c13.setText("Comentário tal");
+        c13.setUserPic(user.getUserImage());
+        c14.setUserName(user.getUserName());
+        c14.setText("Comentário tal");
+        c14.setUserPic(user.getUserImage());
+        c15.setUserName(user.getUserName());
+        c15.setText("Comentário tal");
+        c15.setUserPic(user.getUserImage());
+        c16.setUserName(user.getUserName());
+        c16.setText("Comentário tal");
+        c16.setUserPic(user.getUserImage());
+        c17.setUserName(user.getUserName());
+        c17.setText("Comentário tal");
+        c17.setUserPic(user.getUserImage());
+        c18.setUserName(user.getUserName());
+        c18.setText("Comentário tal");
+        c18.setUserPic(user.getUserImage());
+        c19.setUserName(user.getUserName());
+        c19.setText("Comentário tal");
+        c19.setUserPic(user.getUserImage());
+        c20.setUserName(user.getUserName());
+        c20.setText("Comentário tal");
+        c20.setUserPic(user.getUserImage());
+
 
         comentaries.add(c1); comentaries.add(c2); comentaries.add(c3); comentaries.add(c4); comentaries.add(c5);
+        comentaries.add(c6); comentaries.add(c7); comentaries.add(c8); comentaries.add(c9); comentaries.add(c10);
+        comentaries.add(c11); comentaries.add(c12); comentaries.add(c13); comentaries.add(c14); comentaries.add(c15);
+        comentaries.add(c16); comentaries.add(c17); comentaries.add(c18); comentaries.add(c19); comentaries.add(c20);
 
         easterEgg = (EasterEgg) getIntent().getSerializableExtra("easterEgg");
         easterTitle = (TextView) findViewById(R.id.egg_title);
@@ -81,6 +143,7 @@ public class EasterEggScreenActivity extends AppCompatActivity {
 
         eggComments = (ListView) findViewById(R.id.egg_comments);
         easterTabs = (TabHost) findViewById(R.id.egg_tabs);
+
 
         ComentaryListAdapter comentList = new ComentaryListAdapter(this, comentaries);
         eggComments.setAdapter(comentList);
@@ -108,6 +171,7 @@ public class EasterEggScreenActivity extends AppCompatActivity {
         spec.setContent(R.id.referenced_medias);
         spec.setIndicator("References");
         easterTabs.addTab(spec);
+
 
 
 

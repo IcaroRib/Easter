@@ -123,6 +123,8 @@ public class StartScreenActivity extends Activity{
             }
         };
 
+        loginButton.setHeight(bt_signIn.getHeight());
+
 
         /*loginButton.registerCallback(callbackManager, callback);
 
@@ -147,6 +149,8 @@ public class StartScreenActivity extends Activity{
                 Toast.makeText(getApplicationContext(), "Login error", Toast.LENGTH_SHORT).show();
             }
         });*/
+
+
 
     }
 

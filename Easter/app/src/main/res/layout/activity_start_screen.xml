@@ -38,7 +38,7 @@
 
             <Button
                 android:layout_width="wrap_content"
-                android:layout_height="35dp"
+                android:layout_height="wrap_content"
                 android:text="@string/sign_up"
                 android:id="@+id/bt_sign_up"
                 android:background="#BCA734"
@@ -48,12 +48,13 @@
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
+                android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/sign_in2"
                 android:id="@+id/bt_sign_in"
                 android:background="#5E4825"
-                android:textColor="#fff" />
+                android:textColor="#fff"
+                style="?android:attr/buttonStyleSmall" />
         </LinearLayout>
 
         <com.facebook.login.widget.LoginButton
