@@ -1,6 +1,8 @@
-package bsi.pp_2016_1.easter.Services;
+package bsi.pp_2016_1.easter.Integration;
 
 import com.android.volley.Response;
+
+import bsi.pp_2016_1.easter.Integration.Callback.CustomCallback;
 
 /**
  * Created by Lucas on 25/05/2016.
@@ -20,7 +22,7 @@ public class ResponseListener implements Response.Listener<String> {
             }
         }
 
-        if(response.contains("Não Localizado")) {
+        if(response.contains("Usu\\u00e1rio N\\u00e3o localizado")) {
             callback.onFailure(response);
         }
 

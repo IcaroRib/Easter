@@ -2,9 +2,12 @@ package bsi.pp_2016_1.easter.Domain;
 import java.util.ArrayList;
 
 public class User {
-	
+
+	private String acessToken;
 	private String profileName;
 	private String userName;
+	private String password;
+	private String email;
 	private int id;
 	private int userImage;
 	private ArrayList<Media> favoritedMedias;
@@ -66,4 +69,36 @@ public class User {
 		this.publishedEasterEggs.remove(easterEgg);		
 	}
 
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getAcessToken() {
+		return acessToken;
+	}
+
+	public void setAcessToken(String acessToken) {
+		this.acessToken = acessToken;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String toJsonString() {
+		return "{\"acessToken\": \"" + acessToken +"\" ," +
+		"         \"userName\": \"" + userName +"\" ," +
+				" \"email\": " + email +"\" ," +
+				" \"password\": \"" + password +  "\" , "+
+				" \"age\": 0\n" +
+				"}";
+	}
 }

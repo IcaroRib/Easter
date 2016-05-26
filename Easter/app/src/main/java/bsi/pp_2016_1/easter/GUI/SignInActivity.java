@@ -1,6 +1,7 @@
 package bsi.pp_2016_1.easter.GUI;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -8,8 +9,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import bsi.pp_2016_1.easter.Domain.Session;
+import bsi.pp_2016_1.easter.Domain.User;
+import bsi.pp_2016_1.easter.Domain.UserRequisition;
+import bsi.pp_2016_1.easter.Integration.Requisition.UserIntegration;
 import bsi.pp_2016_1.easter.R;
-import bsi.pp_2016_1.easter.Services.LoginServices;
+import bsi.pp_2016_1.easter.Integration.Callback.UserCallback;
 
 /**
  * Created by franc on 01/05/2016.
@@ -32,19 +37,37 @@ public class SignInActivity extends Activity{
                 String username = et_username.getEditableText().toString();
                 String password = et_password.getEditableText().toString();
 
-                Intent intent = new Intent(SignInActivity.this,MediaListScreenActivity.class);
+
                 if (username.equals("") || password.equals("")){
                     Toast.makeText(getApplicationContext(), ("Incorrect username or password"), Toast.LENGTH_SHORT).show();
-                }else {
-                    intent.putExtra("username", username);
-                    intent.putExtra("password", password);
+                }
 
-                    LoginServices.login(username, password, SignInActivity.this);
+                else {
+                    UserRequisition userReq = new UserRequisition();
 
-                    startActivity(intent);
-                    Toast.makeText(getApplicationContext(), ("Login feito"), Toast.LENGTH_SHORT).show();
+                    userReq.setPassword(password);
+                    userReq.setUsername(username);
+
+                    Context context = getApplicationContext();
+
+                    UserCallback callback = new UserCallback(){
+                        @Override
+                        public Object onSuccess(String response) {
+                            User user = (User)super.onSuccess(response);
+                            Session session = Session.getInstance();
+                            session.login(user);
+                            Toast.makeText(getApplicationContext(), ("Usuario logado com sucesso"), Toast.LENGTH_SHORT).show();
+                            Intent i = new Intent(SignInActivity.this, MediaListScreenActivity.class);
+                            startActivity(i);
+                            return null;
+                        }
+                    };
+
+                    UserIntegration integration = new UserIntegration();
+                    integration.login(userReq,callback,context);
                 }
             }
         });
+
     }
 }

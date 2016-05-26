@@ -12,9 +12,9 @@ import android.widget.Toast;
 import bsi.pp_2016_1.easter.Domain.Session;
 import bsi.pp_2016_1.easter.Domain.User;
 import bsi.pp_2016_1.easter.Domain.UserRequisition;
+import bsi.pp_2016_1.easter.Integration.Requisition.UserIntegration;
 import bsi.pp_2016_1.easter.R;
-import bsi.pp_2016_1.easter.Services.SignUpServices;
-import bsi.pp_2016_1.easter.Services.UserCallback;
+import bsi.pp_2016_1.easter.Integration.Callback.UserCallback;
 
 /**
  * Created by franc on 01/05/2016.
@@ -47,25 +47,18 @@ public class SignUpActivity extends Activity{
                 if (name.equals("") || email.equals("") || username.equals("") || password.equals("") ){
                     Toast.makeText(getApplicationContext(), ("Please complete all fields"), Toast.LENGTH_SHORT).show();
                 }else {
-                  /*  intent.putExtra("name", name);
-                    intent.putExtra("email", email);
-                    intent.putExtra("username", username);
-                    intent.putExtra("password", password);
-                    Requisition.SignUpReq(name, email, username, password);
-                        //startActivity(intent);
-                    */
+
                     UserRequisition userReq = new UserRequisition();
 
                     userReq.setEmail(email);
                     userReq.setPassword(password);
                     userReq.setUsername(username);
 
-                    Context ct = getApplicationContext();
+                    Context context = getApplicationContext();
 
-                    UserCallback cb = new UserCallback(){
+                    UserCallback callback = new UserCallback(){
                         @Override
                         public Object onSuccess(String response) {
-                            System.out.println(response);
                             User user = (User)super.onSuccess(response);
                             Session session = Session.getInstance();
                             session.login(user);
@@ -76,7 +69,8 @@ public class SignUpActivity extends Activity{
                         }
                     };
 
-                    SignUpServices.signup(userReq, cb, ct);
+                    UserIntegration integration = new UserIntegration();
+                    integration.login(userReq, callback, context);
                 }
 
             }
