@@ -145,7 +145,7 @@ class ClassCreator
             $EasterEgg->setIdMedia($jsonMedia["idMedia"]);
         }
 
-        if(!empty($jsonMedia["description"]){
+        if(!empty($jsonMedia["description"])){
             $EasterEgg->setDescription($jsonMedia["description"]);
         }
 
