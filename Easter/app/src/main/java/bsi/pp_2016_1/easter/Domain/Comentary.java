@@ -7,9 +7,12 @@ public class Comentary {
     private int id;
     private String text;
     private Date date;
-    private int qtdLikes;
-    private int qtdDislikes;
-    private ArrayList<ComentaryAvaliation> avaliations;
+    private String userName;
+    private int userPic;
+    private int rate;
+//  private int qtdLikes;
+//  private int qtdDislikes;
+//  private ArrayList<ComentaryAvaliation> avaliations;
 
     public int getId() {
         return id;
@@ -32,98 +35,25 @@ public class Comentary {
         this.date = date;
     }
 
-    public int getQtdLikes() {
-        return qtdLikes;
-    }
-    public void setQtdLikes(int qtdLikes) {
-        this.qtdLikes = qtdLikes;
-    }
+    public int getRate() { return rate; }
 
-    public int getQtdDislikes() {
-        return qtdDislikes;
-    }
-    public void setQtdDislikes(int qtdDislikes) {
-        this.qtdDislikes = qtdDislikes;
+    public void setRate(int rate) { this.rate = rate; }
+
+    public String getUserName() {
+        return userName;
     }
 
-    public ArrayList<ComentaryAvaliation> getAvaliations() {
-        return avaliations;
-    }
-    public void setAvaliations(ArrayList<ComentaryAvaliation> avaliations) {
-        this.avaliations = avaliations;
-
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public void addAvaliation(ComentaryAvaliation newAvaliation){
-        this.avaliations.add(newAvaliation);
-        if(newAvaliation.getAvaliation() == true){
-            this.sumLike();
-        }
-
-        else{
-            this.sumDislike();
-        }
+    public int getUserPic() {
+        return userPic;
     }
 
-    public void removeAvaliation(ComentaryAvaliation newAvaliation){
-        this.avaliations.remove(newAvaliation);
-        if(newAvaliation.getAvaliation() == true){
-            this.subtractLike();
-        }
-
-        else{
-            this.subtractDislike();
-        }
-
+    public void setUserPic(int userPic) {
+        this.userPic = userPic;
     }
 
-    public ComentaryAvaliation searchAvaliationByIdUser(ComentaryAvaliation newAvaliation){
-        for (ComentaryAvaliation oldAvaliation : this.avaliations) {
-            if(oldAvaliation.getIdUser() == newAvaliation.getIdUser() && oldAvaliation.getAvaliation() != newAvaliation.getAvaliation()){
-                return oldAvaliation;
-            }
-        }
 
-        return null;
-    }
-
-    private void subtractDislike(){
-        this.qtdDislikes -=1;
-    }
-
-    private void subtractLike(){
-        this.qtdLikes -=1;
-    }
-
-    private void sumLike(){
-        this.qtdLikes +=1;
-    }
-
-    private void sumDislike(){
-        this.qtdDislikes +=1;
-    }
-
-    private void atualizeAvaliations(ComentaryAvaliation newAvaliation) {
-
-        if(newAvaliation.getAvaliation() == true){
-            this.sumLike();
-            this.subtractDislike();
-        }
-        else{
-            this.sumDislike();
-            this.subtractLike();
-        }
-    }
-
-    public void avaliete(ComentaryAvaliation newAvaliation){
-
-        ComentaryAvaliation oldAvaliation = this.searchAvaliationByIdUser(newAvaliation);
-        if(oldAvaliation != null){
-            oldAvaliation = newAvaliation;
-            this.atualizeAvaliations(oldAvaliation);
-        }
-        else{
-            this.addAvaliation(newAvaliation);
-        }
-    }
 }
