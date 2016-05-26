@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -38,6 +39,8 @@ public class ComentaryListAdapterWithRate extends ArrayAdapter<Comentary> {
         TextView userName = (TextView) rowView.findViewById(R.id.userName);
         TextView comment = (TextView) rowView.findViewById(R.id.userComment);
         RatingBar rate = (RatingBar) rowView.findViewById(R.id.userRatingBar);
+
+        Toast.makeText(context, comentaries.get(position).getUserName(), Toast.LENGTH_SHORT).show();
 
         userImage.setImageResource(comentaries.get(position).getUserPic());
         userName.setText(comentaries.get(position).getUserName());

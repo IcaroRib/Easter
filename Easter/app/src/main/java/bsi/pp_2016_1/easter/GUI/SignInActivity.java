@@ -46,7 +46,7 @@ public class SignInActivity extends Activity{
                 }
 
                 else {
-                    /*UserRequisition userReq = new UserRequisition();
+                    UserRequisition userReq = new UserRequisition();
 
                     userReq.setPassword(password);
                     userReq.setUsername(username);
@@ -74,29 +74,7 @@ public class SignInActivity extends Activity{
                     };
 
                     UserIntegration integration = new UserIntegration();
-                    integration.login(userReq,callback,context);*/
-
-                    //-- Testes -- ///////
-
-                    MediaCallback callback = new MediaCallback(){
-                        @Override
-                        public Object onSuccess(String response) {
-                            System.out.println(response);
-                            return null;
-                        }
-
-                        @Override
-                        public void onFailure(String response) {
-                            System.out.println(response);
-                        }
-                    };
-
-                    Context context = getApplicationContext();
-                    Media media = new Media();
-                    media.setId(1);
-                    MediaIntegration integration = new MediaIntegration();
-                    integration.findById(media,callback,context);
-
+                    integration.login(userReq,callback,context);
                 }
             }
         });

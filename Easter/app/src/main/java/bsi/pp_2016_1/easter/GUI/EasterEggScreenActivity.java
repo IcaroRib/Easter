@@ -74,7 +74,98 @@ public class EasterEggScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_egg);
 
+        final ArrayList<EasterEgg> easterEggs = new ArrayList<>();
+        final ArrayList<Media> referenceList = new ArrayList<>();
+
+        EasterEgg e0 = new EasterEgg();
+        easterEggs.add(e0);
+        EasterEgg e1 = new EasterEgg();
+        easterEggs.add(e1);
+        EasterEgg e2 = new EasterEgg();
+        easterEggs.add(e2);
+        EasterEgg e3 = new EasterEgg();
+        easterEggs.add(e3);
+        EasterEgg e4 = new EasterEgg();
+        easterEggs.add(e4);
+        EasterEgg e5 = new EasterEgg();
+        easterEggs.add(e5);
+        EasterEgg e6 = new EasterEgg();
+        easterEggs.add(e6);
+        EasterEgg e7 = new EasterEgg();
+        easterEggs.add(e7);
+        EasterEgg e8 = new EasterEgg();
+        easterEggs.add(e8);
+        EasterEgg e9 = new EasterEgg();
+        easterEggs.add(e9);
+
+        final ArrayList<Media> listaMedias = new ArrayList<>();
+
+        Media m0 = new Media();
+        listaMedias.add(m0);
+        Media m1 = new Media();
+        listaMedias.add(m1);
+        Media m2 = new Media();
+        listaMedias.add(m2);
+        Media m3 = new Media();
+        listaMedias.add(m3);
+        Media m4 = new Media();
+        listaMedias.add(m4);
+        Media m5 = new Media();
+        listaMedias.add(m5);
+        Media m6 = new Media();
+        listaMedias.add(m6);
+        Media m7 = new Media();
+        listaMedias.add(m7);
+        Media m8 = new Media();
+        listaMedias.add(m8);
+        Media m9 = new Media();
+        listaMedias.add(m9);
+
+
+        referenceList.add(m0);
+        referenceList.add(m5);
+        referenceList.add(m3);
+        referenceList.add(m2);
+        referenceList.add(m7);
+
+        int cont = 0;
+        for (EasterEgg egg : easterEggs) {
+            egg.setTitle("Easter egg " + cont);
+            egg.setDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
+            egg.setId(cont);
+            egg.setReferenceList(referenceList);
+            if (cont > 5) {
+                egg.setRate(cont - 5);
+            } else {
+                egg.setRate(cont);
+            }
+            cont++;
+        }
+
+        int cont2 = 0;
+        for (Media media : listaMedias) {
+            media.setId(cont2);
+            media.setTitle("Media " + cont2);
+            media.setMidiaCategory("Movie");
+            media.setImageUrl(R.drawable.globe);
+            media.setEasterEggs(easterEggs);
+            if (cont2 > 5) {
+                media.setRate(cont2 - 5);
+            } else {
+                media.setRate(cont2);
+            }
+            cont2++;
+        }
+
         User user = new User();
+        user.setUserImage(R.drawable.ic_launcher);
+        user.setUserName("Francois");
+        ArrayList<Media> favoritos = new ArrayList<>();
+        favoritos.add(m2);
+        favoritos.add(m5);
+        favoritos.add(m3);
+
+        User user2 = new User();
         user.setUserImage(R.drawable.ic_launcher);
         user.setUserName("Francois");
 
@@ -87,35 +178,23 @@ public class EasterEggScreenActivity extends AppCompatActivity {
 
         c1.setUserName(user.getUserName());
         c1.setText("Comentário tal");
-        //c1.setUserPic(user.getUserImage());
-
+        c1.setUserPic(user.getUserImage());
 
         c2.setUserName(user.getUserName());
         c2.setText("Comentário tal");
-        //c2.setUserPic(user.getUserImage());
-
+        c2.setUserPic(user.getUserImage());
         c3.setUserName(user.getUserName());
         c3.setText("Comentário tal");
-        //c3.setUserPic(user.getUserImage());
-
+        c3.setUserPic(user.getUserImage());
         c4.setUserName(user.getUserName());
         c4.setText("Comentário tal");
-        //c4.setUserPic(user.getUserImage());
-
+        c4.setUserPic(user.getUserImage());
         c5.setUserName(user.getUserName());
         c5.setText("Comentário tal");
-        //c5.setUserPic(user.getUserImage());
+        c5.setUserPic(user.getUserImage());
 
-        comentaries.add(c1);
-        comentaries.add(c2);
-        comentaries.add(c3);
-        comentaries.add(c4);
-        comentaries.add(c5);
+        comentaries.add(c1); comentaries.add(c2); comentaries.add(c3); comentaries.add(c4); comentaries.add(c5);
 
-        for (Comentary comment:comentaries) {
-            comment.setRate((int) Math.random() * 5);
-            comment.setUserPic(R.drawable.user_image);
-        }
 
         easterEgg = (EasterEgg) getIntent().getSerializableExtra("easterEgg");
         easterTitle = (TextView) findViewById(R.id.egg_title);
