@@ -1,23 +1,32 @@
 package bsi.pp_2016_1.easter.GUI;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.LinearLayout;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RatingBar;
-import android.widget.Space;
 import android.widget.Switch;
 import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ViewFlipper;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import bsi.pp_2016_1.easter.Domain.Comentary;
+import bsi.pp_2016_1.easter.Domain.EasterEgg;
 import bsi.pp_2016_1.easter.Domain.Media;
 import bsi.pp_2016_1.easter.R;
 
@@ -33,9 +42,40 @@ public class MediaScreenActivity extends AppCompatActivity {
     private RatingBar ratingBar;
 
     private ListView listOfEggs;
+    private ListView listOfComments;
+    private ListView listOfReferences;
 
     private TabHost host;
-    private ListView listOfComments;
+
+    private Button addEasterEgg;
+    private Button addMediaComment;
+
+
+    //NEW COMMENT COMPONENTS
+    private EditText textComment;
+    private Button sendMediaComment;
+    private Button cancelMediaContent;
+
+    //NEW EASTER EGG COMPONENTS
+    private EditText newEasterEggTitle;
+    private EditText newEasterEggDescription;
+    private Button createNewEasterEgg;
+    private Button cancelNewEasterEgg;
+
+    private ViewFlipper vf;
+
+    private ActionBarDrawerToggle mDrawerToggle;
+    private DrawerLayout mDrawerLayout;
+
+    private ListView rightDrawer;
+
+    private ArrayList<String> sideBarOptions = new ArrayList<>();
+    private ArrayList<Integer> sideBarImages = new ArrayList<>();
+
+    String[] navArray = {"My profile", "Easter feed", "Followed media", "Rate the app", "Sign out"};
+    Integer[] imagId = {R.drawable.patient, R.drawable.rss_icon, R.drawable.heart_icon, R.drawable.half_star_icon, R.drawable.logout_icon};
+    String[] osArray = { "Android", "iOS", "Windows", "OS X", "Linux" , "Android", "iOS", "Windows", "OS X", "Linux"};
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,12 +91,18 @@ public class MediaScreenActivity extends AppCompatActivity {
 
         listOfEggs = (ListView) findViewById(R.id.list_easter_eggs);
         listOfComments = (ListView)findViewById(R.id.list_comments);
+        listOfReferences = (ListView)findViewById(R.id.media_references);
+
+        addEasterEgg = (Button)findViewById(R.id.bt_add_easter_egg);
+        addMediaComment = (Button)findViewById(R.id.bt_add_comment_media);
+
+        vf = (ViewFlipper) findViewById(R.id.view_flipper_media);
+        final ComentaryListAdapter comentList = new ComentaryListAdapter(this, comentarios);
+        listOfComments.setAdapter(comentList);
 
         mediaName.setText(media.getTitle());
         mediaCategory.setText(media.getMidiaCategory());
         isFollowing.setChecked(true);
-        Toast.makeText(MediaScreenActivity.this, Integer.toString(media.getRate()), Toast.LENGTH_SHORT).show();
-        ratingBar.setNumStars(5);
         ratingBar.setRating(media.getRate());
 
         EasterEggListAdapter eggsList = new EasterEggListAdapter(this, media.getEasterEggs());
@@ -68,12 +114,19 @@ public class MediaScreenActivity extends AppCompatActivity {
                 Intent enterEasterEgg = new Intent(MediaScreenActivity.this, EasterEggScreenActivity.class);
                 enterEasterEgg.putExtra("easterEgg", media.getEasterEggs().get(position));
                 startActivity(enterEasterEgg);
-
             }
         });
 
-        ComentaryListAdapter comentList = new ComentaryListAdapter(this, comentarios);
-        listOfComments.setAdapter(comentList);
+        ReferencedMediaAdapter referencedMediaAdapter = new ReferencedMediaAdapter(this, media.getEasterEggs());
+        listOfReferences.setAdapter(referencedMediaAdapter);
+
+        listOfReferences.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(MediaScreenActivity.this, MediaScreenActivity.class);
+                //intent.putExtra("media", )
+            }
+        });
 
         host = (TabHost) findViewById(R.id.tabHost_mediaScrenActivity);
         assert host != null;
@@ -81,7 +134,7 @@ public class MediaScreenActivity extends AppCompatActivity {
 
         //Tab 1
         TabHost.TabSpec spec = host.newTabSpec("Tab One");
-        spec.setContent(R.id.list_easter_eggs);
+        spec.setContent(R.id.tab_easter_egg);
         spec.setIndicator("Easter Eggs");
         host.addTab(spec);
 
@@ -91,6 +144,191 @@ public class MediaScreenActivity extends AppCompatActivity {
         spec.setIndicator("Comments");
         host.addTab(spec);
 
+        //Tab 3
+        spec = host.newTabSpec("Tab Three");
+        spec.setContent(R.id.tab_references);
+        spec.setIndicator("Related");
+        host.addTab(spec);
+
+
+        addEasterEgg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                vf.setDisplayedChild(vf.indexOfChild(findViewById(R.id.third)));
+
+                newEasterEggTitle = (EditText)findViewById(R.id.title_new_easter_egg);
+                newEasterEggDescription = (EditText)findViewById(R.id.add_description_easter_egg);
+                createNewEasterEgg = (Button)findViewById(R.id.send_new_easter_egg);
+                cancelNewEasterEgg = (Button)findViewById(R.id.cancel_new_easter_egg);
+
+                createNewEasterEgg.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(MediaScreenActivity.this, Integer.toString(listOfComments.getHeight()), Toast.LENGTH_SHORT).show();
+                        EasterEgg easterEgg = new EasterEgg();
+                        easterEgg.setTitle(newEasterEggTitle.getText().toString());
+                        easterEgg.setDescription(newEasterEggDescription.getText().toString());
+                        media.getEasterEggs().add(easterEgg);
+                        comentList.notifyDataSetChanged();
+
+                        newEasterEggTitle.setText(null);
+                        newEasterEggDescription.setText(null);
+
+
+                        vf.setDisplayedChild(vf.indexOfChild(findViewById(R.id.first)));
+                    }
+                });
+                cancelNewEasterEgg.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        vf.setDisplayedChild(vf.indexOfChild(findViewById(R.id.first)));
+                    }
+                });
+            }
+        });
+
+
+        addMediaComment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                vf.setDisplayedChild(vf.indexOfChild(findViewById(R.id.second)));
+
+                textComment = (EditText)findViewById(R.id.text_comment);
+                sendMediaComment = (Button)findViewById(R.id.send_new_media_comment);
+                sendMediaComment.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Comentary comentary = new Comentary();
+                        comentary.setUserName(comentarios.get(0).getUserName());
+                        comentary.setUserPic(comentarios.get(0).getUserPic());
+                        comentary.setText(textComment.getText().toString());
+                        comentarios.add(comentary);
+                        comentList.notifyDataSetChanged();
+
+                        textComment.setText(null);
+
+
+                        vf.setDisplayedChild(vf.indexOfChild(findViewById(R.id.first)));
+                    }
+                });
+                cancelMediaContent = (Button)findViewById(R.id.cancel_new_media_comment);
+                cancelMediaContent.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        vf.setDisplayedChild(vf.indexOfChild(findViewById(R.id.first)));
+                    }
+                });
+
+            }
+        });
+
+
+        //CÓDIGO REFERENTE AOS MENUS LATERAIS
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout_media);
+
+        setupDrawer();
+
+        rightDrawer = (ListView) findViewById(R.id.navList);
+
+        rightDrawer.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch (position) {
+                    case 0:
+                        Intent toProfile = new Intent(MediaScreenActivity.this, ProfileActivity.class);
+                        startActivity(toProfile);
+                        overridePendingTransition(R.layout.push_right_in, R.layout.push_right_out);
+                        finish();
+                        break;
+                    case 1:
+                        Intent toFeed = new Intent(MediaScreenActivity.this, MediaListScreenActivity.class);
+                        startActivity(toFeed);
+                        overridePendingTransition(R.layout.push_right_in, R.layout.push_right_out);
+                        finish();
+                        break;
+                }
+            }
+        });
+
+        SideBarListAdapter listAdapter = new SideBarListAdapter(this, sideBarOptions, sideBarImages);
+        ListView rightDrawer = (ListView) findViewById(R.id.navList);
+        rightDrawer.setAdapter(listAdapter);
+
+        Collections.addAll(sideBarOptions, navArray);
+
+        Collections.addAll(sideBarImages, imagId);
     }
+    private void setupDrawer(){
+        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.drawer_open, R.string.drawer_close){
+            public void onDrawerOpened(View drawerView){
+                super.onDrawerOpened(drawerView);
+                invalidateOptionsMenu();
+            }
+
+            public void onDrawerClosed(View view){
+                super.onDrawerClosed(view);
+                invalidateOptionsMenu();
+            }
+        };
+
+        mDrawerToggle.setDrawerIndicatorEnabled(true);
+        mDrawerLayout.addDrawerListener(mDrawerToggle);
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(mDrawerLayout.isDrawerOpen(GravityCompat.START)){
+            mDrawerLayout.closeDrawer(GravityCompat.START);
+
+        }else if(mDrawerLayout.isDrawerOpen(GravityCompat.END)){
+            mDrawerLayout.closeDrawer(GravityCompat.END);
+
+        }else{
+            super.onBackPressed();
+            System.exit(0);
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if(id == R.id.action_openEdit){
+            if(mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+                mDrawerLayout.closeDrawer(GravityCompat.START);
+            }
+
+            return true;
+        }
+        if (mDrawerToggle.onOptionsItemSelected(item)) {
+                return true;
+            }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        mDrawerToggle.syncState();
+
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        mDrawerToggle.onConfigurationChanged(newConfig);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_edit, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
 
 }

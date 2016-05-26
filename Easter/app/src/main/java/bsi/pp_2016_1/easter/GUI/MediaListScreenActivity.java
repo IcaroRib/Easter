@@ -121,7 +121,7 @@ public class MediaListScreenActivity extends AppCompatActivity {
             media.setId(cont2);
             media.setTitle("Media " + cont2);
             media.setMidiaCategory("Movie");
-            media.setImageUrl(String.valueOf(R.drawable.globe));
+            media.setImageUrl(R.drawable.globe);
             media.setEasterEggs(easterEggs);
             if (cont2 > 5) {
                 media.setRate(cont2 - 5);
@@ -211,6 +211,7 @@ public class MediaListScreenActivity extends AppCompatActivity {
         assert spinner != null;
         spinner.setAdapter(adapter2);
 
+
         setupDrawer();
         SideBarListAdapter listAdapter = new SideBarListAdapter(this, sideBarOptions, sideBarImages);
         ListView rightDrawer = (ListView) findViewById(R.id.navList);
@@ -284,23 +285,14 @@ public class MediaListScreenActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_openRight) {
-            mDrawerLayout.openDrawer(GravityCompat.END);
             if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
                 mDrawerLayout.closeDrawer(GravityCompat.START);
-            } else if (mDrawerLayout.isDrawerOpen(GravityCompat.END)) {
-                mDrawerLayout.closeDrawer(GravityCompat.END);
             }
             return true;
         }
 
         if (mDrawerToggle.onOptionsItemSelected(item)) {
-            if (mDrawerLayout.isDrawerOpen(GravityCompat.END)) {
-                mDrawerLayout.closeDrawer(GravityCompat.END);
-                return false;
-            } else {
-                return true;
-            }
-
+            return true;
         }
 
         return super.onOptionsItemSelected(item);

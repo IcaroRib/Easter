@@ -11,9 +11,6 @@ public class Comentary implements Serializable{
     private String userName;
     private int userPic;
     private int rate;
-//  private int qtdLikes;
-//  private int qtdDislikes;
-//  private ArrayList<ComentaryAvaliation> avaliations;
 
     public int getId() {
         return id;

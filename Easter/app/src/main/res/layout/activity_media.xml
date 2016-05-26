@@ -1,149 +1,376 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<android.support.v4.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:id="@+id/drawer_layout_media"
     android:layout_height="match_parent">
+    <ViewFlipper
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/view_flipper_media"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content">
+        <!-- MEDIA SCREEN LAYOUT-->
+        <RelativeLayout
+            android:id="@+id/first"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:weightSum="2"
-        android:orientation="vertical" >
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="2"
+                android:orientation="vertical" >
 
-        <LinearLayout android:layout_width="fill_parent"
-            android:background="#f5f5f5"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:weightSum="1"
-            android:layout_marginLeft="20px"
-            android:layout_marginRight="20px"
-            android:layout_margin="0dp"
-            android:baselineAligned="false">
+                <LinearLayout android:layout_width="fill_parent"
+                    android:background="#f5f5f5"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:weightSum="1"
+                    android:layout_marginLeft="20px"
+                    android:layout_marginRight="20px"
+                    android:layout_margin="0dp"
+                    android:baselineAligned="false">
 
 
-            <ImageView
-                android:layout_width="250px"
-                android:layout_height="250px"
-                android:id="@+id/imageView"
-                android:layout_gravity="center_horizontal"
-                android:src="@drawable/user_image"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="10dp" />
+                    <ImageView
+                        android:layout_width="250px"
+                        android:layout_height="250px"
+                        android:id="@+id/user_image"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/user_image"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Media Name"
-                android:id="@+id/media_name"
-                android:textSize="60px"
-                android:textColor="#000"
-                android:typeface="sans"
-                android:layout_gravity="center_horizontal" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Media Name"
+                        android:id="@+id/media_name"
+                        android:textSize="60px"
+                        android:textColor="#000"
+                        android:typeface="sans"
+                        android:layout_gravity="center_horizontal" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Category"
-                android:id="@+id/media_category"
-                android:textSize="40px"
-                android:textColor="#a3a3a3"
-                android:layout_gravity="center_horizontal" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Category"
+                        android:id="@+id/media_category"
+                        android:textSize="40px"
+                        android:textColor="#a3a3a3"
+                        android:layout_gravity="center_horizontal" />
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="0.13"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:layout_margin="20px">
+
+                        <Switch
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/is_following"
+                            android:checked="false"
+                            android:layout_marginRight="300px"
+                            android:showText="false"
+                            android:singleLine="false"
+                            android:text="Follow" />
+
+                        <RatingBar
+                            style="?android:attr/ratingBarStyleSmall"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/ratingBar3"
+                            android:progressTint="#F0DC00"
+                            android:rating="2"
+                            android:layout_gravity="right" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TabHost
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tabHost_mediaScrenActivity">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <TabWidget
+                            android:id="@android:id/tabs"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"></TabWidget>
+                        <FrameLayout
+                            android:id="@android:id/tabcontent"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:id="@+id/tab_Eggs"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+                                <RelativeLayout
+                                    android:id="@+id/tab_easter_egg"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+                                    <Button
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Add a comment"
+                                        android:id="@+id/bt_add_easter_egg"
+                                        android:textColor="#fff"
+                                        android:background="#BCA734" />
+                                    <ListView
+                                        android:id="@+id/list_easter_eggs"
+                                        android:layout_below="@+id/bt_add_easter_egg"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent">
+                                    </ListView>
+                                </RelativeLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/comments"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+                                <RelativeLayout
+                                    android:id="@+id/tab_Comments"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+                                    <Button
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Add a comment"
+                                        android:id="@+id/bt_add_comment_media"
+                                        android:textColor="#fff"
+                                        android:background="#BCA734" />
+                                    <ListView
+                                        android:id="@+id/list_comments"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_below="@+id/bt_add_comment_media">
+                                    </ListView>
+                                </RelativeLayout>
+                            </LinearLayout>
+                            <LinearLayout
+                                android:id="@+id/tab_references"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:textAlignment="center">
+                                <ListView
+                                    android:id="@+id/media_references"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+                                </ListView>
+                            </LinearLayout>
+                        </FrameLayout>
+                    </LinearLayout>
+                </TabHost>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <!--ADD COMMENT LAYOUT-->
+        <RelativeLayout
+            android:id="@+id/second"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_weight="0.13"
-                android:gravity="center_vertical|center_horizontal"
-                android:layout_margin="20px">
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="false"
+                android:gravity="bottom"
+                android:weightSum="1" >
 
-                <Switch
-                    android:layout_width="wrap_content"
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="131dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/is_following"
-                    android:checked="false"
-                    android:layout_marginRight="300px"
-                    android:showText="false"
-                    android:singleLine="false"
-                    android:text="Follow" />
+                    android:text="@string/cancel_new_media_comment"
+                    android:id="@+id/cancel_new_media_comment"
+                    android:background="#BCA734"
+                    android:textColor="#fff"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="bottom" />
 
-                <RatingBar
-                    style="?android:attr/ratingBarStyleSmall"
-                    android:layout_width="wrap_content"
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="286dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/ratingBar3"
-                    android:progressTint="#F0DC00"
-                    android:rating="2"
-                    android:layout_marginLeft="30px" />
+                    android:text="@string/send_media_comment"
+                    android:id="@+id/send_new_media_comment"
+                    android:background="#5E4825"
+                    android:textColor="#fff"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="bottom" />
 
             </LinearLayout>
 
-        </LinearLayout>
-
-        <TabHost
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/tabHost_mediaScrenActivity">
-
-            <LinearLayout
+            <EditText
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="150dp"
+                android:inputType="textMultiLine"
+                android:ems="10"
+                android:id="@+id/text_comment"
+                android:layout_below="@+id/write_a_comment"
+                android:layout_alignParentLeft="true"
+                android:layout_margin="20dp" />
 
-                <TabWidget
-                    android:id="@android:id/tabs"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"></TabWidget>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/write_a_comment"
+                android:id="@+id/write_a_comment"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:textSize="20dp" />
 
-                <FrameLayout
-                    android:id="@android:id/tabcontent"
+        </RelativeLayout>
+
+        <!--ADD EASTER EGG LAYOUT-->
+        <RelativeLayout
+            android:id="@+id/third"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/scrollView_add_easter_egg" >
+
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <LinearLayout
-                        android:id="@+id/tab_Eggs"
+                    <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
+                        android:layout_height="wrap_content"
+                        android:text="@string/add_new_easter_egg"
+                        android:id="@+id/add_new_easter_egg"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_margin="20dp"
+                        android:textSize="20dp"
+                        android:textStyle="normal|bold" />
 
-                        <ListView
-                            android:id="@+id/list_easter_eggs"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"></ListView>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@id/comments"
+                    <EditText
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-                        <RelativeLayout
-                            android:id="@+id/tab_Comments"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-                            <Button
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Add a comment"
-                                android:id="@+id/bt_add_comment_media"
-                                android:textColor="#fff"
-                                android:background="#BCA734" />
-                            <ListView
-                                android:id="@+id/list_comments"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_below="@+id/bt_add_comment_media">
-                            </ListView>
-                        </RelativeLayout>
-                    </LinearLayout>
+                        android:layout_height="100dp"
+                        android:inputType="textMultiLine"
+                        android:ems="10"
+                        android:id="@+id/add_description_easter_egg"
+                        android:hint="@string/description_new_easter_egg"
+                        android:gravity="bottom"
+                        android:layout_below="@+id/title_new_easter_egg"
+                        android:layout_centerHorizontal="true"
+                        android:layout_margin="20dp" />
 
-                </FrameLayout>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/title_new_easter_egg"
+                        android:singleLine="true"
+                        android:hint="@string/hint_title"
+                        android:layout_below="@+id/add_new_easter_egg"
+                        android:layout_margin="20dp" />
+                </RelativeLayout>
+            </ScrollView>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="false"
+                android:gravity="bottom"
+                android:weightSum="1" >
+
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="131dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cancel_new_easter_egg"
+                    android:id="@+id/cancel_new_easter_egg"
+                    android:background="#BCA734"
+                    android:textColor="#fff"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="bottom" />
+
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="286dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/send_new_easter_egg"
+                    android:id="@+id/send_new_easter_egg"
+                    android:background="#5E4825"
+                    android:textColor="#fff"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="bottom" />
+
             </LinearLayout>
-        </TabHost>
 
+        </RelativeLayout>
 
-    </LinearLayout>
+    </ViewFlipper>
+    <!-- BEGINNING OF LEFT SIDEBAR CODE -->
+    <RelativeLayout
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="#FFFFFF"
+        android:clickable="true">
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            android:src="@drawable/ic_launcher"
+            android:layout_marginTop="80dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="UserImage" />
 
-</RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Medium Text"
+            android:id="@+id/textView"
+            android:layout_below="@+id/imageView"
+            android:layout_centerHorizontal="true" />
+
+        <ListView
+            android:id="@+id/navList"
+            android:layout_below="@id/textView"
+            android:layout_marginTop="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            android:divider="@null" />
+    </RelativeLayout>
+</android.support.v4.widget.DrawerLayout>

@@ -8,7 +8,7 @@ public class Media implements Serializable {
 	private int id;
 	private String title;
 	private String midiaCategory;
-	private String imageUrl;
+	private int imageUrl;
 	private ArrayList<EasterEgg> easterEggs;
 	private int rate;
 	
@@ -33,10 +33,10 @@ public class Media implements Serializable {
 		this.midiaCategory = midiaCategory;
 	}
 
-	public String getImageUrl() {
+	public int getImageUrl() {
 		return imageUrl;
 	}
-	public void setImageUrl(String imageUrl) {
+	public void setImageUrl(int imageUrl) {
 		this.imageUrl = imageUrl;
 	}
 

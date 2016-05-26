@@ -1,48 +1,43 @@
 package bsi.pp_2016_1.easter.GUI;
 
 import android.app.Activity;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
-
 import java.util.ArrayList;
-
 import bsi.pp_2016_1.easter.Domain.EasterEgg;
-import bsi.pp_2016_1.easter.Domain.Media;
 import bsi.pp_2016_1.easter.R;
 
-public class TesteEasterEggAdapter extends BaseAdapter {
+public class ReferencedMediaAdapter extends BaseAdapter {
 
-    private final Activity context;
-    private final ArrayList<Media> mediaList;
+    private Activity context;
+    private ArrayList<EasterEgg> easterEggs;
 
     private static int aux = 0;
     private static int aux2 = 0;
 
-    public TesteEasterEggAdapter(Activity context, ArrayList<Media> mediaList) {
+    public ReferencedMediaAdapter(Activity context, ArrayList<EasterEgg> easterEggs) {
         this.context = context;
-        this.mediaList = mediaList;
+        this.easterEggs = easterEggs;
     }
 
     @Override
     public int getCount() {
         int count = 0;
-        for (Media med :mediaList) {
-            count += med.getEasterEggs().size();
+        for (EasterEgg easter :easterEggs) {
+            count += easter.getReferenceList().size();
         }
-
         return count;
     }
 
     @Override
     public Object getItem(int position) {
-        position = 0;
-        for (Media media : mediaList) {
-            position += media.getEasterEggs().size();
-        }
         return null;
     }
 
@@ -54,24 +49,26 @@ public class TesteEasterEggAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = context.getLayoutInflater();
-        View rowView = inflater.inflate(R.layout.item_easter, null, true);
+        View rowView = inflater.inflate(R.layout.item_media, null, true);
 
+
+        ImageView mediaIcon = (ImageView) rowView.findViewById(R.id.icon);
         TextView txtTitle = (TextView) rowView.findViewById(R.id.item);
         TextView extratxt = (TextView) rowView.findViewById(R.id.textView1);
         RatingBar rtBar = (RatingBar) rowView.findViewById(R.id.ratingBar);
 
         rtBar.setNumStars(5);
 
-
-        if(position%10==0){
-            aux = position/10;
+        if(position%5==0){
+            aux = position/5;
         }else{
-            aux2 = position%10;
+            aux2 = position%5;
         }
 
-        txtTitle.setText(mediaList.get(aux).getEasterEggs().get(aux2).getTitle());
-        extratxt.setText(mediaList.get(aux).getTitle());
-        rtBar.setRating(mediaList.get(aux).getEasterEggs().get(aux2).getRate());
+        mediaIcon.setImageResource(easterEggs.get(aux).getReferenceList().get(aux2).getImageUrl());
+        txtTitle.setText(easterEggs.get(aux).getReferenceList().get(aux2).getTitle());
+        extratxt.setText(easterEggs.get(aux).getTitle());
+        rtBar.setRating(easterEggs.get(aux).getReferenceList().get(aux2).getRate());
         return rowView;
     }
 }

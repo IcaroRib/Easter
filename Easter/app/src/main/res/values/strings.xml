@@ -16,6 +16,17 @@
     <string name="facebook_app_id">1734181510128618</string>
     <string name="go_media">Go Media</string>
 
+    <string name="write_a_comment">Write a comment...</string>
+    <string name="send_media_comment">Send</string>
+    <string name="cancel_new_media_comment">Cancel</string>
+    <string name="add_new_easter_egg">Add a new easter egg ...</string>
+    <string name="description_new_easter_egg">description</string>
+    <string name="hint_title">Title:</string>
+    <string name="send_new_easter_egg">Send</string>
+    <string name="cancel_new_easter_egg">Cancel</string>
+    <string name="cancel_edit_easter_egg">Cancel</string>
+
+
     <string-array name="filter_array">
         <item>Most recents</item>
         <item>Most Popular</item>

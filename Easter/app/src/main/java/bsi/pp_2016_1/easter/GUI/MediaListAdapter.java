@@ -39,7 +39,7 @@ public class MediaListAdapter extends ArrayAdapter<Media> {
         RatingBar mediaRatingBar = (RatingBar) rowView.findViewById(R.id.ratingBar);
 
         mediaRatingBar.setNumStars(5);
-        mediaImage.setImageResource(Integer.parseInt(mediaList.get(position).getImageUrl()));
+        mediaImage.setImageResource(mediaList.get(position).getImageUrl());
         mediaName.setText(mediaList.get(position).getTitle());
         mediaCategory.setText(mediaList.get(position).getMidiaCategory());
         mediaRatingBar.setRating(mediaList.get(position).getRate());
