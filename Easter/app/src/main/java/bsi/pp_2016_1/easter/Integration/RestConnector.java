@@ -17,6 +17,7 @@ import java.util.Map;
 /**
  * Created by Lucas on 11/05/2016.
  */
+
 public abstract class RestConnector {
 
     private static final String url = "https://easter-netorodrigues.c9users.io/EasterServer/routes"; //url do servidor

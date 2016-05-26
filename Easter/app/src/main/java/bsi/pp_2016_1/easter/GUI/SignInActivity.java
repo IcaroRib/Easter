@@ -9,6 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
+
 import bsi.pp_2016_1.easter.Domain.Media;
 import bsi.pp_2016_1.easter.Domain.Session;
 import bsi.pp_2016_1.easter.Domain.User;
@@ -56,6 +60,7 @@ public class SignInActivity extends Activity{
                     UserCallback callback = new UserCallback(){
                         @Override
                         public Object onSuccess(String response) {
+                            System.out.println(response);
                             User user = (User)super.onSuccess(response);
                             Session session = Session.getInstance();
                             session.login(user);

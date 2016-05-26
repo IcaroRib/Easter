@@ -59,7 +59,7 @@ public class SignUpActivity extends Activity{
                     UserCallback callback = new UserCallback(){
                         @Override
                         public Object onSuccess(String response) {
-
+                            System.out.println(response);
                             User user = (User)super.onSuccess(response);
                             Session session = Session.getInstance();
                             session.login(user);
@@ -71,7 +71,7 @@ public class SignUpActivity extends Activity{
 
                         @Override
                         public void onFailure(String response) {
-
+                            System.out.println(response);
                             super.onFailure(response);
                             Toast.makeText(getApplicationContext(), (response), Toast.LENGTH_SHORT).show();
                         }
