@@ -42,7 +42,7 @@ class EasterEggDAO{
         $EElist =  array();
         $stringSQL = "SELECT idEasterEgg, description, easteregg.imageUrl, idWritter, AVG(score) as mediumScore
                       FROM easteregg INNER JOIN user ON idUser = idWritter
-                      INNER JOIN evaluateeasteregg ON idEasterEgg = easteregg.idEasterEgg
+                      INNER JOIN evaluatedeasteregg ON idEasterEgg = easteregg.idEasterEgg
 	 				  WHERE idMedia =" . $id . " GROUP BY idEasterEgg";
         $result_query = $this->connection->query($stringSQL);
         $cont = 0;

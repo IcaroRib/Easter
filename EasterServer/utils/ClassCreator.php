@@ -18,43 +18,41 @@ class ClassCreator
         $user = new User();
         $jsonMedia = json_decode($jsonMedia,TRUE);
 
-        if(!empty($jsonUser->id)){
-            $user->setId($jsonUser->id);
+        if(!empty($jsonUser["id"])){
+            $user->setId($jsonUser["id"]);
         }
 
-        if(!empty($jsonUser->acessToken)){
-            $user->setFacebookAcessToken($jsonUser->acessToken);
+        if(!empty($jsonUser["acessToken"])){
+            $user->setFacebookAcessToken($jsonUser["acessToken"]);
         }
 
-        if(!empty($jsonUser->profileName)){
-            $user->setProfileName($jsonUser->profileName);
+        if(!empty($jsonUser["profileName"])){
+            $user->setProfileName($jsonUser["profileName"]);
         }
 
-        if(!empty($jsonUser->userName)){
+        if(!empty($jsonUser["userName"])){
 
-            $user->setUserName($jsonUser->userName);
-            echo "username = " . $user->getName();
+            $user->setUserName($jsonUser["userName"]);
         }
 
-        if(isset($jsonUser->age)){
-            $user->setAge((int)$jsonUser->age);
+        if(!empty($jsonUser["age"])){
+            $user->setAge((int)$jsonUser["age"]);
         }
 
-        if(isset($jsonUser->gender)){
-            $user->setGender($jsonUser->gender);
+        if(!empty($jsonUser["gender"])){
+            $user->setGender($jsonUser["gender"]);
         }
 
-        if(isset($jsonUser->imageUrl)){
-            $user->setImageUrl($jsonUser->imageUrl);
+        if(!empty($jsonUser["imageUrl"])){
+            $user->setImageUrl($jsonUser["imageUrl"]);
         }
 
-        if(isset($jsonUser->email)){
-            $user->setEmail($jsonUser->email);
+        if(!empty($jsonUser["email"])){
+            $user->setEmail($jsonUser["email"]);
         }
 
-        if(isset($jsonUser->password)) {
-            $user->setPassword($jsonUser->password);
-            echo "password = " . $user->getPassword();
+        if(!empty($jsonUser["password"])) {
+            $user->setPassword($jsonUser["password"]);
         }
 
         return $user;
@@ -87,23 +85,23 @@ class ClassCreator
             $user->setUserName($userArrayQuerry["userName"]);
         }
 
-        if (isset($userArrayQuerry["age"])) {
+        if (!empty($userArrayQuerry["age"])) {
             $user->setAge($userArrayQuerry["age"]);
         }
 
-        if (isset($userArrayQuerry["gender"])) {
+        if (!empty($userArrayQuerry["gender"])) {
             $user->setGender($userArrayQuerry["gender"]);
         }
 
-        if (isset($userArrayQuerry["imageUrl"])) {
+        if (!empty($userArrayQuerry["imageUrl"])) {
             $user->setImageUrl($userArrayQuerry["imageUrl"]);
         }
 
-        if (isset($userArrayQuerry["email"])) {
+        if (!empty($userArrayQuerry["email"])) {
             $user->setEmail($userArrayQuerry["email"]);
         }
 
-        if (isset($userArrayQuerry["password"])) {
+        if (!empty($userArrayQuerry["password"])) {
             $user->setPassword($userArrayQuerry["password"]);
         }
 
@@ -119,12 +117,12 @@ class ClassCreator
         $media = new Media();
         $jsonMedia = json_decode($jsonMedia,TRUE);
 
-        if(isset($jsonMedia->id)){
-            $media->setId($jsonMedia->id);
+        if(!empty($jsonMedia["id"])){
+            $media->setId($jsonMedia["id"]);
         }
 
-        if(isset($jsonMedia->title)){
-            $media->setTitle($jsonMedia->title);
+        if(!empty($jsonMedia["title"])){
+            $media->setTitle($jsonMedia["title"]);
         }
 
         return $media;
@@ -139,35 +137,35 @@ class ClassCreator
         $EasterEgg = new EasterEgg();
         $jsonMedia = json_decode($jsonMedia,TRUE);
 
-        if(isset($jsonMedia->id)){
-            $EasterEgg->setId($jsonMedia->id);
+        if(!empty($jsonMedia["id"])){
+            $EasterEgg->setId($jsonMedia["id"]);
         }
 
-        if(isset($jsonMedia->idMedia)){
-            $EasterEgg->setIdMedia($jsonMedia->idMedia);
+        if(!empty($jsonMedia["idMedia"])){
+            $EasterEgg->setIdMedia($jsonMedia["idMedia"]);
         }
 
-        if(isset($jsonMedia->description)){
-            $EasterEgg->setDescription($jsonMedia->description);
+        if(!empty($jsonMedia["description"]){
+            $EasterEgg->setDescription($jsonMedia["description"]);
         }
 
-        if(isset($jsonMedia->score)){
-            $EasterEgg->setScore($jsonMedia->score);
+        if(!empty($jsonMedia["score"])){
+            $EasterEgg->setScore($jsonMedia["score"]);
         }
 
-        if(isset($jsonMedia->imageUrl)){
-            $EasterEgg->setImageUrl($jsonMedia->imageUrl);
+        if(!empty($jsonMedia["imageUrl"])){
+            $EasterEgg->setImageUrl($jsonMedia["imageUrl"]);
         }
 
-        if(isset($jsonMedia->authorName)){
-            $EasterEgg->setAuthorName($jsonMedia->authorName);
+        if(!empty($jsonMedia["authorName"])){
+            $EasterEgg->setAuthorName($jsonMedia["authorName"]);
         }
 
-        if(isset($jsonMedia->idAuthor)){
-            $EasterEgg->setIdAuthor($jsonMedia->idAuthor);
+        if(!empty($jsonMedia["idAuthor"])){
+            $EasterEgg->setIdAuthor($jsonMedia["idAuthor"]);
         }
 
-        if(isset($jsonMedia->references)){
+        if(!empty($jsonMedia["references"])){
 
             $cont = 0;
             $references = array();
@@ -191,27 +189,27 @@ class ClassCreator
     public static function createMediaFromArrayQuerry($mediaArrayQuery){
 
         $media = new Media();
-        if(isset($mediaArrayQuery["idMedia"])){
+        if(!empty($mediaArrayQuery["idMedia"])){
             $media->setId($mediaArrayQuery["idMedia"]);
         }
 
-        if(isset($mediaArrayQuery["title"])){
+        if(!empty($mediaArrayQuery["title"])){
             $media->setTitle($mediaArrayQuery["title"]);
         }
 
-        if(isset($mediaArrayQuery["category"])){
+        if(!empty($mediaArrayQuery["category"])){
             $media->setCategory($mediaArrayQuery["category"]);
         }
 
-        if(isset($mediaArrayQuery["image"])){
+        if(!empty($mediaArrayQuery["image"])){
             $media->setImage($mediaArrayQuery["image"]);
         }
 
-        if(isset($mediaArrayQuery["averageScore"])){
+        if(!empty($mediaArrayQuery["averageScore"])){
             $media->setAverageScore($mediaArrayQuery["averageScore"]);
         }
 
-        if(isset($mediaArrayQuery["User_idUser"])){
+        if(!empty($mediaArrayQuery["User_idUser"])){
             if($mediaArrayQuery["User_idUser"] != null){
                 $media->setIsFavorite(true);
             }
@@ -228,11 +226,11 @@ class ClassCreator
     public static function createTaskFromArrayQuerry($taskArrayQuery){
 
         $task = new Task();
-        if(isset($taskArrayQuery["idTask"])){
+        if(!empty($taskArrayQuery["idTask"])){
             $task->setId($taskArrayQuery["idTask"]);
         }
 
-        if(isset($taskArrayQuery["description"])){
+        if(!empty($taskArrayQuery["description"])){
             $task->setDescription($taskArrayQuery["description"]);
         }
         return $task;
@@ -245,11 +243,11 @@ class ClassCreator
     public static function createRefenceFromArrayQuerry($taskArrayQuery){
 
         $reference = new Reference();
-        if(isset($taskArrayQuery["idMedia"])){
+        if(!empty($taskArrayQuery["idMedia"])){
             $reference->setIdMedia($taskArrayQuery["idMedia"]);
         }
 
-        if(isset($taskArrayQuery["title"])){
+        if(!empty($taskArrayQuery["title"])){
             $reference->setReferenceTitle($taskArrayQuery["title"]);
         }
 
@@ -259,26 +257,26 @@ class ClassCreator
     public static function createEasterEggFromArrayQuerry($eeArrayQuery){
 
         $easterEgg = new EasterEgg();
-        if(isset($eeArrayQuery["idEasterEgg"])){
+        if(!empty($eeArrayQuery["idEasterEgg"])){
             $easterEgg->setId($eeArrayQuery["idEasterEgg"]);
         }
 
-        if(isset($eeArrayQuery["description"])){
+        if(!empty($eeArrayQuery["description"])){
             $easterEgg->setDescription($eeArrayQuery["description"]);
         }
 
-        if(isset($eeArrayQuery["idWritter"])){
+        if(!empty($eeArrayQuery["idWritter"])){
             $easterEgg->setIdAuthor($eeArrayQuery["idWritter"]);
         }
 
-        if(isset($eeArrayQuery["profileName"])){
+        if(!empty($eeArrayQuery["profileName"])){
             $easterEgg->setAuthorName($eeArrayQuery["profileName"]);
         }
 
-        if(isset($eeArrayQuery["mediumScore"])){
+        if(!empty($eeArrayQuery["mediumScore"])){
             $easterEgg->setScore($eeArrayQuery["mediumScore"]);
         }
-        if(isset($eeArrayQuery["imageUrl"])){
+        if(!empty($eeArrayQuery["imageUrl"])){
             $easterEgg->setImageUrl($eeArrayQuery["imageUrl"]);
         }
 
@@ -288,31 +286,31 @@ class ClassCreator
     public static function createCommentFromArrayQuerry($commentArrayQuery){
 
         $comment = new Commentary();
-        if(isset($commentArrayQuery["idComment"])){
+        if(!empty($commentArrayQuery["idComment"])){
             $comment->setId($commentArrayQuery["idComment"]);
         }
 
-        if(isset($commentArrayQuery["text"])){
+        if(!empty($commentArrayQuery["text"])){
             $comment->setText($commentArrayQuery["text"]);
         }
 
-        if(isset($commentArrayQuery["idUser"])){
+        if(!empty($commentArrayQuery["idUser"])){
             $comment->setIdAuthor($commentArrayQuery["idUser"]);
         }
 
-        if(isset($commentArrayQuery["profileName"])){
+        if(!empty($commentArrayQuery["profileName"])){
             $comment->setAuthorName($commentArrayQuery["profileName"]);
         }
 
-        if(isset($commentArrayQuery["qtyLikes"])){
+        if(!empty($commentArrayQuery["qtyLikes"])){
             $comment->setQtdLikes($commentArrayQuery["qtyLikes"]);
         }
 
-        if(isset($commentArrayQuery["qtyDislikes"])){
+        if(!empty($commentArrayQuery["qtyDislikes"])){
             $comment->setQtdDislikes($commentArrayQuery["qtyDislikes"]);
         }
 
-        if(isset($commentArrayQuery["date"])){
+        if(!empty($commentArrayQuery["date"])){
             $comment->setDate($commentArrayQuery["date"]);
         }
 
@@ -324,32 +322,32 @@ class ClassCreator
         $comment = new Commentary();
         $jsonMedia = json_decode($jsonMedia,TRUE);
 
-        if(isset($commentJson->idComment)){
-            $comment->setId($commentJson->idComment);
+        if(!empty($commentJson["idComment"])){
+            $comment->setId($commentJson["idComment"]);
         }
 
-        if(isset($commentJson->text)){
-            $comment->setText($commentJson->text);
+        if(!empty($commentJson["text"])){
+            $comment->setText($commentJson["text"]);
         }
 
-        if(isset($commentJson->idUser)){
-            $comment->setIdAuthor($commentJson->idUser);
+        if(!empty($commentJson["idUser"])){
+            $comment->setIdAuthor($commentJson["idUser"]);
         }
 
-        if(isset($commentArrayQuery->profileName)){
-            $comment->setAuthorName($commentArrayQuery->profileName);
+        if(!empty($commentJson->profileName)){
+            $comment->setAuthorName($commentJson->profileName);
         }
 
-        if(isset($commentJson->qtyLikes)){
-            $comment->setQtdLikes($commentJson->qtyLikes);
+        if(!empty($commentJson["qtyLikes"])){
+            $comment->setQtdLikes($commentJson["qtyLikes"]);
         }
 
-        if(isset($commentJson->qtyDislikes)){
-            $comment->setQtdDislikes($commentJson->qtyDislikes);
+        if(!empty($commentJson["qtyDislikes"])){
+            $comment->setQtdDislikes($commentJson["qtyDislikes"]);
         }
 
-        if(isset($commentJson->date)){
-            $comment->setDate($commentJson->date);
+        if(!empty($commentJson["date"])){
+            $comment->setDate($commentJson["date"]);
         }
 
         return $comment;

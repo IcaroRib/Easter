@@ -41,7 +41,7 @@
 			$stringSQL = "SELECT *, AVG(score) as averageScore FROM media left outer join fallowedmedia on media.idMedia = Media_idMedia
  							FROM media INNER JOIN easteregg ON media.idMedia = easteregg.idMedia
  							INNER JOIN evaluatedeasteregg ON idEasterEgg = EasterEgg_idEasterEgg
- 							WHERE mdia.idMedia = " . $id . " GROUP BY media.idMedia";
+ 							WHERE media.idMedia = " . $id . " GROUP BY media.idMedia";
 			$result_query = $this->connection->query($stringSQL);
 			while ($result = $result_query->fetch_assoc()) {
 				$newMedia = ClassCreator::createMediaFromArrayQuerry($result);
