@@ -16,7 +16,7 @@ class ClassCreator
     public static function createUserFromJson($jsonUser){
 
         $user = new User();
-        $jsonMedia = json_decode($jsonMedia);
+        $jsonMedia = json_decode($jsonMedia,TRUE);
 
         if(!empty($jsonUser->id)){
             $user->setId($jsonUser->id);
@@ -31,7 +31,9 @@ class ClassCreator
         }
 
         if(!empty($jsonUser->userName)){
+
             $user->setUserName($jsonUser->userName);
+            echo "username = " . $user->getName();
         }
 
         if(isset($jsonUser->age)){
@@ -52,6 +54,7 @@ class ClassCreator
 
         if(isset($jsonUser->password)) {
             $user->setPassword($jsonUser->password);
+            echo "password = " . $user->getPassword();
         }
 
         return $user;
@@ -114,7 +117,7 @@ class ClassCreator
     public static function createMediaFromJson($jsonMedia){
 
         $media = new Media();
-        $jsonMedia = json_decode($jsonMedia);
+        $jsonMedia = json_decode($jsonMedia,TRUE);
 
         if(isset($jsonMedia->id)){
             $media->setId($jsonMedia->id);
@@ -134,7 +137,7 @@ class ClassCreator
     public static function createEasterEggFromJson($jsonMedia){
 
         $EasterEgg = new EasterEgg();
-        $jsonMedia = json_decode($jsonMedia);
+        $jsonMedia = json_decode($jsonMedia,TRUE);
 
         if(isset($jsonMedia->id)){
             $EasterEgg->setId($jsonMedia->id);
@@ -319,7 +322,7 @@ class ClassCreator
     public static function createCommentFromJson($commentJson){
 
         $comment = new Commentary();
-        $jsonMedia = json_decode($jsonMedia);
+        $jsonMedia = json_decode($jsonMedia,TRUE);
 
         if(isset($commentJson->idComment)){
             $comment->setId($commentJson->idComment);

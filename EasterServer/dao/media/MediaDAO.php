@@ -8,7 +8,7 @@
 
 		function MediaDAO() {
         	//$this->connection = new Connection();
-        	$this->connection = new mysqli('localhost','root','JME.megasin-02','easter');
+        	$this->connection = new mysqli('localhost','root','','easter');
     	}
 
     	function desconnect(){

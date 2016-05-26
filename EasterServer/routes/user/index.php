@@ -6,7 +6,7 @@
     include_once("../../services/user/UserService.php");
 
 	if($_POST["operation"] == "login"){
-        $user = ClassCreator::createUserFromJson($_POST['user']);
+        $user = ClassCreator::createUserFromJson(json_decode($_POST['user']));
         $profileType = $_POST['profileType'];
         $userService = new UserService();
         echo json_encode($userService->login($user,$profileType));
@@ -14,14 +14,14 @@
     }
 
     elseif($_POST["operation"] == "update"){
-        $user = ClassCreator::createUserFromJson($_POST['user']);
+        $user = ClassCreator::createUserFromJson(json_decode($_POST['user']));
         $profileType = $_POST['profileType'];
         $userService = new UserService();
         echo json_encode($userService->update($user,$profileType));
     }
 
     elseif($_POST["operation"] == "create"){
-        $user = ClassCreator::createUserFromJson($_POST['user']);
+        $user = ClassCreator::createUserFromJson(json_decode($_POST['user']));
         $profileType = $_POST['profileType'];
         $userService = new UserService();
         echo json_encode($userService->insertUser($user,$profileType));
