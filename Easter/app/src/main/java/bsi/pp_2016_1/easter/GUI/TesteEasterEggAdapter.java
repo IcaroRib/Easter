@@ -11,38 +11,25 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import bsi.pp_2016_1.easter.Domain.EasterEgg;
-import bsi.pp_2016_1.easter.Domain.Media;
 import bsi.pp_2016_1.easter.R;
 
 public class TesteEasterEggAdapter extends BaseAdapter {
 
     private final Activity context;
-    private final ArrayList<Media> mediaList;
+    private final ArrayList<EasterEgg> easterEggList;
 
-    private static int aux = 0;
-    private static int aux2 = 0;
-
-    public TesteEasterEggAdapter(Activity context, ArrayList<Media> mediaList) {
+    public TesteEasterEggAdapter(Activity context, ArrayList<EasterEgg> easterEggList) {
         this.context = context;
-        this.mediaList = mediaList;
+        this.easterEggList = easterEggList;
     }
 
     @Override
     public int getCount() {
-        int count = 0;
-        for (Media med :mediaList) {
-            count += med.getEasterEggs().size();
-        }
-
-        return count;
+        return easterEggList.size();
     }
 
     @Override
     public Object getItem(int position) {
-        position = 0;
-        for (Media media : mediaList) {
-            position += media.getEasterEggs().size();
-        }
         return null;
     }
 
@@ -63,15 +50,9 @@ public class TesteEasterEggAdapter extends BaseAdapter {
         rtBar.setNumStars(5);
 
 
-        if(position%10==0){
-            aux = position/10;
-        }else{
-            aux2 = position%10;
-        }
-
-        txtTitle.setText(mediaList.get(aux).getEasterEggs().get(aux2).getTitle());
-        extratxt.setText(mediaList.get(aux).getTitle());
-        rtBar.setRating(mediaList.get(aux).getEasterEggs().get(aux2).getRate());
+        txtTitle.setText(easterEggList.get(position).getTitle());
+        extratxt.setText(easterEggList.get(position).getDescription());
+        rtBar.setRating(easterEggList.get(position).getRate());
         return rowView;
     }
 }

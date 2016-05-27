@@ -14,15 +14,15 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TabHost;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import bsi.pp_2016_1.easter.Domain.EasterEgg;
 import bsi.pp_2016_1.easter.Domain.Media;
+import bsi.pp_2016_1.easter.Domain.Session;
+import bsi.pp_2016_1.easter.Domain.User;
 import bsi.pp_2016_1.easter.R;
 
 public class ProfileActivity extends AppCompatActivity {
@@ -49,11 +49,10 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        listaMedias = (ArrayList<Media>) getIntent().getSerializableExtra("dados");
+        User user = Session.getInstance().getLoggedUser();
 
-        MediaListAdapter followedAdapter = new MediaListAdapter(this, listaMedias);
+        MediaListAdapter followedAdapter = new MediaListAdapter(this, user.getFavoritedMedias());
         ListView followed_list = (ListView) findViewById(R.id.list_followed);
-        assert followed_list != null;
         followed_list.setAdapter(followedAdapter);
 
         followed_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -62,15 +61,15 @@ public class ProfileActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 Intent enterActivity = new Intent(ProfileActivity.this, MediaScreenActivity.class);
-                enterActivity.putExtra("media", listaMedias.get(position));
+               // enterActivity.putExtra("media", listaMedias.get(position));
                 startActivity(enterActivity);
 
             }
         });
 
-        eggsAdapter = new TesteEasterEggAdapter(this, listaMedias);
+        eggsAdapter = new TesteEasterEggAdapter(this, user.getPublishedEasterEggs());
         ListView eggs_list = (ListView) findViewById(R.id.list_easter_eggs);
-        assert eggs_list != null;
+
         eggs_list.setAdapter(eggsAdapter);
 
         eggs_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -79,7 +78,7 @@ public class ProfileActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 Intent enterEasterEgg = new Intent(ProfileActivity.this, EasterEggScreenActivity.class);
-                enterEasterEgg.putExtra("easterEgg", listaMedias.get(position).getEasterEggs().get(position));
+               // enterEasterEgg.putExtra("easterEgg", listaMedias.get(position).getEasterEggs().get(position));
                 startActivity(enterEasterEgg);
             }
         });
@@ -102,7 +101,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         //CÓDIGO REFERENTE AOS MENUS LATERAIS
 
-        assert getSupportActionBar() != null;
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 

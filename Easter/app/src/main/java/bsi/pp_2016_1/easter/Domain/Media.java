@@ -11,7 +11,11 @@ public class Media implements Serializable {
 	private int imageUrl;
 	private ArrayList<EasterEgg> easterEggs;
 	private int rate;
-	
+	private ArrayList<Comentary> commentList;
+
+	public ArrayList<Comentary> getCommentList() {return commentList;}
+	public void setCommentList(ArrayList<Comentary> commentList) {this.commentList = commentList;
+	}
 	public int getId() {
 		return id;
 	}

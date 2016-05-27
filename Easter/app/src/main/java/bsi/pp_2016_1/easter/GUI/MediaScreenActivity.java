@@ -82,8 +82,9 @@ public class MediaScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_media);
 
+
         media = (Media) getIntent().getSerializableExtra("media");
-        comentarios = (ArrayList<Comentary>) getIntent().getSerializableExtra("comentarios");
+        comentarios = media.getCommentList();
         mediaName = (TextView) findViewById(R.id.media_name);
         mediaCategory = (TextView) findViewById(R.id.media_category);
         isFollowing = (Switch) findViewById(R.id.is_following);
@@ -102,7 +103,7 @@ public class MediaScreenActivity extends AppCompatActivity {
 
         mediaName.setText(media.getTitle());
         mediaCategory.setText(media.getMidiaCategory());
-        isFollowing.setChecked(true);
+        isFollowing.setChecked(false);
         ratingBar.setRating(media.getRate());
 
         EasterEggListAdapter eggsList = new EasterEggListAdapter(this, media.getEasterEggs());
@@ -135,7 +136,7 @@ public class MediaScreenActivity extends AppCompatActivity {
         //Tab 1
         TabHost.TabSpec spec = host.newTabSpec("Tab One");
         spec.setContent(R.id.tab_easter_egg);
-        spec.setIndicator("Easter Eggs");
+        spec.setIndicator("Eggs");
         host.addTab(spec);
 
         //Tab 2

@@ -13,7 +13,6 @@ public class ResponseListener implements Response.Listener<String> {
 
     @Override
     public void onResponse(String response) {
-
         if(callback == null) {
             try {
                 this.callbackFailure();
@@ -23,6 +22,7 @@ public class ResponseListener implements Response.Listener<String> {
         }
 
         if(!response.contains("id")) {
+            System.out.println("AQUI: " + response);
             callback.onFailure(response);
         }
 
@@ -36,7 +36,7 @@ public class ResponseListener implements Response.Listener<String> {
     }
 
     private void callbackFailure() throws Exception {
-        Exception ex = new NullPointerException();
+        Exception ex = new Exception();
         throw ex;
     }
 }

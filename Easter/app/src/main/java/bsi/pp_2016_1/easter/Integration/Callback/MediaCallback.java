@@ -18,6 +18,7 @@ public class MediaCallback implements CustomCallback{
 
     @Override
     public Object onSuccess(String response) {
+        System.out.println(response);
         Gson formatter = new Gson();
         if (response.substring(0,1).equals("L")){
             Media arrayMedias[] = formatter.fromJson(response.substring(1,response.length()), Media[].class);
