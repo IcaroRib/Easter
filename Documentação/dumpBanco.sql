@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Tempo de geração: 27/05/2016 às 01:11
+-- Tempo de geração: 27/05/2016 às 02:03
 -- Versão do servidor: 10.1.13-MariaDB
 -- Versão do PHP: 5.6.21
 
@@ -42,7 +42,8 @@ CREATE TABLE `comment` (
 --
 
 INSERT INTO `comment` (`idComment`, `text`, `date`, `qtyLikes`, `idAuthor`, `qtyDislikes`, `idEasterEgg`, `createdAt`) VALUES
-(1, 'nunca iria imaginar LOL ', '2016-04-06', 0, 8, 0, 5, '2016-05-15 20:46:13');
+(1, 'nunca iria imaginar LOL ', '2016-04-06', 0, 8, 0, 5, '2016-05-15 20:46:13'),
+(2, 'legal!', '2016-05-09', 5, 16, 4, 8, '2016-05-17 07:34:18');
 
 -- --------------------------------------------------------
 
@@ -85,7 +86,11 @@ INSERT INTO `easteregg` (`idEasterEgg`, `description`, `imageUrl`, `idMedia`, `i
 (2, 'professor xavier', NULL, 1, 1, '2016-05-01 00:00:00'),
 (3, 'x-men kk', NULL, 1, 8, '2016-05-01 00:00:00'),
 (4, 'teste', NULL, 6, 8, '2016-05-01 00:00:00'),
-(5, 'vencendo  o homem formiga', NULL, 6, 11, '2016-05-01 00:00:00');
+(5, 'vencendo  o homem formiga', NULL, 6, 11, '2016-05-01 00:00:00'),
+(6, 'Emboscada secreta - Missão #4', NULL, 8, 11, '2016-05-15 17:34:16'),
+(7, 'Luta Secreta - Raiden', NULL, 9, 1, '2016-05-02 19:45:30'),
+(8, 'Aparição do Stan Lee - Boate', NULL, 1, 11, '2016-05-17 06:29:20'),
+(9, 'Cena da explosão - Quicksilver', NULL, 11, 8, '2016-05-03 06:36:12');
 
 -- --------------------------------------------------------
 
@@ -217,13 +222,18 @@ CREATE TABLE `media` (
 --
 
 INSERT INTO `media` (`idMedia`, `title`, `category`, `image`, `createdAt`) VALUES
-(1, 'deadpool', 'filme', NULL, '0000-00-00 00:00:00'),
-(2, 'x-men 3', 'filme', NULL, '0000-00-00 00:00:00'),
-(3, 'final fantasy', 'jogo', NULL, '0000-00-00 00:00:00'),
-(4, 'harry potter', 'livro', NULL, '0000-00-00 00:00:00'),
-(5, 'gintama', 'anime', NULL, '0000-00-00 00:00:00'),
-(6, 'guerra civil', 'filme', NULL, '0000-00-00 00:00:00'),
-(7, 'o império contra ataca', 'filme', NULL, '0000-00-00 00:00:00');
+(1, 'deadpool', 'Movies', NULL, '0000-00-00 00:00:00'),
+(2, 'x-men 3', 'Movies', NULL, '0000-00-00 00:00:00'),
+(3, 'final fantasy', 'Games', NULL, '0000-00-00 00:00:00'),
+(4, 'harry potter', 'Books', NULL, '0000-00-00 00:00:00'),
+(6, 'guerra civil', 'Movies', NULL, '0000-00-00 00:00:00'),
+(7, 'o império contra ataca', 'Movies', NULL, '0000-00-00 00:00:00'),
+(8, 'Call of Duty', 'Games', NULL, '2016-05-26 05:06:12'),
+(9, 'mortal kombat', 'Games', NULL, '2016-05-15 13:17:06'),
+(10, 'Harry Potter', 'Books', NULL, '2016-05-08 07:00:00'),
+(11, 'X-men: Apocalipse', 'Movies', NULL, '2016-05-09 11:14:35'),
+(12, 'The Walking Dead', 'Tv Shows', NULL, '2016-05-16 05:23:39'),
+(13, 'Game of Thrones', 'Tv Shows', NULL, '2016-05-17 04:31:15');
 
 -- --------------------------------------------------------
 
@@ -294,7 +304,11 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`idUser`, `acessTokenFacebook`, `userName`, `age`, `gender`, `imageUrl`, `email`, `profileName`, `password`, `createdAt`) VALUES
 (1, NULL, 'icaroribeiro', 20, 'Male', '', 'icaro_felipe@hotmail.com', 'Icaro Ribeiro', '123', '2016-05-01 00:00:00'),
 (8, NULL, 'icarofelipe', 20, 'Male', 'abcde', 'icarofeliperibeiro@gmail.com', 'Icaro Ribeiro', '123', '2016-05-01 00:00:00'),
-(11, 'abcde', 'icaro.ribeiro13', 20, 'Male', '', 'icarofeliperibeiro@gmail.com', 'Icaro Ribeiro', NULL, '2016-05-15 15:59:57');
+(11, 'abcde', 'icaro.ribeiro13', 20, 'Male', '', 'icarofeliperibeiro@gmail.com', 'Icaro Ribeiro', NULL, '2016-05-15 15:59:57'),
+(12, NULL, 'neto', 1, 'M', NULL, 'jneto@email.com', 'Neto', '123', '2016-05-02 15:19:35'),
+(13, NULL, 'francois', 2, 'M', NULL, 'francois@email.com', 'François', '123', '2016-05-23 04:21:10'),
+(16, NULL, 'a', 1, 'm', NULL, 'a@a.com', 'a', '1', '2016-05-06 07:33:32'),
+(17, NULL, 'guilherme', 3, 'm', NULL, 'guilherme@email.com', 'Guilherme', '123', '2016-05-29 04:27:40');
 
 --
 -- Índices de tabelas apagadas
@@ -400,7 +414,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de tabela `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `idComment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idComment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de tabela `commentMedia`
 --
@@ -410,12 +424,12 @@ ALTER TABLE `commentMedia`
 -- AUTO_INCREMENT de tabela `easteregg`
 --
 ALTER TABLE `easteregg`
-  MODIFY `idEasterEgg` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idEasterEgg` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT de tabela `media`
 --
 ALTER TABLE `media`
-  MODIFY `idMedia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idMedia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT de tabela `task`
 --
@@ -425,7 +439,7 @@ ALTER TABLE `task`
 -- AUTO_INCREMENT de tabela `user`
 --
 ALTER TABLE `user`
-  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- Restrições para dumps de tabelas
 --
