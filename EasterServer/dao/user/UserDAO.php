@@ -8,7 +8,7 @@
 
 		function UserDAO() {
         	//$this->connection = new Connection();
-        	$this->connection = new mysqli('localhost','root','','easter');
+        	$this->connection = new mysqli('localhost','easter_owner','easter123','easter');
     	}
 
     	function desconnect(){
@@ -77,7 +77,6 @@
                             ."', gender = '". $user->getGender()
                             ."' WHERE idUser = " . $user->getId();
 
-            echo $stringSQL;
             $this->connection->query($stringSQL);
             return "Dados atualizados com sucesso";
 		}
@@ -163,7 +162,6 @@
 			$user = new User();
 			$stringSQL = "SELECT * FROM user WHERE userName = '" . $userName . "' and password = '" . $senha . "'";
 			$result_query = $this->connection->query($stringSQL);
-			echo $stringSQL;
 			while($result = $result_query->fetch_assoc()){
 				$user = ClassCreator::createUserFromArrayQuerry($result);
 				break;

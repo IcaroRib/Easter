@@ -1,6 +1,6 @@
 <?php 
 
-	include_once("../../dao/Connection.php");
+	include_once($_SERVER['DOCUMENT_ROOT'] . "/EasterServer/dao/Connection.php");
 
 	class MediaDAO{
 
@@ -8,7 +8,7 @@
 
 		function MediaDAO() {
         	//$this->connection = new Connection();
-        	$this->connection = new mysqli('localhost','root','','easter');
+        	$this->connection = new mysqli('localhost','easter_owner','easter123','easter');
     	}
 
     	function desconnect(){
@@ -22,7 +22,11 @@
 		 */
     	function findMediaByName($title){
 			$listaObras = array();
-	 		$stringSQL = "SELECT * FROM media WHERE title like '%$title%'";
+	 		$stringSQL = "SELECT *, AVG(score) as averageScore FROM media left outer join fallowedmedia on media.idMedia = Media_idMedia
+ 							INNER JOIN easteregg ON media.idMedia = easteregg.idMedia
+ 							INNER JOIN evaluatedeasteregg ON idEasterEgg = EasterEgg_idEasterEgg
+ 							WHERE title like '%$title%' GROUP BY media.idMedia";
+ 							
 	 		$result_query = $this->connection->query($stringSQL);
 	 		$cont = 0;
 	 	    while($result = $result_query->fetch_assoc()){
@@ -39,7 +43,7 @@
 		{
 			$newMedia = new Media();
 			$stringSQL = "SELECT *, AVG(score) as averageScore FROM media left outer join fallowedmedia on media.idMedia = Media_idMedia
- 							FROM media INNER JOIN easteregg ON media.idMedia = easteregg.idMedia
+ 							INNER JOIN easteregg ON media.idMedia = easteregg.idMedia
  							INNER JOIN evaluatedeasteregg ON idEasterEgg = EasterEgg_idEasterEgg
  							WHERE media.idMedia = " . $id . " GROUP BY media.idMedia";
 			$result_query = $this->connection->query($stringSQL);
@@ -48,6 +52,21 @@
 				break;
 			}
 			return $newMedia;
+
+		}
+		
+		function findComments($id)
+		{
+			$comments = array();
+			$cont = 0;
+			$stringSQL = "SELECT * FROM commentMedia WHERE idMedia = $id";
+			$result_query = $this->connection->query($stringSQL);
+			//echo $stringSQL;
+			while ($result = $result_query->fetch_assoc()) {
+				$comments[$cont]= ClassCreator::createMediaFromArrayQuerry($result);
+				$cont = $cont +1;
+			}
+			return $comments;
 
 		}
 

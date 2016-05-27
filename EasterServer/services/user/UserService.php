@@ -64,11 +64,14 @@ class UserService{
             /** @var User $selectedUser */
             $selectedUser= $this->getUserDB()->selectUserNativeByEmail($user->getEmail());
             if($selectedUser->getId() == 0){
-                return $this->getUserDB()->insertNativeProfile($user);
+                $selectedUser= $this->getUserDB()->selectUserNativeByUsername($user->getUserName());
+                if($selectedUser->getId() == 0){
+                    return $this->getUserDB()->insertNativeProfile($user);
+                }
+                 return "Nome de usuário em uso";
+                
             }
-            else{
-                return "Email já cadastrado";
-            }
+            return "Email já cadastrado";
         }
 
         if($profileType == "facebook"){

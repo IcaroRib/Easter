@@ -1,14 +1,16 @@
 <?php
 
-	include_once("../../utils/ClassCreator.php");
-	include_once("../../domain/User.php");
-	include_once("../../domain/EasterEgg.php");
-    include_once("../../domain/Task.php");
-	include_once("../../domain/Media.php");
-    include_once("../../domain/Reference.php");
-	include_once("../../dao/media/mediaDAO.php");
-	include_once("../../dao/easteregg/EasterEggDAO.php");
-	include_once("../../services/media/mediaService.php");
+	include_once($_SERVER['DOCUMENT_ROOT'] . "/EasterServer/utils/ClassCreator.php");
+	include_once($_SERVER['DOCUMENT_ROOT'] . "/EasterServer/domain/User.php");
+	include_once($_SERVER['DOCUMENT_ROOT'] . "/EasterServer/domain/EasterEgg.php");
+    include_once($_SERVER['DOCUMENT_ROOT'] . "/EasterServer/domain/Task.php");
+	include_once($_SERVER['DOCUMENT_ROOT'] . "/EasterServer/domain/Media.php");
+	include_once($_SERVER['DOCUMENT_ROOT'] . "/EasterServer/domain/Commentary.php");
+    include_once($_SERVER['DOCUMENT_ROOT'] . "/EasterServer/domain/Reference.php");
+	include_once($_SERVER['DOCUMENT_ROOT'] . "/EasterServer/dao/media/MediaDAO.php");
+	include_once($_SERVER['DOCUMENT_ROOT'] . "/EasterServer/dao/easteregg/EasterEggDAO.php");
+	include_once($_SERVER['DOCUMENT_ROOT'] . "/EasterServer/services/media/MediaService.php");
+	
 
 	if($_POST["operation"] == "find"){
 
@@ -23,7 +25,7 @@
 		$searchType = $_POST["type"];
 		$categories = array();
 		if(!empty($_POST["categories"])){
-			$categories = $_POST["categories"];
+			$categories = json_decode($_POST["categories"],TRUE);
 		}
 		$start = $_POST["start"];
 		$mediaService = new MediaService();

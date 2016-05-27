@@ -9,6 +9,7 @@ class Media implements JsonSerializable{
 	private $isFavorite;
 	private $easterEggs;
     private $averageScore;
+    private $listComments;
 
 	function Media(){
 		$this->id = 0;
@@ -127,6 +128,22 @@ class Media implements JsonSerializable{
     {
         $this->averageScore = $averageScore;
     }
+    
+    /**
+     * @return mixed
+     */
+    public function getCommentList()
+    {
+        return $this->listComments;
+    }
+
+    /**
+     * @param mixed $averageScore
+     */
+    public function setCommentList($comments)
+    {
+        $this->listComments = $coments;
+    }
 
 
     /**
@@ -144,6 +161,7 @@ class Media implements JsonSerializable{
             'category' => $this->category,
             'image' => $this->image,
             'averageScore' => $this->averageScore,
+            'commentList' => $this->listComment,
             'isFavorite' => $this->isFavorite,
             'easterEggs' => $this->easterEggs
         ];

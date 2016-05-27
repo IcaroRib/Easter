@@ -97,6 +97,7 @@ class MediaService
         /** @var array $listEasterEggs */
         $newMedia = $this->getMediaDB()->findMediaById($mediaRequest->getId());
         $listEasterEggs = $this->getEasterEggsDB()->findCompleteById($newMedia->getId());
+        $listComments = $this->getMediaDB()->findComments($mediaRequest->getId());
         $newMedia->setEasterEggs($listEasterEggs);
         
         /** @var EasterEgg $easteregg */
@@ -159,6 +160,8 @@ class MediaService
         }
 
         $this->getMediaDB()->desconnect();
+        
+        return "Obra seguida com sucesso";
 
     }
 
@@ -184,6 +187,7 @@ class MediaService
         }
 
         $this->getMediaDB()->desconnect();
+        return "Obra deixada de ser seguida com sucesso";
     }
 
 }

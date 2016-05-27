@@ -16,7 +16,7 @@ class ClassCreator
     public static function createUserFromJson($jsonUser){
 
         $user = new User();
-        $jsonMedia = json_decode($jsonMedia,TRUE);
+        $jsonUser = json_decode($jsonUser,TRUE);
 
         if(!empty($jsonUser["id"])){
             $user->setId($jsonUser["id"]);
@@ -30,9 +30,9 @@ class ClassCreator
             $user->setProfileName($jsonUser["profileName"]);
         }
 
-        if(!empty($jsonUser["userName"])){
+        if(!empty($jsonUser["username"])){
 
-            $user->setUserName($jsonUser["userName"]);
+            $user->setUserName($jsonUser["username"]);
         }
 
         if(!empty($jsonUser["age"])){
