@@ -1,8 +1,5 @@
 package bsi.pp_2016_1.easter.Domain;
 
-/**
- * Created by Lucas on 25/05/2016.
- */
 public class UserRequisition {
     private String email;
     private String password;

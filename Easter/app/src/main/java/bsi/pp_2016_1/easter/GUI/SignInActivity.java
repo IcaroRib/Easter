@@ -23,9 +23,6 @@ import bsi.pp_2016_1.easter.Integration.Requisition.UserIntegration;
 import bsi.pp_2016_1.easter.R;
 import bsi.pp_2016_1.easter.Integration.Callback.UserCallback;
 
-/**
- * Created by franc on 01/05/2016.
- */
 public class SignInActivity extends Activity{
 
     @Override
@@ -43,7 +40,6 @@ public class SignInActivity extends Activity{
             public void onClick(View v) {
                 String username = et_username.getEditableText().toString();
                 String password = et_password.getEditableText().toString();
-
 
                 if (username.equals("") || password.equals("")){
                     Toast.makeText(getApplicationContext(), ("Incorrect username or password"), Toast.LENGTH_SHORT).show();
@@ -64,7 +60,7 @@ public class SignInActivity extends Activity{
                             User user = (User)super.onSuccess(response);
                             Session session = Session.getInstance();
                             session.login(user);
-                            Toast.makeText(getApplicationContext(), ("Usuario logado com sucesso"), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), ("Welcome "+ user.getUserName()), Toast.LENGTH_SHORT).show();
                             Intent i = new Intent(SignInActivity.this, MediaListScreenActivity.class);
                             startActivity(i);
                             return null;

@@ -14,9 +14,6 @@ import java.util.ArrayList;
 import bsi.pp_2016_1.easter.Domain.Media;
 import bsi.pp_2016_1.easter.R;
 
-/**
- * Created by franc on 14/05/2016.
- */
 public class MediaListAdapter extends ArrayAdapter<Media> {
 
     private final Activity context;
@@ -43,6 +40,7 @@ public class MediaListAdapter extends ArrayAdapter<Media> {
         mediaName.setText(mediaList.get(position).getTitle());
         mediaCategory.setText(mediaList.get(position).getMidiaCategory());
         mediaRatingBar.setRating(mediaList.get(position).getRate());
+
         return rowView;
 
     }

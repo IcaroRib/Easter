@@ -16,9 +16,6 @@ import bsi.pp_2016_1.easter.Integration.Requisition.UserIntegration;
 import bsi.pp_2016_1.easter.R;
 import bsi.pp_2016_1.easter.Integration.Callback.UserCallback;
 
-/**
- * Created by franc on 01/05/2016.
- */
 public class SignUpActivity extends Activity{
 
     @Override
@@ -31,57 +28,53 @@ public class SignUpActivity extends Activity{
         final EditText etUsername = (EditText) findViewById(R.id.et_username);
         final EditText etPassword = (EditText) findViewById(R.id.et_password);
 
-
-
         Button btSignUp = (Button) findViewById(R.id.bt_sign_up);
 
         btSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = etName.getEditableText().toString();
-                String email = etEmail.getEditableText().toString();
-                String username = etUsername.getEditableText().toString();
-                String password = etPassword.getEditableText().toString();
+            String name = etName.getEditableText().toString();
+            String email = etEmail.getEditableText().toString();
+            String username = etUsername.getEditableText().toString();
+            String password = etPassword.getEditableText().toString();
 
-                //Intent intent = new Intent(SignUpActivity.this,ApagarClassTeste.class);
-                if (name.equals("") || email.equals("") || username.equals("") || password.equals("") ){
-                    Toast.makeText(getApplicationContext(), ("Please complete all fields"), Toast.LENGTH_SHORT).show();
-                }else {
+            if (name.equals("") || email.equals("") || username.equals("") || password.equals("") ){
+                Toast.makeText(getApplicationContext(), ("Please complete all fields"), Toast.LENGTH_SHORT).show();
+            }else {
 
-                    UserRequisition userReq = new UserRequisition();
+                UserRequisition userReq = new UserRequisition();
 
-                    userReq.setEmail(email);
-                    userReq.setPassword(password);
-                    userReq.setUsername(username);
+                userReq.setEmail(email);
+                userReq.setPassword(password);
+                userReq.setUsername(username);
 
-                    Context context = getApplicationContext();
+                Context context = getApplicationContext();
 
-                    UserCallback callback = new UserCallback(){
-                        @Override
-                        public Object onSuccess(String response) {
-                            System.out.println(response);
-                            User user = (User)super.onSuccess(response);
-                            Session session = Session.getInstance();
-                            session.login(user);
-                            Toast.makeText(getApplicationContext(), ("Usuário Cadastrado"), Toast.LENGTH_SHORT).show();
-                            Intent i = new Intent(SignUpActivity.this, MediaListScreenActivity.class);
-                            startActivity(i);
-                            return null;
-                        }
+                UserCallback callback = new UserCallback(){
+                    @Override
+                    public Object onSuccess(String response) {
+                        System.out.println(response);
+                        User user = (User)super.onSuccess(response);
+                        Session session = Session.getInstance();
+                        session.login(user);
+                        Toast.makeText(getApplicationContext(), ("Account created"), Toast.LENGTH_SHORT).show();
+                        Intent i = new Intent(SignUpActivity.this, MediaListScreenActivity.class);
+                        startActivity(i);
+                        return null;
+                    }
 
-                        @Override
-                        public void onFailure(String response) {
-                            System.out.println(response);
-                            super.onFailure(response);
-                            Toast.makeText(getApplicationContext(), (response), Toast.LENGTH_SHORT).show();
-                        }
+                    @Override
+                    public void onFailure(String response) {
+                        System.out.println(response);
+                        super.onFailure(response);
+                        Toast.makeText(getApplicationContext(), (response), Toast.LENGTH_SHORT).show();
+                    }
 
-                    };
+                };
 
-                    UserIntegration integration = new UserIntegration();
-                    integration.signup(userReq, callback, context);
-                }
-
+                UserIntegration integration = new UserIntegration();
+                integration.signup(userReq, callback, context);
+            }
             }
         });
     }

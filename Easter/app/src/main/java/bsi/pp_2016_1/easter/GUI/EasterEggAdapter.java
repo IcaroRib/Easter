@@ -13,12 +13,12 @@ import java.util.ArrayList;
 import bsi.pp_2016_1.easter.Domain.EasterEgg;
 import bsi.pp_2016_1.easter.R;
 
-public class TesteEasterEggAdapter extends BaseAdapter {
+public class EasterEggAdapter extends BaseAdapter {
 
     private final Activity context;
     private final ArrayList<EasterEgg> easterEggList;
 
-    public TesteEasterEggAdapter(Activity context, ArrayList<EasterEgg> easterEggList) {
+    public EasterEggAdapter(Activity context, ArrayList<EasterEgg> easterEggList) {
         this.context = context;
         this.easterEggList = easterEggList;
     }
@@ -46,13 +46,12 @@ public class TesteEasterEggAdapter extends BaseAdapter {
         TextView txtTitle = (TextView) rowView.findViewById(R.id.item);
         TextView extratxt = (TextView) rowView.findViewById(R.id.textView1);
         RatingBar rtBar = (RatingBar) rowView.findViewById(R.id.ratingBar);
-
         rtBar.setNumStars(5);
-
 
         txtTitle.setText(easterEggList.get(position).getTitle());
         extratxt.setText(easterEggList.get(position).getDescription());
         rtBar.setRating(easterEggList.get(position).getRate());
+
         return rowView;
     }
 }

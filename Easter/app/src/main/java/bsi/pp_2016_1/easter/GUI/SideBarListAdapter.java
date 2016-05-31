@@ -12,9 +12,6 @@ import java.util.ArrayList;
 
 import bsi.pp_2016_1.easter.R;
 
-/**
- * Created by franc on 14/05/2016.
- */
 public class SideBarListAdapter extends ArrayAdapter<String> {
 
     private final Activity context;
@@ -39,6 +36,7 @@ public class SideBarListAdapter extends ArrayAdapter<String> {
 
         txtTitle.setText(itName.get(position));
         imgIcon.setImageResource(imgId.get(position));
+
         return rowView;
 
     }

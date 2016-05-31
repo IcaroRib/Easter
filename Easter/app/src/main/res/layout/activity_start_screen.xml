@@ -57,16 +57,6 @@
                 style="?android:attr/buttonStyleSmall" />
         </LinearLayout>
 
-        <com.facebook.login.widget.LoginButton
-            android:id="@+id/login_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:elegantTextHeight="false"
-            android:paddingTop="21px"
-            android:paddingBottom="21px"
-            android:paddingLeft="200px"
-            android:paddingRight="120px" />
-
     </LinearLayout>
 
 </RelativeLayout>

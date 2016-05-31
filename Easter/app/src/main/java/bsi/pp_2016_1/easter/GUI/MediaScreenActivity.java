@@ -50,7 +50,6 @@ public class MediaScreenActivity extends AppCompatActivity {
     private Button addEasterEgg;
     private Button addMediaComment;
 
-
     //NEW COMMENT COMPONENTS
     private EditText textComment;
     private Button sendMediaComment;
@@ -69,19 +68,18 @@ public class MediaScreenActivity extends AppCompatActivity {
 
     private ListView rightDrawer;
 
+    private ComentaryListAdapter comentList;
+
     private ArrayList<String> sideBarOptions = new ArrayList<>();
     private ArrayList<Integer> sideBarImages = new ArrayList<>();
 
     String[] navArray = {"My profile", "Easter feed", "Followed media", "Rate the app", "Sign out"};
     Integer[] imagId = {R.drawable.patient, R.drawable.rss_icon, R.drawable.heart_icon, R.drawable.half_star_icon, R.drawable.logout_icon};
-    String[] osArray = { "Android", "iOS", "Windows", "OS X", "Linux" , "Android", "iOS", "Windows", "OS X", "Linux"};
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_media);
-
 
         media = (Media) getIntent().getSerializableExtra("media");
         comentarios = media.getCommentList();
@@ -98,7 +96,7 @@ public class MediaScreenActivity extends AppCompatActivity {
         addMediaComment = (Button)findViewById(R.id.bt_add_comment_media);
 
         vf = (ViewFlipper) findViewById(R.id.view_flipper_media);
-        final ComentaryListAdapter comentList = new ComentaryListAdapter(this, comentarios);
+        comentList = new ComentaryListAdapter(this, comentarios);
         listOfComments.setAdapter(comentList);
 
         mediaName.setText(media.getTitle());
@@ -130,7 +128,6 @@ public class MediaScreenActivity extends AppCompatActivity {
         });
 
         host = (TabHost) findViewById(R.id.tabHost_mediaScrenActivity);
-        assert host != null;
         host.setup();
 
         //Tab 1
@@ -151,7 +148,6 @@ public class MediaScreenActivity extends AppCompatActivity {
         spec.setIndicator("Related");
         host.addTab(spec);
 
-
         addEasterEgg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -165,7 +161,8 @@ public class MediaScreenActivity extends AppCompatActivity {
                 createNewEasterEgg.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(MediaScreenActivity.this, Integer.toString(listOfComments.getHeight()), Toast.LENGTH_SHORT).show();
+                        SideBarStatus(false);
+
                         EasterEgg easterEgg = new EasterEgg();
                         easterEgg.setTitle(newEasterEggTitle.getText().toString());
                         easterEgg.setDescription(newEasterEggDescription.getText().toString());
@@ -175,7 +172,7 @@ public class MediaScreenActivity extends AppCompatActivity {
                         newEasterEggTitle.setText(null);
                         newEasterEggDescription.setText(null);
 
-
+                        SideBarStatus(true);
                         vf.setDisplayedChild(vf.indexOfChild(findViewById(R.id.first)));
                     }
                 });
@@ -183,6 +180,7 @@ public class MediaScreenActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         vf.setDisplayedChild(vf.indexOfChild(findViewById(R.id.first)));
+                        SideBarStatus(true);
                     }
                 });
             }
@@ -194,6 +192,8 @@ public class MediaScreenActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 vf.setDisplayedChild(vf.indexOfChild(findViewById(R.id.second)));
+
+                SideBarStatus(false);
 
                 textComment = (EditText)findViewById(R.id.text_comment);
                 sendMediaComment = (Button)findViewById(R.id.send_new_media_comment);
@@ -209,7 +209,7 @@ public class MediaScreenActivity extends AppCompatActivity {
 
                         textComment.setText(null);
 
-
+                        SideBarStatus(true);
                         vf.setDisplayedChild(vf.indexOfChild(findViewById(R.id.first)));
                     }
                 });
@@ -217,6 +217,7 @@ public class MediaScreenActivity extends AppCompatActivity {
                 cancelMediaContent.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        SideBarStatus(true);
                         vf.setDisplayedChild(vf.indexOfChild(findViewById(R.id.first)));
                     }
                 });
@@ -224,11 +225,9 @@ public class MediaScreenActivity extends AppCompatActivity {
             }
         });
 
-
         //CÓDIGO REFERENTE AOS MENUS LATERAIS
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
+        SideBarStatus(true);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout_media);
 
@@ -264,6 +263,12 @@ public class MediaScreenActivity extends AppCompatActivity {
 
         Collections.addAll(sideBarImages, imagId);
     }
+
+    private void SideBarStatus(boolean situation) {
+        getSupportActionBar().setDisplayHomeAsUpEnabled(situation);
+        getSupportActionBar().setHomeButtonEnabled(situation);
+    }
+
     private void setupDrawer(){
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.drawer_open, R.string.drawer_close){
             public void onDrawerOpened(View drawerView){
@@ -330,6 +335,4 @@ public class MediaScreenActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_edit, menu);
         return super.onCreateOptionsMenu(menu);
     }
-
-
 }

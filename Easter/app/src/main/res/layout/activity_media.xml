@@ -36,7 +36,6 @@
                     <ImageView
                         android:layout_width="250px"
                         android:layout_height="250px"
-                        android:id="@+id/user_image"
                         android:layout_gravity="center_horizontal"
                         android:src="@drawable/user_image"
                         android:layout_marginBottom="10dp"
@@ -112,7 +111,6 @@
                             android:layout_height="match_parent">
 
                             <LinearLayout
-                                android:id="@+id/tab_Eggs"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:orientation="vertical">
@@ -254,8 +252,7 @@
 
             <ScrollView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/scrollView_add_easter_egg" >
+                android:layout_height="wrap_content">
 
                 <RelativeLayout
                     android:layout_width="match_parent"

@@ -33,9 +33,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-/**
- * Created by Lucas on 25/05/2016.
- */
 public class LoginContext extends Context {
     @Override
     public AssetManager getAssets() {

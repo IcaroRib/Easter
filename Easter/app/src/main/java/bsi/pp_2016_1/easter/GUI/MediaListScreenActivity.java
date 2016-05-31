@@ -114,7 +114,7 @@ public class MediaListScreenActivity extends AppCompatActivity {
         MediaCallback callback = new MediaCallback(){
             @Override
             public Object onSuccess(String response) {
-                System.out.println("Print - " + response);
+
                 listMedia = (ArrayList<Media>) super.onSuccess("L" + response);
                 adapter = new MediaListAdapter(MediaListScreenActivity.this, listMedia);
                 list=(ListView)findViewById(R.id.list);
@@ -127,7 +127,7 @@ public class MediaListScreenActivity extends AppCompatActivity {
 
                 setListener();
 
-                return  null;
+                return null;
             }
 
             @Override
@@ -137,14 +137,7 @@ public class MediaListScreenActivity extends AppCompatActivity {
         };
 
         integration = new MediaIntegration();
-        System.out.println(filtro);
         integration.fetchMedias(callback,context, filtro, categorias, 0);
-
-
-
-
-
-
 
         //CÓDIGO REFERENTE AOS MENUS LATERAIS
 
@@ -153,7 +146,6 @@ public class MediaListScreenActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-
 
         setupDrawer();
         SideBarListAdapter listAdapter = new SideBarListAdapter(this, sideBarOptions, sideBarImages);

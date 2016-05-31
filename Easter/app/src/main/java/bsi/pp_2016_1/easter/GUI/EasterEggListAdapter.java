@@ -36,6 +36,8 @@ public class EasterEggListAdapter extends ArrayAdapter<EasterEgg> {
         rtBar.setNumStars(5);
 
         txtTitle.setText(easterEggsList.get(position).getTitle());
+
+        //ALTERAR DEPOIS
         extratxt.setText("mopa");
         rtBar.setRating(easterEggsList.get(position).getRate());
         return rowView;

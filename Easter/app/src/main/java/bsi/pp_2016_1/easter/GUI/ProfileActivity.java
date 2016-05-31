@@ -39,9 +39,7 @@ public class ProfileActivity extends AppCompatActivity {
     String[] navArray = {"My profile", "Easter feed", "Followed media", "Rate the app", "Sign out"};
     Integer[] imagId = {R.drawable.patient, R.drawable.rss_icon, R.drawable.heart_icon, R.drawable.half_star_icon, R.drawable.logout_icon};
 
-    TesteEasterEggAdapter eggsAdapter;
-
-    ArrayList<Media> listaMedias;
+    EasterEggAdapter eggsAdapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -67,7 +65,7 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-        eggsAdapter = new TesteEasterEggAdapter(this, user.getPublishedEasterEggs());
+        eggsAdapter = new EasterEggAdapter(this, user.getPublishedEasterEggs());
         ListView eggs_list = (ListView) findViewById(R.id.list_easter_eggs);
 
         eggs_list.setAdapter(eggsAdapter);
