@@ -42,38 +42,18 @@ public class SignUpActivity extends Activity{
                 Toast.makeText(getApplicationContext(), ("Please complete all fields"), Toast.LENGTH_SHORT).show();
             }else {
 
-                UserRequisition userReq = new UserRequisition();
-
-                userReq.setEmail(email);
-                userReq.setPassword(password);
-                userReq.setUsername(username);
-
-                Context context = getApplicationContext();
-
-                UserCallback callback = new UserCallback(){
-                    @Override
-                    public Object onSuccess(String response) {
-                        System.out.println(response);
-                        User user = (User)super.onSuccess(response);
-                        Session session = Session.getInstance();
-                        session.login(user);
-                        Toast.makeText(getApplicationContext(), ("Account created"), Toast.LENGTH_SHORT).show();
-                        Intent i = new Intent(SignUpActivity.this, MediaListScreenActivity.class);
-                        startActivity(i);
-                        return null;
-                    }
-
-                    @Override
-                    public void onFailure(String response) {
-                        System.out.println(response);
-                        super.onFailure(response);
-                        Toast.makeText(getApplicationContext(), (response), Toast.LENGTH_SHORT).show();
-                    }
-
-                };
-
-                UserIntegration integration = new UserIntegration();
-                integration.signup(userReq, callback, context);
+                User user = new User();
+                user.setUserImage(R.drawable.lhama_glasses);
+                user.setEmail(email);
+                user.setAge(54262);
+                user.setPassword(password);
+                user.setProfileName(username);
+                user.setUserName(username);
+                Session session = Session.getInstance();
+                session.login(user);
+                Toast.makeText(getApplicationContext(), ("Account created"), Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(SignUpActivity.this, MediaListScreenActivity.class);
+                startActivity(i);
             }
             }
         });

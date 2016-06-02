@@ -244,10 +244,8 @@ public class Objects {
         media.setId(this.getNewId());
         media.setCommentList(this.createListRandomMediaCommentary(3));
         media.setEasterEggs(easterEggs);
-//      m1.setImageUrl();
         media.setMidiaCategory(category);
         media.setTitle(title);
-
 
         return media;
     }

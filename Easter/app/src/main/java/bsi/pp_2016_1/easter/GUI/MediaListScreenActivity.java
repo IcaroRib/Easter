@@ -81,95 +81,6 @@ public class MediaListScreenActivity extends AppCompatActivity {
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.media_list_layout);
 
-        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.filter_array, android.R.layout.simple_spinner_item);
-        adapter2.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
-        spinner = (Spinner) findViewById(R.id.spinner);
-
-        spinner.setAdapter(adapter2);
-
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                switch (position) {
-                    case 0:
-                        Toast.makeText(getApplicationContext(), "Most Recents", Toast.LENGTH_SHORT).show();
-                        break;
-                    case 1:
-                        Toast.makeText(getApplicationContext(), "Most Popular", Toast.LENGTH_SHORT).show();
-                        break;
-                    case 2:
-                        Toast.makeText(getApplicationContext(), "Best Rating", Toast.LENGTH_SHORT).show();
-                        break;
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-/*
-        cb_movies = (CheckBox) findViewById(R.id.check_movie);
-        cb_books = (CheckBox) findViewById(R.id.check_books);
-        cb_tvshows = (CheckBox) findViewById(R.id.check_tv);
-        cb_games = (CheckBox) findViewById(R.id.check_games);
-
-        cb_movies.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                ArrayList<String> filters = new ArrayList<String>();
-
-                if (cb_movies.isChecked()) { filters.add("movies"); }
-                if (cb_books.isChecked()) { filters.add("books"); }
-                if (cb_tvshows.isChecked()) { filters.add("tv shows"); }
-                if (cb_games.isChecked()) { filters.add("games"); }
-            }
-        });
-
-        cb_books.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                ArrayList<String> filters = new ArrayList<String>();
-
-                if (cb_movies.isChecked()) { filters.add("movies"); }
-                if (cb_books.isChecked()) { filters.add("books"); }
-                if (cb_tvshows.isChecked()) { filters.add("tv shows"); }
-                if (cb_games.isChecked()) { filters.add("games"); }
-            }
-        });
-
-        cb_tvshows.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                ArrayList<String> filters = new ArrayList<String>();
-
-                if (cb_movies.isChecked()) { filters.add("movies"); }
-                if (cb_books.isChecked()) { filters.add("books"); }
-                if (cb_tvshows.isChecked()) { filters.add("tv shows"); }
-                if (cb_games.isChecked()) { filters.add("games"); }
-            }
-        });
-
-        cb_games.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                ArrayList<String> filters = new ArrayList<String>();
-
-                if (cb_movies.isChecked()) { filters.add("movies"); }
-                if (cb_books.isChecked()) { filters.add("books"); }
-                if (cb_tvshows.isChecked()) { filters.add("tv shows"); }
-                if (cb_games.isChecked()) { filters.add("games"); }
-            }
-        });
-
-        ArrayList<Media> filteredMedias = new ArrayList<Media>();
-        for (String filter : filters) {
-
-        }
-*/
-
-
         setupDrawer();
 
         ImageView userImageSideBar = (ImageView)findViewById(R.id.userImage);
@@ -265,7 +176,6 @@ public class MediaListScreenActivity extends AppCompatActivity {
             } else {
                 return true;
             }
-
         }
 
         return super.onOptionsItemSelected(item);
@@ -284,10 +194,4 @@ public class MediaListScreenActivity extends AppCompatActivity {
         mDrawerToggle.onConfigurationChanged(newConfig);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-
-        return super.onCreateOptionsMenu(menu);
-    }
 }

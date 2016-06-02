@@ -38,8 +38,6 @@ public class FavoritedMediaListScreenActivity extends AppCompatActivity{
     String[] navArray = {"My profile", "Easter feed", "Followed media", "Rate the app", "Sign out"};
     Integer[] imagId = {R.drawable.patient, R.drawable.rss_icon, R.drawable.heart_icon, R.drawable.half_star_icon, R.drawable.logout_icon};
 
-    private Spinner spinner;
-
     private Session session;
 
     @Override
@@ -69,33 +67,6 @@ public class FavoritedMediaListScreenActivity extends AppCompatActivity{
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.fav_media_list_layout);
 
-        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.filter_array, android.R.layout.simple_spinner_item);
-        adapter2.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
-        spinner = (Spinner) findViewById(R.id.spinner);
-
-        spinner.setAdapter(adapter2);
-
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                switch (position) {
-                    case 0:
-                        Toast.makeText(getApplicationContext(), "Most Recents", Toast.LENGTH_SHORT).show();
-                        break;
-                    case 1:
-                        Toast.makeText(getApplicationContext(), "Most Popular", Toast.LENGTH_SHORT).show();
-                        break;
-                    case 2:
-                        Toast.makeText(getApplicationContext(), "Best Rating", Toast.LENGTH_SHORT).show();
-                        break;
-                }
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
         setupDrawer();
 
         ImageView userImageSideBar = (ImageView)findViewById(R.id.userImage);
@@ -103,7 +74,6 @@ public class FavoritedMediaListScreenActivity extends AppCompatActivity{
 
         userImageSideBar.setImageResource(session.getLoggedUser().getUserImage());
         userNameSideBar.setText(session.getLoggedUser().getUserName());
-
 
         ListView rightDrawer = (ListView) findViewById(R.id.navList);
 
@@ -204,12 +174,5 @@ public class FavoritedMediaListScreenActivity extends AppCompatActivity{
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         mDrawerToggle.onConfigurationChanged(newConfig);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-
-        return super.onCreateOptionsMenu(menu);
     }
 }

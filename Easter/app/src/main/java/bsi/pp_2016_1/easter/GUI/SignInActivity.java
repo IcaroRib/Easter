@@ -35,26 +35,25 @@ public class SignInActivity extends Activity {
         bt_signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String username = et_username.getEditableText().toString();
-                String password = et_password.getEditableText().toString();
+            String username = et_username.getEditableText().toString();
+            String password = et_password.getEditableText().toString();
+            session = Session.getInstance();
 
-                if (username.equals("") || password.equals("")) {
-                    Toast.makeText(getApplicationContext(), ("Incorrect username or password"), Toast.LENGTH_SHORT).show();
-                } else {
+            Objects objects = new Objects();
 
-                    Objects objects = new Objects();
+            objects.createAll();
 
-                    objects.createAll();
+            for (User user: objects.getAllUsers() ) {
+                if (user.getUserName().equals(username) && user.getPassword().equals(password)) {
 
-                    session = Session.getInstance();
                     session.login(objects.getAllUsers().get(0));
-
                     Intent i = new Intent(SignInActivity.this, MediaListScreenActivity.class);
 
                     session.setMedias(objects.getMedias());
 
                     startActivity(i);
                 }
+            }
             }
         });
     }

@@ -115,7 +115,6 @@ public class MediaScreenActivity extends AppCompatActivity {
         for (Media m: session.getLoggedUser().getFavoritedMedias()) {
             if (m.getTitle().equals(media.getTitle())){
                 isFollowing.setChecked(true);
-                Toast.makeText(MediaScreenActivity.this, "mopa", Toast.LENGTH_SHORT).show();
             }else {
                 isFollowing.setChecked(false);
             }

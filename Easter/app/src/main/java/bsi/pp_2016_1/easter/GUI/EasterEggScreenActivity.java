@@ -188,7 +188,6 @@ public class EasterEggScreenActivity extends AppCompatActivity {
         rightDrawer.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            Toast.makeText(getApplicationContext(), Integer.toString(position), Toast.LENGTH_SHORT).show();
             switch (position) {
                 case 0:
                     Intent toProfile = new Intent(EasterEggScreenActivity.this, ProfileActivity.class);
