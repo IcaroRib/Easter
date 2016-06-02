@@ -14,9 +14,9 @@ public class EasterEgg implements Serializable {
     private int creatorId;
     private String creatorName;
     private int rate = 0;
-    private ArrayList<Task> taskList;
-    private ArrayList<Media> referenceList;
-	private ArrayList<Commentary> commentList;
+    private ArrayList<Task> taskList = new ArrayList<Task>();
+    private ArrayList<Media> referenceList = new ArrayList<Media>();
+	private ArrayList<Commentary> commentList = new ArrayList<Commentary>();
 
 
 	public int getId() {

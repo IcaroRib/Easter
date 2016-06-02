@@ -11,8 +11,8 @@ public class User {
 	private int id;
 	private int userImage;
 	private String imageUrl;
-	private ArrayList<Media> favoritedMedias;
-	private ArrayList<EasterEgg> publishedEasterEggs;
+	private ArrayList<Media> favoritedMedias = new ArrayList<Media>();
+	private ArrayList<EasterEgg> publishedEasterEggs = new ArrayList<EasterEgg>();
 
 	public String getProfileName() {
 		return profileName;

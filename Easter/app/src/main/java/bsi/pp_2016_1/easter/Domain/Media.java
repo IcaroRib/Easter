@@ -11,9 +11,9 @@ public class Media implements Serializable {
 	private String title;
 	private String midiaCategory;
 	private int imageUrl;
-	private ArrayList<EasterEgg> easterEggs;
+	private ArrayList<EasterEgg> easterEggs = new ArrayList<EasterEgg>();
 	private int rate = 0;
-	private ArrayList<Commentary> commentList;
+	private ArrayList<Commentary> commentList = new ArrayList<Commentary>();
 
 	public ArrayList<Commentary> getCommentList() {return this.commentList;}
 	public void setCommentList(ArrayList<Commentary> commentList) {this.commentList = commentList;
