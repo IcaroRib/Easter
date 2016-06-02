@@ -2,6 +2,7 @@ package bsi.pp_2016_1.easter.GUI;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.GravityCompat;
@@ -53,14 +54,16 @@ public class ProfileActivity extends AppCompatActivity {
         user = Session.getInstance().getLoggedUser();
 
         ImageView userImage = (ImageView)findViewById(R.id.user_image);
-        TextView userName = (TextView)findViewById(R.id.user_name_profile);
-        TextView profileName = (TextView)findViewById(R.id.profile_name);
+        TextView profileName = (TextView)findViewById(R.id.user_name_profile);
+        TextView userName = (TextView)findViewById(R.id.profile_name);
         TextView userAge = (TextView)findViewById(R.id.user_age);
         TextView userGender = (TextView)findViewById(R.id.user_gender);
 
         userImage.setImageResource(user.getUserImage());
         userName.setText(user.getUserName());
         profileName.setText(user.getProfileName());
+        userGender.setText(user.getGender());
+        userAge.setText(user.getAge() + " years,");
 
 
         MediaListAdapter followedAdapter = new MediaListAdapter(this, user.getFavoritedMedias());

@@ -51,7 +51,7 @@ public class Media implements Serializable {
 	}
 	public void setEasterEggs(ArrayList<EasterEgg> easterEggs) {
 		this.easterEggs = easterEggs;
-//        this.calcAndSetRate();
+        this.calcAndSetRate();
 	}
 	
 	public void addEasterEgg(EasterEgg easterEgg){
@@ -78,7 +78,7 @@ public class Media implements Serializable {
 	public void calcAndSetRate() {
         int sumEasterEggsRate = 0;
         int divider = this.easterEggs.size();
-        for (EasterEgg ea : this.getEasterEggs()) {
+        for (EasterEgg ea : this.easterEggs) {
             if (ea.getRate()>0) { sumEasterEggsRate += ea.getRate(); }
             else { divider -= 1; }
         }

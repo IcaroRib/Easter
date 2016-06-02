@@ -76,9 +76,9 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/is_following"
                             android:checked="false"
-                            android:layout_marginRight="300px"
                             android:showText="false"
                             android:singleLine="false"
+                            android:layout_marginRight="40dp"
                             android:text="Follow" />
 
                         <RatingBar
@@ -87,9 +87,8 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/ratingBar3"
                             android:progressTint="#F0DC00"
-                            android:rating="2"
-                            android:layout_gravity="right"
-                            android:layout_marginRight="20dp"/>
+                            android:layout_marginLeft="40dp"
+                            android:rating="2" />
 
                     </LinearLayout>
 

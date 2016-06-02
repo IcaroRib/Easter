@@ -49,7 +49,8 @@ public class EasterEggAdapter extends BaseAdapter {
         rtBar.setNumStars(5);
 
         txtTitle.setText(easterEggList.get(position).getTitle());
-        extratxt.setText(easterEggList.get(position).getDescription());
+        String newText = easterEggList.get(position).getDescription().substring(0, 50);
+        extratxt.setText(newText + "...");
         rtBar.setRating(easterEggList.get(position).getRate());
 
         return rowView;

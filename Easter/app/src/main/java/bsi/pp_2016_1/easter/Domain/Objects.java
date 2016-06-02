@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Random;
 
+import bsi.pp_2016_1.easter.R;
+
 import static java.lang.Math.round;
 
 public class Objects {
@@ -24,9 +26,11 @@ public class Objects {
         User u1 = new User();
         u1.setAcessToken("191919191");
         u1.setEmail("ex1@domain.com");
+        u1.setAge(18);
         u1.setId(this.getNewId());
-        lhamaPic = random.nextInt(16) + 1;
-        u1.setImageUrl("../../../../../res/drawable/lhama"+ lhamaPic +".jpg");
+//      lhamaPic = random.nextInt(16) + 1;
+//      u1.setImageUrl("../../../../../res/drawable/lhama"+ lhamaPic +".jpg");
+        u1.setUserImage(R.drawable.lhama1);
         u1.setPassword("cebola");
         u1.setProfileName("Ícaro Ribeiro");
         u1.setUserName("icaroribeiro");
@@ -36,9 +40,11 @@ public class Objects {
         User u2 = new User();
         u2.setAcessToken("222222222");
         u2.setEmail("ex2@domain.com");
+        u2.setAge(19);
         u2.setId(this.getNewId());
-        lhamaPic = random.nextInt(16) + 1;
-        u2.setImageUrl("../../../../../res/drawable/lhama"+ lhamaPic +".jpg");
+//      lhamaPic = random.nextInt(16) + 1;
+//      u2.setImageUrl("../../../../../res/drawable/lhama"+ lhamaPic +".jpg");
+        u2.setUserImage(R.drawable.lhama2);
         u2.setPassword("cebola");
         u2.setProfileName("François Michel");
         u2.setUserName("francois");
@@ -47,10 +53,12 @@ public class Objects {
 
         User u3 = new User();
         u3.setAcessToken("333333333");
+        u3.setAge(22);
         u3.setEmail("ex3@domain.com");
         u3.setId(this.getNewId());
-        lhamaPic = random.nextInt(16) + 1;
-        u3.setImageUrl("../../../../../res/drawable/lhama"+ lhamaPic +".jpg");
+//      lhamaPic = random.nextInt(16) + 1;
+//      u3.setImageUrl("../../../../../res/drawable/lhama"+ lhamaPic +".jpg");
+        u3.setUserImage(R.drawable.lhama3);
         u3.setPassword("cebola");
         u3.setProfileName("Guilherme Araújo");
         u3.setUserName("guih");
@@ -61,8 +69,10 @@ public class Objects {
         u4.setAcessToken("444444444");
         u4.setEmail("ex4@domain.com");
         u4.setId(this.getNewId());
-        lhamaPic = random.nextInt(16) + 1;
-        u4.setImageUrl("../../../../../res/drawable/lhama"+ lhamaPic +".jpg");
+        u4.setAge(30);
+//      lhamaPic = random.nextInt(16) + 1;
+//      u4.setImageUrl("../../../../../res/drawable/lhama"+ lhamaPic +".jpg");
+        u4.setUserImage(R.drawable.lhama4);
         u4.setPassword("cebola");
         u4.setProfileName("João Neto");
         u4.setUserName("jneto");
@@ -73,8 +83,10 @@ public class Objects {
         u5.setAcessToken("555555555");
         u5.setEmail("ex5@domain.com");
         u5.setId(this.getNewId());
-        lhamaPic = random.nextInt(16) + 1;
-        u5.setImageUrl("../../../../../res/drawable/lhama"+ lhamaPic +".jpg");
+        u5.setAge(15);
+//      lhamaPic = random.nextInt(16) + 1;
+//      u5.setImageUrl("../../../../../res/drawable/lhama"+ lhamaPic +".jpg");
+        u5.setUserImage(R.drawable.lhama5);
         u5.setPassword("cebola");
         u5.setProfileName("João Lucas");
         u5.setUserName("jlucas");
@@ -85,8 +97,10 @@ public class Objects {
         u6.setAcessToken("223232323");
         u6.setEmail("ex6@domain.com");
         u6.setId(this.getNewId());
-        lhamaPic = random.nextInt(16) + 1;
-        u6.setImageUrl("../../../../../res/drawable/lhama"+ lhamaPic +".jpg");
+        u6.setAge(18);
+//      lhamaPic = random.nextInt(16) + 1;
+//      u6.setImageUrl("../../../../../res/drawable/lhama"+ lhamaPic +".jpg");
+        u6.setUserImage(R.drawable.lhama6);
         u6.setPassword("cebola");
         u6.setProfileName("Luís da Silva");
         u6.setUserName("lsilva");
@@ -97,8 +111,10 @@ public class Objects {
         u7.setAcessToken("777777777");
         u7.setEmail("ex7@domain.com");
         u7.setId(this.getNewId());
-        lhamaPic = random.nextInt(16) + 1;
-        u7.setImageUrl("../../../../../res/drawable/lhama"+ lhamaPic +".jpg");
+        u7.setAge(20);
+//      lhamaPic = random.nextInt(16) + 1;
+//      u7.setImageUrl("../../../../../res/drawable/lhama"+ lhamaPic +".jpg");
+        u7.setUserImage(R.drawable.lhama7);
         u7.setPassword("cebola");
         u7.setProfileName("Elba Ramalho");
         u7.setUserName("elba");
@@ -258,7 +274,7 @@ public class Objects {
                     randomMediaIndex = random.nextInt(this.medias.size());
                     randomMedia = this.medias.get(randomMediaIndex);
                     user = this.users.get(i);
-                    if (user == null) {
+                    if (user != null) {
                         user.addFavoritedMidia(randomMedia);
                     }
                 }
@@ -408,8 +424,8 @@ public class Objects {
     public void createAll() {
         this.createUsers();
         this.createMedias();
-/*        this.setFavMediasToUsers();
-*/
+        this.setFavMediasToUsers();
+
     }
 
 

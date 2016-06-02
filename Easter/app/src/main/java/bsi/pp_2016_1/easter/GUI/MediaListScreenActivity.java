@@ -102,8 +102,6 @@ public class MediaListScreenActivity extends AppCompatActivity {
             }
         });
 
-
-
         setupDrawer();
 
         ImageView userImageSideBar = (ImageView)findViewById(R.id.userImage);
