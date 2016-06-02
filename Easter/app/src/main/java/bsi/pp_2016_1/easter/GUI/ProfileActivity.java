@@ -22,7 +22,6 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import bsi.pp_2016_1.easter.Domain.Media;
 import bsi.pp_2016_1.easter.Domain.Session;
 import bsi.pp_2016_1.easter.Domain.User;
 import bsi.pp_2016_1.easter.R;
@@ -113,40 +112,11 @@ public class ProfileActivity extends AppCompatActivity {
         host.addTab(spec);
 
         //CÓDIGO REFERENTE AOS MENUS LATERAIS
-
-
+        
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout2);
-
-        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.filter_array, android.R.layout.simple_spinner_item);
-        adapter2.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
-        spinner = (Spinner) findViewById(R.id.spinner);
-
-        spinner.setAdapter(adapter2);
-
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                switch (position) {
-                    case 0:
-                        Toast.makeText(ProfileActivity.this, "Most Recents", Toast.LENGTH_SHORT).show();
-                        break;
-                    case 1:
-                        Toast.makeText(ProfileActivity.this, "Most Popular", Toast.LENGTH_SHORT).show();
-                        break;
-                    case 2:
-                        Toast.makeText(ProfileActivity.this, "Best Rating", Toast.LENGTH_SHORT).show();
-                        break;
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
 
         setupDrawer();
 
@@ -170,7 +140,6 @@ public class ProfileActivity extends AppCompatActivity {
                         break;
                     case 1:
                         Intent intent = new Intent(ProfileActivity.this, MediaListScreenActivity.class);
-
                         startActivity(intent);
                         break;
                 }
@@ -219,7 +188,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         } else {
             super.onBackPressed();
-            System.exit(0);
+            finish();
         }
     }
 
@@ -235,15 +204,8 @@ public class ProfileActivity extends AppCompatActivity {
             }
             return true;
         }
-
         if (mDrawerToggle.onOptionsItemSelected(item)) {
-            if (mDrawerLayout.isDrawerOpen(GravityCompat.END)) {
-                mDrawerLayout.closeDrawer(GravityCompat.END);
-                return false;
-            } else {
-               return true;
-            }
-
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
@@ -260,12 +222,5 @@ public class ProfileActivity extends AppCompatActivity {
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         mDrawerToggle.onConfigurationChanged(newConfig);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-
-        return super.onCreateOptionsMenu(menu);
     }
 }

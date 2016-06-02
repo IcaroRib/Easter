@@ -25,7 +25,7 @@ import android.widget.ViewFlipper;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import bsi.pp_2016_1.easter.Domain.Comentary;
+import bsi.pp_2016_1.easter.Domain.Commentary;
 import bsi.pp_2016_1.easter.Domain.EasterEgg;
 import bsi.pp_2016_1.easter.Domain.Session;
 import bsi.pp_2016_1.easter.R;
@@ -34,7 +34,7 @@ public class EasterEggScreenActivity extends AppCompatActivity {
 
     private EasterEgg easterEgg;
     ComentaryListAdapterWithRate comentList;
-    Comentary comentary;
+    Commentary commentary;
 
     private TextView easterTitle;
     private RatingBar easterRating;
@@ -87,13 +87,17 @@ public class EasterEggScreenActivity extends AppCompatActivity {
         eggComments = (ListView) findViewById(R.id.egg_comments);
         easterTabs = (TabHost) findViewById(R.id.egg_tabs);
 
-        comentList = new ComentaryListAdapterWithRate(this, easterEgg.getCommentList());
-        eggComments.setAdapter(comentList);
 
+        if(easterEgg.getCommentList() != null) {
+            comentList = new ComentaryListAdapterWithRate(this, easterEgg.getCommentList());
+            eggComments.setAdapter(comentList);
+        }
         ListView eggReferences = (ListView) findViewById(R.id.referenced_medias);
 
+        if (easterEgg.getReferenceList() != null) {
         final MediaListAdapter referencedMedias = new MediaListAdapter(this, easterEgg.getReferenceList());
-        eggReferences.setAdapter(referencedMedias);
+            eggReferences.setAdapter(referencedMedias);
+        }
         eggReferences.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -102,7 +106,6 @@ public class EasterEggScreenActivity extends AppCompatActivity {
                 startActivity(enterActivity);
             }
         });
-
 
         easterTabs.setup();
 
@@ -138,14 +141,14 @@ public class EasterEggScreenActivity extends AppCompatActivity {
 
                 SideBarVisible(false);
 
-                comentary = new Comentary();
-                comentary.setText(textComment.getText().toString());
-                comentary.setUserName(session.getLoggedUser().getUserName());
-                comentary.setUserPic(session.getLoggedUser().getUserImage());
+                commentary = new Commentary();
+                commentary.setText(textComment.getText().toString());
+                commentary.setUserName(session.getLoggedUser().getUserName());
+                commentary.setUserPic(session.getLoggedUser().getUserImage());
                 sendEasterEggComment.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        easterEgg.getCommentList().add(comentary);
+                        easterEgg.addCommentary(commentary);
                         comentList.notifyDataSetChanged();
                         SideBarVisible(true);
 
@@ -213,7 +216,7 @@ public class EasterEggScreenActivity extends AppCompatActivity {
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                comentary.setRate(4);
+                commentary.setRate(4);
             }
         });
     };
@@ -247,7 +250,7 @@ public class EasterEggScreenActivity extends AppCompatActivity {
 
         } else {
             super.onBackPressed();
-            System.exit(0);
+            finish();
         }
     }
 

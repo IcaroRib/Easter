@@ -13,7 +13,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -22,11 +21,9 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 import bsi.pp_2016_1.easter.Domain.Media;
 import bsi.pp_2016_1.easter.Domain.Session;
-import bsi.pp_2016_1.easter.Integration.Callback.MediaCallback;
 import bsi.pp_2016_1.easter.Integration.Requisition.MediaIntegration;
 import bsi.pp_2016_1.easter.R;
 
@@ -60,46 +57,47 @@ public class MediaListScreenActivity extends AppCompatActivity {
 
         listMedia = (ArrayList<Media>) getIntent().getSerializableExtra("mediaList");
 
-        Session session = Session.getInstance();
+        final Session session = Session.getInstance();
 
-        context = getApplicationContext();
-        List<String> filterCategories = new ArrayList<String>();
+        list = (ListView)findViewById(R.id.list_medias);
+        MediaListAdapter mediaListAdapter = new MediaListAdapter(this, session.getMedias());
+        list.setAdapter(mediaListAdapter);
 
-        CheckBox check_movie = (CheckBox) findViewById(R.id.check_movie);
-        CheckBox check_game = (CheckBox) findViewById(R.id.check_games);
-        CheckBox check_book = (CheckBox) findViewById(R.id.check_books);
-        CheckBox check_tv = (CheckBox) findViewById(R.id.check_tv);
-
-        CheckBox checkList[] = {check_book,check_game,check_movie,check_tv};
-
-        for (CheckBox cb : checkList) {
-            if (cb.isChecked()) {
-                filterCategories.add(cb.getText().toString());
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent toMedia = new Intent(MediaListScreenActivity.this, MediaScreenActivity.class);
+                toMedia.putExtra("media", session.getMedias().get(position));
+                startActivity(toMedia);
             }
-        }
+        });
 
-        List<String> categories = new ArrayList<>();
-        categories.add("Most recents");
-        categories.add("Most popular");
-        categories.add("Best rating");
 
+        //CÓDIGO REFERENTE AOS MENUS LATERAIS
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.media_list_layout);
+
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.filter_array, android.R.layout.simple_spinner_item);
+        adapter2.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
         spinner = (Spinner) findViewById(R.id.spinner);
-        ArrayAdapter<CharSequence> spinnerAdapter = ArrayAdapter.createFromResource(this, R.array.filter_array, android.R.layout.simple_spinner_item);
-        spinner.setAdapter(spinnerAdapter);
+
+        spinner.setAdapter(adapter2);
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
-                    default:
                     case 0:
-                        filtro = "recents";
+                        Toast.makeText(getApplicationContext(), "Most Recents", Toast.LENGTH_SHORT).show();
                         break;
                     case 1:
-                        filtro = "followeds";
+                        Toast.makeText(getApplicationContext(), "Most Popular", Toast.LENGTH_SHORT).show();
                         break;
                     case 2:
-                        filtro = "bests";
+                        Toast.makeText(getApplicationContext(), "Best Rating", Toast.LENGTH_SHORT).show();
                         break;
                 }
             }
@@ -110,132 +108,44 @@ public class MediaListScreenActivity extends AppCompatActivity {
             }
         });
 
-        adapter = new MediaListAdapter(MediaListScreenActivity.this, session.getMedias());
-        list=(ListView)findViewById(R.id.list);
-
-            list.setAdapter(adapter);
 
 
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent enterActivity = new Intent(MediaListScreenActivity.this, MediaScreenActivity.class);
-                enterActivity.putExtra("media",listMedia.get(position));
-
-                startActivity(enterActivity);
-
-            }
-        });
-
-        //setListener();
-
-
-        /*MediaCallback callback = new MediaCallback(){
-            @Override
-            public Object onSuccess(String response) {
-
-                listMedia = (ArrayList<Media>) super.onSuccess("L" + response);
-
-                adapter = new MediaListAdapter(MediaListScreenActivity.this, listMedia);
-                list=(ListView)findViewById(R.id.list);
-                if (listMedia.size() < 1) {
-                    Toast.makeText(MediaListScreenActivity.this, "No media could be fetched!", Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    list.setAdapter(adapter);
-                }
-
-                setListener();
-
-                return null;
-            }
-
-            @Override
-            public void onFailure(String response) {
-                super.onFailure(response);
-            }
-        };
-
-        integration = new MediaIntegration();
-        integration.fetchMedias(callback,context, filtro, filterCategories, 0);
-*/
-
-        //CÓDIGO REFERENTE AOS MENUS LATERAIS
-
-        //DIREITA
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
+        setupDrawer();
 
         ImageView userImageSideBar = (ImageView)findViewById(R.id.userImage);
         TextView userNameSideBar = (TextView)findViewById(R.id.userName);
 
         userImageSideBar.setImageResource(session.getLoggedUser().getUserImage());
         userNameSideBar.setText(session.getLoggedUser().getUserName());
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
-        setupDrawer();
-        SideBarListAdapter listAdapter = new SideBarListAdapter(this, sideBarOptions, sideBarImages);
+
         ListView rightDrawer = (ListView) findViewById(R.id.navList);
-        rightDrawer.setAdapter(listAdapter);
 
+        assert rightDrawer != null;
         rightDrawer.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(), Integer.toString(position), Toast.LENGTH_SHORT).show();
-                switch (position) {
-                    case 0:
-                        Intent intent = new Intent(MediaListScreenActivity.this, ProfileActivity.class);
-                        startActivity(intent);
-                        overridePendingTransition(R.layout.push_right_in, R.layout.push_right_out);
-                        break;
-                    case 1:
-                        mDrawerLayout.closeDrawer(GravityCompat.START);
-                        break;
-                }
+            switch (position) {
+                case 0:
+                    Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+                    startActivity(intent);
+                    break;
+                case 1:
+                    mDrawerLayout.closeDrawer(GravityCompat.START);
+                    break;
+            }
             }
         });
 
         Collections.addAll(sideBarOptions, navArray);
 
         Collections.addAll(sideBarImages, imagId);
+
+        SideBarListAdapter listAdapter = new SideBarListAdapter(this, sideBarOptions, sideBarImages);
+        ListView lista = (ListView) findViewById(R.id.navList);
+        assert lista != null;
+        lista.setAdapter(listAdapter);
     }
-/*
-    private void setListener(){
-
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-
-                Media media = listMedia.get(position);
-
-                MediaCallback callback = new MediaCallback(){
-
-                    @Override
-                    public Object onSuccess(String response) {
-
-                        Media media = (Media) super.onSuccess(response);
-                        Intent enterActivity = new Intent(MediaListScreenActivity.this, MediaScreenActivity.class);
-                        enterActivity.putExtra("media",media);
-                        startActivity(enterActivity);
-
-                        return  null;
-                    }
-
-                    @Override
-                    public void onFailure(String response) {
-                        super.onFailure(response);
-                    }
-
-                };
-
-                integration.findById(media, callback, context );
-
-            }
-        });
-
-    }*/
 
     private void setupDrawer() {
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.drawer_open, R.string.drawer_close) {
@@ -265,7 +175,7 @@ public class MediaListScreenActivity extends AppCompatActivity {
 
         } else {
             super.onBackPressed();
-            System.exit(0);
+            finish();
         }
     }
 
@@ -273,14 +183,23 @@ public class MediaListScreenActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_openRight) {
+            mDrawerLayout.openDrawer(GravityCompat.END);
             if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
                 mDrawerLayout.closeDrawer(GravityCompat.START);
+            } else if (mDrawerLayout.isDrawerOpen(GravityCompat.END)) {
+                mDrawerLayout.closeDrawer(GravityCompat.END);
             }
             return true;
         }
 
         if (mDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
+            if (mDrawerLayout.isDrawerOpen(GravityCompat.END)) {
+                mDrawerLayout.closeDrawer(GravityCompat.END);
+                return false;
+            } else {
+                return true;
+            }
+
         }
 
         return super.onOptionsItemSelected(item);
@@ -302,7 +221,7 @@ public class MediaListScreenActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
+
         return super.onCreateOptionsMenu(menu);
     }
-
 }

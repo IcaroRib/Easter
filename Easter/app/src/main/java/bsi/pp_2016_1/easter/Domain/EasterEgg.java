@@ -16,7 +16,7 @@ public class EasterEgg implements Serializable {
     private int rate = 0;
     private ArrayList<Task> taskList;
     private ArrayList<Media> referenceList;
-	private ArrayList<Comentary> commentList;
+	private ArrayList<Commentary> commentList;
 
 
 	public int getId() {
@@ -84,16 +84,16 @@ public class EasterEgg implements Serializable {
 		this.referenceList = referenceList;
 	}
 
-	public ArrayList<Comentary> getCommentList() {
+	public ArrayList<Commentary> getCommentList() {
 		return commentList;
 	}
 
-	public void setCommentList(ArrayList<Comentary> commentList) {
+	public void setCommentList(ArrayList<Commentary> commentList) {
 		this.commentList = commentList;
 		this.calcAndSetRate();
 	}
 
-	public void addCommentary(Comentary c) {
+	public void addCommentary(Commentary c) {
 		this.commentList.add(c);
 		this.calcAndSetRate();
 	}
@@ -101,7 +101,7 @@ public class EasterEgg implements Serializable {
 	public void calcAndSetRate() {
 		int sumCommentariesRate = 0;
 		int divider = this.commentList.size();
-		for (Comentary c : this.commentList) {
+		for (Commentary c : this.commentList) {
 			if (c.getRate()>0) { sumCommentariesRate += c.getRate(); }
 			else { divider -= 1; }
 		}

@@ -13,10 +13,10 @@ public class Media implements Serializable {
 	private int imageUrl;
 	private ArrayList<EasterEgg> easterEggs;
 	private int rate = 0;
-	private ArrayList<Comentary> commentList;
+	private ArrayList<Commentary> commentList;
 
-	public ArrayList<Comentary> getCommentList() {return this.commentList;}
-	public void setCommentList(ArrayList<Comentary> commentList) {this.commentList = commentList;
+	public ArrayList<Commentary> getCommentList() {return this.commentList;}
+	public void setCommentList(ArrayList<Commentary> commentList) {this.commentList = commentList;
 	}
 	public int getId() {
 		return id;
@@ -51,7 +51,7 @@ public class Media implements Serializable {
 	}
 	public void setEasterEggs(ArrayList<EasterEgg> easterEggs) {
 		this.easterEggs = easterEggs;
-        this.calcAndSetRate();
+//        this.calcAndSetRate();
 	}
 	
 	public void addEasterEgg(EasterEgg easterEgg){
@@ -71,7 +71,7 @@ public class Media implements Serializable {
 		this.rate = rate;
 	}
 
-	public void addCommentary(Comentary c) {
+	public void addCommentary(Commentary c) {
 		this.commentList.add(c);
 	}
 

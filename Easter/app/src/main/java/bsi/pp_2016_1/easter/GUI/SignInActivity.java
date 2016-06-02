@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import bsi.pp_2016_1.easter.Domain.Comentary;
+import bsi.pp_2016_1.easter.Domain.Commentary;
 import bsi.pp_2016_1.easter.Domain.EasterEgg;
 import bsi.pp_2016_1.easter.Domain.Media;
 import bsi.pp_2016_1.easter.Domain.Session;
@@ -102,50 +102,50 @@ public class SignInActivity extends Activity {
 
     private void CriaConteudo(User user) {
 
-        ArrayList<Comentary> listComments = new ArrayList<>();
-        Comentary c1 = new Comentary();
+        ArrayList<Commentary> listComments = new ArrayList<>();
+        Commentary c1 = new Commentary();
         c1.setUserName(user.getUserName());
         c1.setUserPic(user.getUserImage());
         listComments.add(c1);
-        Comentary c2 = new Comentary();
+        Commentary c2 = new Commentary();
         c2.setUserName(user.getUserName());
         c2.setUserPic(user.getUserImage());
         listComments.add(c2);
-        Comentary c3 = new Comentary();
+        Commentary c3 = new Commentary();
         c3.setUserName(user.getUserName());
         c3.setUserPic(user.getUserImage());
         listComments.add(c3);
-        Comentary c4 = new Comentary();
+        Commentary c4 = new Commentary();
         c4.setUserName(user.getUserName());
         c4.setUserPic(user.getUserImage());
         listComments.add(c4);
-        Comentary c5 = new Comentary();
+        Commentary c5 = new Commentary();
         c5.setUserName(user.getUserName());
         c5.setUserPic(user.getUserImage());
         listComments.add(c5);
-        Comentary c6 = new Comentary();
+        Commentary c6 = new Commentary();
         c6.setUserName(user.getUserName());
         c6.setUserPic(user.getUserImage());
         listComments.add(c6);
-        Comentary c7 = new Comentary();
+        Commentary c7 = new Commentary();
         c7.setUserName(user.getUserName());
         c7.setUserPic(user.getUserImage());
         listComments.add(c7);
-        Comentary c8 = new Comentary();
+        Commentary c8 = new Commentary();
         c8.setUserName(user.getUserName());
         c8.setUserPic(user.getUserImage());
         listComments.add(c8);
-        Comentary c9 = new Comentary();
+        Commentary c9 = new Commentary();
         c9.setUserName(user.getUserName());
         c9.setUserPic(user.getUserImage());
         listComments.add(c9);
-        Comentary c10 = new Comentary();
+        Commentary c10 = new Commentary();
         c10.setUserName(user.getUserName());
         c10.setUserPic(user.getUserImage());
         listComments.add(c10);
 
         int countComments = 0;
-        for (Comentary comment : listComments) {
+        for (Commentary comment : listComments) {
             comment.setText("Comentario " + countComments);
             comment.setRate(countComments);
 

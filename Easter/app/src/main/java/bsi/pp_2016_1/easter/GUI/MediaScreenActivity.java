@@ -26,7 +26,7 @@ import android.widget.ViewFlipper;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import bsi.pp_2016_1.easter.Domain.Comentary;
+import bsi.pp_2016_1.easter.Domain.Commentary;
 import bsi.pp_2016_1.easter.Domain.EasterEgg;
 import bsi.pp_2016_1.easter.Domain.Media;
 import bsi.pp_2016_1.easter.Domain.Session;
@@ -36,7 +36,7 @@ import bsi.pp_2016_1.easter.R;
 public class MediaScreenActivity extends AppCompatActivity {
 
     private Media media;
-    private ArrayList<Comentary> comentarios;
+    private ArrayList<Commentary> comentarios;
 
     private TextView mediaName;
     private TextView mediaCategory;
@@ -77,6 +77,7 @@ public class MediaScreenActivity extends AppCompatActivity {
 
     String[] navArray = {"My profile", "Easter feed", "Followed media", "Rate the app", "Sign out"};
     Integer[] imagId = {R.drawable.patient, R.drawable.rss_icon, R.drawable.heart_icon, R.drawable.half_star_icon, R.drawable.logout_icon};
+    private ImageView mediaImage;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -85,6 +86,8 @@ public class MediaScreenActivity extends AppCompatActivity {
 
         media = (Media) getIntent().getSerializableExtra("media");
         comentarios = media.getCommentList();
+
+        mediaImage = (ImageView)findViewById(R.id.media_image);
         mediaName = (TextView) findViewById(R.id.media_name);
         mediaCategory = (TextView) findViewById(R.id.media_category);
         isFollowing = (Switch) findViewById(R.id.is_following);
@@ -98,9 +101,10 @@ public class MediaScreenActivity extends AppCompatActivity {
         addMediaComment = (Button)findViewById(R.id.bt_add_comment_media);
 
         vf = (ViewFlipper) findViewById(R.id.view_flipper_media);
-        comentList = new ComentaryListAdapter(this, comentarios);
+        comentList = new ComentaryListAdapter(this, media.getCommentList());
         listOfComments.setAdapter(comentList);
 
+        mediaImage.setImageResource(R.drawable.lhama_glasses);
         mediaName.setText(media.getTitle());
         mediaCategory.setText(media.getMidiaCategory());
         isFollowing.setChecked(false);
@@ -219,11 +223,11 @@ public class MediaScreenActivity extends AppCompatActivity {
                 sendMediaComment.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Comentary comentary = new Comentary();
-                        comentary.setUserName(comentarios.get(0).getUserName());
-                        comentary.setUserPic(comentarios.get(0).getUserPic());
-                        comentary.setText(textComment.getText().toString());
-                        comentarios.add(comentary);
+                        Commentary commentary = new Commentary();
+                        commentary.setUserName(media.getCommentList().get(0).getUserName());
+                        commentary.setUserPic(media.getCommentList().get(0).getUserPic());
+                        commentary.setText(textComment.getText().toString());
+                        media.getCommentList().add(commentary);
                         comentList.notifyDataSetChanged();
 
                         textComment.setText(null);
@@ -354,11 +358,5 @@ public class MediaScreenActivity extends AppCompatActivity {
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         mDrawerToggle.onConfigurationChanged(newConfig);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_edit, menu);
-        return super.onCreateOptionsMenu(menu);
     }
 }

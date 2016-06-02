@@ -160,48 +160,48 @@ public class Objects {
         return av;
     }
 
-    private Comentary createRandomEasterEggCommentary() {
+    private Commentary createRandomEasterEggCommentary() {
 
         User user =  this.getRandomUser();
 
-        Comentary comentary = new Comentary();
-        comentary.setId(this.getNewId());
-        comentary.setDate(new Date());
-        comentary.setUserName(user.getUserName());
-        comentary.setUserPic(user.getUserImage());
+        Commentary commentary = new Commentary();
+        commentary.setId(this.getNewId());
+        commentary.setDate(new Date());
+        commentary.setUserName(user.getUserName());
+        commentary.setUserPic(user.getUserImage());
         HashMap av1 = this.getRandomAvaluation();
-        comentary.setText((String) av1.get("text"));
-        comentary.setRate((int) av1.get("rate"));
+        commentary.setText((String) av1.get("text"));
+        commentary.setRate((int) av1.get("rate"));
 
-        return comentary;
+        return commentary;
     }
 
-    private ArrayList<Comentary> createListRandomEasterEggCommentary(int qt) {
-        ArrayList<Comentary> comentaries = new ArrayList<Comentary>();
+    private ArrayList<Commentary> createListRandomEasterEggCommentary(int qt) {
+        ArrayList<Commentary> comentaries = new ArrayList<Commentary>();
         for (int i = 0; i < qt; i++) {
             comentaries.add(this.createRandomEasterEggCommentary());
         }
         return comentaries;
     }
 
-    private Comentary createRandomMediaCommentary() {
+    private Commentary createRandomMediaCommentary() {
 
         User user =  this.getRandomUser();
 
-        Comentary comentary = new Comentary();
-        comentary.setId(this.getNewId());
-        comentary.setDate(new Date());
-        comentary.setUserName(user.getUserName());
-        comentary.setUserPic(user.getUserImage());
+        Commentary commentary = new Commentary();
+        commentary.setId(this.getNewId());
+        commentary.setDate(new Date());
+        commentary.setUserName(user.getUserName());
+        commentary.setUserPic(user.getUserImage());
         HashMap av1 = this.getRandomAvaluation();
-        comentary.setText((String) av1.get("text"));
+        commentary.setText((String) av1.get("text"));
 
-        return comentary;
+        return commentary;
 
     }
 
-    private ArrayList<Comentary> createListRandomMediaCommentary(int qt) {
-        ArrayList<Comentary> comentaries = new ArrayList<Comentary>();
+    private ArrayList<Commentary> createListRandomMediaCommentary(int qt) {
+        ArrayList<Commentary> comentaries = new ArrayList<Commentary>();
         for (int i = 0; i < qt; i++) {
             comentaries.add(this.createRandomMediaCommentary());
         }

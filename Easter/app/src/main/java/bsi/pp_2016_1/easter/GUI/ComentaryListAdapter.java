@@ -10,15 +10,15 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import bsi.pp_2016_1.easter.Domain.Comentary;
+import bsi.pp_2016_1.easter.Domain.Commentary;
 import bsi.pp_2016_1.easter.R;
 
-public class ComentaryListAdapter extends ArrayAdapter<Comentary> {
+public class ComentaryListAdapter extends ArrayAdapter<Commentary> {
 
     private Activity context;
-    private ArrayList<Comentary> comentaries;
+    private ArrayList<Commentary> comentaries;
 
-    public ComentaryListAdapter(Activity context, ArrayList<Comentary> comentaries) {
+    public ComentaryListAdapter(Activity context, ArrayList<Commentary> comentaries) {
         super(context, R.layout.activity_comment, comentaries);
         this.context = context;
         this.comentaries = comentaries;
