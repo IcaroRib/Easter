@@ -3,6 +3,8 @@ package bsi.pp_2016_1.easter.Domain;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import static java.lang.Math.round;
+
 public class Media implements Serializable {
 	
 	private int id;
@@ -10,7 +12,7 @@ public class Media implements Serializable {
 	private String midiaCategory;
 	private int imageUrl;
 	private ArrayList<EasterEgg> easterEggs;
-	private int rate;
+	private int rate = 0;
 	private ArrayList<Comentary> commentList;
 
 	public ArrayList<Comentary> getCommentList() {return commentList;}
@@ -49,10 +51,12 @@ public class Media implements Serializable {
 	}
 	public void setEasterEggs(ArrayList<EasterEgg> easterEggs) {
 		this.easterEggs = easterEggs;
+        this.calcAndSetRate();
 	}
 	
 	public void addEasterEgg(EasterEgg easterEgg){
 		this.easterEggs.add(easterEgg);
+        this.calcAndSetRate();
 	}
 	
 	public void removeEasterEgg(EasterEgg easterEgg){
@@ -65,6 +69,23 @@ public class Media implements Serializable {
 
 	public void setRate(int rate) {
 		this.rate = rate;
+	}
+
+	public void addCommentary(Comentary c) {
+		this.commentList.add(c);
+	}
+
+	public void calcAndSetRate() {
+        int sumEasterEggsRate = 0;
+        int divider = this.easterEggs.size();
+        for (EasterEgg ea : this.getEasterEggs()) {
+            if (ea.getRate()>0) { sumEasterEggsRate += ea.getRate(); }
+            else { divider -= 1; }
+        }
+        if (divider>0) {
+            int mediaRate = round(sumEasterEggsRate/divider);
+            this.setRate(mediaRate);
+        }
 	}
 
 }

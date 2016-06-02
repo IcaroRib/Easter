@@ -3,6 +3,8 @@ package bsi.pp_2016_1.easter.Domain;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import static java.lang.Math.round;
+
 public class EasterEgg implements Serializable {
 
     private int id;
@@ -11,9 +13,10 @@ public class EasterEgg implements Serializable {
     private double progressStatus;
     private int creatorId;
     private String creatorName;
-    private int rate;
+    private int rate = 0;
     private ArrayList<Task> taskList;
     private ArrayList<Media> referenceList;
+	private ArrayList<Comentary> commentList;
 
 	public int getId() {
 		return id;
@@ -78,6 +81,34 @@ public class EasterEgg implements Serializable {
 	}
 	public void setReferenceList(ArrayList<Media> referenceList) {
 		this.referenceList = referenceList;
+	}
+
+	public ArrayList<Comentary> getCommentList() {
+		return commentList;
+	}
+
+	public void setCommentList(ArrayList<Comentary> commentList) {
+		this.commentList = commentList;
+		this.calcAndSetRate();
+	}
+
+	public void addCommentary(Comentary c) {
+		this.commentList.add(c);
+		this.calcAndSetRate();
+	}
+
+	public void calcAndSetRate() {
+		int sumCommentariesRate = 0;
+		int divider = this.commentList.size();
+		for (Comentary c : this.commentList) {
+			if (c.getRate()>0) { sumCommentariesRate += c.getRate(); }
+			else { divider -= 1; }
+		}
+		if (divider>0) {
+			int easterEggRate = round(sumCommentariesRate/divider);
+			this.setRate(easterEggRate);
+		}
+
 	}
 
 }

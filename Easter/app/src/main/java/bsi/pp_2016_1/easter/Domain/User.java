@@ -55,7 +55,10 @@ public class User {
 	}
 
 	public void addFavoritedMidia(Media media) {
-		this.favoritedMedias.add(media);
+		int mediaIndex = this.favoritedMedias.indexOf(media);
+		if (mediaIndex == -1) {
+			this.favoritedMedias.add(media);
+		}
 	}
 
 	public void removeFavoritedMidia(Media media) {
