@@ -119,8 +119,12 @@ public class Objects {
     }
 
     private User getRandomUser() {
-        int userIdx = this.random.nextInt(this.users.size());
-        return this.users.get(userIdx);
+        User user = null;
+        while (user == null){
+            int userIdx = this.random.nextInt(this.users.size());
+            user = this.users.get(userIdx);
+        }
+        return user;
     }
 
     private int getNewId() {
@@ -215,8 +219,12 @@ public class Objects {
         easterEgg.setDescription(description);
         easterEgg.setId(this.getNewId());
         easterEgg.setCommentList(this.createListRandomEasterEggCommentary(3));
-        int creatorIndex = this.users.indexOf(creator);
-        this.users.get(creatorIndex).addPublishedEasterEgg(easterEgg);
+        User user = null;
+        while (user == null) {
+            int creatorIndex = this.users.indexOf(creator);
+            user = this.users.get(creatorIndex);
+        }
+        user.addPublishedEasterEgg(easterEgg);
 
         return easterEgg;
 
@@ -249,11 +257,19 @@ public class Objects {
 
     public void setFavMediasToUsers() {
         int randomMediaIndex;
+        Media randomMedia = null;
+        User user = null;
         for (int i = 0; i < this.users.size() ; i++) {
             for (int u = 0; u < 3; u++) {
-                randomMediaIndex = random.nextInt(this.medias.size());
-                Media randomMedia = this.medias.get(randomMediaIndex);
-                this.users.get(i).addFavoritedMidia(randomMedia);
+                randomMedia = null;
+                while (randomMedia == null) {
+                    randomMediaIndex = random.nextInt(this.medias.size());
+                    randomMedia = this.medias.get(randomMediaIndex);
+                    user = this.users.get(i);
+                    if (user == null) {
+                        user.addFavoritedMidia(randomMedia);
+                    }
+                }
             }
         }
 
