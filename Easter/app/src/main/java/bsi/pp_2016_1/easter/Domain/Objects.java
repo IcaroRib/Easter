@@ -7,9 +7,6 @@ import java.util.Random;
 
 import static java.lang.Math.round;
 
-/**
- * Created by root on 01/06/16.
- */
 public class Objects {
 
     Random random = new Random();
@@ -20,7 +17,7 @@ public class Objects {
 
     private ArrayList<User> createUsers() {
 
-        this.users.clear();
+//        this.users.clear();
 
         int lhamaPic;
 
@@ -388,7 +385,8 @@ public class Objects {
     public void createAll() {
         this.createUsers();
         this.createMedias();
-        this.setFavMediasToUsers();
+/*        this.setFavMediasToUsers();
+*/
     }
 
 

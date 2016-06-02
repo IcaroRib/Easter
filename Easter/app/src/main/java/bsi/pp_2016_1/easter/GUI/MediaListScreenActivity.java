@@ -42,10 +42,6 @@ public class MediaListScreenActivity extends AppCompatActivity {
     String[] navArray = {"My profile", "Easter feed", "Followed media", "Rate the app", "Sign out"};
     Integer[] imagId = {R.drawable.patient, R.drawable.rss_icon, R.drawable.heart_icon, R.drawable.half_star_icon, R.drawable.logout_icon};
 
-    private MediaListAdapter adapter;
-
-    private ArrayList<Media> listMedia;
-
     private String filtro  = "bests";
 
     private Spinner spinner;
@@ -54,8 +50,6 @@ public class MediaListScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_media_list);
-
-        listMedia = (ArrayList<Media>) getIntent().getSerializableExtra("mediaList");
 
         final Session session = Session.getInstance();
 

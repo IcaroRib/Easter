@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import bsi.pp_2016_1.easter.Domain.Commentary;
 import bsi.pp_2016_1.easter.Domain.EasterEgg;
 import bsi.pp_2016_1.easter.Domain.Media;
+import bsi.pp_2016_1.easter.Domain.Objects;
 import bsi.pp_2016_1.easter.Domain.Session;
 import bsi.pp_2016_1.easter.Domain.User;
 import bsi.pp_2016_1.easter.R;
@@ -43,26 +44,29 @@ public class SignInActivity extends Activity {
                 if (username.equals("") || password.equals("")) {
                     Toast.makeText(getApplicationContext(), ("Incorrect username or password"), Toast.LENGTH_SHORT).show();
                 } else {
-                    User user = new User();
+                 /*   User user = new User();
                     user.setId(0);
                     user.setUserName("Icaro");
                     user.setEmail("icaroribeiro@gmail.com");
                     user.setUserImage(R.drawable.lhama_glasses);
                     user.setProfileName("IcaroR");
+*/
+                    Objects objects = new Objects();
+
+                    objects.createAll();
 
                     session = Session.getInstance();
-                    session.login(user);
+                    session.login(objects.getAllUsers().get(0));
+                    Toast.makeText(SignInActivity.this, objects.getAllUsers().get(0).getUserName(), Toast.LENGTH_SHORT).show();
 
-                    CriaConteudo(user);
+  //                  CriaConteudo(user);
 
-                    Toast.makeText(getApplicationContext(), ("Welcome " + user.getUserName()), Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(SignInActivity.this, MediaListScreenActivity.class);
 
-                    i.putExtra("mediaList", mediaList);
-                    
+
                     session.setMedias(mediaList);
 
-                    startActivity(i);
+                    //startActivity(i);
 
                 /*UserRequisition userReq = new UserRequisition();
 
