@@ -275,6 +275,7 @@ public class Objects {
                     randomMedia = this.medias.get(randomMediaIndex);
                     user = this.users.get(i);
                     if (user != null) {
+
                         user.addFavoritedMidia(randomMedia);
                     }
                 }

@@ -193,6 +193,12 @@ public class MediaListScreenActivity extends AppCompatActivity {
                 case 1:
                     mDrawerLayout.closeDrawer(GravityCompat.START);
                     break;
+                case 2:
+                    Intent toFavMedias = new Intent(getApplicationContext(), FavoritedMediaListScreenActivity.class);
+                    startActivity(toFavMedias);
+                    overridePendingTransition(R.layout.push_right_in, R.layout.push_right_out);
+                    finish();
+                    break;
             }
             }
         });

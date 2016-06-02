@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -84,6 +85,8 @@ public class MediaScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_media);
 
+        final Session session = Session.getInstance();
+
         media = (Media) getIntent().getSerializableExtra("media");
         comentarios = media.getCommentList();
 
@@ -107,8 +110,31 @@ public class MediaScreenActivity extends AppCompatActivity {
         mediaImage.setImageResource(R.drawable.lhama_glasses);
         mediaName.setText(media.getTitle());
         mediaCategory.setText(media.getMidiaCategory());
-        isFollowing.setChecked(false);
+        isFollowing.setChecked(true);
+
+        for (Media m: session.getLoggedUser().getFavoritedMedias()) {
+            if (m.getTitle().equals(media.getTitle())){
+                isFollowing.setChecked(true);
+                Toast.makeText(MediaScreenActivity.this, "mopa", Toast.LENGTH_SHORT).show();
+            }else {
+                isFollowing.setChecked(false);
+            }
+        }
+
+
         ratingBar.setRating(media.getRate());
+
+        isFollowing.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked && !session.getLoggedUser().getFavoritedMedias().contains(media)){
+                    session.getLoggedUser().addFavoritedMidia(media);
+                }else {
+                    session.getLoggedUser().removeFavoritedMidia(media);
+                }
+            }
+        });
+
 
         EasterEggListAdapter eggsList = new EasterEggListAdapter(this, media.getEasterEggs());
         if (listOfEggs != null){
@@ -254,8 +280,6 @@ public class MediaScreenActivity extends AppCompatActivity {
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout_media);
 
-        Session session = Session.getInstance();
-
         ImageView userImageSideBar = (ImageView)findViewById(R.id.userImage);
         TextView userNameSideBar = (TextView)findViewById(R.id.userName);
 
@@ -279,6 +303,12 @@ public class MediaScreenActivity extends AppCompatActivity {
                     case 1:
                         Intent toFeed = new Intent(MediaScreenActivity.this, MediaListScreenActivity.class);
                         startActivity(toFeed);
+                        overridePendingTransition(R.layout.push_right_in, R.layout.push_right_out);
+                        finish();
+                        break;
+                    case 2:
+                        Intent toFavMedias = new Intent(getApplicationContext(), FavoritedMediaListScreenActivity.class);
+                        startActivity(toFavMedias);
                         overridePendingTransition(R.layout.push_right_in, R.layout.push_right_out);
                         finish();
                         break;

@@ -145,6 +145,12 @@ public class ProfileActivity extends AppCompatActivity {
                         Intent intent = new Intent(ProfileActivity.this, MediaListScreenActivity.class);
                         startActivity(intent);
                         break;
+                    case 2:
+                        Intent toFavMedias = new Intent(getApplicationContext(), FavoritedMediaListScreenActivity.class);
+                        startActivity(toFavMedias);
+                        overridePendingTransition(R.layout.push_right_in, R.layout.push_right_out);
+                        finish();
+                        break;
                 }
             }
         });

@@ -188,21 +188,27 @@ public class EasterEggScreenActivity extends AppCompatActivity {
         rightDrawer.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(), Integer.toString(position), Toast.LENGTH_SHORT).show();
-                switch (position) {
-                    case 0:
-                        Intent toProfile = new Intent(EasterEggScreenActivity.this, ProfileActivity.class);
-                        startActivity(toProfile);
-                        overridePendingTransition(R.layout.push_right_in, R.layout.push_right_out);
-                        finish();
-                        break;
-                    case 1:
-                        Intent toFeed = new Intent(EasterEggScreenActivity.this, MediaListScreenActivity.class);
-                        startActivity(toFeed);
-                        overridePendingTransition(R.layout.push_right_in, R.layout.push_right_out);
-                        finish();
-                        break;
-                }
+            Toast.makeText(getApplicationContext(), Integer.toString(position), Toast.LENGTH_SHORT).show();
+            switch (position) {
+                case 0:
+                    Intent toProfile = new Intent(EasterEggScreenActivity.this, ProfileActivity.class);
+                    startActivity(toProfile);
+                    overridePendingTransition(R.layout.push_right_in, R.layout.push_right_out);
+                    finish();
+                    break;
+                case 1:
+                    Intent toFeed = new Intent(EasterEggScreenActivity.this, MediaListScreenActivity.class);
+                    startActivity(toFeed);
+                    overridePendingTransition(R.layout.push_right_in, R.layout.push_right_out);
+                    finish();
+                    break;
+                case 2:
+                    Intent toFavMedias = new Intent(EasterEggScreenActivity.this, FavoritedMediaListScreenActivity.class);
+                    startActivity(toFavMedias);
+                    overridePendingTransition(R.layout.push_right_in, R.layout.push_right_out);
+                    finish();
+                    break;
+            }
             }
         });
 
