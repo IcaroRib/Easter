@@ -13,6 +13,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -45,6 +47,11 @@ public class MediaListScreenActivity extends AppCompatActivity {
     private String filtro  = "bests";
 
     private Spinner spinner;
+
+    private CheckBox cb_movies;
+    private CheckBox cb_books;
+    private CheckBox cb_tvshows;
+    private CheckBox cb_games;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,6 +108,67 @@ public class MediaListScreenActivity extends AppCompatActivity {
 
             }
         });
+
+/*
+        cb_movies = (CheckBox) findViewById(R.id.check_movie);
+        cb_books = (CheckBox) findViewById(R.id.check_books);
+        cb_tvshows = (CheckBox) findViewById(R.id.check_tv);
+        cb_games = (CheckBox) findViewById(R.id.check_games);
+
+        cb_movies.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                ArrayList<String> filters = new ArrayList<String>();
+
+                if (cb_movies.isChecked()) { filters.add("movies"); }
+                if (cb_books.isChecked()) { filters.add("books"); }
+                if (cb_tvshows.isChecked()) { filters.add("tv shows"); }
+                if (cb_games.isChecked()) { filters.add("games"); }
+            }
+        });
+
+        cb_books.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                ArrayList<String> filters = new ArrayList<String>();
+
+                if (cb_movies.isChecked()) { filters.add("movies"); }
+                if (cb_books.isChecked()) { filters.add("books"); }
+                if (cb_tvshows.isChecked()) { filters.add("tv shows"); }
+                if (cb_games.isChecked()) { filters.add("games"); }
+            }
+        });
+
+        cb_tvshows.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                ArrayList<String> filters = new ArrayList<String>();
+
+                if (cb_movies.isChecked()) { filters.add("movies"); }
+                if (cb_books.isChecked()) { filters.add("books"); }
+                if (cb_tvshows.isChecked()) { filters.add("tv shows"); }
+                if (cb_games.isChecked()) { filters.add("games"); }
+            }
+        });
+
+        cb_games.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                ArrayList<String> filters = new ArrayList<String>();
+
+                if (cb_movies.isChecked()) { filters.add("movies"); }
+                if (cb_books.isChecked()) { filters.add("books"); }
+                if (cb_tvshows.isChecked()) { filters.add("tv shows"); }
+                if (cb_games.isChecked()) { filters.add("games"); }
+            }
+        });
+
+        ArrayList<Media> filteredMedias = new ArrayList<Media>();
+        for (String filter : filters) {
+
+        }
+*/
+
 
         setupDrawer();
 

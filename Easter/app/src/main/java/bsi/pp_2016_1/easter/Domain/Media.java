@@ -61,6 +61,7 @@ public class Media implements Serializable {
 	
 	public void removeEasterEgg(EasterEgg easterEgg){
 		this.easterEggs.remove(easterEgg);
+        this.calcAndSetRate();
 	}
 
 	public int getRate() {
