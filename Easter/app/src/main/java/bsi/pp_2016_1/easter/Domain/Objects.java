@@ -140,20 +140,12 @@ public class Objects {
         HashMap av = new HashMap();
         int rate = this.random.nextInt(5) + 1;
         String text;
-        switch (rate){
-            case 1:
-                text = "Hate it!";
-            case 2:
-                text = "I'm quite disappointed.";
-            case 3:
-                text = "I kinda liked it.";
-            case 4:
-                text = "Super cool!";
-            case 5:
-                text = "I love it!";
-            default:
-                text = "Cool.";
-        }
+        if (rate == 1) { text = "Hate it!"; }
+        else if (rate == 2) { text = "I'm quite disappointed."; }
+        else if (rate == 3) { text = "I kinda liked it."; }
+        else if (rate == 4) { text = "Super cool!"; }
+        else if (rate == 5) { text = "I love it!"; }
+        else { text = "Cool."; }
 
         av.put("rate",rate);
         av.put("text",text);
@@ -301,9 +293,9 @@ public class Objects {
         EasterEgg e5 = this.createEasterEgg("Mermaid from Knick-knack","When the fish tan gets realy dirty in the dentist office they show a close-up of a ship on the front is a mermaid, the same one from the end of pixars first short knick-knack only but this time she is covered in grime.");
         EasterEgg e6 = this.createEasterEgg("Comic Book","In the chaotic scene in the dentist's office when Marlin and Dory finally get to Nemo in the nick of time, in the 5-second shot in the waiting room, the boy inside is reading a \"The Incredibles\" comic book.");
         ArrayList<EasterEgg> elist2 = new ArrayList<EasterEgg>();
-        elist1.add(e4);
-        elist1.add(e5);
-        elist1.add(e6);
+        elist2.add(e4);
+        elist2.add(e5);
+        elist2.add(e6);
 
         Media m2 = this.createMedia("Finding Nemo","movies",elist2);
 
@@ -311,9 +303,9 @@ public class Objects {
         EasterEgg e8 = this.createEasterEgg("Green Lantern","Onto the scene in Slow-Motion in the opening, you can see within the wallet of one of the bandits an image of what could be Ryan Reynolds' character Hal Jordan, in the movie Green Lantern 2011.");
         EasterEgg e9 = this.createEasterEgg("Hello Kitty","Inside the car, in the scene in slow motion, you see a Hello Kitty Lipbalm flying around. This is a reference to film's Twitter, which follows a single account, and the account is Hello Kitty. The Deadpool is declared fan of it!");
         ArrayList<EasterEgg> elist3 = new ArrayList<EasterEgg>();
-        elist1.add(e7);
-        elist1.add(e8);
-        elist1.add(e9);
+        elist3.add(e7);
+        elist3.add(e8);
+        elist3.add(e9);
 
         Media m3 = this.createMedia("Deadpool","movies",elist3);
 
@@ -321,9 +313,9 @@ public class Objects {
         EasterEgg e11 = this.createEasterEgg("The Marauders Map: A Prophecy?","As well you know, Mooney, Wormtail, Padfoot and Prongs are the Animagi names of Remus, Peter, Sirius and James, as well as the creators of the map. They also died in the reverse order of the names presented on the map.");
         EasterEgg e12 = this.createEasterEgg("The Chamber Of Secrets Reveals One Massive Secret!","If you read the Chamber Of Secrets, you uncover the truth that Harry is a Horcrux well before it was ever explicitly spelled out. Towards the end of the novel when the diary has been destroyed, Dumbledore tells Harry that what happened at Godrick's Hollow connected both him and Voldermort, which is why Harry can speak Parseltongue and see snippets from Voldemort's life. Or in other words, they're one person, with two souls.");
         ArrayList<EasterEgg> elist4 = new ArrayList<EasterEgg>();
-        elist1.add(e10);
-        elist1.add(e11);
-        elist1.add(e12);
+        elist4.add(e10);
+        elist4.add(e11);
+        elist4.add(e12);
 
         Media m4 = this.createMedia("Harry Potter Series","books",elist4);
 
@@ -331,9 +323,9 @@ public class Objects {
         EasterEgg e14 = this.createEasterEgg("The Flash","In The Flash, Cisco Ramon (Carlos Valdes) wears a shirt with the slogan \"Bazinga\", much used by Sheldon Cooper (Jim Parsons) on The Big Bang Theory. Sheldon, in turn, has shown several times in the series that has a special affection by Flash.");
         EasterEgg e15 = this.createEasterEgg("Penny's Kitchen","The pictures in Penny's refrigerator door are the actress Kaley Cuoco with the team members of The Big Bang Theory.");
         ArrayList<EasterEgg> elist5 = new ArrayList<EasterEgg>();
-        elist1.add(e13);
-        elist1.add(e14);
-        elist1.add(e15);
+        elist5.add(e13);
+        elist5.add(e14);
+        elist5.add(e15);
 
         Media m5 = this.createMedia("The Big Bang Theory","tv shows",elist5);
 

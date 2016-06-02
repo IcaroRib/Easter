@@ -30,12 +30,12 @@ public class ReferencedMediaAdapter extends BaseAdapter {
     @Override
     public int getCount() {
         int count = 0;
-/*
+
         for (EasterEgg easter :easterEggs) {
             count += easter.getReferenceList().size();
         }
-*/
-        return 40;
+
+        return count;
     }
 
     @Override

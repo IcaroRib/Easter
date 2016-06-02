@@ -40,14 +40,14 @@
 
     <RatingBar
         style="?android:attr/ratingBarStyleSmall"
-        android:layout_marginTop="25dp"
-        android:layout_marginLeft="5dp"
+        android:layout_marginTop="15dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/ratingBar"
         android:progressTint="#F0DC00"
         android:rating="2"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true" />
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp" />
 
 </RelativeLayout>

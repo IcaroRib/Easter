@@ -57,16 +57,16 @@ public class SignInActivity extends Activity {
 
                     session = Session.getInstance();
                     session.login(objects.getAllUsers().get(0));
-                    Toast.makeText(SignInActivity.this, objects.getAllUsers().get(0).getUserName(), Toast.LENGTH_SHORT).show();
+//                  Toast.makeText(SignInActivity.this, objects.getAllUsers().get(0).getUserName(), Toast.LENGTH_SHORT).show();
 
-  //                  CriaConteudo(user);
+//                  CriaConteudo(user);
 
                     Intent i = new Intent(SignInActivity.this, MediaListScreenActivity.class);
 
 
-                    session.setMedias(mediaList);
+                    session.setMedias(objects.getMedias());
 
-                    //startActivity(i);
+                    startActivity(i);
 
                 /*UserRequisition userReq = new UserRequisition();
 
