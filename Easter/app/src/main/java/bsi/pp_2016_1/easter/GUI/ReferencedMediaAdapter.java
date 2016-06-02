@@ -61,10 +61,10 @@ public class ReferencedMediaAdapter extends BaseAdapter {
 
         rtBar.setNumStars(5);
 
-        if(position%4==0){
-            aux = position/4;
+        if(position%1==0){
+            aux = position/1;
         }else{
-            aux2 = position%4;
+            aux2 = position%1;
         }
 
         mediaIcon.setImageResource(easterEggs.get(aux).getReferenceList().get(aux2).getImageUrl());

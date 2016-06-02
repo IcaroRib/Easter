@@ -136,10 +136,10 @@ public class MediaScreenActivity extends AppCompatActivity {
 
                     Intent intent = new Intent(MediaScreenActivity.this, MediaScreenActivity.class);
 
-                    if(position%4==0){
-                        aux = position/4;
+                    if(position%1==0){
+                        aux = position/1;
                     }else{
-                        aux2 = position%4;
+                        aux2 = position%1;
                     }
                     intent.putExtra("media",media.getEasterEggs().get(aux).getReferenceList().get(aux2));
                     startActivity(intent);

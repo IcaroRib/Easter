@@ -339,7 +339,6 @@ public class Objects {
         // -------------------------------------------------------------------------
 
         ArrayList<Media> referencesList1 = new ArrayList<Media>();
-        referencesList1.add(m6);
         referencesList1.add(m7);
         e1.setReferenceList(referencesList1);
 
@@ -355,19 +354,35 @@ public class Objects {
         referencesList4.add(m6);
         e4.setReferenceList(referencesList4);
 
+        ArrayList<Media> referencesList5 = new ArrayList<Media>();
+        referencesList5.add(m1);
+        e5.setReferenceList(referencesList5);
+
         ArrayList<Media> referencesList6 = new ArrayList<Media>();
         referencesList6.add(m9);
         e6.setReferenceList(referencesList6);
 
+        ArrayList<Media> referencesList7 = new ArrayList<Media>();
+        referencesList7.add(m3);
+        e7.setReferenceList(referencesList7);
+
         ArrayList<Media> referencesList8 = new ArrayList<Media>();
         referencesList8.add(m10);
         e8.setReferenceList(referencesList8);
+
+        ArrayList<Media> referencesList9 = new ArrayList<Media>();
+        referencesList9.add(m3);
+        e9.setReferenceList(referencesList9);
 
         ArrayList<Media> referencesList10 = new ArrayList<Media>();
         referencesList10.add(m4);
         e10.setReferenceList(referencesList10);
         e11.setReferenceList(referencesList10);
         e12.setReferenceList(referencesList10);
+
+        ArrayList<Media> referencesList13 = new ArrayList<Media>();
+        referencesList13.add(m5);
+        e13.setReferenceList(referencesList13);
 
         ArrayList<Media> referencesList14 = new ArrayList<Media>();
         referencesList14.add(m11);
