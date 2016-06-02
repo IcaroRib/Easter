@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.Switch;
@@ -25,16 +26,17 @@ import android.widget.ViewFlipper;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import bsi.pp_2016_1.easter.Domain.Comentary;
+import bsi.pp_2016_1.easter.Domain.Commentary;
 import bsi.pp_2016_1.easter.Domain.EasterEgg;
 import bsi.pp_2016_1.easter.Domain.Media;
+import bsi.pp_2016_1.easter.Domain.Session;
 import bsi.pp_2016_1.easter.R;
 
 
 public class MediaScreenActivity extends AppCompatActivity {
 
     private Media media;
-    private ArrayList<Comentary> comentarios;
+    private ArrayList<Commentary> comentarios;
 
     private TextView mediaName;
     private TextView mediaCategory;
@@ -105,29 +107,46 @@ public class MediaScreenActivity extends AppCompatActivity {
         ratingBar.setRating(media.getRate());
 
         EasterEggListAdapter eggsList = new EasterEggListAdapter(this, media.getEasterEggs());
-        listOfEggs.setAdapter(eggsList);
+        if (listOfEggs != null){
 
-        listOfEggs.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent enterEasterEgg = new Intent(MediaScreenActivity.this, EasterEggScreenActivity.class);
-                enterEasterEgg.putExtra("easterEgg", media.getEasterEggs().get(position));
-                startActivity(enterEasterEgg);
-            }
-        });
+            listOfEggs.setAdapter(eggsList);
 
-        ReferencedMediaAdapter referencedMediaAdapter = new ReferencedMediaAdapter(this, media.getEasterEggs());
-        listOfReferences.setAdapter(referencedMediaAdapter);
+            listOfEggs.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Intent openEasterEgg = new Intent(MediaScreenActivity.this, EasterEggScreenActivity.class);
+                    openEasterEgg.putExtra("easterEgg", media.getEasterEggs().get(position));
+                    startActivity(openEasterEgg);
+                }
+            });
+        }
+        if (listOfReferences != null){
 
-        listOfReferences.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(MediaScreenActivity.this, MediaScreenActivity.class);
-                //intent.putExtra("media", )
-            }
-        });
+            ReferencedMediaAdapter referencedMediaAdapter = new ReferencedMediaAdapter(this, media.getEasterEggs());
+            listOfReferences.setAdapter(referencedMediaAdapter);
+
+            listOfReferences.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    int aux = 0, aux2 = 0;
+
+                    Intent intent = new Intent(MediaScreenActivity.this, MediaScreenActivity.class);
+
+                    if(position%4==0){
+                        aux = position/4;
+                    }else{
+                        aux2 = position%4;
+                    }
+                    intent.putExtra("media",media.getEasterEggs().get(aux).getReferenceList().get(aux2));
+                    startActivity(intent);
+                }
+            });
+        }else {
+            Toast.makeText(MediaScreenActivity.this, "No Media Related Found", Toast.LENGTH_SHORT).show();
+        }
 
         host = (TabHost) findViewById(R.id.tabHost_mediaScrenActivity);
+
         host.setup();
 
         //Tab 1
@@ -200,11 +219,11 @@ public class MediaScreenActivity extends AppCompatActivity {
                 sendMediaComment.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Comentary comentary = new Comentary();
-                        comentary.setUserName(comentarios.get(0).getUserName());
-                        comentary.setUserPic(comentarios.get(0).getUserPic());
-                        comentary.setText(textComment.getText().toString());
-                        comentarios.add(comentary);
+                        Commentary commentary = new Commentary();
+                        commentary.setUserName(comentarios.get(0).getUserName());
+                        commentary.setUserPic(comentarios.get(0).getUserPic());
+                        commentary.setText(textComment.getText().toString());
+                        comentarios.add(commentary);
                         comentList.notifyDataSetChanged();
 
                         textComment.setText(null);
@@ -230,6 +249,14 @@ public class MediaScreenActivity extends AppCompatActivity {
         SideBarStatus(true);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout_media);
+
+        Session session = Session.getInstance();
+
+        ImageView userImageSideBar = (ImageView)findViewById(R.id.userImage);
+        TextView userNameSideBar = (TextView)findViewById(R.id.userName);
+
+        userImageSideBar.setImageResource(session.getLoggedUser().getUserImage());
+        userNameSideBar.setText(session.getLoggedUser().getUserName());
 
         setupDrawer();
 
@@ -297,7 +324,6 @@ public class MediaScreenActivity extends AppCompatActivity {
 
         }else{
             super.onBackPressed();
-            System.exit(0);
         }
     }
 

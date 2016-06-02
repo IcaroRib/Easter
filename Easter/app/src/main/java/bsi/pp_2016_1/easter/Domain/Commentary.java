@@ -3,7 +3,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Comentary implements Serializable{
+public class Commentary implements Serializable{
 
     private int id;
     private String text;

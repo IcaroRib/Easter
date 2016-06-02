@@ -15,6 +15,17 @@ public class EasterEgg implements Serializable {
     private ArrayList<Task> taskList;
     private ArrayList<Media> referenceList;
 
+	public ArrayList<Commentary> getCommentList() {
+		return commentList;
+	}
+
+	public void setCommentList(ArrayList<Commentary> commentList) {
+		this.commentList = commentList;
+	}
+
+	private ArrayList<Commentary> commentList;
+
+
 	public int getId() {
 		return id;
 	}

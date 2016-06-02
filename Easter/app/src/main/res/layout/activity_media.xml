@@ -121,7 +121,7 @@
                                     <Button
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:text="Add a comment"
+                                        android:text="Add a easter egg"
                                         android:id="@+id/bt_add_easter_egg"
                                         android:textColor="#fff"
                                         android:background="#BCA734" />
@@ -340,13 +340,12 @@
         android:layout_gravity="start"
         android:background="#FFFFFF"
         android:clickable="true">
-
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/userImage"
             android:src="@drawable/ic_launcher"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="50dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:contentDescription="UserImage" />
@@ -357,17 +356,18 @@
             android:layout_marginTop="20dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Medium Text"
-            android:id="@+id/textView"
-            android:layout_below="@+id/imageView"
+            android:id="@+id/userName"
+            android:layout_below="@+id/userImage"
             android:layout_centerHorizontal="true" />
 
         <ListView
             android:id="@+id/navList"
-            android:layout_below="@id/textView"
-            android:layout_marginTop="50dp"
+            android:layout_below="@id/userName"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#ffffff"
             android:divider="@null" />
+
     </RelativeLayout>
 </android.support.v4.widget.DrawerLayout>

@@ -30,10 +30,12 @@ public class ReferencedMediaAdapter extends BaseAdapter {
     @Override
     public int getCount() {
         int count = 0;
+/*
         for (EasterEgg easter :easterEggs) {
             count += easter.getReferenceList().size();
         }
-        return count;
+*/
+        return 40;
     }
 
     @Override
@@ -59,10 +61,10 @@ public class ReferencedMediaAdapter extends BaseAdapter {
 
         rtBar.setNumStars(5);
 
-        if(position%5==0){
-            aux = position/5;
+        if(position%4==0){
+            aux = position/4;
         }else{
-            aux2 = position%5;
+            aux2 = position%4;
         }
 
         mediaIcon.setImageResource(easterEggs.get(aux).getReferenceList().get(aux2).getImageUrl());

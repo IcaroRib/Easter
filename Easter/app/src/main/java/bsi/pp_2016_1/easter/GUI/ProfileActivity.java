@@ -13,9 +13,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TabHost;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -28,6 +30,8 @@ import bsi.pp_2016_1.easter.R;
 public class ProfileActivity extends AppCompatActivity {
 
     private Spinner spinner;
+
+    private User user;
 
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerLayout mDrawerLayout;
@@ -47,7 +51,18 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        User user = Session.getInstance().getLoggedUser();
+        user = Session.getInstance().getLoggedUser();
+
+        ImageView userImage = (ImageView)findViewById(R.id.user_image);
+        TextView userName = (TextView)findViewById(R.id.user_name_profile);
+        TextView profileName = (TextView)findViewById(R.id.profile_name);
+        TextView userAge = (TextView)findViewById(R.id.user_age);
+        TextView userGender = (TextView)findViewById(R.id.user_gender);
+
+        userImage.setImageResource(user.getUserImage());
+        userName.setText(user.getUserName());
+        profileName.setText(user.getProfileName());
+
 
         MediaListAdapter followedAdapter = new MediaListAdapter(this, user.getFavoritedMedias());
         ListView followed_list = (ListView) findViewById(R.id.list_followed);
@@ -59,7 +74,7 @@ public class ProfileActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 Intent enterActivity = new Intent(ProfileActivity.this, MediaScreenActivity.class);
-               // enterActivity.putExtra("media", listaMedias.get(position));
+                enterActivity.putExtra("media", user.getFavoritedMedias().get(position));
                 startActivity(enterActivity);
 
             }
@@ -76,7 +91,7 @@ public class ProfileActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 Intent enterEasterEgg = new Intent(ProfileActivity.this, EasterEggScreenActivity.class);
-               // enterEasterEgg.putExtra("easterEgg", listaMedias.get(position).getEasterEggs().get(position));
+                enterEasterEgg.putExtra("easterEgg", user.getPublishedEasterEggs().get(position));
                 startActivity(enterEasterEgg);
             }
         });
@@ -135,6 +150,14 @@ public class ProfileActivity extends AppCompatActivity {
 
         setupDrawer();
 
+        Session session = Session.getInstance();
+        ImageView userImageSideBar = (ImageView)findViewById(R.id.userImage);
+        TextView userNameSideBar = (TextView)findViewById(R.id.userName);
+
+        userImageSideBar.setImageResource(session.getLoggedUser().getUserImage());
+        userNameSideBar.setText(session.getLoggedUser().getUserName());
+
+
         ListView rightDrawer = (ListView) findViewById(R.id.navList);
 
         assert rightDrawer != null;
@@ -147,6 +170,7 @@ public class ProfileActivity extends AppCompatActivity {
                         break;
                     case 1:
                         Intent intent = new Intent(ProfileActivity.this, MediaListScreenActivity.class);
+
                         startActivity(intent);
                         break;
                 }

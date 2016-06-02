@@ -43,7 +43,10 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/egg_rating"
                     android:progressTint="#F0DC00"
-                    android:rating="2"
+                    android:clickable="true"
+                    android:rating="0"
+                    android:stepSize="1.0"
+                    android:isIndicator="false"
                     android:layout_gravity="center_horizontal" />
 
                 <ScrollView
@@ -55,7 +58,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                        android:text="EASTER EGG WITHOUT DESCRIPTION"
                         android:id="@+id/egg_description"
                         android:textSize="40px"
                         android:textColor="#000"
@@ -266,7 +269,7 @@
                 android:inputType="textMultiLine"
                 android:ems="10"
                 android:id="@+id/easter_egg_comment"
-                android:layout_below="@+id/ratingBar4"
+                android:layout_below="@+id/rating_bar_easter_egg_comment"
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="5dp"
@@ -278,7 +281,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/rating_bar_easter_egg_comment"
-                android:rating="2"
+                android:rating="2.0"
                 android:layout_below="@+id/textView6"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="5dp"
@@ -308,13 +311,12 @@
         android:layout_gravity="start"
         android:background="#FFFFFF"
         android:clickable="true">
-
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/userImage"
             android:src="@drawable/ic_launcher"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="50dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:contentDescription="UserImage" />
@@ -325,17 +327,18 @@
             android:layout_marginTop="20dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Medium Text"
-            android:id="@+id/textView"
-            android:layout_below="@+id/imageView"
+            android:id="@+id/userName"
+            android:layout_below="@+id/userImage"
             android:layout_centerHorizontal="true" />
 
         <ListView
             android:id="@+id/navList"
-            android:layout_below="@id/textView"
-            android:layout_marginTop="50dp"
+            android:layout_below="@id/userName"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#ffffff"
             android:divider="@null" />
+
     </RelativeLayout>
 </android.support.v4.widget.DrawerLayout>
