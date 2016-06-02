@@ -15,7 +15,7 @@ public class Media implements Serializable {
 	private int rate = 0;
 	private ArrayList<Comentary> commentList;
 
-	public ArrayList<Comentary> getCommentList() {return commentList;}
+	public ArrayList<Comentary> getCommentList() {return this.commentList;}
 	public void setCommentList(ArrayList<Comentary> commentList) {this.commentList = commentList;
 	}
 	public int getId() {

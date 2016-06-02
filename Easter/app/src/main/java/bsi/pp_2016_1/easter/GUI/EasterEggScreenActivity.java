@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TabHost;
@@ -26,6 +27,7 @@ import java.util.Collections;
 
 import bsi.pp_2016_1.easter.Domain.Comentary;
 import bsi.pp_2016_1.easter.Domain.EasterEgg;
+import bsi.pp_2016_1.easter.Domain.Session;
 import bsi.pp_2016_1.easter.R;
 
 public class EasterEggScreenActivity extends AppCompatActivity {
@@ -36,7 +38,7 @@ public class EasterEggScreenActivity extends AppCompatActivity {
 
     private TextView easterTitle;
     private RatingBar easterRating;
-    private TextView easterDescription;
+    private TextView eggDescription;
     private TabHost easterTabs;
     private ListView eggComments;
     private Button addCommentEasterEgg;
@@ -64,29 +66,32 @@ public class EasterEggScreenActivity extends AppCompatActivity {
     private Button editEasterEgg;
     private Button cancelEditEasterEgg;
 
-    ArrayList<Comentary> comentaries;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_egg);
 
+        final Session session = Session.getInstance();
+
         easterEgg = (EasterEgg) getIntent().getSerializableExtra("easterEgg");
         easterTitle = (TextView) findViewById(R.id.egg_title);
         easterRating = (RatingBar) findViewById(R.id.egg_rating);
-        easterDescription = (TextView) findViewById(R.id.egg_description);
+        eggDescription = (TextView) findViewById(R.id.egg_description);
 
         easterTitle.setText(easterEgg.getTitle());
         easterRating.setRating(easterEgg.getRate());
-        easterDescription.setText(easterEgg.getDescription());
+        eggDescription.setText(easterEgg.getDescription());
 
         eggComments = (ListView) findViewById(R.id.egg_comments);
         easterTabs = (TabHost) findViewById(R.id.egg_tabs);
 
-        comentList = new ComentaryListAdapterWithRate(this, comentaries);
+        comentList = new ComentaryListAdapterWithRate(this, easterEgg.getCommentList());
         eggComments.setAdapter(comentList);
 
         ListView eggReferences = (ListView) findViewById(R.id.referenced_medias);
+
         final MediaListAdapter referencedMedias = new MediaListAdapter(this, easterEgg.getReferenceList());
         eggReferences.setAdapter(referencedMedias);
         eggReferences.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -94,10 +99,10 @@ public class EasterEggScreenActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent enterActivity = new Intent(EasterEggScreenActivity.this, MediaScreenActivity.class);
                 enterActivity.putExtra("media", easterEgg.getReferenceList().get(position));
-                enterActivity.putExtra("comentarios", comentaries);
                 startActivity(enterActivity);
             }
         });
+
 
         easterTabs.setup();
 
@@ -120,7 +125,7 @@ public class EasterEggScreenActivity extends AppCompatActivity {
 
         sendEasterEggComment = (Button) findViewById(R.id.send_easter_egg_comment);
         cancelEasterEggContent = (Button)findViewById(R.id.cancel_easter_egg_comment);
-        ratingBar = (RatingBar)findViewById(R.id.rating_bar_easter_egg_comment); 
+
         textComment = (EditText)findViewById(R.id.easter_egg_comment);
 
         addCommentEasterEgg = (Button)findViewById(R.id.bt_add_comment_egg);
@@ -129,17 +134,19 @@ public class EasterEggScreenActivity extends AppCompatActivity {
             public void onClick(View v) {
                 flipper.setDisplayedChild(flipper.indexOfChild(findViewById(R.id.second_easter_egg)));
 
+                addListenerRatingBar();
+
                 SideBarVisible(false);
 
                 comentary = new Comentary();
                 comentary.setText(textComment.getText().toString());
-                comentary.setRate((int) ratingBar.getRating());
+                comentary.setUserName(session.getLoggedUser().getUserName());
+                comentary.setUserPic(session.getLoggedUser().getUserImage());
                 sendEasterEggComment.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        comentaries.add(comentary);
+                        easterEgg.getCommentList().add(comentary);
                         comentList.notifyDataSetChanged();
-
                         SideBarVisible(true);
 
                         flipper.setDisplayedChild(flipper.indexOfChild(findViewById(R.id.first_easter_egg)));
@@ -157,9 +164,16 @@ public class EasterEggScreenActivity extends AppCompatActivity {
 
         //CÓDIGO REFERENTE AOS MENUS LATERAIS
 
-        //DIREITA
+        //ESQUERDA
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+
+        ImageView userImageSideBar = (ImageView)findViewById(R.id.userImage);
+        TextView userNameSideBar = (TextView)findViewById(R.id.userName);
+
+        userImageSideBar.setImageResource(session.getLoggedUser().getUserImage());
+        userNameSideBar.setText(session.getLoggedUser().getUserName());
+
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout_easter_egg);
 
@@ -193,6 +207,17 @@ public class EasterEggScreenActivity extends AppCompatActivity {
 
         Collections.addAll(sideBarImages, imagId);
     }
+
+    private void addListenerRatingBar(){
+        ratingBar = (RatingBar)findViewById(R.id.rating_bar_easter_egg_comment);
+        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                comentary.setRate(4);
+            }
+        });
+    };
+
 
     private void setupDrawer() {
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.drawer_open, R.string.drawer_close) {
@@ -258,7 +283,7 @@ public class EasterEggScreenActivity extends AppCompatActivity {
 
                 easterTitle.setText(easterEgg.getTitle());
                 easterRating.setRating(easterEgg.getRate());
-                easterDescription.setText(easterEgg.getDescription());
+                eggDescription.setText(easterEgg.getDescription());
 
                 SideBarVisible(true);
                 flipper.setDisplayedChild(flipper.indexOfChild(findViewById(R.id.first_easter_egg)));
@@ -279,6 +304,7 @@ public class EasterEggScreenActivity extends AppCompatActivity {
     private void SideBarVisible(boolean situation) {
         getSupportActionBar().setDisplayHomeAsUpEnabled(situation);
         getSupportActionBar().setHomeButtonEnabled(situation);
+        mDrawerToggle.setDrawerIndicatorEnabled(situation);
     }
 
     @Override

@@ -3,7 +3,6 @@ package bsi.pp_2016_1.easter.GUI;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -18,19 +17,15 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import bsi.pp_2016_1.easter.Domain.Comentary;
-import bsi.pp_2016_1.easter.Domain.EasterEgg;
 import bsi.pp_2016_1.easter.Domain.Media;
-import bsi.pp_2016_1.easter.Domain.Reference;
 import bsi.pp_2016_1.easter.Domain.Session;
-import bsi.pp_2016_1.easter.Domain.User;
 import bsi.pp_2016_1.easter.Integration.Callback.MediaCallback;
 import bsi.pp_2016_1.easter.Integration.Requisition.MediaIntegration;
 import bsi.pp_2016_1.easter.R;
@@ -57,13 +52,18 @@ public class MediaListScreenActivity extends AppCompatActivity {
     private String filtro  = "bests";
 
     private Spinner spinner;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_media_list);
 
+        listMedia = (ArrayList<Media>) getIntent().getSerializableExtra("mediaList");
+
+        Session session = Session.getInstance();
+
         context = getApplicationContext();
-        List<String> categorias = new ArrayList<String>();
+        List<String> filterCategories = new ArrayList<String>();
 
         CheckBox check_movie = (CheckBox) findViewById(R.id.check_movie);
         CheckBox check_game = (CheckBox) findViewById(R.id.check_games);
@@ -74,7 +74,7 @@ public class MediaListScreenActivity extends AppCompatActivity {
 
         for (CheckBox cb : checkList) {
             if (cb.isChecked()) {
-                categorias.add(cb.getText().toString());
+                filterCategories.add(cb.getText().toString());
             }
         }
 
@@ -110,12 +110,32 @@ public class MediaListScreenActivity extends AppCompatActivity {
             }
         });
 
+        adapter = new MediaListAdapter(MediaListScreenActivity.this, session.getMedias());
+        list=(ListView)findViewById(R.id.list);
 
-        MediaCallback callback = new MediaCallback(){
+            list.setAdapter(adapter);
+
+
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent enterActivity = new Intent(MediaListScreenActivity.this, MediaScreenActivity.class);
+                enterActivity.putExtra("media",listMedia.get(position));
+
+                startActivity(enterActivity);
+
+            }
+        });
+
+        //setListener();
+
+
+        /*MediaCallback callback = new MediaCallback(){
             @Override
             public Object onSuccess(String response) {
 
                 listMedia = (ArrayList<Media>) super.onSuccess("L" + response);
+
                 adapter = new MediaListAdapter(MediaListScreenActivity.this, listMedia);
                 list=(ListView)findViewById(R.id.list);
                 if (listMedia.size() < 1) {
@@ -137,7 +157,8 @@ public class MediaListScreenActivity extends AppCompatActivity {
         };
 
         integration = new MediaIntegration();
-        integration.fetchMedias(callback,context, filtro, categorias, 0);
+        integration.fetchMedias(callback,context, filtro, filterCategories, 0);
+*/
 
         //CÓDIGO REFERENTE AOS MENUS LATERAIS
 
@@ -145,6 +166,11 @@ public class MediaListScreenActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
+        ImageView userImageSideBar = (ImageView)findViewById(R.id.userImage);
+        TextView userNameSideBar = (TextView)findViewById(R.id.userName);
+
+        userImageSideBar.setImageResource(session.getLoggedUser().getUserImage());
+        userNameSideBar.setText(session.getLoggedUser().getUserName());
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
         setupDrawer();
@@ -159,7 +185,6 @@ public class MediaListScreenActivity extends AppCompatActivity {
                 switch (position) {
                     case 0:
                         Intent intent = new Intent(MediaListScreenActivity.this, ProfileActivity.class);
-                        //*intent.putExtra("dados", listaMedias);*
                         startActivity(intent);
                         overridePendingTransition(R.layout.push_right_in, R.layout.push_right_out);
                         break;
@@ -174,7 +199,7 @@ public class MediaListScreenActivity extends AppCompatActivity {
 
         Collections.addAll(sideBarImages, imagId);
     }
-
+/*
     private void setListener(){
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -183,25 +208,14 @@ public class MediaListScreenActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
 
-
-                System.out.println("POSITION = " + position);
                 Media media = listMedia.get(position);
 
                 MediaCallback callback = new MediaCallback(){
 
                     @Override
                     public Object onSuccess(String response) {
+
                         Media media = (Media) super.onSuccess(response);
-
-                        /*System.out.println(media.getId());
-                        for (EasterEgg ee: media.getEasterEggs()) {
-                            System.out.println("Id EE:" + ee.getId());
-                        }
-
-                        for (Comentary c: media.getCommentList()) {
-                            System.out.println("id Comment:" + c.getId());
-                        }*/
-
                         Intent enterActivity = new Intent(MediaListScreenActivity.this, MediaScreenActivity.class);
                         enterActivity.putExtra("media",media);
                         startActivity(enterActivity);
@@ -221,14 +235,7 @@ public class MediaListScreenActivity extends AppCompatActivity {
             }
         });
 
-
-    }
-
-        @Override
-protected void onStart() {
-        super.onStart();
-
-    }
+    }*/
 
     private void setupDrawer() {
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.drawer_open, R.string.drawer_close) {

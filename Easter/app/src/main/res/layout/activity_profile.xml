@@ -24,7 +24,8 @@
                 android:layout_height="250px"
                 android:layout_gravity="center_horizontal"
                 android:src="@drawable/user_image"
-                android:layout_marginBottom="10dp" />
+                android:layout_marginBottom="10dp"
+                android:id="@+id/user_image" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -33,7 +34,8 @@
                 android:textSize="60px"
                 android:textColor="#000"
                 android:typeface="sans"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/user_name_profile" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -41,7 +43,8 @@
                 android:text="fdetal"
                 android:textSize="40px"
                 android:textColor="#a3a3a3"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/profile_name" />
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -54,25 +57,21 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Age 00,"
+                    android:text="Age 54868,"
                     android:textSize="40px"
-                    android:textColor="#000" />
+                    android:textColor="#000"
+                    android:id="@+id/user_age" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" Male,"
+                    android:text=" Lhama"
                     android:textSize="40px"
                     android:layout_marginLeft="10px"
                     android:layout_marginRight="10px"
-                    android:textColor="#000" />
+                    android:textColor="#000"
+                    android:id="@+id/user_gender" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=" 999 comments"
-                    android:textSize="40px"
-                    android:textColor="#000" />
             </LinearLayout>
 
         </LinearLayout>
@@ -140,13 +139,12 @@
         android:layout_gravity="start"
         android:background="#FFFFFF"
         android:clickable="true">
-
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/userImage"
             android:src="@drawable/ic_launcher"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="50dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:contentDescription="UserImage" />
@@ -157,14 +155,14 @@
             android:layout_marginTop="20dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Medium Text"
-            android:id="@+id/textView"
-            android:layout_below="@+id/imageView"
+            android:id="@+id/userName"
+            android:layout_below="@+id/userImage"
             android:layout_centerHorizontal="true" />
 
         <ListView
             android:id="@+id/navList"
-            android:layout_below="@id/textView"
-            android:layout_marginTop="50dp"
+            android:layout_below="@id/userName"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#ffffff"

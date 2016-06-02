@@ -18,6 +18,7 @@ public class EasterEgg implements Serializable {
     private ArrayList<Media> referenceList;
 	private ArrayList<Comentary> commentList;
 
+
 	public int getId() {
 		return id;
 	}
